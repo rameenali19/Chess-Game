@@ -6,13 +6,21 @@ export function KnightMoves(selectedPiece, board) {
       row >= 0 &&
       row < 8 &&
       col >= 0 &&
-      col < 8 &&
-      board[row][col] === "."
-    )
-      moves.push({
-        row: row,
-        col: col
-      })
+      col < 8
+    ) {
+      if (board[row][col] === ".") {
+        moves.push({
+          row: row,
+          col: col
+        })
+      }
+      else if (board[row][col].color !== selectedPiece.color) {
+        moves.push({
+          row: row,
+          col: col
+        })
+      }
+    }
   }
   addMove(selectedPiece.row + 2, selectedPiece.col - 1)
   addMove(selectedPiece.row + 2, selectedPiece.col + 1)

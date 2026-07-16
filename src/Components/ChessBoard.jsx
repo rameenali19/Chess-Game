@@ -15,6 +15,7 @@ function ChessBoard() {
     )
     if (validMove && selectedPiece) {
       movePiece(rowIndex, colIndex);
+      return
     }
     selectPieceFunction(rowIndex, colIndex);
 
