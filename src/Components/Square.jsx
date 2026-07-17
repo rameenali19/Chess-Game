@@ -1,15 +1,16 @@
-
-
-function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures }) {
+function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures, kingInCheck, checkingPiece }) {
   const whiteBox = (row + col) % 2 === 0;
   const blackBox = (row + col) % 2 !== 0;
   let alphabetarray = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  let squareColor = whiteBox ? "bg-[rgb(143,188,143)]" : "bg-amber-50";
+  if (selected) squareColor = "bg-sky-300";
+  if (checkingPiece) squareColor = "bg-yellow-200 ";
+  if (possibleCaptures) squareColor = "bg-red-300";
+  if (kingInCheck) squareColor = "bg-red-500";
 
   return (
     <div className={`w-full h-[62.5px]  relative text-[rgb(85,107,47)]
-       ${whiteBox ? "bg-[rgb(143,188,143)]" : "bg-amber-50"}
-       ${selected ? "bg-sky-300" : ""}
-       ${possibleCaptures ? "bg-red-300" : ""}
+       ${squareColor}
     `}
       onClick={onClick}
     >

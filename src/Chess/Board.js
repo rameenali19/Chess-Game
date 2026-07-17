@@ -13,10 +13,10 @@ const WP = "/white_pawn-removebg-preview.png";
 
 export let initialBoard = [
   [
-    { color: "Black", type: "Rook", image: br }, { color: "Black", type: "Knight", image: bn },
+    { color: "Black", type: "Rook", image: br, hasMoved: false }, { color: "Black", type: "Knight", image: bn },
     { color: "Black", type: "Bishop", image: bb }, { color: "Black", type: "Queen", image: bq },
-    { color: "Black", type: "King", image: bk }, { color: "Black", type: "Bishop", image: bb },
-    { color: "Black", type: "Knight", image: bn }, { color: "Black", type: "Rook", image: br }
+    { color: "Black", type: "King", image: bk, hasMoved: false }, { color: "Black", type: "Bishop", image: bb },
+    { color: "Black", type: "Knight", image: bn }, { color: "Black", type: "Rook", image: br, hasMoved: false }
   ],
   [
     { color: "Black", type: "Pawn", image: bp }, { color: "Black", type: "Pawn", image: bp },
@@ -35,9 +35,9 @@ export let initialBoard = [
     { color: "White", type: "Pawn", image: WP }, { color: "White", type: "Pawn", image: WP }
   ],
   [
-    { color: "White", type: "Rook", image: WR }, { color: "White", type: "Knight", image: WN },
+    { color: "White", type: "Rook", image: WR, hasMoved: false }, { color: "White", type: "Knight", image: WN },
     { color: "White", type: "Bishop", image: WB }, { color: "White", type: "Queen", image: WQ },
-    { color: "White", type: "King", image: WK }, { color: "White", type: "Bishop", image: WB },
-    { color: "White", type: "Knight", image: WN }, { color: "White", type: "Rook", image: WR }
+    { color: "White", type: "King", image: WK, hasMoved: false }, { color: "White", type: "Bishop", image: WB },
+    { color: "White", type: "Knight", image: WN }, { color: "White", type: "Rook", image: WR, hasMoved: false }
   ]
 ]

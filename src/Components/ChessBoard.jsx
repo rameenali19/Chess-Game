@@ -3,31 +3,61 @@ import { initialBoard } from "../Chess/Board";
 import Square from "./Square";
 import { GenerateMoves } from "../Chess/GenerateMoves";
 import { MovePiece } from "./MovePiece";
+import { IsKingInCheck } from "../Chess/IsKingInCheck";
+import { CheckMate } from "../Chess/CheckMate";
 
-function ChessBoard() {
+function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
   const [board, setBoard] = useState(initialBoard)
-  const [turn, setTurn] = useState("White")
-
+  const [isKingInCheck, setIsKingInCheck] = useState({
+    inCheck: false,
+    attackers: [],
+    king: null
+  })
 
   function HandleClick(rowIndex, colIndex) {
+    if (checkMate) {
+      return;
+    }
     const validMove = moves.some(move =>
       move.row === rowIndex &&
       move.col === colIndex
     )
     if (validMove && selectedPiece) {
-      const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board);
+      const selectedMove = moves.find(move =>
+        move.row === rowIndex &&
+        move.col === colIndex
+      );
+      const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board, selectedMove?.castle);
+
+      const selfCheck = IsKingInCheck(updatedBoard, turn)
+
+      if (selfCheck.inCheck) {
+        setSelectedPiece(null);
+        setMoves([]);
+
+        return;
+      }
+
+      const nextTurn = turn === "White" ? "Black" : "White";
+      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn);
+      setIsKingInCheck(opponentCheck);
       setBoard(updatedBoard);
       setSelectedPiece(null);
       setMoves([]);
-
-      setTurn(prev => prev === "White" ? "Black" : "White");
-      return
+      if (opponentCheck.inCheck) {
+        const checkMate = CheckMate(updatedBoard, nextTurn);
+        setCheckMate(checkMate)
+        // if (checkMate) {
+        //   return
+        // }
+      }
+      setTurn(nextTurn);
     }
     selectPieceFunction(rowIndex, colIndex);
-
   }
+
 
   function selectPieceFunction(rowIndex, colIndex) {
     const piece = board[rowIndex][colIndex]
@@ -43,6 +73,7 @@ function ChessBoard() {
     setMoves(generatedMoves);
 
   }
+
 
   return (
     <>
@@ -67,14 +98,25 @@ function ChessBoard() {
             possibleCaptures={moves.some(move =>
               move.row === rowIndex &&
               move.col === colIndex &&
-              piece !== "." &&
-              piece.color !== selectedPiece?.color
+              piece !== "."
             )}
+            kingInCheck={
+              isKingInCheck.inCheck &&
+              rowIndex === isKingInCheck.king?.row &&
+              colIndex === isKingInCheck.king?.col
+            }
+            checkingPiece={isKingInCheck.attackers.some(attacker =>
+              rowIndex === attacker.row &&
+              colIndex === attacker.col
+            )
+
+            }
           />
           )
           )
         )
       }
+
     </>
   )
 }
