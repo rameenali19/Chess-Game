@@ -4,7 +4,9 @@ import Square from "./Square";
 import { GenerateMoves } from "../Chess/GenerateMoves";
 import { MovePiece } from "./MovePiece";
 import { IsKingInCheck } from "../Chess/IsKingInCheck";
+import Promotion from "../Screens/PromotionScreen";
 import { CheckMate } from "../Chess/CheckMate";
+import { pieceImages } from "../Chess/Constants";
 
 function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   const [selectedPiece, setSelectedPiece] = useState(null);
@@ -15,9 +17,11 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
     attackers: [],
     king: null
   })
+  const [promotion, setPromotion] = useState(null);
+
 
   function HandleClick(rowIndex, colIndex) {
-    if (checkMate) {
+    if (checkMate || promotion) {
       return;
     }
     const validMove = moves.some(move =>
@@ -36,10 +40,25 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       if (selfCheck.inCheck) {
         setSelectedPiece(null);
         setMoves([]);
-
         return;
       }
 
+      if (
+        selectedPiece.type === "Pawn" &&
+        (
+          (selectedPiece.color === "White" && rowIndex === 0) ||
+          (selectedPiece.color === "Black" && rowIndex === 7)
+        )
+      ) {
+        setPromotion({
+          row: rowIndex,
+          col: colIndex
+        });
+        setBoard(updatedBoard);
+        setSelectedPiece(null);
+        setMoves([]);
+        return;
+      }
       const nextTurn = turn === "White" ? "Black" : "White";
       const opponentCheck = IsKingInCheck(updatedBoard, nextTurn);
       setIsKingInCheck(opponentCheck);
@@ -47,11 +66,10 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        const checkMate = CheckMate(updatedBoard, nextTurn);
-        setCheckMate(checkMate)
-        // if (checkMate) {
-        //   return
-        // }
+        setCheckMate(CheckMate(newBoard, nextTurn));
+      }
+      else {
+        setCheckMate(false);
       }
       setTurn(nextTurn);
     }
@@ -74,6 +92,33 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
 
   }
 
+  function promote(type) {
+    const newBoard = board.map(row => [...row]);
+    newBoard[promotion.row][promotion.col] = {
+      ...newBoard[promotion.row][promotion.col],
+      type: type,
+      image: pieceImages[turn][type]
+    }
+    setBoard(newBoard);
+    setPromotion(null);
+    setMoves([]);
+    setSelectedPiece(null);
+    const nextTurn = turn === "White" ? "Black" : "White";
+
+    const opponentCheck = IsKingInCheck(newBoard, nextTurn);
+
+    setIsKingInCheck(opponentCheck);
+
+    if (opponentCheck.inCheck) {
+      setCheckMate(CheckMate(newBoard, nextTurn));
+    }
+    else {
+      setCheckMate(false);
+    }
+
+    setTurn(nextTurn);
+
+  }
 
   return (
     <>
@@ -116,7 +161,14 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
           )
         )
       }
-
+      {
+        promotion && (
+          <Promotion
+            turn={turn}
+            promote={promote}
+          />
+        )
+      }
     </>
   )
 }

@@ -1,3 +1,4 @@
+import { pieceImages } from "../Chess/Constants";
 function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures, kingInCheck, checkingPiece }) {
   const whiteBox = (row + col) % 2 === 0;
   const blackBox = (row + col) % 2 !== 0;
@@ -17,7 +18,7 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
       {
         piece !== "." &&
         <img className="w-full h-full object-contain"
-          src={piece.image}
+          src={pieceImages[piece.color][piece.type]}
           alt="Piece Image"
         />
       }

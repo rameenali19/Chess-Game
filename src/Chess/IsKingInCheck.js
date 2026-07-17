@@ -1,5 +1,6 @@
 import { FindingKing } from "./FindingKing";
 import { GenerateMoves } from "./GenerateMoves";
+
 export function IsKingInCheck(board, turn) {
   const king = FindingKing(board, turn);
   const attackers = [];

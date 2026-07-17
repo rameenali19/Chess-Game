@@ -1,5 +1,13 @@
+import { MovePiece } from "../Components/MovePiece";
+import { IsKingInCheck } from "./IsKingInCheck";
+
 export function KingMoves(selectedPiece, board) {
   let moves = [];
+
+  function canCastle(row, col, color) {
+    const testBoard = MovePiece(row, col, selectedPiece, board)
+    return !IsKingInCheck(testBoard, color).inCheck
+  }
 
   function addMove(row, col) {
     if (
@@ -44,13 +52,19 @@ export function KingMoves(selectedPiece, board) {
         rook.type === "Rook" &&
         !rook.hasMoved &&
         board[7][5] === "." &&
-        board[7][6] === "."
+        board[7][6] === "." &&
+        !IsKingInCheck(board, "White").inCheck
       ) {
-        moves.push({
-          row: 7,
-          col: 6,
-          castle: "kingSide"
-        });
+        if (
+          canCastle(7, 5, "White") &&
+          canCastle(7, 6, "White")
+        ) {
+          moves.push({
+            row: 7,
+            col: 6,
+            castle: "kingSide"
+          });
+        }
       }
     }
 
@@ -63,17 +77,23 @@ export function KingMoves(selectedPiece, board) {
         rook.type === "Rook" &&
         !rook.hasMoved &&
         board[0][5] === "." &&
-        board[0][6] === "."
+        board[0][6] === "." &&
+        !IsKingInCheck(board, "Black").inCheck
       ) {
-        moves.push({
-          row: 0,
-          col: 6,
-          castle: "kingSide"
-        });
+        if (
+          canCastle(0, 5, "Black") &&
+          canCastle(0, 6, "Black")
+        ) {
+          moves.push({
+            row: 0,
+            col: 6,
+            castle: "kingSide"
+          });
+        }
       }
     }
-
-    if (selectedPiece.color === "White") { //if king is white
+    //white queen side
+    if (selectedPiece.color === "White") { //if king is white 
       const rook = board[7][0];
 
       if (
@@ -82,13 +102,19 @@ export function KingMoves(selectedPiece, board) {
         !rook.hasMoved &&
         board[7][1] === "." &&
         board[7][2] === "." &&
-        board[7][3] === "."
+        board[7][3] === "." &&
+        !IsKingInCheck(board, "White").inCheck
       ) {
-        moves.push({
-          row: 7,
-          col: 2,
-          castle: "queenSide"
-        });
+        if (
+          canCastle(7, 3, "White") &&
+          canCastle(7, 2, "White")
+        ) {
+          moves.push({
+            row: 7,
+            col: 2,
+            castle: "queenSide"
+          });
+        }
       }
     }
 
@@ -102,13 +128,19 @@ export function KingMoves(selectedPiece, board) {
         !rook.hasMoved &&
         board[0][1] === "." &&
         board[0][2] === "." &&
-        board[0][3] === "."
+        board[0][3] === "." &&
+        !IsKingInCheck(board, "Black").inCheck
       ) {
-        moves.push({
-          row: 0,
-          col: 2,
-          castle: "queenSide"
-        });
+        if (
+          canCastle(0, 3, "Black") &&
+          canCastle(0, 2, "Black")
+        ) {
+          moves.push({
+            row: 0,
+            col: 2,
+            castle: "queenSide"
+          });
+        }
       }
     }
   }
