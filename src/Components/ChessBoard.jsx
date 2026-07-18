@@ -8,6 +8,7 @@ import Promotion from "../Screens/PromotionScreen";
 import { CheckMate } from "../Chess/CheckMate";
 import { pieceImages } from "../Chess/Constants";
 import { useRef } from "react";
+import { staleMate } from "../Chess/Stalemate";
 
 function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   const [selectedPiece, setSelectedPiece] = useState(null);
@@ -20,9 +21,10 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   })
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
+  const [isStaleMate, setIsStaleMate] = useState(false);
 
   function HandleClick(rowIndex, colIndex) {
-    if (checkMate || promotion) {
+    if (checkMate || promotion || isStaleMate) {
       return;
     }
     const validMove = moves.some(move =>
@@ -88,6 +90,14 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       else {
         setCheckMate(false);
       }
+
+      if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
+        setIsStaleMate(true);
+      }
+      else {
+        setIsStaleMate(false);
+      }
+
       setTurn(nextTurn);
     }
     selectPieceFunction(rowIndex, colIndex);
@@ -133,6 +143,13 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       setCheckMate(false);
     }
 
+    if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
+      setIsStaleMate(true);
+    }
+    else {
+      setIsStaleMate(false);
+    }
+    enPassant.current = null;
     setTurn(nextTurn);
 
   }
