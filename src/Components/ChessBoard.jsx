@@ -10,7 +10,7 @@ import { pieceImages } from "../Chess/Constants";
 import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
 
-function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
+function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate }) {
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
   const [board, setBoard] = useState(initialBoard)
@@ -21,7 +21,6 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   })
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
-  const [isStaleMate, setIsStaleMate] = useState(false);
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
