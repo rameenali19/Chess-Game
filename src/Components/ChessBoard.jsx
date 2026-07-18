@@ -66,7 +66,7 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        setCheckMate(CheckMate(newBoard, nextTurn));
+        setCheckMate(CheckMate(updatedBoard, nextTurn));
       }
       else {
         setCheckMate(false);
