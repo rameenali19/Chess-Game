@@ -1,4 +1,4 @@
-export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle) {
+export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant) {
 
   const newBoard = board.map(row => [...row])
 
@@ -44,6 +44,35 @@ export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle) {
     return newBoard
   }
 
+  if (enPassant) {
+    const whiteCapturedPawn = newBoard[rowIndex + 1][colIndex];
+    const blackCapturedPawn = newBoard[rowIndex - 1][colIndex];
+
+    newBoard[rowIndex][colIndex] = {
+      ...newBoard[selectedPiece.row][selectedPiece.col],
+      row: rowIndex,
+      col: colIndex,
+    };
+    newBoard[selectedPiece.row][selectedPiece.col] = ".";
+
+    if (newBoard[rowIndex][colIndex].color === "White") {
+      if (whiteCapturedPawn !== "." &&
+        whiteCapturedPawn.type === "Pawn" &&
+        whiteCapturedPawn.color === "Black") {
+        newBoard[rowIndex + 1][colIndex] = ".";
+
+      }
+    }
+    else if (newBoard[rowIndex][colIndex].color === "Black") {
+      if (blackCapturedPawn !== "." &&
+        blackCapturedPawn.type === "Pawn" &&
+        blackCapturedPawn.color === "White") {
+        newBoard[rowIndex - 1][colIndex] = ".";
+
+      }
+    }
+    return newBoard;
+  }
   newBoard[rowIndex][colIndex] = {
     ...newBoard[selectedPiece.row][selectedPiece.col],
     row: rowIndex,

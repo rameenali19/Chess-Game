@@ -7,6 +7,7 @@ import { IsKingInCheck } from "../Chess/IsKingInCheck";
 import Promotion from "../Screens/PromotionScreen";
 import { CheckMate } from "../Chess/CheckMate";
 import { pieceImages } from "../Chess/Constants";
+import { useRef } from "react";
 
 function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
   const [selectedPiece, setSelectedPiece] = useState(null);
@@ -18,7 +19,7 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
     king: null
   })
   const [promotion, setPromotion] = useState(null);
-
+  const enPassant = useRef(null)
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion) {
@@ -33,9 +34,10 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
         move.row === rowIndex &&
         move.col === colIndex
       );
-      const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board, selectedMove?.castle);
+      const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board,
+        selectedMove?.castle, selectedMove?.enPassant);
 
-      const selfCheck = IsKingInCheck(updatedBoard, turn)
+      const selfCheck = IsKingInCheck(updatedBoard, turn, enPassant.current)
 
       if (selfCheck.inCheck) {
         setSelectedPiece(null);
@@ -59,14 +61,29 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
         setMoves([]);
         return;
       }
+
+      if (
+        selectedPiece.type === "Pawn" &&
+        Math.abs(selectedPiece.row - rowIndex) === 2
+      ) {
+        enPassant.current = {
+          row: rowIndex,
+          col: colIndex,
+          color: selectedPiece.color
+        };
+      }
+      else {
+        enPassant.current = null;
+      }
+
       const nextTurn = turn === "White" ? "Black" : "White";
-      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn);
+      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current);
       setIsKingInCheck(opponentCheck);
       setBoard(updatedBoard);
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        setCheckMate(CheckMate(updatedBoard, nextTurn));
+        setCheckMate(CheckMate(updatedBoard, nextTurn, enPassant.current));
       }
       else {
         setCheckMate(false);
@@ -87,7 +104,7 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
       col: colIndex
     };
     setSelectedPiece(newSelectedPiece)
-    const generatedMoves = GenerateMoves(newSelectedPiece, board);
+    const generatedMoves = GenerateMoves(newSelectedPiece, board, enPassant.current);
     setMoves(generatedMoves);
 
   }
@@ -105,12 +122,12 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate }) {
     setSelectedPiece(null);
     const nextTurn = turn === "White" ? "Black" : "White";
 
-    const opponentCheck = IsKingInCheck(newBoard, nextTurn);
+    const opponentCheck = IsKingInCheck(newBoard, nextTurn, enPassant.current);
 
     setIsKingInCheck(opponentCheck);
 
     if (opponentCheck.inCheck) {
-      setCheckMate(CheckMate(newBoard, nextTurn));
+      setCheckMate(CheckMate(newBoard, nextTurn, enPassant.current));
     }
     else {
       setCheckMate(false);

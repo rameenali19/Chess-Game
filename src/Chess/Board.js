@@ -6,20 +6,20 @@ export let initialBoard = [
     { color: "Black", type: "Knight" }, { color: "Black", type: "Rook", hasMoved: false }
   ],
   [
-    { color: "Black", type: "Pawn" }, { color: "Black", type: "Pawn" },
-    { color: "Black", type: "Pawn" }, { color: "Black", type: "Pawn" },
-    { color: "Black", type: "Pawn" }, { color: "Black", type: "Pawn" },
-    { color: "Black", type: "Pawn" }, { color: "Black", type: "Pawn" }
+    { color: "Black", type: "Pawn", enPassant: false }, { color: "Black", type: "Pawn", enPassant: false },
+    { color: "Black", type: "Pawn", enPassant: false }, { color: "Black", type: "Pawn", enPassant: false },
+    { color: "Black", type: "Pawn", enPassant: false }, { color: "Black", type: "Pawn", enPassant: false },
+    { color: "Black", type: "Pawn", enPassant: false }, { color: "Black", type: "Pawn", enPassant: false }
   ],
   [".", ".", ".", ".", ".", ".", ".", "."],
   [".", ".", ".", ".", ".", ".", ".", "."],
   [".", ".", ".", ".", ".", ".", ".", "."],
   [".", ".", ".", ".", ".", ".", ".", "."],
   [
-    { color: "White", type: "Pawn" }, { color: "White", type: "Pawn" },
-    { color: "White", type: "Pawn" }, { color: "White", type: "Pawn" },
-    { color: "White", type: "Pawn" }, { color: "White", type: "Pawn" },
-    { color: "White", type: "Pawn" }, { color: "White", type: "Pawn" }
+    { color: "White", type: "Pawn", enPassant: false }, { color: "White", type: "Pawn", enPassant: false },
+    { color: "White", type: "Pawn", enPassant: false }, { color: "White", type: "Pawn", enPassant: false },
+    { color: "White", type: "Pawn", enPassant: false }, { color: "White", type: "Pawn", enPassant: false },
+    { color: "White", type: "Pawn", enPassant: false }, { color: "White", type: "Pawn", enPassant: false }
   ],
   [
     { color: "White", type: "Rook", hasMoved: false }, { color: "White", type: "Knight" },
