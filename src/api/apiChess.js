@@ -1,18 +1,30 @@
-class apiChess {
+class ApiChess {
 
   constructor() {
     this.url = "http://localhost:3000";
+    this.instance = null;
+  }
+
+  // Singleton Design Pattern
+  static getAPI() {
+    if (!this.instance) {
+      this.instance = new ApiChess;
+    }
+    return this.instance;
   }
 
   //creating a new game
-  async createGame() {
-    const data = await fetch(`${url}` / games, (POST))
+  async createGame(gameInfo) {
+    const request = await fetch(`${this.url}/games`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(gameInfo)
+    });
+    const data = await response.json();
   }
 
-  //get moves by ID
-  async getMoves() {
-
-  }
 
   //get all games
   async getAllGames() {
@@ -30,3 +42,5 @@ class apiChess {
   }
 
 }
+
+export default ApiChess;
