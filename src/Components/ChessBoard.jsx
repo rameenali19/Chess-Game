@@ -1,13 +1,27 @@
-
 import Square from "./Square";
 import Promotion from "../Screens/PromotionScreen";
-import { useChessBoard } from "../../Hooks/ChessBoardHook";
+import { useChessBoard } from "../Hooks/ChessBoardHook";
 
 
 function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate }) {
 
-
-
+  const {
+    board,
+    HandleClick,
+    selectedPiece,
+    moves,
+    promotion,
+    enPassant,
+    isKingInCheck,
+    promote
+  } = useChessBoard({
+    turn,
+    setTurn,
+    checkMate,
+    setCheckMate,
+    isStaleMate,
+    setIsStaleMate
+  })
 
 
   return (
