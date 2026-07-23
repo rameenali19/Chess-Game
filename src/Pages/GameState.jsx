@@ -1,5 +1,6 @@
 import ChessBoard from "../Components/ChessBoard";
 import { useState } from "react";
+
 function GameState() {
   const [turn, setTurn] = useState("White")
   const [checkMate, setCheckMate] = useState(false)
