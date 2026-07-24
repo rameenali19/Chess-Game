@@ -29,7 +29,14 @@ class ApiChess {
 
   //get all games
   async getAllGames() {
-
+    const request = await fetch(`${this.url}/games`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await request.json();
+    return data;
   }
 
   //get game by id
