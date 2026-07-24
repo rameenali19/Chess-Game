@@ -7,7 +7,7 @@ import { CheckMate } from "../Chess/CheckMate";
 import { pieceImages } from "../Chess/Constants";
 import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
-
+import ApiChess from "../api/apiChess";
 
 export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id }) {
 
@@ -24,11 +24,22 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   useEffect(() => {
     async function getGame() {
       const game = ApiChess.getAPI();
-      const data = await game.getGame(id)
-      setBoard(data.game_state);
+      const data = await game.getGame(id);
+      setBoard(data.game_status);
       setTurn(data.current_turn)
     }
-  }, [])
+    getGame();
+  }, [id])
+
+  async function updateGame(currentTurn, gameState, gameStatus) {
+    const game = ApiChess.getAPI();
+    const data = await game.updateGame(id, {
+      currentTurn: currentTurn,
+      gameState: gameState,
+      gameStatus: gameStatus
+    })
+
+  }
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
@@ -53,6 +64,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         setMoves([]);
         return;
       }
+
+      const nextTurn = turn === "White" ? "Black" : "White";
+
+      updateGame(nextTurn, "unfinished", updatedBoard)
 
       if (
         selectedPiece.type === "Pawn" &&
@@ -85,7 +100,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         enPassant.current = null;
       }
 
-      const nextTurn = turn === "White" ? "Black" : "White";
+
       const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current);
       setIsKingInCheck(opponentCheck);
       setBoard(updatedBoard);

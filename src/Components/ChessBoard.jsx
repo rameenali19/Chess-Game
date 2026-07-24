@@ -66,15 +66,11 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIs
           )
         )
       }
-      {
-
-        <Promotion
-          turn={turn}
-          promote={promote}
-          open={promotion}
-        />
-
-      }
+      <Promotion
+        turn={turn}
+        promote={promote}
+        open={promotion}
+      />
     </>
   )
 }
