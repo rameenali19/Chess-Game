@@ -22,7 +22,8 @@ class ApiChess {
       },
       body: JSON.stringify(gameInfo)
     });
-    const data = await response.json();
+    const data = await request.json();
+    return data;
   }
 
 

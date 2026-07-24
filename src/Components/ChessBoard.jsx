@@ -1,7 +1,8 @@
 import Square from "./Square";
 import Promotion from "../Screens/PromotionScreen";
 import { useChessBoard } from "../Hooks/ChessBoardHook";
-
+import { useEffect } from "react";
+import ApiChess from "../api/apiChess";
 
 function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate }) {
 
@@ -22,7 +23,6 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIs
     isStaleMate,
     setIsStaleMate
   })
-
 
   return (
     <>

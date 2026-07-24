@@ -28,3 +28,9 @@ export let initialBoard = [
     { color: "White", type: "Knight" }, { color: "White", type: "Rook", hasMoved: false }
   ]
 ]
+
+export const createGameInfo = {
+  gameStatus: initialBoard,
+  gameState: "unfinished",
+  currentTurn: "White"
+}
