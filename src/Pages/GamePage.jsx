@@ -1,11 +1,13 @@
 import ChessBoard from "../Components/ChessBoard";
 import { useState } from "react";
 import NavBar from "../Components/NavBar";
+import { useParams } from "react-router-dom";
 
 function GamePage() {
   const [turn, setTurn] = useState("White")
   const [checkMate, setCheckMate] = useState(false)
   const [isStaleMate, setIsStaleMate] = useState(false);
+  const { id } = useParams();
 
   return (
     <>
@@ -25,6 +27,7 @@ function GamePage() {
             setCheckMate={setCheckMate}
             isStaleMate={isStaleMate}
             setIsStaleMate={setIsStaleMate}
+            id={id}
           />
         </div>
       </div>

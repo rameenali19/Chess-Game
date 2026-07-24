@@ -4,12 +4,13 @@ import HistoryPage from "./Pages/HistoryPage";
 import HomePage from "./Pages/HomePage";
 import AboutMe from "./Pages/AboutMe";
 
+
 function App() {
 
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/game" element={<GamePage />} />
+      <Route path="/game/:id" element={<GamePage />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/aboutMe" element={<AboutMe />} />
     </Routes>

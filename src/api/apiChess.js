@@ -33,8 +33,15 @@ class ApiChess {
   }
 
   //get game by id
-  async getGame() {
-
+  async getGame(id) {
+    const request = await fetch(`${this.url}/games/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await request.json();
+    return data;
   }
 
   //update game by id

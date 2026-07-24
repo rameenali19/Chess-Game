@@ -1,11 +1,14 @@
 import ApiChess from "../api/apiChess";
 import { createGameInfo } from "../Chess/Board";
 import NavBar from "../Components/NavBar";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function HistoryPage() {
+  const navigate = useNavigate();
   async function createGame() {
     const game = ApiChess.getAPI();
-    const test = await game.createGame(createGameInfo)
+    const id = await game.createGame(createGameInfo)
+    navigate(`/game/${id}`)
   }
 
   return (

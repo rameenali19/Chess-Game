@@ -4,7 +4,7 @@ import { useChessBoard } from "../Hooks/ChessBoardHook";
 import { useEffect } from "react";
 import ApiChess from "../api/apiChess";
 
-function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate }) {
+function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id }) {
 
   const {
     board,
@@ -21,7 +21,8 @@ function ChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIs
     checkMate,
     setCheckMate,
     isStaleMate,
-    setIsStaleMate
+    setIsStaleMate,
+    id
   })
 
   return (

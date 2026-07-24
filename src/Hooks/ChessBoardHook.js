@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { initialBoard } from "../Chess/Board";
 import { GenerateMoves } from "../Chess/GenerateMoves";
 import { MovePiece } from "../Components/MovePiece";
@@ -9,7 +9,7 @@ import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
 
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -21,7 +21,14 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     attackers: [],
     king: null
   })
-
+  useEffect(() => {
+    async function getGame() {
+      const game = ApiChess.getAPI();
+      const data = await game.getGame(id)
+      setBoard(data.game_state);
+      setTurn(data.current_turn)
+    }
+  }, [])
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
