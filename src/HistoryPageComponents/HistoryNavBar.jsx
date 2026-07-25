@@ -3,7 +3,7 @@ function HistoryNavBar({ games, filter, setFilter }) {
   return (
 
     <nav className="font-inter text-lg text-[#17384A] shadow-sm  
-        border-b-[#E8DCC7] px-6 h-15 w-full max-w-4xl flex 
+        border-b-[#E8DCC7] px-6 h-15 w-full  flex 
         items-center justify-start mb-4 gap-15">
 
       <div onClick={() => { setFilter("all") }}
