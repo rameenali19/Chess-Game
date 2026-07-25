@@ -12,7 +12,7 @@ function HistoryButton({ game, deleteGame }) {
       <span className="hover:cursor-pointer mx-7 font-inter text-xl
        text-[#17384A] font-semibold">Game # {game.id}</span>
 
-      <div className="flex gap-5 font-inter text-sm">
+      <div className="flex gap-5 font-inter text-sm font-semibold">
 
         <button className={`w-36 px-4 py-3 rounded-full  hover:cursor-pointer
       ${game.game_state === "unfinished" ? "bg-[#F7D98D] text-[#8A5A00]"
@@ -28,7 +28,7 @@ function HistoryButton({ game, deleteGame }) {
         </button>
         <button className={`w-36 px-4 py-3 rounded-xl  hover:cursor-pointer
       ${game.game_state === "unfinished" ? "bg-[#2b6381] text-white"
-            : "ring-[#2b6381] ring-2 text-[#2b6381]"
+            : "ring-[#2b6381] ring-2 text-[#2b6381] bg-white"
           }`
         } onClick={() => {
           navigate(`/game/${game.id}`)

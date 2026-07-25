@@ -6,16 +6,25 @@ function HistoryNavBar({ games, filter, setFilter }) {
         border-b-[#E8DCC7] px-6 h-15 w-full max-w-4xl flex 
         items-center justify-start mb-4 gap-15">
 
-      <div className="hover:cursor-pointer "
-        onClick={() => { setFilter("all") }}
+      <div onClick={() => { setFilter("all") }}
+        className={`hover:cursor-pointer ${filter === "all" ?
+          "underline decoration-2 decoration-amber-600 underline-offset-4 text-amber-600"
+          : ""
+          }`}
       >All Games
       </div>
-      <div className="hover:cursor-pointer"
-        onClick={() => { setFilter("finished") }}
+      <div onClick={() => { setFilter("finished") }}
+        className={`hover:cursor-pointer ${filter === "finished" ?
+          "underline decoration-2 decoration-amber-600 underline-offset-4 text-amber-600"
+          : ""
+          }`}
       >Completed
       </div>
-      <div className="hover:cursor-pointer"
-        onClick={() => { setFilter("unfinished") }}
+      <div onClick={() => { setFilter("unfinished") }}
+        className={`hover:cursor-pointer ${filter === "unfinished" ?
+          "underline decoration-2 decoration-amber-600 underline-offset-4 text-amber-600"
+          : ""
+          }`}
       >In Progress
       </div>
     </nav>
