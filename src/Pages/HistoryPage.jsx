@@ -4,6 +4,7 @@ import NavBar from "../Components/NavBar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HistoryButton from "../Components/HistoryButton";
+import { NavLink } from "react-router-dom";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -53,6 +54,12 @@ function HistoryPage() {
 
           </button>
         </div>
+
+        <nav className="font-inter text-lg text-[#17384A] shadow-sm  
+        border-b-border-[#E8DCC7] px-6 h-15 w-full max-w-4xl flex 
+        items-center justify-center mb-4">
+
+        </nav>
 
         <div className="flex flex-col gap-2">
           {
