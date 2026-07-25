@@ -27,11 +27,17 @@ function HistoryPage() {
   return (
     <>
       <NavBar />
-      <div className="flex">
-        Game History
-        <button className="bg-amber-500 ring-2 ring-black"
+      <div className="flex justify-between items-center">
+
+        <h1 className="text-3xl font-semibold">Game History</h1>
+
+        <button className="bg-amber-600 text-white px-5 py-2 rounded-lg 
+        hover:cursor-pointer hover:text-amber-600 hover:bg-white text-xl font-inter"
+
           onClick={() => { createGame() }} >
-          Create Game
+
+          + New Game
+
         </button>
       </div>
 
