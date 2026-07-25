@@ -24,6 +24,12 @@ function HistoryPage() {
     getAllGames();
   }, [])
 
+  async function deleteGame(id) {
+    const api = ApiChess.getAPI();
+    const del = await api.deleteGame(id)
+    setGames((prev) => prev.filter((game) => game.id !== id))
+  }
+
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
 
@@ -52,7 +58,9 @@ function HistoryPage() {
               return (
                 < div key={game.id}>
                   <HistoryButton
-                    game={game} />
+                    game={game}
+                    deleteGame={deleteGame}
+                  />
                 </div>
               )
             })

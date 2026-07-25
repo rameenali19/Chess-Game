@@ -64,6 +64,17 @@ class ApiChess {
     return data;
   }
 
+  //delete game
+  async deleteGame(id) {
+    const request = await fetch(`${this.url}/games/${id}`, {
+      method: "Delete",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await request.json();
+    return data;
+  }
 
 }
 

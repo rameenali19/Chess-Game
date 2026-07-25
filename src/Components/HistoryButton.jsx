@@ -1,7 +1,9 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import ApiChess from "../api/apiChess";
 
-function HistoryButton({ game }) {
+function HistoryButton({ game, deleteGame }) {
   const navigate = useNavigate();
+
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
         px-6 hover:shadow-md hover:-translate-y-0.5 transition h-20 w-full
@@ -35,7 +37,9 @@ function HistoryButton({ game }) {
             game.game_state === "finished" ? "View" : "Continue"
           }
         </button>
-        <button className="px-6 py-3 rounded-full  hover:cursor-pointer bg-[#f4695d] text-white">
+        <button className="px-6 py-3 rounded-full  hover:cursor-pointer bg-[#f4695d] text-white"
+          onClick={() => { deleteGame(game.id) }}
+        >
           Delete
         </button>
 
