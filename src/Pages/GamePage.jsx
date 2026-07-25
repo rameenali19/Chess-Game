@@ -10,12 +10,12 @@ function GamePage() {
   const { id } = useParams();
 
   return (
-    <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
+    <div className="bg-[rgb(248,240,225)] min-h-screen ">
 
       <NavBar />
       <div>
 
-        <div className="flex justify-center">
+        <div className="ml-100 p-10">
           <div>{
             isStaleMate ? "Stalemate!" : (
               checkMate ? (turn === "White" ? "CheckMate! Black Wins"

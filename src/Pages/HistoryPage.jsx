@@ -25,18 +25,19 @@ function HistoryPage() {
   }, [])
 
   return (
-    <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
+    <div className="bg-[rgb(248,240,225)] min-h-screen ">
 
       <NavBar />
 
-      <div>
+      <main className="ml-52 p-10">
 
-        <div className="flex justify-between items-center my-10 mx-15 ">
+        <div className="flex justify-between items-center mb-10  ">
 
-          <h1 className="text-3xl font-semibold">Game History</h1>
+          <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">Game History</h1>
 
           <button className="bg-amber-600 text-[rgb(248,240,225)] px-5 py-2 rounded-lg 
-        hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter transition-all duration-200"
+        hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter 
+        transition-all duration-200 hover:ring-2 hover:ring-amber-600"
 
             onClick={() => { createGame() }} >
 
@@ -45,13 +46,13 @@ function HistoryPage() {
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 mx-6">
+        <div className="flex flex-col gap-2">
           {
             games.map((game) => {
               return (
                 < div key={game.id}>
                   <HistoryButton
-                    id={game.id} />
+                    game={game} />
                 </div>
               )
             })
@@ -59,7 +60,7 @@ function HistoryPage() {
 
         </div>
 
-      </div>
+      </main>
 
     </div>
   )

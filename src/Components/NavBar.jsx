@@ -16,23 +16,23 @@ function NavBar() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-xl">
+      <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-lg">
 
         <NavLink
           to="/"
           className={({ isActive }) =>
 
-            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+            `flex items-center px-3 py-2 hover:rounded-lg  active:bg-white
           transition-all duration-200 active:text-[#D96B1E]
           ${isActive
               ?
-              "bg-[#D96B1E] text-white rounded-full"
+              "bg-[#D96B1E] text-white rounded-lg"
               : "hover:bg-[#21485C]"
             }
           `}
         >
           <img src="/white-home.png" alt="Clock Image"
-            className="w-8 h-8 mx-1"
+            className="w-8 h-8 mr-1"
           ></img>
 
           Home
@@ -42,17 +42,17 @@ function NavBar() {
           to="/game"
           className={({ isActive }) =>
 
-            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+            `flex items-center px-3 py-2 hover:rounded-lg  active:bg-white
           transition-all duration-200 active:text-[#D96B1E]
           ${isActive
               ?
-              "bg-[#D96B1E] text-white rounded-full"
+              "bg-[#D96B1E] text-white rounded-lg"
               : "hover:bg-[#21485C]"
             }
           `}
         >
           <img src="/white-piece-navbar.png" alt="Clock Image"
-            className="w-8 h-8 mx-1"
+            className="w-8 h-8 mr-1"
           ></img>
 
           Play
@@ -62,17 +62,17 @@ function NavBar() {
           to="/history"
           className={({ isActive }) =>
 
-            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+            `flex items-center px-3 py-2 hover:rounded-lg  active:bg-white
           transition-all duration-200 active:text-[#D96B1E]
           ${isActive
               ?
-              "bg-[#D96B1E] text-white rounded-full"
+              "bg-[#D96B1E] text-white rounded-lg"
               : "hover:bg-[#21485C]"
             }
           `}
         >
           <img src="/white-clock.png" alt="Clock Image"
-            className="w-8 h-8 mx-1"
+            className="w-8 h-8 mr-1"
           ></img>
 
           History
@@ -83,17 +83,17 @@ function NavBar() {
 
           className={({ isActive }) =>
 
-            `flex items-center  px-3 py-3 hover:rounded-full  active:bg-white
+            `flex items-center  px-3 py-2 hover:rounded-lg  active:bg-white
           transition-all duration-200 active:text-[#D96B1E]
           ${isActive
               ?
-              "bg-[#D96B1E] text-white rounded-full"
+              "bg-[#D96B1E] text-white rounded-lg"
               : "hover:bg-[#21485C]"
             }
           `}
         >
           <img src="/white-person.png" alt="Clock Image"
-            className="w-8 h-8 mx-1"
+            className="w-8 h-8 mr-1"
           ></img>
 
           About Me
