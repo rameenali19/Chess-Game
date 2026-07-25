@@ -3,6 +3,7 @@ import { createGameInfo } from "../Chess/Board";
 import NavBar from "../Components/NavBar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import HistoryButton from "../Components/HistoryButton";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ function HistoryPage() {
     async function getAllGames() {
       const game = ApiChess.getAPI();
       const data = await game.getAllGames();
-      console.log(data)
       setGames(data);
     }
     getAllGames();
@@ -27,24 +27,30 @@ function HistoryPage() {
   return (
     <>
       <NavBar />
-      <button className="bg-amber-500 ring-2 ring-black"
-        onClick={() => { createGame() }} >
-        Create Game
-      </button>
-      {
-        games.map((game) => {
-          return (
-            <div key={game.id}
-              onClick={() => {
-                navigate(`/game/${game.id}`)
-              }}
-              className="hover:cursor-pointer"
-            >
-              Game # {game.id}
-            </div>
-          )
-        })
-      }
+      <div className="flex">
+        Game History
+        <button className="bg-amber-500 ring-2 ring-black"
+          onClick={() => { createGame() }} >
+          Create Game
+        </button>
+      </div>
+
+
+
+      <div className="flex flex-col gap-4 mx-6">
+        {
+          games.map((game) => {
+            return (
+              < div key={game.id}>
+                <HistoryButton
+                  id={game.id} />
+              </div>
+            )
+          })
+        }
+
+      </div>
+
 
     </>
   )
