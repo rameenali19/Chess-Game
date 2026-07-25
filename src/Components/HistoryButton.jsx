@@ -9,7 +9,7 @@ function HistoryButton({id}) {
       }}
       className=" bg-amber-200 h-20 w-3xl flex items-center text-2xl"
     >
-      <span className="hover:cursor-pointer">Game # {id}</span>
+      <span className="hover:cursor-pointer mx-7">Game # {id}</span>
     </div>
   )
 }

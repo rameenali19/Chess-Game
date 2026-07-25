@@ -3,76 +3,105 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav
-      className=" w-11/12 h-[60px] rounded-full  shadow-lg 
-            mt-3 mx-auto flex items-center justify-between font-extrabold font-nunito px-8 text-[18px] "
-    >
-      <div className="flex items-center ">
-        {/* <img
-          className="object-contain w-20 h-19 hover:scale-120 hover:cursor-pointer transition-all duration-200"
-          src="/pinkcontroller.png"
-        ></img> */}
-        <h1>
-          Chess Game <span className="text-[#EC6086]">Zone</span>
-        </h1>
+
+    <nav className="w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl">
+
+      <div className="flex items-center py-4 ">
+        <img src="/logo-chess-piece.png" alt="chess piece"
+          className="w-15 h-15"></img>
+
+        <div className="font-cormorant text-2xl">
+          <h1>Chess</h1>
+          <h1>Mastery</h1>
+        </div>
       </div>
-      <div className="flex gap-7  ">
+
+      <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-xl">
+
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `hover:text-[#EC6086] hover:bg-[#FFE1E6] hover:rounded-full px-4 py-2 active:bg-white
-          transition-all duration-200
-          ${isActive ?
-              "bg-[#FFE1E6] text-[#EC6086]" : ""
+
+            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+          transition-all duration-200 active:text-[#D96B1E]
+          ${isActive
+              ?
+              "bg-[#D96B1E] text-white rounded-full"
+              : "hover:bg-[#21485C]"
             }
           `}
         >
+          <img src="/white-home.png" alt="Clock Image"
+          className="w-8 h-8 mx-1"
+          ></img>
+
           Home
         </NavLink>
+
         <NavLink
           to="/game"
           className={({ isActive }) =>
-            `hover:text-[#EC6086] hover:bg-[#FFE1E6] hover:rounded-full px-4 py-2 active:bg-white
-          transition-all duration-200
-          ${isActive ?
-              "bg-[#FFE1E6] text-[#EC6086]" : ""
+
+            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+          transition-all duration-200 active:text-[#D96B1E]
+          ${isActive
+              ?
+              "bg-[#D96B1E] text-white rounded-full"
+              : "hover:bg-[#21485C]"
             }
           `}
         >
-          Game Page
+           <img src="/white-piece-navbar.png" alt="Clock Image"
+          className="w-8 h-8 mx-1"
+          ></img>
+
+          Play
         </NavLink>
+
         <NavLink
           to="/history"
           className={({ isActive }) =>
-            `hover:text-[#EC6086] hover:bg-[#FFE1E6] hover:rounded-full px-4 py-2 active:bg-white
-          transition-all duration-200
-          ${isActive ?
-              "bg-[#FFE1E6] text-[#EC6086]" : ""
+
+            `flex items-center px-3 py-3 hover:rounded-full  active:bg-white
+          transition-all duration-200 active:text-[#D96B1E]
+          ${isActive
+              ?
+              "bg-[#D96B1E] text-white rounded-full"
+              : "hover:bg-[#21485C]"
             }
           `}
         >
+           <img src="/white-clock.png" alt="Clock Image"
+          className="w-8 h-8 mx-1"
+          ></img>
+
           History
         </NavLink>
+
         <NavLink
           to="/aboutMe"
+
           className={({ isActive }) =>
-            `hover:text-[#EC6086] hover:bg-[#FFE1E6] hover:rounded-full px-4 py-2 active:bg-white
-          transition-all duration-200
-          ${isActive ?
-              "bg-[#FFE1E6] text-[#EC6086]" : ""
+
+            `flex items-center  px-3 py-3 hover:rounded-full  active:bg-white
+          transition-all duration-200 active:text-[#D96B1E]
+          ${isActive
+              ?
+              "bg-[#D96B1E] text-white rounded-full"
+              : "hover:bg-[#21485C]"
             }
           `}
         >
+           <img src="/white-person.png" alt="Clock Image"
+          className="w-8 h-8 mx-1"
+          ></img>
+
           About Me
         </NavLink>
-      </div>
-      <button
-        className=" bg-[#9D73E8] border-2 rounded-[17px] text-white px-8 py-2 transition-all duration-200 active:text-[#9D73E8] active:bg-white active:border-2 active:border-[#9D73E8] hover:bg-[#af8af0] hover:cursor-pointer"
-      >
-        Create Game
-      </button>
 
+      </div>
     </nav>
+
   )
 }
-export default NavBar;
+export default NavBar

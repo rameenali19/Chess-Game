@@ -25,40 +25,43 @@ function HistoryPage() {
   }, [])
 
   return (
-    <>
+    <div className="bg-[rgb(248,240,225)] min-h-screen flex">
+
       <NavBar />
-      <div className="flex justify-between items-center">
 
-        <h1 className="text-3xl font-semibold">Game History</h1>
+      <div>
 
-        <button className="bg-amber-600 text-white px-5 py-2 rounded-lg 
-        hover:cursor-pointer hover:text-amber-600 hover:bg-white text-xl font-inter"
+        <div className="flex justify-between items-center my-10 mx-15 ">
 
-          onClick={() => { createGame() }} >
+          <h1 className="text-3xl font-semibold">Game History</h1>
 
-          + New Game
+          <button className="bg-amber-600 text-[rgb(248,240,225)] px-5 py-2 rounded-lg 
+        hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter transition-all duration-200"
 
-        </button>
+            onClick={() => { createGame() }} >
+
+            + New Game
+
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-4 mx-6">
+          {
+            games.map((game) => {
+              return (
+                < div key={game.id}>
+                  <HistoryButton
+                    id={game.id} />
+                </div>
+              )
+            })
+          }
+
+        </div>
+
       </div>
 
-
-
-      <div className="flex flex-col gap-4 mx-6">
-        {
-          games.map((game) => {
-            return (
-              < div key={game.id}>
-                <HistoryButton
-                  id={game.id} />
-              </div>
-            )
-          })
-        }
-
-      </div>
-
-
-    </>
+    </div>
   )
 }
 export default HistoryPage;
