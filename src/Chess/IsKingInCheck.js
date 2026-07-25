@@ -15,7 +15,7 @@ export function IsKingInCheck(board, turn, enPassant) {
           row: row,
           col: col
         }
-        const moves = GenerateMoves(enemyPiece, board, enPassant);
+        const moves = GenerateMoves(enemyPiece, board, enPassant, true);
         const KingInDanger = moves.some(move =>
           move.row === king.row &&
           move.col === king.col
