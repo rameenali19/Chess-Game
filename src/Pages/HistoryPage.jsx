@@ -3,12 +3,14 @@ import { createGameInfo } from "../Chess/Board";
 import NavBar from "../Components/NavBar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import HistoryButton from "../Components/HistoryButton";
-import { NavLink } from "react-router-dom";
+import HistoryButton from "../HistoryPageComponents/HistoryButton";
+import HistoryNavBar from "../HistoryPageComponents/HistoryNavBar";
+
 
 function HistoryPage() {
   const navigate = useNavigate();
   const [games, setGames] = useState([]);
+  const [filter, setFilter] = useState("all")
 
   async function createGame() {
     const game = ApiChess.getAPI();
@@ -30,6 +32,15 @@ function HistoryPage() {
     const del = await api.deleteGame(id)
     setGames((prev) => prev.filter((game) => game.id !== id))
   }
+
+  const filteredGames = games.filter((game) => {
+    if (filter === "all") {
+      return true;
+    }
+    else {
+      return game.game_state === filter
+    }
+  })
 
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
@@ -55,15 +66,15 @@ function HistoryPage() {
           </button>
         </div>
 
-        <nav className="font-inter text-lg text-[#17384A] shadow-sm  
-        border-b-border-[#E8DCC7] px-6 h-15 w-full max-w-4xl flex 
-        items-center justify-center mb-4">
-
-        </nav>
+        <HistoryNavBar
+          games={games}
+          filter={filter}
+          setFilter={setFilter}
+        />
 
         <div className="flex flex-col gap-2">
           {
-            games.map((game) => {
+            filteredGames.map((game) => {
               return (
                 < div key={game.id}>
                   <HistoryButton
