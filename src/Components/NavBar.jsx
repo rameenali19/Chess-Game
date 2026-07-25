@@ -16,7 +16,7 @@ function NavBar() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-lg">
+      <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-sm">
 
         <NavLink
           to="/"

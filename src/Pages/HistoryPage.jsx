@@ -37,13 +37,15 @@ function HistoryPage() {
 
       <main className="ml-52 p-10">
 
-        <div className="flex justify-between items-center mb-10  ">
+        <div className="flex justify-between items-center mb-10 ">
 
-          <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">Game History</h1>
+          <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">
+            Game History
+          </h1>
 
           <button className="bg-amber-600 text-[rgb(248,240,225)] px-5 py-2 rounded-lg 
         hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter 
-        transition-all duration-200 hover:ring-2 hover:ring-amber-600"
+        transition-all duration-200 hover:ring-2 hover:ring-amber-600 mx-15"
 
             onClick={() => { createGame() }} >
 
@@ -60,6 +62,7 @@ function HistoryPage() {
                   <HistoryButton
                     game={game}
                     deleteGame={deleteGame}
+
                   />
                 </div>
               )

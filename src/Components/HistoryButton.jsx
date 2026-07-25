@@ -15,19 +15,19 @@ function HistoryButton({ game, deleteGame }) {
       <div className="flex gap-5 font-inter text-sm">
 
         <button className={`w-36 px-4 py-3 rounded-full  hover:cursor-pointer
-      ${game.game_state === "finished" ? "bg-[#F7D98D] text-[#8A5A00]"
+      ${game.game_state === "unfinished" ? "bg-[#F7D98D] text-[#8A5A00]"
             : "bg-[#D9E8C8] text-[#3F6B2A]"
           }`
         }
         >
           {
-            game.game_state === "finished" ? "In Progress"
+            game.game_state === "unfinished" ? "In Progress"
               : "Completed"
 
           }
         </button>
         <button className={`w-36 px-4 py-3 rounded-xl  hover:cursor-pointer
-      ${game.game_state === "unfinished" ? "bg-[#F7D98D] text-[#8A5A00]"
+      ${game.game_state === "unfinished" ? "bg-[#2b6381] text-white"
             : "ring-[#2b6381] ring-2 text-[#2b6381]"
           }`
         } onClick={() => {
