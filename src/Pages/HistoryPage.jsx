@@ -71,6 +71,14 @@ function HistoryPage() {
 
         </div>
 
+        <div className="font-inter text-lg text-[#17384A] bg-[#FFF7EA] shadow-sm border 
+        border-[#E8DCC7] px-6 hover:shadow-md hover:-translate-y-0.5 transition rounded-lg
+         h-15 w-full max-w-4xl flex items-center justify-center">
+          <div>
+            Save, continue and delete games
+          </div>
+        </div>
+
       </main>
 
     </div>
