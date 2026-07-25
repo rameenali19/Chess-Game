@@ -23,14 +23,15 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     king: null
   })
   useEffect(() => {
+
     async function getGame() {
       const game = ApiChess.getAPI();
       const data = await game.getGame(id);
       setBoard(data.game_status);
       setTurn(data.current_turn)
+
       enPassant.current = data.en_passant
-      console.log(typeof data.en_passant);
-      console.log(data.en_passant);
+
       const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
 
