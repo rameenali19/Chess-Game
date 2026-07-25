@@ -3,8 +3,9 @@ import { createGameInfo } from "../Chess/Board";
 import NavBar from "../Components/NavBar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import HistoryButton from "../HistoryPageComponents/HistoryButton";
-import HistoryNavBar from "../HistoryPageComponents/HistoryNavBar";
+import HistoryButton from "../Components/HistoryButton";
+import HistoryNavBar from "../Components/HistoryNavBar";
+
 
 
 function HistoryPage() {

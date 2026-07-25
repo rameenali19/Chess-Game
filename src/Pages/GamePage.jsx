@@ -2,6 +2,7 @@ import ChessBoard from "../Components/ChessBoard";
 import { useState } from "react";
 import NavBar from "../Components/NavBar";
 import { useParams } from "react-router-dom";
+import Info from "../Components/GamePageInfo";
 
 function GamePage() {
   const [turn, setTurn] = useState("White")
@@ -13,29 +14,27 @@ function GamePage() {
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
 
       <NavBar />
-      <div>
 
-        <div className="ml-100 p-10">
-          <div>{
-            isStaleMate ? "Stalemate!" : (
-              checkMate ? (turn === "White" ? "CheckMate! Black Wins"
-                : "CheckMate! White Wins")
-                : `Current Turn: ${turn}`)
-          }</div>
-          <div className="ring-2 ring-black translate-y-7 h-125 w-125 grid grid-cols-8">
-            <ChessBoard
-              turn={turn}
-              setTurn={setTurn}
-              checkMate={checkMate}
-              setCheckMate={setCheckMate}
-              isStaleMate={isStaleMate}
-              setIsStaleMate={setIsStaleMate}
-              id={id}
-            />
-          </div>
+      <main className="ml-40 p-10 flex gap-8 ">
+
+        <Info
+          turn={turn}
+        />
+
+        <div className="ring-2 ring-[#C7A97A] translate-y-7 h-125 w-125 grid grid-cols-8
+          ">
+          <ChessBoard
+            turn={turn}
+            setTurn={setTurn}
+            checkMate={checkMate}
+            setCheckMate={setCheckMate}
+            isStaleMate={isStaleMate}
+            setIsStaleMate={setIsStaleMate}
+            id={id}
+          />
         </div>
 
-      </div>
+      </main>
 
     </div>
   )

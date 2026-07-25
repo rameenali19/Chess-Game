@@ -52,7 +52,7 @@ function NavBar() {
           `}
         >
           <img src="/white-piece-navbar.png" alt="Clock Image"
-            className="w-8 h-8 mr-1"
+            className="w-8 h-8 mr-1 object-contain"
           ></img>
 
           Play

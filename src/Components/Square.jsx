@@ -4,7 +4,7 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
   const whiteBox = (row + col) % 2 === 0;
   const blackBox = (row + col) % 2 !== 0;
   let alphabetarray = ["a", "b", "c", "d", "e", "f", "g", "h"];
-  let squareColor = whiteBox ? "bg-[rgb(143,188,143)]" : "bg-amber-50";
+  let squareColor = whiteBox ? "bg-[#F5E8D7]" : "bg-[#D8B892]";
   if (selected) squareColor = "bg-sky-300";
   if (checkingPiece) squareColor = "bg-yellow-200 ";
   if (possibleCaptures) squareColor = "bg-red-300";

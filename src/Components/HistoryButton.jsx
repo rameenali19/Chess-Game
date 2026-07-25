@@ -9,8 +9,10 @@ function HistoryButton({ game, deleteGame }) {
         px-6 hover:shadow-md hover:-translate-y-0.5 transition h-20 w-full
           flex items-center text-xl rounded-lg justify-between" >
 
-      <span className="hover:cursor-pointer mx-7 font-inter text-xl
+      <div>
+        <span className="hover:cursor-pointer mx-7 font-inter text-xl
        text-[#17384A] font-semibold">Game # {game.id}</span>
+      </div>
 
       <div className="flex gap-5 font-inter text-sm font-semibold">
 
