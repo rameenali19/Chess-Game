@@ -28,7 +28,9 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const data = await game.getGame(id);
       setBoard(data.game_status);
       setTurn(data.current_turn)
-
+      enPassant.current = data.en_passant
+      console.log(typeof data.en_passant);
+      console.log(data.en_passant);
       const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
 
@@ -49,12 +51,13 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     getGame();
   }, [id])
 
-  async function updateGame(currentTurn, gameState, gameStatus) {
+  async function updateGame(currentTurn, gameState, gameStatus, enPassant) {
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
       currentTurn: currentTurn,
       gameState: gameState,
-      gameStatus: gameStatus
+      gameStatus: gameStatus,
+      enPassant: enPassant
     })
 
   }
@@ -68,7 +71,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         : isStaleMate ?
           "finished"
           : "unfinished",
-      board
+      board,
+      enPassant.current
     )
   }, [board, turn, isStaleMate, checkMate, loaded])
 
