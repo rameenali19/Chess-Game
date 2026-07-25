@@ -10,7 +10,7 @@ function GamePage() {
   const { id } = useParams();
 
   return (
-    <div className="bg-[rgb(248,240,225)] min-h-screen flex">
+    <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
       <NavBar />
       <div>

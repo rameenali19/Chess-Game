@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 
-function HistoryButton({id}) {
+function HistoryButton({ id }) {
   const navigate = useNavigate();
   return (
     <div

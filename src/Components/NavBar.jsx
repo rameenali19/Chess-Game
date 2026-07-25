@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
 
-    <nav className="w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl">
+    <nav className=" fixed left-0 top-0 w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl z-50">
 
       <div className="flex items-center py-4 ">
         <img src="/logo-chess-piece.png" alt="chess piece"
@@ -32,7 +32,7 @@ function NavBar() {
           `}
         >
           <img src="/white-home.png" alt="Clock Image"
-          className="w-8 h-8 mx-1"
+            className="w-8 h-8 mx-1"
           ></img>
 
           Home
@@ -51,8 +51,8 @@ function NavBar() {
             }
           `}
         >
-           <img src="/white-piece-navbar.png" alt="Clock Image"
-          className="w-8 h-8 mx-1"
+          <img src="/white-piece-navbar.png" alt="Clock Image"
+            className="w-8 h-8 mx-1"
           ></img>
 
           Play
@@ -71,8 +71,8 @@ function NavBar() {
             }
           `}
         >
-           <img src="/white-clock.png" alt="Clock Image"
-          className="w-8 h-8 mx-1"
+          <img src="/white-clock.png" alt="Clock Image"
+            className="w-8 h-8 mx-1"
           ></img>
 
           History
@@ -92,8 +92,8 @@ function NavBar() {
             }
           `}
         >
-           <img src="/white-person.png" alt="Clock Image"
-          className="w-8 h-8 mx-1"
+          <img src="/white-person.png" alt="Clock Image"
+            className="w-8 h-8 mx-1"
           ></img>
 
           About Me
