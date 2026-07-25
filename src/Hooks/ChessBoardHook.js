@@ -16,6 +16,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [board, setBoard] = useState(initialBoard)
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
+  const [loaded, setLoaded] = useState(false)
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
     attackers: [],
@@ -27,6 +28,23 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const data = await game.getGame(id);
       setBoard(data.game_status);
       setTurn(data.current_turn)
+
+      const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
+      setIsKingInCheck(inCheck)
+
+      if (inCheck.inCheck) {
+        setCheckMate(CheckMate(data.game_status, data.current_turn, enPassant.current))
+      } else {
+        setCheckMate(false)
+      }
+
+      setIsStaleMate(
+        !inCheck.inCheck && (
+          staleMate(data.game_status, data.current_turn, enPassant.current)
+        )
+      )
+
+      setLoaded(true)
     }
     getGame();
   }, [id])
@@ -40,6 +58,20 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     })
 
   }
+
+  useEffect(() => {
+    if (!loaded || !id) return;
+    updateGame(
+      turn,
+      checkMate ?
+        "finished"
+        : isStaleMate ?
+          "finished"
+          : "unfinished",
+      board
+    )
+  }, [board, turn, isStaleMate, checkMate, loaded])
+
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
@@ -67,7 +99,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
       const nextTurn = turn === "White" ? "Black" : "White";
 
-      updateGame(nextTurn, "unfinished", updatedBoard)
 
       if (
         selectedPiece.type === "Pawn" &&
