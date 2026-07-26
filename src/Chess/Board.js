@@ -33,5 +33,6 @@ export const createGameInfo = {
   currentTurn: "White",
   gameStatus: initialBoard,
   gameState: "unfinished",
-  enPassant: null
+  enPassant: null,
+  promotion: null
 }

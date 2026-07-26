@@ -29,7 +29,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const data = await game.getGame(id);
       setBoard(data.game_status);
       setTurn(data.current_turn)
-
+      setPromotion(data.promotion)
       enPassant.current = data.en_passant
 
       const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
@@ -52,13 +52,14 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     getGame();
   }, [id])
 
-  async function updateGame(currentTurn, gameState, gameStatus, enPassant) {
+  async function updateGame(currentTurn, gameState, gameStatus, enPassant, promotion) {
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
       currentTurn: currentTurn,
       gameState: gameState,
       gameStatus: gameStatus,
-      enPassant: enPassant
+      enPassant: enPassant,
+      promotion: promotion
     })
 
   }
@@ -73,9 +74,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
           "finished"
           : "unfinished",
       board,
-      enPassant.current
+      enPassant.current,
+      promotion
     )
-  }, [board, turn, isStaleMate, checkMate, loaded])
+  }, [board, turn, isStaleMate, checkMate, loaded, promotion])
 
 
   function HandleClick(rowIndex, colIndex) {
@@ -178,6 +180,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }
 
   function promote(type) {
+
     const newBoard = board.map(row => [...row]);
     newBoard[promotion.row][promotion.col] = {
       ...newBoard[promotion.row][promotion.col],

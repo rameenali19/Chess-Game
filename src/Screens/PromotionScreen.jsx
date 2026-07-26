@@ -18,12 +18,13 @@ function Promotion({ turn, promote, open }) {
 
             {
               pieces.map(piece => (
-                <div className="border-2 border-[#e4d6bb] w-30 h-30 flex flex-col items-center justify-center
+                <div key={piece}
+                  className="border-2 border-[#e4d6bb] w-30 h-30 flex flex-col items-center justify-center
                 hover:scale-105 duration-150 rounded-lg cursor-pointer hover:border-[#E67E00] 
                 hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] font-cormorant text-[#4A2F1D] text-sm 
                 hover:bg-[#ffeace] font-semibold">
                   <img
-                    key={piece}
+
                     src={pieceImages[turn][piece]}
                     alt={piece}
                     className="w-12 "
