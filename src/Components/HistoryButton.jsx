@@ -30,7 +30,7 @@ function HistoryButton({ game, deleteGame }) {
         </button>
         <button className={`w-36 px-4 py-3 rounded-xl  hover:cursor-pointer
       ${game.game_state === "unfinished" ? "bg-[#2b6381] text-white"
-            : "ring-[#2b6381] ring-2 text-[#2b6381] bg-white"
+            : "ring-[#2b6381] ring-2 text-[#2b6381] "
           }`
         } onClick={() => {
           navigate(`/game/${game.id}`)

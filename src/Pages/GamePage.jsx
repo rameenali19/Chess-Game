@@ -12,11 +12,11 @@ function GamePage() {
   const { id } = useParams();
 
   return (
-    <div className="bg-[rgb(248,240,225)] min-h-screen ">
+    <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
       <NavBar />
 
-      <main className="ml-40 p-10 flex gap-8 ">
+      <main className=" flex gap-5 items-center">
 
         <Info
           turn={turn}
