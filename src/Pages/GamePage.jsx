@@ -46,7 +46,10 @@ function GamePage() {
 
       {
         !id && (
-          <MainMenu />
+          <MainMenu
+            turn={turn}
+            setTurn={setTurn}
+          />
         )
       }
 
