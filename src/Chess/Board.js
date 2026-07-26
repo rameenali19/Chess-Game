@@ -30,7 +30,7 @@ export let initialBoard = [
 ]
 
 export const createGameInfo = {
-  currentTurn: "White",
+  currentTurn: null,
   gameStatus: initialBoard,
   gameState: "unfinished",
   enPassant: null,

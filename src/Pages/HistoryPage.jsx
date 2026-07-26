@@ -13,11 +13,6 @@ function HistoryPage() {
   const [games, setGames] = useState([]);
   const [filter, setFilter] = useState("all")
 
-  async function createGame() {
-    const game = ApiChess.getAPI();
-    const id = await game.createGame(createGameInfo)
-    navigate(`/game/${id}`)
-  }
 
   useEffect(() => {
     async function getAllGames() {
@@ -60,7 +55,7 @@ function HistoryPage() {
         hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter 
         transition-all duration-200 hover:ring-2 hover:ring-amber-600 mx-15"
 
-            onClick={() => { createGame() }} >
+            onClick={() => { navigate(`/game`) }} >
 
             + New Game
 

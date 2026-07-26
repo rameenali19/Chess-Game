@@ -1,6 +1,22 @@
 import ApiChess from "../api/apiChess"
+import { Navigate, useNavigate } from "react-router-dom";
+import { createGameInfo } from "../Chess/Board";
 
 function MainMenu({ turn, setTurn }) {
+
+  const navigate = useNavigate();
+
+  async function createGame() {
+    const game = ApiChess.getAPI();
+    const gameInfo = {
+      ...createGameInfo,
+      currentTurn: turn,
+    }
+    console.log(gameInfo);
+    const id = await game.createGame(gameInfo)
+    navigate(`/game/${id}`)
+  }
+
   return (
 
     <div className=" flex flex-col items-center justify-center gap-4 font-cormorant text-[#4A2F1D] ml-30">
@@ -67,7 +83,10 @@ function MainMenu({ turn, setTurn }) {
       </div>
 
       <button className="text-xl bg-[#E67E00] text-white px-15 py-2 rounded-lg hover:bg-[#fff4e6] hover:text-[#E67E00] hover:cursor-pointer hover:ring-[#E67E00] hover:ring-2 hover:scale-102 duration-150
-       active:bg-[#E67E00] active:text-white"
+       active:bg-[#f40000] active:text-white"
+
+        onClick={() => { createGame() }}
+
       >
         Start Game
       </button>

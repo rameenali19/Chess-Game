@@ -7,7 +7,7 @@ import { staleMate } from "../Chess/Stalemate";
 import MainMenu from "../Screens/MainMenu";
 
 function GamePage() {
-  const [turn, setTurn] = useState("White")
+  const [turn, setTurn] = useState(null)
   const [checkMate, setCheckMate] = useState(false)
   const [isStaleMate, setIsStaleMate] = useState(false);
   const { id } = useParams();
