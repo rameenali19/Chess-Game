@@ -1,6 +1,6 @@
 function Info({ turn, checkMate, staleMate, id }) {
 
-  const src = turn === "White" ? "/white-piece-navbar.png" : "/blue-chess-piece.png";
+  const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
 
   return (
     <div className=" w-60 flex flex-col items-center justify-center gap-3 mt-10">

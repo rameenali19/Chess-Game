@@ -1,19 +1,19 @@
 export const pieceImages = {
   White: {
-    Queen: "/white_queen-removebg-preview.png",
-    Rook: "/white_rook-removebg-preview.png",
-    Bishop: "/white_bishop-removebg-preview.png",
-    Knight: "/white_knight-removebg-preview.png",
-    King: "/white_king-removebg-preview.png",
-    Pawn: "/white_pawn-removebg-preview.png",
+    Queen: "/white-queen.png",
+    Rook: "/white-rook.png",
+    Bishop: "/white-bishop.png",
+    Knight: "/white-knight.png",
+    King: "/white-king.png",
+    Pawn: "/white-pawn.png",
   },
 
   Black: {
-    Queen: "/blackqueen-removebg-preview.png",
-    Rook: "/blackrook-removebg-preview.png",
-    Bishop: "/blackbishop-removebg-preview.png",
-    Knight: "/blackknight-removebg-preview.png",
-    King: "/blackking-removebg-preview.png",
-    Pawn: "/blackpawn-removebg-preview.png",
+    Queen: "/black-queen.png",
+    Rook: "/black-rook.png",
+    Bishop: "/black-bishop.png",
+    Knight: "/black-knight.png",
+    King: "/black-king.png",
+    Pawn: "/black-pawn.png",
   },
 };
