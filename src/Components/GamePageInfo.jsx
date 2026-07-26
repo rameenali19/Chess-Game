@@ -1,15 +1,16 @@
-function Info({ turn }) {
+function Info({ turn, checkMate, staleMate, id }) {
 
   const src = turn === "White" ? "/white-piece-navbar.png" : "/blue-chess-piece.png";
 
   return (
-    <div className="bg-[#F5E8D7] w-50 px-5 border-[#E8DCC7] border rounded-lg mt-10">
+    <div className="bg-[#F5E8D7] w-60 px-5  border-[#E8DCC7] border rounded-lg
+     mt-10 flex flex-col items-center justify-center gap-3">
 
       <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-3 h-21 w-40 mt-6 flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
+        px-2 h-21 w-55 flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
         <div>
-          <h1 className="font-semibold">Current Turn</h1>
-          <div className="h-8 w-full bg-[#ff8e3d] rounded-lg px-2 py-1 flex items-center ">
+          <h1 className="font-semibold ">Current Turn</h1>
+          <div className="h-8 w-full bg-[#ff8e3d] rounded-lg px-2 py-1 flex items-center mt-1">
             <img src={src} alt="piece image " className="w-8 h-7 mr-1 object-contain" />
             {turn}
           </div>
@@ -17,20 +18,42 @@ function Info({ turn }) {
       </div>
 
 
-      <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-3 h-50 w-40 mt-5  flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
+      <div className=" bg-[#FFF7EA]  border border-[#E8DCC7]
+        px-3 h-30 w-55 flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
       </div>
 
-      <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-3 h-18 w-40 mt-5 flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
+
+      <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7] text-sm
+        px-3  w-55 flex flex-col py-2 rounded-lg font-inter text-[#17384A] gap-1 ">
+
+        <h2 className="font-semibold text-xl text-center">
+          Game Info
+        </h2>
+
         <div>
-          <h1 className="font-semibold">Date</h1>
-          <h1>{new Date().toLocaleDateString()}</h1>
+          <p className="text-xs ">Game ID</p>
+          <p className="text-lg font-semibold">{id}</p>
         </div>
-      </div>
 
+        <div>
+          <p className="text-xs mb-1">Game Status</p>
+          <span className={` h-7 w-40 rounded-lg font-semibold py-1 px-2
+          ${checkMate || staleMate ? "bg-[#D9E8C8] text-[#3F6B2A]"
+              : "bg-[#F7D98D] text-[#8A5A00]"
+            }`}>{checkMate || staleMate ? "Completed" : "In Progress"}</span>
+        </div>
+
+        <div>
+          <p className="text-xs ">Date</p>
+          <h1 className="font-semibold">{new Date().toLocaleDateString()}</h1>
+        </div>
+
+      </div>
 
     </div>
+
   )
 }
-export default Info 
+export default Info
+{/* <h1 className="font-semibold">Date</h1>
+          <h1>{new Date().toLocaleDateString()}</h1> */}
