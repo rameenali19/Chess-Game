@@ -9,7 +9,7 @@ function Promotion({ turn, promote, open }) {
         <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-60 w-120
         shadow-[rgba(23,56,74,0.15)]">
           <div className="text-3xl font-bold mb-7 flex flex-col items-center font-cormorant text-[#4A2F1D]">
-            <img src="/crown.png" alt="crown image" className="w-10 h-8"></img>
+            <img src="/crown.png" alt="crown image" className="w-10 h-8 hover:scale-120 duration-150"></img>
             <div>
               Choose Promotion
             </div>

@@ -66,6 +66,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
   useEffect(() => {
     if (!loaded || !id) return;
+
     updateGame(
       turn,
       checkMate ?
@@ -77,6 +78,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       enPassant.current,
       promotion
     )
+
   }, [board, turn, isStaleMate, checkMate, loaded, promotion])
 
 
@@ -114,10 +116,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
           (selectedPiece.color === "Black" && rowIndex === 7)
         )
       ) {
-        setPromotion({
+        const p = {
           row: rowIndex,
-          col: colIndex
-        });
+          col: colIndex,
+        };
+
+        setPromotion(p);
         setBoard(updatedBoard);
         setSelectedPiece(null);
         setMoves([]);
@@ -180,7 +184,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }
 
   function promote(type) {
-
+    console.log("promotion:", promotion);
+    console.log("board:", board);
     const newBoard = board.map(row => [...row]);
     newBoard[promotion.row][promotion.col] = {
       ...newBoard[promotion.row][promotion.col],
