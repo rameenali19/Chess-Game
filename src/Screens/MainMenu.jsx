@@ -1,10 +1,12 @@
 import ApiChess from "../api/apiChess"
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { createGameInfo } from "../Chess/Board";
+import { useState } from "react";
 
 function MainMenu({ turn, setTurn }) {
 
   const navigate = useNavigate();
+  const [hover, setHover] = useState();
 
   async function createGame() {
     const game = ApiChess.getAPI();
@@ -43,17 +45,28 @@ function MainMenu({ turn, setTurn }) {
 
         <div className="flex  justify-between font-bold text-sm gap-4">
 
-          <div className="h-30 w-30 border-[#e4d6bb] border-2 flex flex-col hover:scale-105 duration-150 cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] items-center rounded-lg hover:bg-[#fff4e6] hover:text-[#E67E00] "
-
+          <div
+            onMouseEnter={() => { setHover("White") }}
+            onMouseLeave={() => { setHover(null) }}
             onClick={
               () => {
                 setTurn("White")
               }
             }
+            className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
+            duration-150 cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)]
+             items-center rounded-lg  hover:text-[#E67E00] 
+            ${turn === "White" ? " text-[#E67E00] scale-105 duration-150 border-[#E67E00]"
+                : "border-[#e4d6bb]"
+              }
+            `}
           >
             <img
-              src="/white-king.png"
-              alt="white piece"
+              src={
+                turn === "White" || hover === "White" ? "/orange-white-king.png"
+                  : "/white-king.png"
+              }
+              alt="black piece"
               className="w-15 h-20 object-contain"
             ></img>
             <h1>
@@ -61,17 +74,28 @@ function MainMenu({ turn, setTurn }) {
             </h1>
           </div>
 
-          <div className="h-30 w-30 border-[#e4d6bb] border-2 flex flex-col items-center hover:scale-105 duration-150 rounded-lg cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:bg-[#fff4e6] hover:text-[#E67E00] "
-
+          <div
+            onMouseEnter={() => { setHover("Black") }}
+            onMouseLeave={() => { setHover(null) }}
             onClick={
               () => {
                 setTurn("Black")
               }
             }
+            className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
+            duration-150 cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] 
+            items-center rounded-lg s hover:text-[#E67E00] 
+            ${turn === "Black" ? "text-[#E67E00] scale-105 duration-150 border-[#E67E00]"
+                : "border-[#e4d6bb] "
+              }
+            `}
           >
             <img
-              src="/black-king.png"
-              alt="white piece"
+              src={
+                turn === "Black" || hover === "Black" ? "/orange-black-king.png"
+                  : "/black-king.png"
+              }
+              alt="black piece"
               className="w-15 h-20 object-contain"
             ></img>
             <h1>
