@@ -38,6 +38,7 @@ function GamePage() {
               isStaleMate={isStaleMate}
               setIsStaleMate={setIsStaleMate}
               id={id}
+
             />
           </div>
 
