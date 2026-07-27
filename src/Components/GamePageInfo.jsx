@@ -24,7 +24,7 @@ function Info({ turn, checkMate, staleMate, id }) {
 
 
       <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] text-sm h-60
-        px-3  w-55 flex flex-col py-2 rounded-lg font-inter text-[#17384A] justify-between  ">
+        px-3  w-55 flex flex-col py-3 pb-3 rounded-lg font-inter text-[#17384A] justify-between  ">
 
         <div className="font-semibold text-xl justify-center flex items-center ">
           <img src="/bulb.png" alt="blub image" className="w-8 h-8 object-contain"></img>
