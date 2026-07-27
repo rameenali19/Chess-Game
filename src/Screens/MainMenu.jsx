@@ -1,21 +1,24 @@
 import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
-import { createGameInfo } from "../Chess/Board";
+import { initialBoard } from "../Chess/Board";
 import { useState } from "react";
+import { initialColor } from "../Chess/Board";
 
-function MainMenu({ turn, setTurn }) {
+function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor }) {
 
   const navigate = useNavigate();
   const [hover, setHover] = useState();
 
   async function createGame() {
     const game = ApiChess.getAPI();
-    const gameInfo = {
-      ...createGameInfo,
+    const createGameInfo = {
       currentTurn: turn,
+      gameStatus: initialBoard,
+      gameState: "unfinished",
+      enPassant: null,
+      promotion: null
     }
-    console.log(gameInfo);
-    const id = await game.createGame(gameInfo)
+    const id = await game.createGame(createGameInfo)
     navigate(`/game/${id}`)
   }
 
@@ -51,6 +54,9 @@ function MainMenu({ turn, setTurn }) {
             onClick={
               () => {
                 setTurn("White")
+                setUserColor("White")
+                setOpponentColor("Black")
+                initialColor("White", "Black")
               }
             }
             className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
@@ -80,6 +86,9 @@ function MainMenu({ turn, setTurn }) {
             onClick={
               () => {
                 setTurn("Black")
+                setUserColor("Black")
+                setOpponentColor("White")
+                initialColor("Black", "White")
               }
             }
             className={`h-30 w-30  border-3 flex flex-col hover:scale-105 

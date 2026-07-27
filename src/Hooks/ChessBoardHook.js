@@ -9,19 +9,20 @@ import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
 import ApiChess from "../api/apiChess";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
   const [board, setBoard] = useState(initialBoard)
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false);
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
     attackers: [],
     king: null
   })
+
   useEffect(() => {
 
     async function getGame() {
@@ -31,6 +32,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setTurn(data.current_turn)
       setPromotion(data.promotion)
       enPassant.current = data.en_passant
+      setUserColor(data.current_turn)
 
       const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
@@ -96,9 +98,9 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         move.col === colIndex
       );
       const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board,
-        selectedMove?.castle, selectedMove?.enPassant);
+        selectedMove?.castle, selectedMove?.enPassant, userColor);
 
-      const selfCheck = IsKingInCheck(updatedBoard, turn, enPassant.current)
+      const selfCheck = IsKingInCheck(updatedBoard, turn, enPassant.current, userColor)
 
       if (selfCheck.inCheck) {
         setSelectedPiece(null);
@@ -112,8 +114,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       if (
         selectedPiece.type === "Pawn" &&
         (
-          (selectedPiece.color === "White" && rowIndex === 0) ||
-          (selectedPiece.color === "Black" && rowIndex === 7)
+          (selectedPiece.color === userColor && rowIndex === 0) ||
+          (selectedPiece.color === opponentColor && rowIndex === 7)
         )
       ) {
         const p = {
@@ -143,19 +145,19 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       }
 
 
-      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current);
+      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current, userColor);
       setIsKingInCheck(opponentCheck);
       setBoard(updatedBoard);
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        setCheckMate(CheckMate(updatedBoard, nextTurn, enPassant.current));
+        setCheckMate(CheckMate(updatedBoard, nextTurn, enPassant.current, userColor));
       }
       else {
         setCheckMate(false);
       }
 
-      if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
+      if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current, userColor, opponentColor)) {
         setIsStaleMate(true);
       }
       else {
@@ -178,14 +180,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       col: colIndex
     };
     setSelectedPiece(newSelectedPiece)
-    const generatedMoves = GenerateMoves(newSelectedPiece, board, enPassant.current);
+    const generatedMoves = GenerateMoves(newSelectedPiece, board, enPassant.current, userColor);
     setMoves(generatedMoves);
-
   }
 
   function promote(type) {
-    console.log("promotion:", promotion);
-    console.log("board:", board);
+
     const newBoard = board.map(row => [...row]);
     newBoard[promotion.row][promotion.col] = {
       ...newBoard[promotion.row][promotion.col],
@@ -198,18 +198,18 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setSelectedPiece(null);
     const nextTurn = turn === "White" ? "Black" : "White";
 
-    const opponentCheck = IsKingInCheck(newBoard, nextTurn, enPassant.current);
+    const opponentCheck = IsKingInCheck(newBoard, nextTurn, enPassant.current, userColor);
 
     setIsKingInCheck(opponentCheck);
 
     if (opponentCheck.inCheck) {
-      setCheckMate(CheckMate(newBoard, nextTurn, enPassant.current));
+      setCheckMate(CheckMate(newBoard, nextTurn, enPassant.current, userColor));
     }
     else {
       setCheckMate(false);
     }
 
-    if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
+    if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current, userColor)) {
       setIsStaleMate(true);
     }
     else {

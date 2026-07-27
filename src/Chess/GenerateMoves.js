@@ -5,7 +5,8 @@ import { BishopMoves } from "./Bishop";
 import { QueenMoves } from "./Queen";
 import { KingMoves } from "./King";
 
-export function GenerateMoves(selectedPiece, board, enPassant, checkOnly = false) {
+export function GenerateMoves(selectedPiece, board, enPassant, userColor, checkOnly = false) {
+
   if (selectedPiece.type === "Rook") {
     return RookMoves(
       selectedPiece,
@@ -22,7 +23,8 @@ export function GenerateMoves(selectedPiece, board, enPassant, checkOnly = false
     return KingMoves(
       selectedPiece,
       board,
-      checkOnly
+      userColor,
+      checkOnly,
     );
   }
   if (selectedPiece.type === "Bishop") {
@@ -35,7 +37,8 @@ export function GenerateMoves(selectedPiece, board, enPassant, checkOnly = false
     return PawnMoves(
       selectedPiece,
       board,
-      enPassant
+      enPassant,
+      userColor,
     )
   }
   if (selectedPiece.type === "Knight") {
@@ -44,4 +47,5 @@ export function GenerateMoves(selectedPiece, board, enPassant, checkOnly = false
       board
     );
   }
+
 }

@@ -1,4 +1,4 @@
-export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant) {
+export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant, userColor) {
 
   const newBoard = board.map(row => [...row])
 
@@ -45,34 +45,30 @@ export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPa
   }
 
   if (enPassant) {
-    const whiteCapturedPawn = newBoard[rowIndex + 1][colIndex];
-    const blackCapturedPawn = newBoard[rowIndex - 1][colIndex];
+    const direction = selectedPiece.color === userColor ? -1 : 1;
+
+    const capturedRow = rowIndex - direction;
 
     newBoard[rowIndex][colIndex] = {
       ...newBoard[selectedPiece.row][selectedPiece.col],
       row: rowIndex,
       col: colIndex,
+      hasMoved: true
     };
+
     newBoard[selectedPiece.row][selectedPiece.col] = ".";
 
-    if (newBoard[rowIndex][colIndex].color === "White") {
-      if (whiteCapturedPawn !== "." &&
-        whiteCapturedPawn.type === "Pawn" &&
-        whiteCapturedPawn.color === "Black") {
-        newBoard[rowIndex + 1][colIndex] = ".";
-
-      }
-    }
-    else if (newBoard[rowIndex][colIndex].color === "Black") {
-      if (blackCapturedPawn !== "." &&
-        blackCapturedPawn.type === "Pawn" &&
-        blackCapturedPawn.color === "White") {
-        newBoard[rowIndex - 1][colIndex] = ".";
-
-      }
+    if (
+      newBoard[capturedRow][colIndex] !== "." &&
+      newBoard[capturedRow][colIndex].type === "Pawn" &&
+      newBoard[capturedRow][colIndex].color !== newBoard[rowIndex][colIndex].color
+    ) {
+      newBoard[capturedRow][colIndex] = ".";
     }
     return newBoard;
   }
+
+
   newBoard[rowIndex][colIndex] = {
     ...newBoard[selectedPiece.row][selectedPiece.col],
     row: rowIndex,

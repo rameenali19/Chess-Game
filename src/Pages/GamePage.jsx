@@ -1,5 +1,5 @@
 import ChessBoard from "../Components/ChessBoard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "../Components/NavBar";
 import { useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
@@ -11,9 +11,10 @@ function GamePage() {
   const [checkMate, setCheckMate] = useState(false)
   const [isStaleMate, setIsStaleMate] = useState(false);
   const { id } = useParams();
+  const [userColor, setUserColor] = useState()
+  const [opponentColor, setOpponentColor] = useState()
 
-
-
+  console.log("ddd", userColor)
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
@@ -38,7 +39,10 @@ function GamePage() {
               isStaleMate={isStaleMate}
               setIsStaleMate={setIsStaleMate}
               id={id}
-
+              userColor={userColor}
+              opponentColor={opponentColor}
+              setUserColor={setUserColor}
+              setOpponentColor={setOpponentColor}
             />
           </div>
 
@@ -50,6 +54,11 @@ function GamePage() {
           <MainMenu
             turn={turn}
             setTurn={setTurn}
+            userColor={userColor}
+            setUserColor={setUserColor}
+            opponentColor={opponentColor}
+            setOpponentColor={setOpponentColor}
+
           />
         )
       }

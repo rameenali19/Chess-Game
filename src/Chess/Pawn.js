@@ -1,9 +1,14 @@
-export function PawnMoves(selectedPiece, board, enPassant) {
+export function PawnMoves(selectedPiece, board, enPassant, userColor) {
 
   let moves = [];
-
-  const direction = selectedPiece.color === "White" ? -1 : 1;
+console.log({
+  pieceColor: selectedPiece.color,
+  userColor,
+  direction: selectedPiece.color === userColor ? -1 : 1
+});
+  const direction = selectedPiece.color === userColor ? -1 : 1;
   const nextRow = selectedPiece.row + direction;
+  const startRow = direction === -1 ? 6 : 1
 
   if (
     nextRow >= 0 &&
@@ -14,8 +19,7 @@ export function PawnMoves(selectedPiece, board, enPassant) {
       col: selectedPiece.col
     })
 
-    if ((selectedPiece.row === 6 && (selectedPiece.color === "White"))
-      || (selectedPiece.row === 1 && (selectedPiece.color === "Black"))) {
+    if (selectedPiece.row === startRow) {
       if (board[selectedPiece.row + (direction * 2)][selectedPiece.col] === ".") {
         moves.push({
           row: selectedPiece.row + (direction * 2),

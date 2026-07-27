@@ -1,11 +1,11 @@
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "./IsKingInCheck";
 
-export function KingMoves(selectedPiece, board, movesOnly = false) {
+export function KingMoves(selectedPiece, board, userColor, movesOnly = false) {
   let moves = [];
-
-  function canCastle(row, col, color) {
-    const testBoard = MovePiece(row, col, selectedPiece, board)
+  const homeRow = selectedPiece.color === userColor ? 7 : 0;
+  function canCastle(homeRow, col, color) {
+    const testBoard = MovePiece(homeRow, col, selectedPiece, board)
     return !IsKingInCheck(testBoard, color).inCheck
   }
 
@@ -45,106 +45,56 @@ export function KingMoves(selectedPiece, board, movesOnly = false) {
 
   if (!selectedPiece.hasMoved) {
 
-    // White king side castle
-    if (selectedPiece.color === "White") { //if king is white
-      const rook = board[7][7];
+    //  king side castle
 
+    const kingSideRook = board[homeRow][7];
+    if (
+      kingSideRook !== "." &&
+      kingSideRook.type === "Rook" &&
+      !kingSideRook.hasMoved &&
+      board[homeRow][5] === "." &&
+      board[homeRow][6] === "." &&
+      !IsKingInCheck(board, selectedPiece.color).inCheck
+    ) {
       if (
-        rook !== "." &&
-        rook.type === "Rook" &&
-        !rook.hasMoved &&
-        board[7][5] === "." &&
-        board[7][6] === "." &&
-        !IsKingInCheck(board, "White").inCheck
+        canCastle(homeRow, 5, selectedPiece.color) &&
+        canCastle(homeRow, 6, selectedPiece.color)
       ) {
-        if (
-          canCastle(7, 5, "White") &&
-          canCastle(7, 6, "White")
-        ) {
-          moves.push({
-            row: 7,
-            col: 6,
-            castle: "kingSide"
-          });
-        }
+        moves.push({
+          row: homeRow,
+          col: 6,
+          castle: "kingSide"
+        });
       }
     }
 
-    // Black king side castle
-    if (selectedPiece.color === "Black") { //if king is black
-      const rook = board[0][7];
 
-      if (
-        rook !== "." &&
-        rook.type === "Rook" &&
-        !rook.hasMoved &&
-        board[0][5] === "." &&
-        board[0][6] === "." &&
-        !IsKingInCheck(board, "Black").inCheck
-      ) {
-        if (
-          canCastle(0, 5, "Black") &&
-          canCastle(0, 6, "Black")
-        ) {
-          moves.push({
-            row: 0,
-            col: 6,
-            castle: "kingSide"
-          });
-        }
-      }
-    }
+
     //white queen side
-    if (selectedPiece.color === "White") { //if king is white 
-      const rook = board[7][0];
 
+    const queenSideRook = board[homeRow][0];
+    if (
+      queenSideRook !== "." &&
+      queenSideRook.type === "Rook" &&
+      !queenSideRook.hasMoved &&
+      board[homeRow][1] === "." &&
+      board[homeRow][2] === "." &&
+      board[homeRow][3] === "." &&
+      !IsKingInCheck(board, selectedPiece.color).inCheck
+    ) {
       if (
-        rook !== "." &&
-        rook.type === "Rook" &&
-        !rook.hasMoved &&
-        board[7][1] === "." &&
-        board[7][2] === "." &&
-        board[7][3] === "." &&
-        !IsKingInCheck(board, "White").inCheck
+        canCastle(homeRow, 3, selectedPiece.color) &&
+        canCastle(homeRow, 2, selectedPiece.color)
       ) {
-        if (
-          canCastle(7, 3, "White") &&
-          canCastle(7, 2, "White")
-        ) {
-          moves.push({
-            row: 7,
-            col: 2,
-            castle: "queenSide"
-          });
-        }
+        moves.push({
+          row: homeRow,
+          col: 2,
+          castle: "queenSide"
+        });
       }
     }
 
-    // Black queen side castle
-    if (selectedPiece.color === "Black") { //if king is black
-      const rook = board[0][0];
 
-      if (
-        rook !== "." &&
-        rook.type === "Rook" &&
-        !rook.hasMoved &&
-        board[0][1] === "." &&
-        board[0][2] === "." &&
-        board[0][3] === "." &&
-        !IsKingInCheck(board, "Black").inCheck
-      ) {
-        if (
-          canCastle(0, 3, "Black") &&
-          canCastle(0, 2, "Black")
-        ) {
-          moves.push({
-            row: 0,
-            col: 2,
-            castle: "queenSide"
-          });
-        }
-      }
-    }
   }
   return moves;
 }

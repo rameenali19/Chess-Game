@@ -22,13 +22,14 @@ function Promotion({ turn, promote, open }) {
                   className="border-2 border-[#e4d6bb] w-30 h-30 flex flex-col items-center justify-center
                 hover:scale-105 duration-150 rounded-lg cursor-pointer hover:border-[#E67E00] 
                 hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] font-cormorant text-[#4A2F1D] text-sm 
-                hover:bg-[#fff4e6] font-semibold">
+                hover:bg-[#fff4e6] font-semibold"
+                  onClick={() => promote(piece)}
+                >
                   <img
 
                     src={pieceImages[turn][piece]}
                     alt={piece}
                     className="w-12 "
-                    onClick={() => promote(piece)}
                   />
                   {piece}
                 </div>
