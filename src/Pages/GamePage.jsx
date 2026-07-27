@@ -14,7 +14,6 @@ function GamePage() {
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
 
-  console.log("ddd", userColor)
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
