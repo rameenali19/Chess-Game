@@ -34,18 +34,18 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       enPassant.current = data.en_passant
       setUserColor(data.current_turn)
 
-      const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current)
+      const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current, userColor)
       setIsKingInCheck(inCheck)
 
       if (inCheck.inCheck) {
-        setCheckMate(CheckMate(data.game_status, data.current_turn, enPassant.current))
+        setCheckMate(CheckMate(data.game_status, data.current_turn, enPassant.current, userColor))
       } else {
         setCheckMate(false)
       }
 
       setIsStaleMate(
         !inCheck.inCheck && (
-          staleMate(data.game_status, data.current_turn, enPassant.current)
+          staleMate(data.game_status, data.current_turn, enPassant.current, userColor)
         )
       )
 

@@ -1,11 +1,11 @@
 export function PawnMoves(selectedPiece, board, enPassant, userColor) {
 
   let moves = [];
-console.log({
-  pieceColor: selectedPiece.color,
-  userColor,
-  direction: selectedPiece.color === userColor ? -1 : 1
-});
+  console.log({
+    pieceColor: selectedPiece.color,
+    userColor,
+    direction: selectedPiece.color === userColor ? -1 : 1
+  });
   const direction = selectedPiece.color === userColor ? -1 : 1;
   const nextRow = selectedPiece.row + direction;
   const startRow = direction === -1 ? 6 : 1
