@@ -2,7 +2,7 @@ import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { initialBoard } from "../Chess/Board";
 import { useState } from "react";
-import { initialColor } from "../Chess/Board";
+import { initialBoardSetup } from "../Chess/Board";
 
 function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor }) {
 
@@ -56,7 +56,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
                 setTurn("White")
                 setUserColor("White")
                 setOpponentColor("Black")
-                initialColor("White", "Black")
+                initialBoardSetup("White", "Black")
               }
             }
             className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
@@ -88,7 +88,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
                 setTurn("Black")
                 setUserColor("Black")
                 setOpponentColor("White")
-                initialColor("Black", "White")
+                initialBoardSetup("Black", "White")
               }
             }
             className={`h-30 w-30  border-3 flex flex-col hover:scale-105 

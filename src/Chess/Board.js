@@ -1,9 +1,8 @@
 export let initialBoard = []
-let user;
-let opponent;
-export function initialColor(userColor, opponentColor) {
-  user = userColor;
-  opponent = opponentColor
+
+export function initialBoardSetup(userColor, opponentColor) {
+  const user = userColor;
+  const opponent = opponentColor
 
 
   initialBoard = [
