@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { initialBoard } from "../Chess/Board";
 import { useState } from "react";
 import { initialBoardSetup } from "../Chess/Board";
+import { motion } from "framer-motion";
 
 function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor }) {
 
@@ -26,7 +27,12 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
 
   return (
 
-    <div className=" flex flex-col items-center justify-center gap-4 font-cormorant text-[#4A2F1D] ml-30">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className=" flex flex-col items-center justify-center
+     gap-4 font-cormorant text-[#4A2F1D] ml-30">
 
       <div className=" font-extrabold text-5xl flex-col items-center flex">
         <img
@@ -125,7 +131,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       >
         Start Game
       </button>
-    </div>
+    </motion.div>
 
   )
 }

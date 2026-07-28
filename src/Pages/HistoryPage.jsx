@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HistoryButton from "../Components/HistoryButton";
 import HistoryNavBar from "../Components/HistoryNavBar";
-
+import { motion } from "framer-motion";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -42,7 +42,11 @@ function HistoryPage() {
 
       <NavBar />
 
-      <main className="ml-52 p-10">
+      <motion.main className="ml-52 p-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
 
         <div className="flex justify-between items-center mb-10 ">
 
@@ -117,7 +121,7 @@ function HistoryPage() {
           }
         </div>
 
-      </main>
+      </motion.main>
 
     </div>
   )
