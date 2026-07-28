@@ -17,6 +17,7 @@ function HistoryPage() {
       const game = ApiChess.getAPI();
       const data = await game.getAllGames(page, 10);
       setGames(data);
+
     }
     getAllGames();
   }, [page])
