@@ -15,7 +15,7 @@ function HistoryPage() {
   useEffect(() => {
     async function getAllGames() {
       const game = ApiChess.getAPI();
-      const data = await game.getAllGames(page);
+      const data = await game.getAllGames(page, 10);
       setGames(data);
     }
     getAllGames();
