@@ -6,21 +6,20 @@ import HistoryButton from "../Components/HistoryButton";
 import HistoryNavBar from "../Components/HistoryNavBar";
 
 
-
 function HistoryPage() {
   const navigate = useNavigate();
   const [games, setGames] = useState([]);
   const [filter, setFilter] = useState("all")
-
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     async function getAllGames() {
       const game = ApiChess.getAPI();
-      const data = await game.getAllGames();
+      const data = await game.getAllGames(page);
       setGames(data);
     }
     getAllGames();
-  }, [])
+  }, [page])
 
   async function deleteGame(id) {
     const api = ApiChess.getAPI();
@@ -90,6 +89,31 @@ function HistoryPage() {
           <div>
             Continue unfinished games or review completed matches
           </div>
+        </div>
+        <div className="mt-3 flex justify-between">
+          {
+            page > 1 && (
+
+              <button className="text-lg font-inter text-[#17384A] hover:cursor-pointer hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600"
+                onClick={() => {
+                  setPage(page - 1)
+                }}
+              >
+                Previous Page
+              </button>
+            )
+          }
+          {
+            games.length === 10 && (
+              <button className="text-lg font-inter text-[#17384A] hover:cursor-pointer hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600"
+                onClick={() => {
+                  setPage(page + 1)
+                }}
+              >
+                Next Page
+              </button>
+            )
+          }
         </div>
 
       </main>
