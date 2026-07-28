@@ -13,7 +13,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
     console.log("userColor:", userColor);
     const game = ApiChess.getAPI();
     const createGameInfo = {
-      currentTurn: turn,
+      currentTurn: "White",
       gameStatus: initialBoard,
       gameState: "unfinished",
       enPassant: null,
