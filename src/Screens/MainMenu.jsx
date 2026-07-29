@@ -11,15 +11,13 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
   const [hover, setHover] = useState();
 
   async function createGame() {
-    console.log("userColor:", userColor);
     const game = ApiChess.getAPI();
     const createGameInfo = {
       currentTurn: "White",
-      gameStatus: initialBoard,
-      gameState: "unfinished",
+      gameBoard: initialBoard,
+      gameStatus: "unfinished",
       enPassant: null,
       promotion: null,
-      userColor: userColor
     }
     const id = await game.createGame(createGameInfo)
     navigate(`/game/${id}`)

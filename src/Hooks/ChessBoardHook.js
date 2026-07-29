@@ -28,24 +28,24 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     async function getGame() {
       const game = ApiChess.getAPI();
       const data = await game.getGame(id);
-      setBoard(data.game_status);
+      setBoard(data.game_board);
       setTurn(data.current_turn)
       setPromotion(data.promotion)
       enPassant.current = data.en_passant
-      setUserColor(data.user_color)
+      // setUserColor(data.user_color)
 
-      const inCheck = IsKingInCheck(data.game_status, data.current_turn, enPassant.current, data.user_color)
+      const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current, data.user_color)
       setIsKingInCheck(inCheck)
 
       if (inCheck.inCheck) {
-        setCheckMate(CheckMate(data.game_status, data.current_turn, enPassant.current, data.user_color))
+        setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current, data.user_color))
       } else {
         setCheckMate(false)
       }
 
       setIsStaleMate(
         !inCheck.inCheck && (
-          staleMate(data.game_status, data.current_turn, enPassant.current, data.user_color)
+          staleMate(data.game_board, data.current_turn, enPassant.current, data.user_color)
         )
       )
 
@@ -54,12 +54,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     getGame();
   }, [id])
 
-  async function updateGame(currentTurn, gameState, gameStatus, enPassant, promotion) {
+  async function updateGame(currentTurn, gameStatus, gameBoard, enPassant, promotion) {
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
       currentTurn: currentTurn,
-      gameState: gameState,
       gameStatus: gameStatus,
+      gameBoard: gameBoard,
       enPassant: enPassant,
       promotion: promotion
     })
@@ -68,7 +68,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
   useEffect(() => {
     if (!loaded || !id) return;
-
+    console.log(turn)
     updateGame(
       turn,
       checkMate ?

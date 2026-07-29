@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
 import MainMenu from "../Screens/MainMenu";
+import ModeSelection from "../Screens/ModeSelection";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -13,7 +14,7 @@ function GamePage() {
   const { id } = useParams();
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
-
+  const [mode, setMode] = useState(null);
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
@@ -49,7 +50,16 @@ function GamePage() {
       )}
 
       {
-        !id && (
+        !id && mode === null && (
+          <ModeSelection
+            mode={mode}
+            setMode={setMode}
+          />
+        )
+      }
+
+      {
+        !id && mode !== null && mode !== "join" && (
           <MainMenu
             turn={turn}
             setTurn={setTurn}

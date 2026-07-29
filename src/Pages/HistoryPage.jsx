@@ -33,7 +33,7 @@ function HistoryPage() {
       return true;
     }
     else {
-      return game.game_state === filter
+      return game.game_board === filter
     }
   })
 
