@@ -1,7 +1,11 @@
+import axios from "axios";
+
 class ApiChess {
 
   constructor() {
-    this.url = "http://localhost:3000";
+    this.url = axios.create({
+      baseURL: "http://localhost:3000"
+    });
     this.instance = null;
   }
 
