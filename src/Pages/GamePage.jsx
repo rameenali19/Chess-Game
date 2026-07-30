@@ -52,7 +52,7 @@ function GamePage() {
         </main>
       )}
       {
-        !id && mode === null && !guestId && (
+        !id && mode === null && !localStorage.getItem("guestId") && (
           <LoginScreen
             guestId={guestId}
             setGuestId={setGuestId}
@@ -60,7 +60,7 @@ function GamePage() {
         )
       }
       {
-        !id && mode === null && guestId && (
+        !id && mode === null && localStorage.getItem("guestId") && (
           <ModeSelection
             mode={mode}
             setMode={setMode}

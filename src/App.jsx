@@ -5,9 +5,7 @@ import HomePage from "./Pages/HomePage";
 import AboutMe from "./Pages/AboutMe";
 
 
-
 function App() {
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

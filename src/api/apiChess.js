@@ -58,6 +58,17 @@ class ApiChess {
     return request.data;
   }
 
+  //create Player
+  async createPlayer(gameId) {
+    const request = await this.apiClient.post(`/games/${gameId}/player`);
+    return request.data;
+  }
+
+  //get player by id
+  async getPlayer(gameId) {
+    const request = await this.apiClient.get(`/games/${gameId}/player`);
+    return request.data;
+  }
 }
 
 export default ApiChess;

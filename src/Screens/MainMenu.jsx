@@ -12,7 +12,6 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
 
 
   async function createGame() {
-    const playerId = crypto.randomUUID();
     const game = ApiChess.getAPI();
     const createGameInfo = {
       currentTurn: "White",
@@ -20,12 +19,12 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       gameStatus: "unfinished",
       enPassant: null,
       promotion: null,
-      playerId: playerId,
       playerColor: userColor,
-      guestId: guestId
-
+      guestId: localStorage.getItem("guestId")
     }
+
     const id = await game.createGame(createGameInfo)
+    console.log(id)
     navigate(`/game/${id}`)
 
   }
