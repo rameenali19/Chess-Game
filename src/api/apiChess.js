@@ -29,13 +29,15 @@ class ApiChess {
   }
 
   //get all games
-  async getAllGames(page, limit) {
+  async getAllGames(page, limit, guestId) {
     const request = await this.apiClient.get("/games", {
       params: {
         page: page,
-        limit: limit
+        limit: limit,
+        guestId: guestId
       }
     }
+
     );
     return request.data;
   }
@@ -66,7 +68,11 @@ class ApiChess {
 
   //get player by id
   async getPlayer(gameId, guestId) {
-    const request = await this.apiClient.get(`/games/${gameId}/player`, guestId);
+    const request = await this.apiClient.get(`/games/${gameId}/player`, {
+      params: {
+        guestId: guestId
+      }
+    });
     return request.data;
   }
 }

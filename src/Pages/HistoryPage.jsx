@@ -4,22 +4,28 @@ import { useEffect, useState } from "react";
 import HistoryButton from "../Components/HistoryButton";
 import HistoryNavBar from "../Components/HistoryNavBar";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { userContext } from "../Context/UserContext";
 
 function HistoryPage() {
   const navigate = useNavigate();
   const [games, setGames] = useState([]);
   const [filter, setFilter] = useState("all")
   const [page, setPage] = useState(1)
+  const { guestId } = useContext(userContext);
+
 
   useEffect(() => {
+    if (!guestId) return;
+
     async function getAllGames() {
       const game = ApiChess.getAPI();
-      const data = await game.getAllGames(page, 10);
+      const data = await game.getAllGames(page, 10, guestId);
       setGames(data);
 
     }
     getAllGames();
-  }, [page])
+  }, [page, guestId])
 
   async function deleteGame(id) {
     const api = ApiChess.getAPI();
