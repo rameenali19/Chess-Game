@@ -1,15 +1,26 @@
 import ApiChess from "../api/apiChess";
+import { useContext } from "react";
+import { userContext } from "../Context/UserContext";
 
-function LoginScreen({ guestId, setGuestId }) {
+
+function LoginScreen() {
+
+  const { guestId } = useContext(userContext);
+  const { setGuestId } = useContext(userContext)
 
   async function createGuestId() {
-    const guestId = crypto.randomUUID();
-    localStorage.setItem("guestId", guestId)
-    setGuestId(guestId);
+
+    const id = crypto.randomUUID();
+
+    localStorage.setItem("guestId", id)
+
+    setGuestId(id);
+
     const guest = ApiChess.getAPI();
     const createGuestInfo = {
-      guestId: guestId
+      guestId: id
     }
+
     const data = await guest.createGuest(createGuestInfo)
 
   }

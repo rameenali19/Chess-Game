@@ -1,11 +1,19 @@
 import SideBar from "../Components/SideBar"
 import { Outlet } from "react-router-dom"
+import { userContext } from "../Context/UserContext"
+import { useState } from "react"
 
 function Layout() {
+  const [guestId, setGuestId] = useState(
+    localStorage.getItem("guestId")
+  )
+
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
-      <SideBar />
-      <Outlet/>
+      <userContext.Provider value={{ guestId, setGuestId }}>
+        <SideBar />
+        <Outlet />
+      </userContext.Provider>
     </div>
   )
 }
