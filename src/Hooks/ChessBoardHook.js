@@ -31,30 +31,28 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     async function getGame() {
       const game = ApiChess.getAPI();
 
-      const data = await game.getGame(id);
-
-      const player = await game.getPlayer(data.id, guestId)
+      const data = await game.getGame(id, guestId);
 
 
-      setUserColor(player.player_color)
+      setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
       setPromotion(data.promotion)
       enPassant.current = data.en_passant
 
 
-      const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current, player.player_color)
+      const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current, data.player_color)
       setIsKingInCheck(inCheck)
 
       if (inCheck.inCheck) {
-        setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current, player.player_color))
+        setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current, data.player_color))
       } else {
         setCheckMate(false)
       }
 
       setIsStaleMate(
         !inCheck.inCheck && (
-          staleMate(data.game_board, data.current_turn, enPassant.current, player.player_color)
+          staleMate(data.game_board, data.current_turn, enPassant.current, data.player_color)
         )
       )
 
