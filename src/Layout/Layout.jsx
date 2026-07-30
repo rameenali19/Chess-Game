@@ -1,4 +1,4 @@
-import SideBar from "../src/Components/SideBar"
+import SideBar from "../Components/SideBar"
 
 
 function Layout() {
