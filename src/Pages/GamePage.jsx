@@ -18,7 +18,7 @@ function GamePage() {
   const [guestId, setGuestId] = useState(null)
 
   return (
-    <>
+    <div className="flex justify-around">
 
       {id && (
         <main className=" flex gap-5 items-center">
@@ -81,7 +81,7 @@ function GamePage() {
         )
       }
 
-    </>
+    </div>
 
   )
 }
