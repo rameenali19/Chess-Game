@@ -19,15 +19,8 @@ class ApiChess {
 
   //creating a new game
   async createGame(gameInfo) {
-    const request = await fetch(`${this.url}/games`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(gameInfo)
-    });
-    const data = await request.json();
-    return data;
+    const request = await this.url.post("/games", gameInfo)
+    return request;
   }
 
 
