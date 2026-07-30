@@ -22,6 +22,11 @@ class ApiChess {
     return request.data;
   }
 
+  //creating a new guest
+  async createGuest(guestId) {
+    const request = await this.apiClient.post("/guests", guestId)
+    return request.data;
+  }
 
   //get all games
   async getAllGames(page, limit) {

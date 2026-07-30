@@ -1,11 +1,12 @@
 import ChessBoard from "../Components/ChessBoard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import NavBar from "../Components/NavBar";
 import { useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
 import MainMenu from "../Screens/MainMenu";
 import ModeSelection from "../Screens/ModeSelection";
+import LoginScreen from "../Screens/LoginScreen";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -15,6 +16,8 @@ function GamePage() {
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
   const [mode, setMode] = useState(null);
+  const [guestId, setGuestId] = useState(null)
+
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
@@ -48,9 +51,16 @@ function GamePage() {
 
         </main>
       )}
-
       {
-        !id && mode === null && (
+        !id && mode === null && !localStorage.getItem("guestId") && (
+          <LoginScreen
+            guestId={guestId}
+            setGuestId={setGuestId}
+          />
+        )
+      }
+      {
+        !id && mode === null && localStorage.getItem("guestId") && (
           <ModeSelection
             mode={mode}
             setMode={setMode}
@@ -59,7 +69,7 @@ function GamePage() {
       }
 
       {
-        !id && mode !== null && mode !== "join" && (
+        !id && mode !== null && mode !== "join" && localStorage.getItem("guestId") && (
           <MainMenu
             turn={turn}
             setTurn={setTurn}
@@ -67,7 +77,9 @@ function GamePage() {
             setUserColor={setUserColor}
             opponentColor={opponentColor}
             setOpponentColor={setOpponentColor}
-
+            mode={mode}
+            guestId={guestId}
+            setGuestId={setGuestId}
           />
         )
       }
