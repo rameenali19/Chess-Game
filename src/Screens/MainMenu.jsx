@@ -5,14 +5,14 @@ import { useState } from "react";
 import { initialBoardSetup } from "../Chess/Board";
 import { motion } from "framer-motion";
 
-function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, guestId, setGuestId }) {
+function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, guestId }) {
 
   const navigate = useNavigate();
   const [hover, setHover] = useState();
 
 
   async function createGame() {
-
+    const playerId = crypto.randomUUID();
     const game = ApiChess.getAPI();
     const createGameInfo = {
       currentTurn: "White",
@@ -20,9 +20,9 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       gameStatus: "unfinished",
       enPassant: null,
       promotion: null,
-      // playerId:,
+      playerId: playerId,
       playerColor: userColor,
-      guestId
+      guestId: guestId
 
     }
     const id = await game.createGame(createGameInfo)

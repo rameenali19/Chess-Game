@@ -52,7 +52,7 @@ function GamePage() {
         </main>
       )}
       {
-        !id && mode === null && !localStorage.getItem("guestId") && (
+        !id && mode === null && !guestId && (
           <LoginScreen
             guestId={guestId}
             setGuestId={setGuestId}
@@ -60,7 +60,7 @@ function GamePage() {
         )
       }
       {
-        !id && mode === null && localStorage.getItem("guestId") && (
+        !id && mode === null && guestId && (
           <ModeSelection
             mode={mode}
             setMode={setMode}
@@ -79,7 +79,6 @@ function GamePage() {
             setOpponentColor={setOpponentColor}
             mode={mode}
             guestId={guestId}
-            setGuestId={setGuestId}
           />
         )
       }

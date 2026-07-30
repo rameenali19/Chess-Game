@@ -11,6 +11,7 @@ function LoginScreen({ guestId, setGuestId }) {
       guestId: guestId
     }
     const data = await guest.createGuest(createGuestInfo)
+
   }
   return (
     <div>
@@ -23,7 +24,7 @@ function LoginScreen({ guestId, setGuestId }) {
           createGuestId();
         }}
       >
-        guestId
+        No
       </button>
     </div>
   )
