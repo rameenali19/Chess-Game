@@ -53,9 +53,7 @@ function GamePage() {
       )}
       {
         !id && mode === null && !guestId && (
-          <LoginScreen
-
-          />
+          <LoginScreen />
         )
       }
       {
