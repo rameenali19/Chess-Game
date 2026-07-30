@@ -20,57 +20,38 @@ class ApiChess {
   //creating a new game
   async createGame(gameInfo) {
     const request = await this.url.post("/games", gameInfo)
-    return request;
+    return request.data;
   }
 
 
   //get all games
   async getAllGames(page, limit) {
-    const request = await this.url("/games", {
+    const request = await this.url.get("/games", {
       params: {
         page: page,
         limit: limit
       }
     }
     );
-    return request;
+    return request.data;
   }
 
   //get game by id
   async getGame(id) {
-    const request = await fetch(`${this.url}/games/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data = await request.json();
-    return data;
+    const request = await this.url.get(`/games/${id}`);
+    return request.data;
   }
 
   //update game by id
   async updateGame(id, gameInfo) {
-    const request = await fetch(`${this.url}/games/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(gameInfo)
-    });
-    const data = await request.json();
-    return data;
+    const request = await this.url.post(`/games/${id}`, gameInfo);
+    return request.data;
   }
 
   //delete game
   async deleteGame(id) {
-    const request = await fetch(`${this.url}/games/${id}`, {
-      method: "Delete",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data = await request.json();
-    return data;
+    const request = await this.url.delete(`/games/${id}`);
+    return request.data;
   }
 
 }
