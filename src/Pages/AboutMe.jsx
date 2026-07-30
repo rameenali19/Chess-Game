@@ -1,8 +1,8 @@
-import NavBar from "../Components/NavBar";
+import SideBar from "../Components/SideBar";
 function AboutMe() {
   return (
     <>
-      <NavBar />
+      <SideBar />
     </>
   )
 }

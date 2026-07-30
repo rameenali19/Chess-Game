@@ -1,5 +1,5 @@
 import ApiChess from "../api/apiChess";
-import NavBar from "../Components/NavBar";
+import SideBar from "../Components/SideBar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HistoryButton from "../Components/HistoryButton";
@@ -40,7 +40,7 @@ function HistoryPage() {
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
 
-      <NavBar />
+      <SideBar />
 
       <motion.main className="ml-52 p-10"
         initial={{ opacity: 0, y: 20 }}

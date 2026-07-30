@@ -1,6 +1,6 @@
 import ChessBoard from "../Components/ChessBoard";
 import { useState, useEffect, use } from "react";
-import NavBar from "../Components/NavBar";
+import SideBar from "../Components/SideBar";
 import { useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
@@ -21,7 +21,7 @@ function GamePage() {
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
 
-      <NavBar />
+      <SideBar />
       {id && (
         <main className=" flex gap-5 items-center">
 
