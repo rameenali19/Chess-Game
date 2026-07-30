@@ -1,6 +1,5 @@
 import ChessBoard from "../Components/ChessBoard";
 import { useState, useEffect, use } from "react";
-import SideBar from "../Components/SideBar";
 import { useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
@@ -19,9 +18,8 @@ function GamePage() {
   const [guestId, setGuestId] = useState(null)
 
   return (
-    <div className="bg-[rgb(248,240,225)] min-h-screen flex justify-around">
+    <>
 
-      <SideBar />
       {id && (
         <main className=" flex gap-5 items-center">
 
@@ -83,7 +81,8 @@ function GamePage() {
         )
       }
 
-    </div>
+    </>
+
   )
 }
 export default GamePage;
