@@ -26,14 +26,14 @@ class ApiChess {
 
   //get all games
   async getAllGames(page, limit) {
-    const request = await fetch(`${this.url}/games?page=${page}&limit=${limit}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
+    const request = await this.url("/games", {
+      params: {
+        page: page,
+        limit: limit
       }
-    });
-    const data = await request.json();
-    return data;
+    }
+    );
+    return request;
   }
 
   //get game by id
