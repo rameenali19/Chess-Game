@@ -1,11 +1,10 @@
 import axios from "axios";
+import { api } from "./Axios";
 
 class ApiChess {
 
   constructor() {
-    this.url = axios.create({
-      baseURL: "http://localhost:3000"
-    });
+    this.apiClient = api
     this.instance = null;
   }
 
@@ -19,14 +18,14 @@ class ApiChess {
 
   //creating a new game
   async createGame(gameInfo) {
-    const request = await this.url.post("/games", gameInfo)
+    const request = await this.apiClient.post("/games", gameInfo)
     return request.data;
   }
 
 
   //get all games
   async getAllGames(page, limit) {
-    const request = await this.url.get("/games", {
+    const request = await this.apiClient.get("/games", {
       params: {
         page: page,
         limit: limit
@@ -38,19 +37,19 @@ class ApiChess {
 
   //get game by id
   async getGame(id) {
-    const request = await this.url.get(`/games/${id}`);
+    const request = await this.apiClient.get(`/games/${id}`);
     return request.data;
   }
 
   //update game by id
   async updateGame(id, gameInfo) {
-    const request = await this.url.post(`/games/${id}`, gameInfo);
+    const request = await this.apiClient.post(`/games/${id}`, gameInfo);
     return request.data;
   }
 
   //delete game
   async deleteGame(id) {
-    const request = await this.url.delete(`/games/${id}`);
+    const request = await this.apiClient.delete(`/games/${id}`);
     return request.data;
   }
 
