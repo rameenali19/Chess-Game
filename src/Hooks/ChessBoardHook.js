@@ -8,6 +8,8 @@ import { pieceImages } from "../Chess/Constants";
 import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
 import ApiChess from "../api/apiChess";
+import { userContext } from "../Context/UserContext";
+import { useContext } from "react";
 
 export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor }) {
 
@@ -17,6 +19,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
   const [loaded, setLoaded] = useState(false);
+  const { guestId } = useContext(userContext)
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
     attackers: [],
@@ -27,8 +30,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     async function getGame() {
       const game = ApiChess.getAPI();
+
       const data = await game.getGame(id);
-      const player = await game.getPlayer(data.id)
+
+      const player = await game.getPlayer(data.id, guestId)
+
+
       setUserColor(player.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)

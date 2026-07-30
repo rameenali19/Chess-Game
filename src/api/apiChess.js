@@ -65,8 +65,8 @@ class ApiChess {
   }
 
   //get player by id
-  async getPlayer(gameId) {
-    const request = await this.apiClient.get(`/games/${gameId}/player`);
+  async getPlayer(gameId, guestId) {
+    const request = await this.apiClient.get(`/games/${gameId}/player`, guestId);
     return request.data;
   }
 }
