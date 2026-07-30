@@ -4,9 +4,13 @@ import { initialBoard } from "../Chess/Board";
 import { useState } from "react";
 import { initialBoardSetup } from "../Chess/Board";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { userContext } from "../Context/UserContext";
 
-function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, guestId }) {
 
+function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode }) {
+
+  const { guestId } = useContext(userContext);
   const navigate = useNavigate();
   const [hover, setHover] = useState();
 
@@ -20,7 +24,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       enPassant: null,
       promotion: null,
       playerColor: userColor,
-      guestId: localStorage.getItem("guestId")
+      guestId: guestId
     }
 
     const id = await game.createGame(createGameInfo)
