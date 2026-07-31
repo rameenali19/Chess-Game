@@ -5,12 +5,12 @@ import { useState } from "react";
 import { initialBoardSetup } from "../Chess/Board";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { userContext } from "../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
 
 
 function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode }) {
 
-  const { guestId } = useContext(userContext);
+  const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
   const [hover, setHover] = useState();
 

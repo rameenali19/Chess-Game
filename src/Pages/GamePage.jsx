@@ -7,7 +7,7 @@ import MainMenu from "../Screens/MainMenu";
 import ModeSelection from "../Screens/ModeSelection";
 import LoginScreen from "../Screens/LoginScreen";
 import { useContext } from "react";
-import { userContext } from "../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -17,7 +17,7 @@ function GamePage() {
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
   const [mode, setMode] = useState(null);
-  const { guestId } = useContext(userContext);
+  const { guestId } = useContext(UserContext);
 
   return (
     <div className="flex justify-around">

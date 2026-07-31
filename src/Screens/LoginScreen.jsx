@@ -1,12 +1,12 @@
 import ApiChess from "../api/apiChess";
 import { useContext } from "react";
-import { userContext } from "../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
 
 
 function LoginScreen() {
 
-  const { guestId } = useContext(userContext);
-  const { setGuestId } = useContext(userContext)
+  const { guestId } = useContext(UserContext);
+  const { setGuestId } = useContext(UserContext)
 
   async function createGuestId() {
 

@@ -1,6 +1,6 @@
 import SideBar from "../Components/SideBar"
 import { Outlet } from "react-router-dom"
-import { userContext } from "../Context/UserContext"
+import { UserContext } from "../Context/UserContext"
 import { useState } from "react"
 
 function Layout() {
@@ -10,10 +10,10 @@ function Layout() {
 
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
-      <userContext.Provider value={{ guestId, setGuestId }}>
+      <UserContext.Provider value={{ guestId, setGuestId }}>
         <SideBar />
         <Outlet />
-      </userContext.Provider>
+      </UserContext.Provider>
     </div>
   )
 }
