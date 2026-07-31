@@ -43,7 +43,7 @@ class ApiChess {
   }
 
   //get game by id
-  async getGame(id, guestId) {
+  async getGameAndPlayer(id, guestId) {
     const request = await this.apiClient.get(`/games/${id}`, {
       params: {
         guestId: guestId

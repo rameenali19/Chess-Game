@@ -28,10 +28,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
   useEffect(() => {
 
-    async function getGame() {
+    async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
 
-      const data = await game.getGame(id, guestId);
+      const data = await game.getGameAndPlayer(id, guestId);
 
 
       setUserColor(data.player_color)
@@ -58,7 +58,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
       setLoaded(true)
     }
-    getGame();
+    getGameAndPlayer();
   }, [id])
 
   async function updateGame(currentTurn, gameStatus, gameBoard, enPassant, promotion) {
