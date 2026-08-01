@@ -8,6 +8,7 @@ import ModeSelection from "../Screens/ModeSelection";
 import LoginScreen from "../Screens/LoginScreen";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
+import JoinScreen from "./JoinScreen";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -75,6 +76,14 @@ function GamePage() {
             opponentColor={opponentColor}
             setOpponentColor={setOpponentColor}
             mode={mode}
+          />
+        )
+      }
+
+      {
+        !id && mode !== null && mode === "join" && guestId && (
+          <JoinScreen
+
           />
         )
       }

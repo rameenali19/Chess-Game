@@ -42,9 +42,15 @@ class ApiChess {
     return request.data;
   }
 
-  //get game by id
+  //get game by id and player
   async getGameAndPlayer(id, guestId) {
-    const request = await this.apiClient.get(`/games/${id}`, {
+    const request = await this.apiClient.get(`/games/${id}/player/${guestId}`);
+    return request.data;
+  }
+
+  //join game by id 
+  async joinGame(id, guestId) {
+    const request = await this.apiClient.post(`/games/${id}/join`, {
       params: {
         guestId: guestId
       }
@@ -64,11 +70,6 @@ class ApiChess {
     return request.data;
   }
 
-  //create Player
-  async createPlayer(gameId) {
-    const request = await this.apiClient.post(`/games/${gameId}/player`);
-    return request.data;
-  }
 
   //get player by id
   async getPlayer(gameId, guestId) {
