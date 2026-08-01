@@ -12,7 +12,7 @@ function ModeSelection({ mode, setMode }) {
 
       <button className="border-2 border-black hover:cursor-pointer px-3 py-2"
         onClick={() => {
-          setMode("multi player")
+          setMode("multiplayer")
         }}
       >
         Multi-player
