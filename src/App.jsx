@@ -4,7 +4,7 @@ import HistoryPage from "./Pages/HistoryPage";
 import HomePage from "./Pages/HomePage";
 import AboutMe from "./Pages/AboutMe";
 import Layout from "./Layout/Layout";
-
+import socket from "./api/socket";
 
 function App() {
   return (
