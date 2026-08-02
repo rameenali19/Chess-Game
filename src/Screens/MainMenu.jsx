@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../api/socket";
 
-function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, waitingScreen, setWaitingScreen }) {
+function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, waitingScreen, setWaitingScreen, setGameId }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -28,9 +28,13 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
     }
 
     const id = await game.createGame(createGameInfo)
+    setGameId(id)
 
     if (status === "multiplayer") {
-      socket.emit("joinGame", id)
+      socket.emit("joinGame", {
+        gameId: id,
+        canJoin: false
+      })
       setWaitingScreen(true)
     }
 

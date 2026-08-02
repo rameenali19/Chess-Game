@@ -1,4 +1,23 @@
-function WaitingScreen({ WaitingScreen, setWaitingScreen }) {
+import socket from "../api/socket"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+
+function WaitingScreen({ setWaitingScreen, gameId }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    function screenOf() {
+      setWaitingScreen(false)
+      navigate(`/game/${gameId}`)
+    }
+    socket.on("playerJoined", screenOf)
+
+    return () => {
+      socket.off("playerJoined", screenOf)
+    }
+  }, [gameId, navigate, setWaitingScreen])
+
   return (
     <div>
       waiting for the opponent to join game

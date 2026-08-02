@@ -2,7 +2,7 @@ import { UserContext } from "../Context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate } from "react-router-dom";
-
+import socket from "../api/socket";
 
 function JoinScreen() {
   const navigate = useNavigate();
@@ -19,6 +19,11 @@ function JoinScreen() {
       setError(true)
     }
     else {
+      socket.emit("joinGame", {
+        gameId: input,
+        canJoin: true
+      })
+
       navigate(`/game/${input}`)
     }
   }

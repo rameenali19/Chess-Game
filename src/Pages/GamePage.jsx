@@ -21,6 +21,7 @@ function GamePage() {
   const [mode, setMode] = useState(null);
   const { guestId } = useContext(UserContext);
   const [waitingScreen, setWaitingScreen] = useState(null)
+  const [gameId, setGameId] = useState(null)
 
   return (
     <div className="flex justify-around">
@@ -80,6 +81,7 @@ function GamePage() {
             mode={mode}
             waitingScreen={waitingScreen}
             setWaitingScreen={setWaitingScreen}
+            setGameId={setGameId}
           />
         )
       }
@@ -94,8 +96,8 @@ function GamePage() {
       {
         !id && mode === "multiplayer" && guestId && waitingScreen && (
           <WaitingScreen
-            waitingScreen={waitingScreen}
             setWaitingScreen={setWaitingScreen}
+            gameId={gameId}
           />
         )
       }
