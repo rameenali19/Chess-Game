@@ -6,9 +6,9 @@ import { initialBoardSetup } from "../Chess/Board";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
+import socket from "../api/socket";
 
-
-function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode }) {
+function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, waitingScreen, setWaitingScreen }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -28,8 +28,15 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
     }
 
     const id = await game.createGame(createGameInfo)
-    console.log(id)
-    navigate(`/game/${id}`)
+
+    if (status === "multiplayer") {
+      socket.emit("joinGame", id)
+      setWaitingScreen(true)
+    }
+
+    else {
+      navigate(`/game/${id}`)
+    }
 
   }
 

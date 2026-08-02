@@ -8,7 +8,8 @@ import ModeSelection from "../Screens/ModeSelection";
 import LoginScreen from "../Screens/LoginScreen";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import JoinScreen from "./JoinScreen";
+import JoinScreen from "../Screens/JoinScreen";
+import WaitingScreen from "../Screens/WaitingScreen";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -19,6 +20,7 @@ function GamePage() {
   const [opponentColor, setOpponentColor] = useState()
   const [mode, setMode] = useState(null);
   const { guestId } = useContext(UserContext);
+  const [waitingScreen, setWaitingScreen] = useState(null)
 
   return (
     <div className="flex justify-around">
@@ -67,7 +69,7 @@ function GamePage() {
       }
 
       {
-        !id && mode !== null && mode !== "join" && guestId && (
+        !id && mode !== null && mode !== "join" && guestId && !waitingScreen && (
           <MainMenu
             turn={turn}
             setTurn={setTurn}
@@ -76,6 +78,8 @@ function GamePage() {
             opponentColor={opponentColor}
             setOpponentColor={setOpponentColor}
             mode={mode}
+            waitingScreen={waitingScreen}
+            setWaitingScreen={setWaitingScreen}
           />
         )
       }
@@ -84,6 +88,14 @@ function GamePage() {
         !id && mode !== null && mode === "join" && guestId && (
           <JoinScreen
 
+          />
+        )
+      }
+      {
+        !id && mode === "multiplayer" && guestId && waitingScreen && (
+          <WaitingScreen
+            waitingScreen={waitingScreen}
+            setWaitingScreen={setWaitingScreen}
           />
         )
       }
