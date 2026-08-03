@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import JoinScreen from "../Screens/JoinScreen";
 import WaitingScreen from "../Screens/WaitingScreen";
-import socket from "../api/socket";
+
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -35,6 +35,8 @@ function GamePage() {
             checkMate={checkMate}
             staleMate={isStaleMate}
             id={id}
+            userColor={userColor}
+            opponentColor={opponentColor}
           />
 
           <div className="ring-2 ring-[#C7A97A] translate-y-7 h-125 w-125 grid grid-cols-8

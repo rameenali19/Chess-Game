@@ -1,4 +1,4 @@
-function Info({ turn, checkMate, staleMate, id }) {
+function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
 
   const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
 
@@ -20,6 +20,12 @@ function Info({ turn, checkMate, staleMate, id }) {
 
       <div className=" bg-[#FFF7EA]  border border-[#E8DCC7] shadow-lg
         px-3 h-30 w-55 flex flex-col py-3 rounded-lg font-inter text-[#17384A]">
+        <div>
+          You: {userColor}
+        </div>
+        <div>
+          Opponent: {opponentColor}
+        </div>
       </div>
 
 

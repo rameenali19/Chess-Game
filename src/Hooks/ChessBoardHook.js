@@ -32,8 +32,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const game = ApiChess.getAPI();
 
       const data = await game.getGameAndPlayer(id, guestId);
-
-
+      const opponentColor = data.player_color === "White" ? "Black" : "White"
+      setOpponentColor(opponentColor)
       setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
