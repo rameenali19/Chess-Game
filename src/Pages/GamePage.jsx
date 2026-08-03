@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import JoinScreen from "../Screens/JoinScreen";
 import WaitingScreen from "../Screens/WaitingScreen";
+import socket from "../api/socket";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)

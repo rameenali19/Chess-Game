@@ -1,7 +1,7 @@
 import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { initialBoard } from "../Chess/Board";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { initialBoardSetup } from "../Chess/Board";
 import { motion } from "framer-motion";
 import { useContext } from "react";
@@ -26,11 +26,11 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       playerColor: userColor,
       guestId: guestId
     }
-
     const id = await game.createGame(createGameInfo)
     setGameId(id)
 
-    if (status === "multiplayer") {
+    if (mode === "multiplayer") {
+
       socket.emit("joinGame", {
         gameId: id,
         canJoin: false
@@ -43,6 +43,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
     }
 
   }
+
 
   return (
 

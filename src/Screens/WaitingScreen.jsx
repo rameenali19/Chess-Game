@@ -5,18 +5,18 @@ import { useEffect } from "react"
 function WaitingScreen({ setWaitingScreen, gameId }) {
   const navigate = useNavigate();
 
+
   useEffect(() => {
 
     function screenOf() {
+
       setWaitingScreen(false)
       navigate(`/game/${gameId}`)
     }
-    socket.on("playerJoined", screenOf)
 
-    return () => {
-      socket.off("playerJoined", screenOf)
-    }
-  }, [gameId, navigate, setWaitingScreen])
+    socket.on("playerJoined", () => screenOf());
+  }, [])
+
 
   return (
     <div>

@@ -19,6 +19,7 @@ function JoinScreen() {
       setError(true)
     }
     else {
+
       socket.emit("joinGame", {
         gameId: input,
         canJoin: true

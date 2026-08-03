@@ -51,9 +51,7 @@ class ApiChess {
   //join game by id 
   async joinGame(id, guestId) {
     const request = await this.apiClient.post(`/games/${id}/join`, {
-      params: {
-        guestId: guestId
-      }
+      guestId
     });
     return request.data;
   }

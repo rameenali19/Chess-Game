@@ -1,5 +1,8 @@
 import MainMenu from "./MainMenu";
+import socket from "../api/socket";
+import { useEffect } from "react";
 function ModeSelection({ mode, setMode }) {
+
   return (
     <div>
       <button className="border-2 border-black hover:cursor-pointer px-3 py-2"
