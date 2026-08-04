@@ -10,6 +10,7 @@ import { staleMate } from "../Chess/Stalemate";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
+import socket from "../api/socket";
 
 export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor }) {
 
