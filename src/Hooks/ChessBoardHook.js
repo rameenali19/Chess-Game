@@ -124,7 +124,9 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       enPassant: enPassant.current,
       promotion: promotion
     }
-    updateGame(gameData)
+    if (mode === "single player") {
+      updateGame(gameData)
+    }
     if (mode === "multiplayer") {
       socket.emit("gameUpdate", {
         gameId: id,
