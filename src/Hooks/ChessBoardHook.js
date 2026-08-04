@@ -20,6 +20,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
   const [loaded, setLoaded] = useState(false);
+  const fromSocket = useRef(false);
   const { guestId } = useContext(UserContext)
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
@@ -28,7 +29,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   })
 
   useEffect(() => {
-
+    socket.emit("joinGame", {
+      gameId: id,
+      canJoin: false
+    })
     async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
 
@@ -63,36 +67,74 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     getGameAndPlayer();
   }, [id])
 
-  async function updateGame(currentTurn, gameStatus, gameBoard, enPassant, promotion) {
+  async function updateGame(gameData) {
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
-      currentTurn: currentTurn,
-      gameStatus: gameStatus,
-      gameBoard: gameBoard,
-      enPassant: enPassant,
-      promotion: promotion
+      currentTurn: gameData.turn,
+      gameStatus: gameData.status,
+      gameBoard: gameData.board,
+      enPassant: gameData.enPassant,
+      promotion: gameData.promotion
     })
 
   }
 
-  useEffect(() => {
-    if (mode === "single player") {
-      if (!loaded || !id) return;
-      updateGame(
-        turn,
-        checkMate ?
-          "finished"
-          : isStaleMate ?
-            "finished"
-            : "unfinished",
-        board,
-        enPassant.current,
-        promotion
-      )
+  function resetData(gameData) {
+
+    setBoard(gameData.board);
+    console.log(gameData)
+    setTurn(gameData.turn);
+    setPromotion(gameData.promotion);
+    enPassant.current = gameData.enPassant;
+    const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
+    setIsKingInCheck(inCheck)
+
+    if (inCheck.inCheck) {
+      setCheckMate(CheckMate(gameData.board, gameData.turn, enPassant.current))
+    } else {
+      setCheckMate(false)
     }
 
+    setIsStaleMate(
+      !inCheck.inCheck && (
+        staleMate(gameData.board, gameData.turn, enPassant.current)
+      )
+    )
 
-  }, [board, turn, isStaleMate, checkMate, loaded, promotion])
+  }
+
+  useEffect(() => {
+    socket.on("gameUpdate", (gameData) => {
+      fromSocket.current = true
+      resetData(gameData)
+    });
+  }, [])
+
+  useEffect(() => {
+
+    if (!loaded || !id) return;
+    if (fromSocket.current) {
+      fromSocket.current = false
+      return
+    }
+    const gameData = {
+      turn: turn,
+      status: checkMate ? "finished" : isStaleMate ? "finished" : "unfinished",
+      board: board,
+      enPassant: enPassant.current,
+      promotion: promotion
+    }
+    updateGame(gameData)
+    if (mode === "multiplayer") {
+      socket.emit("gameUpdate", {
+        gameId: id,
+        gameData: gameData
+      })
+
+    }
+
+  }, [board])
+
 
 
   function HandleClick(rowIndex, colIndex) {
@@ -185,7 +227,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     const piece = board[rowIndex][colIndex]
     if (piece === ".") return;
     if (piece.color !== turn) return;
-    if (mode === "multi player") {
+    if (mode === "multiplayer") {
       if (userColor !== turn) return;
       if (piece.color !== userColor) return;
     }

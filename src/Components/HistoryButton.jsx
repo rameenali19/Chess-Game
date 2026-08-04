@@ -27,7 +27,7 @@ function HistoryButton({ game, deleteGame }) {
           {
             game.game_status === "unfinished" ? "In Progress"
               : (
-                "waiting" ?
+                game.game_status === "waiting" ?
                   "Waiting" :
                   "Completed"
               )
