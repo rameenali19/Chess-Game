@@ -12,7 +12,7 @@ import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
 import socket from "../api/socket";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -35,6 +35,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const data = await game.getGameAndPlayer(id, guestId);
       const opponentColor = data.player_color === "White" ? "Black" : "White"
       setOpponentColor(opponentColor)
+      setMode(data.mode)
       setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
@@ -75,18 +76,21 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }
 
   useEffect(() => {
-    if (!loaded || !id) return;
-    updateGame(
-      turn,
-      checkMate ?
-        "finished"
-        : isStaleMate ?
+    if (mode === "single player") {
+      if (!loaded || !id) return;
+      updateGame(
+        turn,
+        checkMate ?
           "finished"
-          : "unfinished",
-      board,
-      enPassant.current,
-      promotion
-    )
+          : isStaleMate ?
+            "finished"
+            : "unfinished",
+        board,
+        enPassant.current,
+        promotion
+      )
+    }
+
 
   }, [board, turn, isStaleMate, checkMate, loaded, promotion])
 
@@ -180,8 +184,11 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   function selectPieceFunction(rowIndex, colIndex) {
     const piece = board[rowIndex][colIndex]
     if (piece === ".") return;
-    if (userColor !== turn) return;
-    if (piece.color !== userColor) return;
+    if (piece.color !== turn) return;
+    if (mode === "multi player") {
+      if (userColor !== turn) return;
+      if (piece.color !== userColor) return;
+    }
     const newSelectedPiece = {
       ...piece,
       row: rowIndex,

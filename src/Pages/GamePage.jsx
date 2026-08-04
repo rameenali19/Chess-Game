@@ -53,6 +53,8 @@ function GamePage() {
               opponentColor={opponentColor}
               setUserColor={setUserColor}
               setOpponentColor={setOpponentColor}
+              mode={mode}
+              setMode={setMode}
             />
           </div>
 

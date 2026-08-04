@@ -16,6 +16,8 @@ function ChessBoard({
   opponentColor,
   setUserColor,
   setOpponentColor,
+  mode,
+  setMode
 }) {
   const {
     board,
@@ -38,6 +40,8 @@ function ChessBoard({
     opponentColor,
     setUserColor,
     setOpponentColor,
+    mode,
+    setMode
   });
 
   const displayBoard =
