@@ -13,7 +13,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
   const navigate = useNavigate();
   const [hover, setHover] = useState();
   const status = mode === "single player" ? "unfinished" : "waiting"
-  
+
   async function createGame() {
     const game = ApiChess.getAPI();
     const createGameInfo = {
@@ -22,6 +22,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       gameStatus: status,
       enPassant: null,
       promotion: null,
+      mode: mode,
       playerColor: userColor,
       guestId: guestId
     }
