@@ -11,20 +11,26 @@ function HistoryButton({ game, deleteGame }) {
 
       <div>
         <span className="hover:cursor-pointer mx-7 font-inter text-xl
-       text-[#17384A] font-semibold">Game # {game.id}</span>
+       text-[#17384A] font-semibold">Game # {game.id} {game.mode}</span>
       </div>
 
       <div className="flex gap-5 font-inter text-sm font-semibold">
 
         <button className={`w-36 px-4 py-3 rounded-full  hover:cursor-pointer
       ${game.game_status === "unfinished" ? "bg-[#F7D98D] text-[#8A5A00]"
-            : "bg-[#D9E8C8] text-[#3F6B2A]"
+            : (game.game_status === "finished" ? "bg-[#D9E8C8] text-[#3F6B2A]"
+              : "bg-[#d3f6ff] text-[#17384A]"
+            )
           }`
         }
         >
           {
             game.game_status === "unfinished" ? "In Progress"
-              : "Completed"
+              : (
+                "waiting" ?
+                  "Waiting" :
+                  "Completed"
+              )
 
           }
         </button>

@@ -63,7 +63,7 @@ class ApiChess {
   }
 
   //delete game
-  async deleteGame(id) {
+  async deleteGame(id, guestId) {
     const request = await this.apiClient.delete(`/games/${id}`);
     return request.data;
   }
