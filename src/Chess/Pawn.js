@@ -1,8 +1,8 @@
-export function PawnMoves(selectedPiece, board, enPassant, userColor) {
+export function PawnMoves(selectedPiece, board, enPassant) {
 
   let moves = [];
 
-  const direction = selectedPiece.color === userColor ? -1 : 1;
+  const direction = selectedPiece.color === "White" ? -1 : 1;
   const nextRow = selectedPiece.row + direction;
   const startRow = direction === -1 ? 6 : 1
 

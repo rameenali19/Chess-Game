@@ -1,9 +1,12 @@
 import { pieceImages } from "../Chess/Constants";
-function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures, kingInCheck, checkingPiece }) {
+function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures, kingInCheck, checkingPiece, displayRow, displayCol, userColor }) {
 
-  const whiteBox = (row + col) % 2 === 0;
-  const blackBox = (row + col) % 2 !== 0;
-  let alphabetarray = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  const whiteBox = (displayRow + displayCol) % 2 === 0;
+  const blackBox = (displayRow + displayCol) % 2 !== 0;
+  const alphabetarray =
+    userColor === "White" ?
+      ["a", "b", "c", "d", "e", "f", "g", "h"]
+      : ["h", "g", "f", "e", "d", "c", "b", "a"];
   let squareColor = whiteBox ? "bg-[#F5E8D7]" : "bg-[#D8B892]";
   if (selected) squareColor = "bg-sky-300";
   if (checkingPiece) squareColor = "bg-yellow-200 ";
@@ -25,13 +28,17 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
         />
       }
       {
-        row === 7 && (
-          <span className="absolute right-0.5 -bottom-0.5">{alphabetarray[col]}</span>
+        displayRow === 7 && (
+          <span className="absolute right-0.5 -bottom-0.5">{alphabetarray[displayCol]}</span>
         )
       }
       {
-        col === 0 && (
-          <span className="absolute left-0.5 -top-0.5">{8 - row}</span>
+        displayCol === 0 && (
+          <span className="absolute left-0.5 -top-0.5">
+            {userColor === "White"
+              ? 8 - displayRow
+              : displayRow + 1}
+          </span>
         )
       }
       {

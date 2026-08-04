@@ -1,7 +1,7 @@
 import { IsKingInCheck } from "./IsKingInCheck";
 import { MovePiece } from "../Components/MovePiece";
 import { GenerateMoves } from "./GenerateMoves";
-export function CheckMate(board, turn, enPassant, userColor) {
+export function CheckMate(board, turn, enPassant) {
   let tempBoard;
   for (let row = 0; row < 8; row++) {
     for (let col = 0; col < 8; col++) {
@@ -18,7 +18,7 @@ export function CheckMate(board, turn, enPassant, userColor) {
         row: row,
         col: col
       }
-      const moves = GenerateMoves(piece, board, enPassant, userColor);
+      const moves = GenerateMoves(piece, board, enPassant);
       for (const move of moves) {
         tempBoard = MovePiece(
           move.row,
@@ -28,7 +28,7 @@ export function CheckMate(board, turn, enPassant, userColor) {
           move.castle,
           move.enPassant
         );
-        const stillInCheck = IsKingInCheck(tempBoard, turn, enPassant, userColor,);
+        const stillInCheck = IsKingInCheck(tempBoard, turn, enPassant);
         if (!stillInCheck.inCheck) {
           return false;
         }

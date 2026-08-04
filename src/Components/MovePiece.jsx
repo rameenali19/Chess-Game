@@ -1,4 +1,4 @@
-export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant, userColor) {
+export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant) {
 
   const newBoard = board.map(row => [...row])
 
@@ -45,7 +45,7 @@ export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPa
   }
 
   if (enPassant) {
-    const direction = selectedPiece.color === userColor ? -1 : 1;
+    const direction = selectedPiece.color === "White" ? -1 : 1;
 
     const capturedRow = rowIndex - direction;
 
