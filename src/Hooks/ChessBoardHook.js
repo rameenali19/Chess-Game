@@ -179,7 +179,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   function selectPieceFunction(rowIndex, colIndex) {
     const piece = board[rowIndex][colIndex]
     if (piece === ".") return;
-    if (piece.color !== turn) return;
+    if (userColor !== turn) return;
+    if (piece.color !== userColor) return;
     const newSelectedPiece = {
       ...piece,
       row: rowIndex,
