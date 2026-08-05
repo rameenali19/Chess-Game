@@ -1,9 +1,8 @@
-
-
 import Square from "./Square";
 import Promotion from "../Screens/PromotionScreen";
 import { useChessBoard } from "../Hooks/ChessBoardHook";
-
+import DisconnectScreen from "../Screens/DisconnectScreen";
+import ReconnectingScreen from "../Screens/ReconnectingScreen";
 function ChessBoard({
   turn,
   setTurn,
@@ -28,6 +27,10 @@ function ChessBoard({
     enPassant,
     isKingInCheck,
     promote,
+    disconnectScreen,
+    setDisconnectScreen,
+    reconnectingScreen,
+    setReconnectingScreen
   } = useChessBoard({
     turn,
     setTurn,
@@ -104,6 +107,17 @@ function ChessBoard({
         turn={turn}
         promote={promote}
         open={promotion}
+      />
+
+      <DisconnectScreen
+        open={disconnectScreen}
+        setDisconnectScreen={setDisconnectScreen}
+        setReconnectingScreen={setReconnectingScreen}
+      />
+
+      <ReconnectingScreen
+        open={reconnectingScreen}
+        setReconnectingScreen={setReconnectingScreen}
       />
     </>
   );

@@ -22,6 +22,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [loaded, setLoaded] = useState(false);
   const fromSocket = useRef(false);
   const { guestId } = useContext(UserContext)
+  const [disconnectScreen, setDisconnectScreen] = useState(false)
+  const [reconnectingScreen, setReconnectingScreen] = useState(false)
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
     attackers: [],
@@ -82,7 +84,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   function resetData(gameData) {
 
     setBoard(gameData.board);
-    console.log(gameData)
     setTurn(gameData.turn);
     setPromotion(gameData.promotion);
     enPassant.current = gameData.enPassant;
@@ -108,7 +109,23 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       fromSocket.current = true
       resetData(gameData)
     });
+
+    socket.on("opponentDisconnected", () => {
+      setDisconnectScreen(true)
+
+    });
+
   }, [])
+
+  useEffect(() => {
+
+    return () => {
+      socket.emit("leavingGame", {
+        gameId: id
+      })
+    };
+  }, []);
+
 
   useEffect(() => {
 
@@ -286,6 +303,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     promotion,
     enPassant,
     isKingInCheck,
-    promote
+    promote,
+    disconnectScreen,
+    setDisconnectScreen,
+    reconnectingScreen,
+    setReconnectingScreen
   }
 }
