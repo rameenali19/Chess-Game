@@ -33,7 +33,7 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
 
       socket.emit("joinGame", {
         gameId: id,
-        canJoin: false
+        guestId
       })
       setWaitingScreen(true)
     }
