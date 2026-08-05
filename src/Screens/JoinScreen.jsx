@@ -17,16 +17,14 @@ function JoinScreen() {
     const data = await api.joinGame(input, guestId);
     if (data.message) {
       setError(true)
+      return
     }
-    else {
+    socket.emit("joinGame", {
+      gameId: input,
+      reconnect: data.reconnect
+    })
 
-      socket.emit("joinGame", {
-        gameId: input,
-        reconnect: data.reconnect
-      })
-
-      navigate(`/game/${input}`)
-    }
+    navigate(`/game/${input}`)
   }
 
 
