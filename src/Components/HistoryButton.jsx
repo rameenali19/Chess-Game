@@ -39,6 +39,17 @@ function HistoryButton({ game, deleteGame }) {
             : "ring-[#2b6381] ring-2 text-[#2b6381] "
           }`
         } onClick={() => {
+          if (game.mode === "multiplayer" &&
+            game.game_status !== "finished"
+          ) {
+            navigate("/game", {
+              state: {
+                mode: "join",
+                gameId: game.id
+              }
+            })
+            return
+          }
           navigate(`/game/${game.id}`)
         }}>
           {
