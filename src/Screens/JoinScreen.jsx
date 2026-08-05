@@ -22,7 +22,7 @@ function JoinScreen() {
 
       socket.emit("joinGame", {
         gameId: input,
-        guestId
+        reconnect: data.reconnect
       })
 
       navigate(`/game/${input}`)

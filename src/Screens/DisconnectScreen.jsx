@@ -1,5 +1,7 @@
+import { Navigate, useNavigate } from "react-router-dom"
 function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReconnectingScreen }) {
   if (open) {
+    const navigate = useNavigate()
     return (
       <div className="fixed inset-0  flex justify-center items-center">
 
@@ -23,7 +25,10 @@ function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReco
               Wait
             </button>
             <button className="border-2 border-black hover:cursor-pointer"
-
+              onClick={() => {
+                setDisconnectScreen(false)
+                navigate(`/`)
+              }}
             >
               Leave
             </button>

@@ -33,7 +33,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   useEffect(() => {
     socket.emit("joinGame", {
       gameId: id,
-      guestId
+
     })
     async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
@@ -114,6 +114,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setDisconnectScreen(true)
 
     });
+
+    socket.on("opponentReconnected", () => {
+      setReconnectingScreen(false)
+
+    });
+
 
   }, [])
 
