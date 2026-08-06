@@ -1,11 +1,12 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import ApiChess from "../api/apiChess";
+import { useState } from "react";
 
 function HistoryButton({ game, deleteGame }) {
   const navigate = useNavigate();
   const playerImage = game.mode === "single player" ? "/singleplayer.png" : "/multiplayer.png"
   const text = game.mode === "single player" ? "Single Player Game" : "Multiplayer Game"
-
+  const [hover, setHover] = useState(true)
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
         px-6 hover:shadow-md hover:-translate-y-0.5 transition h-20 w-full
@@ -26,18 +27,18 @@ function HistoryButton({ game, deleteGame }) {
 
       <div className="flex gap-5 font-inter text-sm font-semibold">
 
-        <button className={`w-36 px-4  rounded-2xl  hover:cursor-pointer
-      ${game.game_status === "unfinished" || "waiting" ? "bg-[#F9E4A4] text-[#8A5A00]"
+        <button className={`w-36 px-4  rounded-2xl  hover:cursor-pointer hover:-translate-y-0.5 transition
+      ${game.game_status === "unfinished" || game.game_status === "waiting" ? "bg-[#F9E4A4] text-[#8A5A00]"
             : "bg-[#D9E8C8] text-[#3F6B2A]"
           }`}
         >
           {
-            game.game_status === "unfinished" || "waiting" ? "In Progress" : "Completed"
+            game.game_status === "unfinished" || game.game_status === "waiting" ? "In Progress" : "Completed"
 
           }
         </button>
-        <button className={`w-36 px-4 py-3 rounded-xl  hover:cursor-pointer
-      ${game.game_status === "unfinished" || "waiting" ? "bg-[#2b6381] text-white"
+        <button className={`w-36 px-4 py-3 rounded-xl  hover:cursor-pointer hover:-translate-y-0.5 transition
+      ${game.game_status === "unfinished" || game.game_status === "waiting" ? "bg-[#2b6381] text-white"
             : "ring-[#2b6381] ring-2 text-[#2b6381] "
           }`
         } onClick={() => {
@@ -58,10 +59,16 @@ function HistoryButton({ game, deleteGame }) {
             game.game_status === "finished" ? "View" : "Continue"
           }
         </button>
-        <button className="px-6 py-3 rounded-full  hover:cursor-pointer bg-[#eb1603] text-white"
+        <button className="px-4 py-2 rounded-full  hover:cursor-pointer bg-[#eb1603] text-white hover:-translate-y-0.5 transition flex items-center"
           onClick={() => { deleteGame(game.id) }}
+          onMouseEnter={() => { setHover(false) }}
+          onMouseLeave={() => { setHover(true) }}
         >
-          Delete
+          <img className="w-5 mr-1 object-contain h-5"
+            src={hover ? "/dustbin-close.png" : "/dustbin-open.png"}
+            alt="dustbin image"></img>
+          <div>Delete</div>
+
         </button>
 
       </div>
