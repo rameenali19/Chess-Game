@@ -44,6 +44,7 @@ class ApiChess {
 
   //get game by id and player
   async getGameAndPlayer(id, guestId) {
+    console.log("API getGameAndPlayer", { id, guestId });
     const request = await this.apiClient.get(`/games/${id}/player/${guestId}`);
     return request.data;
   }

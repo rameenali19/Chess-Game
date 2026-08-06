@@ -1,6 +1,6 @@
 import ChessBoard from "../Components/ChessBoard";
-import { useState, useEffect, use } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
 import MainMenu from "../Screens/MainMenu";
@@ -10,7 +10,8 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import JoinScreen from "../Screens/JoinScreen";
 import WaitingScreen from "../Screens/WaitingScreen";
-
+import { useLocation } from "react-router-dom";
+import socket from "../Socket/socket";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -19,10 +20,28 @@ function GamePage() {
   const { id } = useParams();
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
-  const [mode, setMode] = useState(null);
   const { guestId } = useContext(UserContext);
   const [waitingScreen, setWaitingScreen] = useState(null)
   const [gameId, setGameId] = useState(null)
+  const location = useLocation()
+  const [mode, setMode] = useState(location.state?.mode ?? null);
+  const navigate = useNavigate()
+  console.log("GamePage route:", window.location.pathname);
+  console.log("useParams id:", id);
+  useEffect(() => {
+    console.log("GamePage id =", id);
+    socket.on("waitingScreen", () => {
+      setMode("multiplayer")
+      setWaitingScreen(true)
+    })
+
+    socket.on("playerJoined", (data) => {
+      console.log("PLAYER JOINED EVENT:", data);
+      setWaitingScreen(false);
+      navigate(`/game/${data.gameId}`)
+    });
+
+  }, [])
 
   return (
     <div className="flex justify-around">

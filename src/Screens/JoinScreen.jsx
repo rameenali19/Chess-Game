@@ -2,12 +2,14 @@ import { UserContext } from "../Context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate } from "react-router-dom";
-import socket from "../api/socket";
+import SocketClass from "../Socket/socketClass";
+import { useLocation } from "react-router-dom";
 
 function JoinScreen() {
   const navigate = useNavigate();
   const { guestId } = useContext(UserContext)
-  const [input, setInput] = useState("")
+  const location = useLocation();
+  const [input, setInput] = useState(location.state?.gameId || "");
   const [error, setError] = useState(null)
 
   async function checkingId(e) {
@@ -19,12 +21,9 @@ function JoinScreen() {
       setError(true)
       return
     }
-    socket.emit("joinGame", {
-      gameId: input,
-      reconnect: data.reconnect
-    })
 
-    navigate(`/game/${input}`)
+    const socketClass = SocketClass.getObject();
+    socketClass.joinGame(input)
   }
 
 

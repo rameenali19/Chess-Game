@@ -1,5 +1,5 @@
 import MainMenu from "./MainMenu";
-import socket from "../api/socket";
+import socket from "../Socket/socket";
 import { useEffect } from "react";
 function ModeSelection({ mode, setMode }) {
 

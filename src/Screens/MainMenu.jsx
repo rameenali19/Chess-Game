@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import socket from "../api/socket";
+import SocketClass from "../Socket/socketClass";
 
 function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOpponentColor, mode, waitingScreen, setWaitingScreen, setGameId }) {
 
@@ -26,20 +26,22 @@ function MainMenu({ turn, setTurn, userColor, setUserColor, opponentColor, setOp
       playerColor: userColor,
       guestId: guestId
     }
-    const id = await game.createGame(createGameInfo)
-    setGameId(id)
+    const response = await game.createGame(createGameInfo)
+    const newGameId = response?.id || response;
+    if (!newGameId) {
+      console.error("Failed to retrieve valid Game ID from backend");
+      return;
+    }
+    setGameId(newGameId);
 
     if (mode === "multiplayer") {
-
-      socket.emit("joinGame", {
-        gameId: id,
-
-      })
+      const socketClass = SocketClass.getObject();
+      socketClass.joinGame(newGameId)
       setWaitingScreen(true)
     }
 
     else {
-      navigate(`/game/${id}`)
+      navigate(`/game/${newGameId}`)
     }
 
   }

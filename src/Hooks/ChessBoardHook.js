@@ -10,7 +10,8 @@ import { staleMate } from "../Chess/Stalemate";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
-import socket from "../api/socket";
+import SocketClass from "../Socket/socketClass";
+import socket from "../Socket/socket";
 
 export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode }) {
 
@@ -31,13 +32,13 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   })
 
   useEffect(() => {
-    socket.emit("joinGame", {
-      gameId: id,
+    // if (!id) return
+    // const socketClass = SocketClass.getObject();
+    // socketClass.joinGame(id)
 
-    })
     async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
-
+      console.log("useChessBoard mounted with id:", id, typeof id);
       const data = await game.getGameAndPlayer(id, guestId);
       const opponentColor = data.player_color === "White" ? "Black" : "White"
       setOpponentColor(opponentColor)
@@ -70,6 +71,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }, [id])
 
   async function updateGame(gameData) {
+
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
       currentTurn: gameData.turn,
@@ -124,13 +126,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }, [])
 
   useEffect(() => {
-
     return () => {
-      socket.emit("leavingGame", {
-        gameId: id
-      })
+      if (!id) return
+      const socketClass = SocketClass.getObject();
+      socketClass.leavingGame(id)
     };
-  }, []);
+  }, [id]);
 
 
   useEffect(() => {
@@ -151,11 +152,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       updateGame(gameData)
     }
     if (mode === "multiplayer") {
-      socket.emit("gameUpdate", {
-        gameId: id,
-        gameData: gameData
-      })
-
+      const socketClass = SocketClass.getObject();
+      socketClass.updateGame(id, gameData)
     }
 
   }, [board])
