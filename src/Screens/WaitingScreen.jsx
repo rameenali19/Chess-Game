@@ -12,9 +12,9 @@ function WaitingScreen({ setWaitingScreen, gameId }) {
   }
 
   return (
-    <div>
-      waiting for the opponent to join game
-      <button className="hover:cursor-pointer"
+    <div className="flex flex-col">
+      <div> waiting for the opponent to join game {gameId}</div>
+      <button className="hover:cursor-pointer border-2 border-black"
         onClick={() => {
           leaveGame()
         }}

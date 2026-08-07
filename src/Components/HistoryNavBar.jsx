@@ -30,4 +30,4 @@ function HistoryNavBar({ games, filter, setFilter }) {
     </nav>
   )
 }
-export default HistoryNavBar
+export default HistoryNavBar;
