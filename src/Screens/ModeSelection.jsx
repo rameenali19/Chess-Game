@@ -41,27 +41,42 @@ function ModeSelection({ mode, setMode }) {
         </div>
 
         <div className="flex flex-col gap-3 mt-5" >
-
           <ModeSelectionButton
             setMode={setMode}
           />
 
-          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-100 h-35 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
+
+          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-100 h-40 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
 
             <div className="text-center font-bold">Your Status</div>
 
             <div className="flex justify-between items-center px-3">
-              <div >Games Player</div>
+              <div className="flex items-center gap-2">
+                <img className="object-contain w-8 h-8 hover:scale-105 transition"
+                  src="/status-controller.png" alt="controller image"
+                ></img>
+                <h1>Games Player</h1>
+              </div>
               <div className="font-bold">2</div>
             </div>
 
             <div className="flex justify-between items-center px-3">
-              <div>Wins</div>
+              <div className="flex items-center gap-2">
+                <img className="object-contain w-8 h-8 hover:scale-105 transition"
+                  src="/status-win.png" alt="controller image"
+                ></img>
+                <h1>Wins</h1>
+              </div>
               <div className="font-bold">2</div>
             </div>
 
             <div className="flex justify-between items-center px-3">
-              <div >Win Rate</div>
+              <div className="flex items-center gap-2">
+                <img className="object-contain w-8 h-8 hover:scale-105 transition"
+                  src="/status-win-rate.png" alt="controller image"
+                ></img>
+                <h1>Win Status</h1>
+              </div>
               <div className="font-bold">2</div>
             </div>
 
