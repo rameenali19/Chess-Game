@@ -3,11 +3,11 @@ function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReco
   if (open) {
     const navigate = useNavigate()
     return (
-      <div className="fixed inset-0  flex justify-center items-center">
+      <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
-        <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-60 w-120
+        <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-60 w-180
         shadow-[rgba(23,56,74,0.15)]">
-          <div className="text-3xl font-bold mb-7 flex flex-col items-center font-cormorant text-[#4A2F1D]">
+          <div className="text-3xl font-bold flex flex-col items-center font-cormorant text-[#4A2F1D]">
             <h1>
               Opponent left the game
             </h1>
