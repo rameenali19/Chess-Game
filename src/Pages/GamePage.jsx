@@ -12,6 +12,8 @@ import JoinScreen from "../Screens/JoinScreen";
 import WaitingScreen from "../Screens/WaitingScreen";
 import { useLocation } from "react-router-dom";
 import socket from "../Socket/socket";
+import ReconnectingScreen from "../Screens/ReconnectingScreen";
+import DisconnectScreen from "../Screens/DisconnectScreen";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -26,8 +28,11 @@ function GamePage() {
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const navigate = useNavigate()
+  const [disconnectScreen, setDisconnectScreen] = useState(false)
+  const [reconnectingScreen, setReconnectingScreen] = useState(false)
   console.log("GamePage route:", window.location.pathname);
   console.log("useParams id:", id);
+
   useEffect(() => {
     console.log("GamePage id =", id);
     socket.on("waitingScreen", () => {
@@ -40,6 +45,15 @@ function GamePage() {
       setWaitingScreen(false);
       navigate(`/game/${data.gameId}`)
     });
+
+    socket.on("opponentDisconnected", () => {
+      setDisconnectScreen(true)
+    });
+
+    socket.on("opponentReconnected", () => {
+      setReconnectingScreen(false)
+    });
+
 
   }, [])
 
@@ -76,6 +90,17 @@ function GamePage() {
               setMode={setMode}
             />
           </div>
+
+          <DisconnectScreen
+            open={disconnectScreen}
+            setDisconnectScreen={setDisconnectScreen}
+            setReconnectingScreen={setReconnectingScreen}
+          />
+
+          <ReconnectingScreen
+            open={reconnectingScreen}
+            setReconnectingScreen={setReconnectingScreen}
+          />
 
         </main>
       )}
