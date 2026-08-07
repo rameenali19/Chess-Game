@@ -1,6 +1,7 @@
 import MainMenu from "./MainMenu";
 import socket from "../Socket/socket";
 import { useEffect } from "react";
+import ModeSelectionButton from "../Components/ModeSelectionButton";
 function ModeSelection({ mode, setMode }) {
 
   return (
@@ -41,63 +42,9 @@ function ModeSelection({ mode, setMode }) {
 
         <div className="flex flex-col gap-3 mt-5" >
 
-
-          <div className="border-2 border-[#8CCB99] flex gap-3 h-27 w-100 rounded-lg items-center justify-around font-inter ">
-            <img className="w-18 h-18"
-              src="/greenbutton.png" alt="single player icon"
-            ></img>
-            <div >
-              <h1 className="font-bold text-[#35843C]">Single Player</h1>
-              <h1 className="text-gray-700 text-xs">Play on the same <br />
-                device with your friend</h1>
-            </div>
-            <button className="bg-[#35843C] hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs"
-              onClick={() => {
-                setMode("single player")
-              }}
-            >
-              Play Now
-            </button>
-          </div>
-
-
-          <div className="border-2 border-[#E67E00] flex gap-3 h-27 w-100 rounded-lg items-center justify-around font-inter ">
-            <img className="w-18 h-18"
-              src="/orangebutton.png" alt="single player icon"
-            ></img>
-            <div >
-              <h1 className="font-bold text-[#E67E00]">Multiplayer</h1>
-              <h1 className="text-gray-700 text-xs">Play with a friend online <br />
-                players around the world</h1>
-            </div>
-            <button className="bg-[#E67E00] hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs"
-              onClick={() => {
-                setMode("multiplayer")
-              }}
-            >
-              Play Now
-            </button>
-          </div>
-
-
-          <div className="border-2 border-[#D9413A] flex gap-3 h-27 w-100 rounded-lg items-center justify-around font-inter ">
-            <img className="w-18 h-18"
-              src="/redbutton.png" alt="single player icon"
-            ></img>
-            <div >
-              <h1 className="font-bold text-[#D9413A]">Join multiplayer</h1>
-              <h1 className="text-gray-700 text-xs">Join a friend or player <br />
-                using a Game ID</h1>
-            </div>
-            <button className="bg-[#D9413A] hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs"
-              onClick={() => {
-                setMode("join")
-              }}
-            >
-              Join Game
-            </button>
-          </div>
-
+          <ModeSelectionButton
+            setMode={setMode}
+          />
 
           <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-100 h-35 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
 
