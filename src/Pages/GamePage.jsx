@@ -30,11 +30,8 @@ function GamePage() {
   const navigate = useNavigate()
   const [disconnectScreen, setDisconnectScreen] = useState(false)
   const [reconnectingScreen, setReconnectingScreen] = useState(false)
-  console.log("GamePage route:", window.location.pathname);
-  console.log("useParams id:", id);
 
   useEffect(() => {
-    console.log("GamePage id =", id);
     socket.on("waitingScreen", () => {
       setMode("multiplayer")
       setWaitingScreen(true)
@@ -55,7 +52,12 @@ function GamePage() {
       setDisconnectScreen(false)
     });
 
-
+    return () => {
+      socket.off("waitingScreen");
+      socket.off("playerJoined");
+      socket.off("opponentDisconnected");
+      socket.off("opponentReconnected");
+    };
   }, [])
 
   return (
