@@ -52,6 +52,7 @@ function GamePage() {
 
     socket.on("opponentReconnected", () => {
       setReconnectingScreen(false)
+      setDisconnectScreen(false)
     });
 
 
