@@ -59,7 +59,7 @@ function HistoryButton({ game, deleteGame }) {
             game.game_status === "finished" ? "View" : "Continue"
           }
         </button>
-        <button className="px-4 py-2 rounded-full  hover:cursor-pointer bg-[#eb1603] text-white hover:-translate-y-0.5 transition flex items-center"
+        <button className="px-4 rounded-full  hover:cursor-pointer bg-[#eb1603] text-white hover:-translate-y-0.5 transition flex items-center"
           onClick={() => { deleteGame(game.id) }}
           onMouseEnter={() => { setHover(false) }}
           onMouseLeave={() => { setHover(true) }}
