@@ -9,10 +9,10 @@ function ReconnectingScreen({ open, setReconnectingScreen }) {
 
           <div className=" flex flex-col items-center gap-3 ">
 
-            <div className="text-3xl font-bold font-cormorant text-[#4A2F1D]">
+            <div className="text-3xl font-bold font-cormorant text-[#17384A]">
               Waiting for Opponent
             </div>
-            <div className="text-[#4A2F1D] font-inter ">
+            <div className="text-[#17384A] font-inter ">
               The game will resume automatically when your opponent reconnects
             </div>
 
