@@ -17,15 +17,21 @@ function WaitingScreen({ setWaitingScreen, gameId }) {
       <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-65 w-140
         shadow-[rgba(23,56,74,0.15)] flex items-center justify-center">
 
-        <div className="flex flex-col">
-          <div> waiting for the opponent to join game {gameId}</div>
-          <button className="hover:cursor-pointer border-2 border-black"
-            onClick={() => {
-              leaveGame()
-            }}
-          >
-            leave
-          </button>
+        <div className=" flex flex-col items-center gap-3 ">
+
+          <div className="text-3xl font-bold font-cormorant text-[#17384A]">
+            Waiting for Opponent
+          </div>
+          <div className="text-[#17384A] font-inter ">
+            Game Id is {gameId}
+          </div>
+
+          <div
+            className="w-13 h-13 rounded-full
+             border-4 border-[#ffc79f]
+             border-t-[#ff8127]
+             animate-spin"
+          />
         </div>
       </div>
     </div>
