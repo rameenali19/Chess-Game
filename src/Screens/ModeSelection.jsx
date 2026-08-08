@@ -9,7 +9,7 @@ function ModeSelection({ mode, setMode }) {
 
       <div className=" flex flex-col h-full w-115 justify-center ">
 
-        <div className="flex items-center gap-3 w-full mb-3">
+        <div className="flex items-center gap-3 w-full mb-5">
 
           <button className="bg-[#1F455E] font-inter text-white rounded-lg w-22 h-7 text-xs">
             How to play
@@ -37,7 +37,7 @@ function ModeSelection({ mode, setMode }) {
               src="/trophy.png" alt="trophy image" >
             </img>
           </div>
-          <h1 className="font-cormorant text-xl font-bold flex text-[#113447] ">
+          <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
             Choose a Game Mode</h1>
         </div>
 
@@ -47,21 +47,21 @@ function ModeSelection({ mode, setMode }) {
           />
 
 
-          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-90 h-42 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg px-2 py-2">
+          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-90 h-42 flex flex-col gap-2 font-inter  rounded-lg px-2 py-2">
 
-            <div className="text-center font-bold">Your Status</div>
+            <div className="text-center font-bold text-[#443496]">Your Status</div>
 
-            <div className="flex justify-between items-center px-3">
+            <div className="flex justify-between items-center px-3 text-[#35843C]">
               <div className="flex items-center gap-2">
                 <img className="object-contain w-8 h-8 hover:scale-105 transition"
                   src="/status-controller.png" alt="controller image"
                 ></img>
-                <h1>Games Player</h1>
+                <h1>Games Played</h1>
               </div>
               <div className="font-bold">2</div>
             </div>
 
-            <div className="flex justify-between items-center px-3">
+            <div className="flex justify-between items-center px-3 text-[#E67E00]">
               <div className="flex items-center gap-2">
                 <img className="object-contain w-8 h-8 hover:scale-105 transition"
                   src="/status-win.png" alt="controller image"
@@ -71,7 +71,7 @@ function ModeSelection({ mode, setMode }) {
               <div className="font-bold">2</div>
             </div>
 
-            <div className="flex justify-between items-center px-3">
+            <div className="flex justify-between items-center px-3 text-[#D9413A]">
               <div className="flex items-center gap-2">
                 <img className="object-contain w-8 h-8 hover:scale-105 transition"
                   src="/status-win-rate.png" alt="controller image"

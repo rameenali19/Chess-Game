@@ -7,7 +7,7 @@ function ModeSelectionButton({ setMode }) {
       line2: "with your friend",
       buttonColor: "#35843C",
       textColor: "#35843C",
-      borderColor: "#8CCB99",
+      borderColor: "#35843C",
       mode: "single player",
       buttonText: "Play Now"
 
@@ -35,6 +35,17 @@ function ModeSelectionButton({ setMode }) {
       borderColor: "#D9413A",
       mode: "join",
       buttonText: "Join Game"
+    },
+    {
+      image: "/bluebutton.png",
+      title: "AI Bot",
+      line1: "Challange AI bot ",
+      line2: "and test your skills",
+      buttonColor: "#443496",
+      textColor: "#443496",
+      borderColor: "#443496",
+      mode: "join",
+      buttonText: "Play Now "
     }
   ]
 
