@@ -5,7 +5,7 @@ import ModeSelectionButton from "../Components/ModeSelectionButton";
 function ModeSelection({ mode, setMode }) {
 
   return (
-    <div className="flex  justify-center w-full h-full ml-45 gap-7 p-8">
+    <div className="flex  justify-center w-full h-full ml-45 gap-12 p-8">
 
       <div className=" flex flex-col h-full w-115 justify-center ">
 
@@ -18,12 +18,12 @@ function ModeSelection({ mode, setMode }) {
         </div>
 
 
-        <img className=" w-120 mb-3"
+        <img className=" w-120 mb-3 p-1 border-2 border-[#C7A97A] rounded-lg"
           src="/chessboard.png" alt="chessboard image"
         ></img>
 
 
-        <div className=" w-full bg-[#FFF7EA] py-4 border border-[#E8DCC7] rounded-lg flex items-center justify-center font-inter text-xs">
+        <div className=" w-full bg-[#FFF7EA] border-2 border-[#E8DCC7]  py-4 rounded-lg flex items-center justify-center font-inter text-xs">
           control the center bla bla blas asjdneihri
         </div>
       </div>
@@ -46,7 +46,7 @@ function ModeSelection({ mode, setMode }) {
           />
 
 
-          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-100 h-40 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
+          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-90 h-40 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
 
             <div className="text-center font-bold">Your Status</div>
 
