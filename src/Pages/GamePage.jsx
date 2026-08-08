@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Info from "../Components/GamePageInfo";
 import { staleMate } from "../Chess/Stalemate";
 import MainMenu from "../Screens/MainMenu";
-import ModeSelection from "../Screens/ModeSelection";
 import LoginScreen from "../Screens/LoginScreen";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
@@ -112,14 +111,14 @@ function GamePage() {
           <LoginScreen />
         )
       }
-      {
+      {/* {
         !id && mode === null && guestId && (
-          <ModeSelection
-            mode={mode}
-            setMode={setMode}
-          />
+          // <ModeSelection
+          //   mode={mode}
+          //   setMode={setMode}
+          // />
         )
-      }
+      } */}
 
       {
         !id && mode !== null && mode !== "join" && guestId && !waitingScreen && (

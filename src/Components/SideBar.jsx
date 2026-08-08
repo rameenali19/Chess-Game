@@ -39,7 +39,7 @@ function SideBar() {
         </NavLink>
 
         <NavLink
-          to="/game"
+          to="/modeSelection"
           className={({ isActive }) =>
 
             `flex items-center px-3 py-2 hover:rounded-lg  active:bg-white
