@@ -1,14 +1,47 @@
-import MainMenu from "../Screens/MainMenu";
+import { useState, useEffect } from "react";
+import ColorScreen from "../Screens/ColorScreen";
+import LoginScreen from "../Screens/LoginScreen";
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
+import JoinScreen from "../Screens/JoinScreen";
+import WaitingScreen from "../Screens/WaitingScreen";
+import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../Socket/socket";
-import { useEffect, useState } from "react";
-import ModeSelectionButton from "../Components/ModeSelectionButton";
-// import ApiChess from "../api/apiChess";
-// import { useContext } from "react";
-// import { UserContext } from "../Context/UserContext";
 import { motion } from "framer-motion";
+import ModeSelectionButton from "../Components/ModeSelectionButton"
+import { Navigate } from "react-router-dom";
 
-function ModeSelection({ mode, setMode }) {
+function ModeSelectionPage() {
 
+  const navigate = useNavigate()
+  const [waitingScreen, setWaitingScreen] = useState(null)
+  const location = useLocation()
+  const [mode, setMode] = useState(location.state?.mode ?? null);
+  const { guestId } = useContext(UserContext);
+  const [totalGames, setTotalGames] = useState(null)
+  const [gameId, setGameId] = useState(null)
+
+  useEffect(() => {
+    function playerJoinedHandle(data) {
+      console.log("PLAYER JOINED EVENT:", data);
+      setWaitingScreen(false);
+      navigate(`/game/${data.gameId}`)
+    }
+
+    function waitingScreenHandle() {
+      setMode("multiplayer")
+      setWaitingScreen(true)
+    }
+
+    socket.on("playerJoined", playerJoinedHandle);
+
+    socket.on("waitingScreen", waitingScreenHandle)
+
+    return () => {
+      socket.off("waitingScreen", waitingScreenHandle);
+      socket.off("playerJoined", playerJoinedHandle);
+    }
+  }, [])
 
   return (
     <div className="flex justify-around">
@@ -54,24 +87,52 @@ function ModeSelection({ mode, setMode }) {
             <ModeSelectionButton
               setMode={setMode}
             />
-
-
-
           </div>
 
         </div>
+
+        {
+          !guestId && (
+            <LoginScreen />
+          )
+        }
+
+        {
+          guestId && mode !== "join" && mode !== null && (
+
+            <ColorScreen
+              mode={mode}
+              waitingScreen={waitingScreen}
+              setWaitingScreen={setWaitingScreen}
+              setGameId={setGameId}
+            />
+          )
+        }
+
+        {
+          mode === "multiplayer" && mode !== null && guestId && waitingScreen && (
+            <WaitingScreen
+              setWaitingScreen={setWaitingScreen}
+              gameId={gameId}
+            />
+          )
+        }
+        {
+          guestId && mode === "join" && mode !== null && (
+            <JoinScreen />
+          )
+        }
 
       </motion.div>
 
     </div>
   )
 }
-export default ModeSelection;
+export default ModeSelectionPage;
 
 
 
-// const { guestId } = useContext(UserContext);
-// const [totalGames, setTotalGames] = useState(null)
+
 
 // useEffect(() => {
 //   if (!guestId) return;

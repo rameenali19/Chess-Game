@@ -13,7 +13,7 @@ import { useContext } from "react";
 import SocketClass from "../Socket/socketClass";
 import socket from "../Socket/socket";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -23,6 +23,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [loaded, setLoaded] = useState(false);
   const fromSocket = useRef(false);
   const { guestId } = useContext(UserContext)
+  const [mode, setMode] = useState(null)
   const [isKingInCheck, setIsKingInCheck] = useState({
     inCheck: false,
     attackers: [],

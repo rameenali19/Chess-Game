@@ -28,45 +28,50 @@ function JoinScreen() {
 
 
   return (
-    <div>
+    <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
-      {!error && (
-        <>
-          <form className="flex flex-col gap-3 "
-            onSubmit={checkingId}>
-            <input
-              placeholder="Enter ID"
-              inputMode="numeric"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
+      <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-65 w-140
+        shadow-[rgba(23,56,74,0.15)] flex items-center justify-center">
 
+        {!error && (
+          <>
+            <form className="flex flex-col gap-3 "
+              onSubmit={checkingId}>
+              <input
+                placeholder="Enter ID"
+                inputMode="numeric"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
+
+              <button className="hover:cursor-pointer border-2 border-black"
+                type="submit">
+                Join Game
+              </button>
+            </form>
+          </>
+        )}
+
+        {error && (
+          <>
+            <div>
+              Wrong input
+            </div>
             <button className="hover:cursor-pointer border-2 border-black"
-              type="submit">
-              Join Game
+              onClick={() => {
+                setError(false)
+                setInput("")
+              }}
+            >
+              Try Again
             </button>
-          </form>
-        </>
-      )}
+          </>
+        )}
 
-      {error && (
-        <>
-          <div>
-            Wrong input
-          </div>
-          <button className="hover:cursor-pointer border-2 border-black"
-            onClick={() => {
-              setError(false)
-              setInput("")
-            }}
-          >
-            Try Again
-          </button>
-        </>
-      )}
-
+      </div>
     </div>
 
   )
+
 }
 export default JoinScreen
