@@ -8,7 +8,7 @@ function ModeSelectionButton({ setMode }) {
       buttonColor: "#35843C",
       textColor: "#35843C",
       borderColor: "#8CCB99",
-      mode: "singleplayer",
+      mode: "single player",
       buttonText: "Play Now"
 
     },
