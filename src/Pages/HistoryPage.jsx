@@ -21,8 +21,7 @@ function HistoryPage() {
     async function getAllGames() {
       const game = ApiChess.getAPI();
       const data = await game.getAllGames(page, 10, guestId);
-      setGames(data);
-
+      setGames(data.result);
     }
     getAllGames();
   }, [page, guestId])

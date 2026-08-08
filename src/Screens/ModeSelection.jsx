@@ -1,8 +1,25 @@
 import MainMenu from "./MainMenu";
 import socket from "../Socket/socket";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ModeSelectionButton from "../Components/ModeSelectionButton";
+import ApiChess from "../api/apiChess";
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
+
 function ModeSelection({ mode, setMode }) {
+  const { guestId } = useContext(UserContext);
+  const [totalGames, setTotalGames] = useState(null)
+
+  useEffect(() => {
+    if (!guestId) return;
+
+    async function getAllGames() {
+      const game = ApiChess.getAPI();
+      const data = await game.getAllGames(1, 10, guestId);
+      setTotalGames(data.total)
+    }
+    getAllGames();
+  }, [])
 
   return (
     <div className="flex  justify-center w-full h-full ml-45 gap-12 p-5">
@@ -58,7 +75,7 @@ function ModeSelection({ mode, setMode }) {
                 ></img>
                 <h1>Games Played</h1>
               </div>
-              <div className="font-bold">2</div>
+              <div className="font-bold">{totalGames}</div>
             </div>
 
             <div className="flex justify-between items-center px-3 text-[#E67E00]">

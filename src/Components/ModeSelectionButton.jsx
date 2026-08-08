@@ -44,7 +44,7 @@ function ModeSelectionButton({ setMode }) {
       buttonColor: "#443496",
       textColor: "#443496",
       borderColor: "#443496",
-      mode: "join",
+      mode: "ai",
       buttonText: "Play Now "
     }
   ]
