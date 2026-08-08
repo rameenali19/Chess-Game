@@ -5,11 +5,11 @@ import ModeSelectionButton from "../Components/ModeSelectionButton";
 function ModeSelection({ mode, setMode }) {
 
   return (
-    <div className="flex  justify-center w-full h-full ml-45 gap-12 p-8">
+    <div className="flex  justify-center w-full h-full ml-45 gap-12 p-5">
 
       <div className=" flex flex-col h-full w-115 justify-center ">
 
-        <div className="flex items-center gap-3 w-full mb-7">
+        <div className="flex items-center gap-3 w-full mb-3">
 
           <button className="bg-[#1F455E] font-inter text-white rounded-lg w-22 h-7 text-xs">
             How to play
@@ -18,7 +18,7 @@ function ModeSelection({ mode, setMode }) {
         </div>
 
 
-        <img className=" w-120 mb-3 p-1 border-2 border-[#C7A97A] rounded-lg"
+        <img className=" w-120 mb-1 p-3 border-2 border-[#C7A97A] rounded-lg"
           src="/chessboard.png" alt="chessboard image"
         ></img>
 
@@ -28,25 +28,26 @@ function ModeSelection({ mode, setMode }) {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center h-full items-center">
+
+      <div className="flex flex-col h-full items-center">
 
         <div className="flex gap-2 items-center justify-center">
           <div >
-            <img className="object-contain w-10 h-10"
+            <img className="object-contain w-6 h-7"
               src="/trophy.png" alt="trophy image" >
             </img>
           </div>
-          <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
+          <h1 className="font-cormorant text-xl font-bold flex text-[#113447] ">
             Choose a Game Mode</h1>
         </div>
 
-        <div className="flex flex-col gap-3 mt-5" >
+        <div className="flex flex-col gap-2 mt-3" >
           <ModeSelectionButton
             setMode={setMode}
           />
 
 
-          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-90 h-40 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg">
+          <div className="bg-[#FFF7EA] border-2 border-[#E8DCC7] w-90 h-42 flex flex-col gap-2 font-inter text-[#296c2e] rounded-lg px-2 py-2">
 
             <div className="text-center font-bold">Your Status</div>
 
