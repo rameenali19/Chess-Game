@@ -55,7 +55,7 @@ function ModeSelectionButton({ setMode }) {
         button.map((game) => {
           return (
             <div key={game.mode}
-              className="border-2 flex  h-27 w-90 rounded-lg items-center justify-around font-inter"
+              className="border-2 flex h-26 w-100 rounded-lg items-center justify-around font-inter hover:-translate-y-1 transition"
               style={{ borderColor: game.borderColor }}
             >
 
@@ -72,7 +72,7 @@ function ModeSelectionButton({ setMode }) {
                   {game.line2}</h1>
               </div>
 
-              <button className="hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs mr-1"
+              <button className="hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs mr-1 hover:opacity-80"
                 style={{ backgroundColor: game.buttonColor }}
                 onClick={() => {
                   setMode(game.mode)
