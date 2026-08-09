@@ -82,6 +82,7 @@ function GamePage() {
           <ReconnectingScreen
             open={reconnectingScreen}
             setReconnectingScreen={setReconnectingScreen}
+            setDisconnectScreen={setDisconnectScreen}
           />
 
         </main>
