@@ -45,7 +45,7 @@ function HistoryButton({ game, deleteGame }) {
           if (game.mode === "multiplayer" &&
             game.game_status !== "finished"
           ) {
-            navigate("/game", {
+            navigate("/modeselection", {
               state: {
                 mode: "join",
                 gameId: game.id
