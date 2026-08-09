@@ -91,44 +91,46 @@ function ModeSelectionPage() {
 
         </div>
 
-        {
-          !guestId && (
-            <LoginScreen />
-          )
-        }
-
-        {
-          guestId && mode !== "join" && mode !== null && !waitingScreen && (
-
-            <ColorScreen
-              mode={mode}
-              waitingScreen={waitingScreen}
-              setWaitingScreen={setWaitingScreen}
-              setGameId={setGameId}
-              setMode={setMode}
-            />
-          )
-        }
-
-        {
-          mode === "multiplayer" && mode !== null && guestId && waitingScreen && (
-            <WaitingScreen
-              setWaitingScreen={setWaitingScreen}
-              gameId={gameId}
-              setMode={setMode}
-            />
-          )
-        }
-        {
-          guestId && mode === "join" && mode !== null && (
-            <JoinScreen
-              setGameId={setGameId}
-              setMode={setMode}
-            />
-          )
-        }
-
       </motion.div>
+
+      {
+        !guestId && (
+          <LoginScreen />
+        )
+      }
+
+      {
+        guestId && mode !== "join" && mode !== null && !waitingScreen && (
+
+          <ColorScreen
+            mode={mode}
+            waitingScreen={waitingScreen}
+            setWaitingScreen={setWaitingScreen}
+            setGameId={setGameId}
+            setMode={setMode}
+          />
+        )
+      }
+
+      {
+        mode === "multiplayer" && mode !== null && guestId && waitingScreen && (
+          <WaitingScreen
+            setWaitingScreen={setWaitingScreen}
+            gameId={gameId}
+            setMode={setMode}
+          />
+        )
+      }
+      {
+        guestId && mode === "join" && mode !== null && (
+          <JoinScreen
+            setGameId={setGameId}
+            setMode={setMode}
+          />
+        )
+      }
+
+
 
     </div>
   )

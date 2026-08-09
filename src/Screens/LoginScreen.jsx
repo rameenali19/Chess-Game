@@ -12,14 +12,14 @@ function LoginScreen() {
 
     const id = crypto.randomUUID();
 
-    localStorage.setItem("guestId", id)
-
-    setGuestId(id);
-
     const guest = ApiChess.getAPI();
     const createGuestInfo = {
       guestId: id
     }
+
+    localStorage.setItem("guestId", id)
+
+    setGuestId(id);
 
     const data = await guest.createGuest(createGuestInfo)
 
