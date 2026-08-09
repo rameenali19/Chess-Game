@@ -9,7 +9,6 @@ import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 
-
 function GamePage() {
   const [turn, setTurn] = useState(null)
   const [checkMate, setCheckMate] = useState(false)
@@ -48,10 +47,10 @@ function GamePage() {
   }, [])
 
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-center items-center">
 
       {id && (
-        <main className=" flex gap-5 items-center">
+        <main className=" flex gap-3 items-center -translate-x-18">
 
           <Info
             turn={turn}
@@ -62,8 +61,8 @@ function GamePage() {
             opponentColor={opponentColor}
           />
 
-          <div className="ring-2 ring-[#C7A97A] translate-y-7 h-125 w-125 grid grid-cols-8
-          ">
+
+          <div className="ring-2 ring-[#C7A97A] translate-y-10   h-125 w-125 grid grid-cols-8">
             <ChessBoard
               turn={turn}
               setTurn={setTurn}
@@ -92,12 +91,10 @@ function GamePage() {
             setReconnectingScreen={setReconnectingScreen}
             setDisconnectScreen={setDisconnectScreen}
           />
-
         </main>
       )}
 
     </div>
-
   )
 }
 export default GamePage;
