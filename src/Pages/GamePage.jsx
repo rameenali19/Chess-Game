@@ -9,6 +9,7 @@ import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 
+
 function GamePage() {
   const [turn, setTurn] = useState(null)
   const [checkMate, setCheckMate] = useState(false)
@@ -20,11 +21,16 @@ function GamePage() {
   const [gameId, setGameId] = useState(null)
   const [disconnectScreen, setDisconnectScreen] = useState(false)
   const [reconnectingScreen, setReconnectingScreen] = useState(false)
+  const [mode, setMode] = useState(null)
 
   useEffect(() => {
 
-    const socketClass = SocketClass.getObject();
-    socketClass.joinGame(id)
+    if (!mode) return
+
+    if (mode === "multiplayer") {
+      const socketClass = SocketClass.getObject();
+      socketClass.joinGame(id)
+    }
 
     socket.on("opponentDisconnected", () => {
       setDisconnectScreen(true)
@@ -70,6 +76,8 @@ function GamePage() {
               opponentColor={opponentColor}
               setUserColor={setUserColor}
               setOpponentColor={setOpponentColor}
+              mode={mode}
+              setMode={setMode}
             />
           </div>
 

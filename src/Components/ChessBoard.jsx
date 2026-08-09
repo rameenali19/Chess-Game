@@ -13,6 +13,8 @@ function ChessBoard({
   opponentColor,
   setUserColor,
   setOpponentColor,
+  mode,
+  setMode
 }) {
   const {
     board,
@@ -23,6 +25,7 @@ function ChessBoard({
     enPassant,
     isKingInCheck,
     promote,
+
 
   } = useChessBoard({
     turn,
@@ -36,7 +39,8 @@ function ChessBoard({
     opponentColor,
     setUserColor,
     setOpponentColor,
-
+    mode,
+    setMode
 
   });
 
