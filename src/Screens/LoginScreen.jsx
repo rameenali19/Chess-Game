@@ -1,7 +1,7 @@
 import ApiChess from "../api/apiChess";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-
+import { motion } from "framer-motion";
 
 function LoginScreen() {
 
@@ -28,21 +28,43 @@ function LoginScreen() {
   return (
     <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
-      <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-65 w-140
-        shadow-[rgba(23,56,74,0.15)] flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="bg-[url('/bluebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl
+         rounded-xl h-65 w-140 shadow-[rgba(23,56,74,0.15)] ">
 
-        <button className="border-2 border-black hover:cursor-pointer px-3 py-2">
-          login
-        </button>
+        <div className="flex flex-col h-full justify-center gap-6">
 
-        <button className="border-2 border-black hover:cursor-pointer px-3 py-2"
-          onClick={() => {
-            createGuestId();
-          }}
-        >
-          No
-        </button>
-      </div>
+          <div className="flex flex-col items-center gap-4">
+            <h1 className="text-4xl font-bold font-cormorant text-[#17384A]">
+              login
+            </h1>
+            <h1 className="text-xs font-inter text-[#17384A]">
+              Do you want to Login
+            </h1>
+          </div>
+
+          <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
+
+            <button className="bg-[#17384A] hover:cursor-pointer w-30 py-2 rounded-lg
+            hover:opacity-85 hover:scale-105 transition">
+              Login
+            </button>
+
+            <button className="bg-[#17384A]  hover:cursor-pointer w-30 py-2 rounded-lg
+            hover:opacity-85 hover:scale-105 transition"
+              onClick={() => {
+                createGuestId();
+              }}
+            >
+              No
+            </button>
+          </div>
+
+        </div>
+      </motion.div>
     </div>
   )
 }
