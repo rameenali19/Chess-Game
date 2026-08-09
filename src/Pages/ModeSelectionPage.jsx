@@ -114,12 +114,15 @@ function ModeSelectionPage() {
             <WaitingScreen
               setWaitingScreen={setWaitingScreen}
               gameId={gameId}
+              setMode={setMode}
             />
           )
         }
         {
           guestId && mode === "join" && mode !== null && (
-            <JoinScreen />
+            <JoinScreen
+              setGameId={setGameId}
+            />
           )
         }
 

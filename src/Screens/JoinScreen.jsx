@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 import { useLocation } from "react-router-dom";
 
-function JoinScreen() {
+function JoinScreen({ setGameId }) {
   const navigate = useNavigate();
   const { guestId } = useContext(UserContext)
   const location = useLocation();
@@ -24,6 +24,7 @@ function JoinScreen() {
 
     const socketClass = SocketClass.getObject();
     socketClass.joinGame(input)
+    setGameId(input)
   }
 
 
