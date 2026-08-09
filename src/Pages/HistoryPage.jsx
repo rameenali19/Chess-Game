@@ -36,9 +36,12 @@ function HistoryPage() {
     if (filter === "all") {
       return true;
     }
-    else {
-      return game.game_status === filter
+    if (filter === "unfinished") {
+      return (game.game_status === filter ||
+        game.game_status === "waiting"
+      )
     }
+    return game.game_status === filter
   })
 
   return (
