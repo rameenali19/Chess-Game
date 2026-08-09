@@ -105,6 +105,7 @@ function ModeSelectionPage() {
               waitingScreen={waitingScreen}
               setWaitingScreen={setWaitingScreen}
               setGameId={setGameId}
+              setMode={setMode}
             />
           )
         }

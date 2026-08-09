@@ -7,16 +7,19 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import SocketClass from "../Socket/socketClass";
 
-function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId }) {
+function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
-  const [hover, setHover] = useState();
-  const status = mode === "single player" ? "unfinished" : "waiting"
+  const status = mode === "single player" ? "unfinished" : mode === "multiplayer" ? "waiting" : null
   const [turn, setTurn] = useState(null)
   const [userColor, setUserColor] = useState(null)
+  const [selectedColor, setSelecctedColor] = useState(null)
+
+  const button = [{ image: "/white-king.png", text: "White", }, { image: "/black-king.png", text: "Black", }]
 
   async function createGame() {
+    if (!userColor) return
     const game = ApiChess.getAPI();
     const createGameInfo = {
       currentTurn: "White",
@@ -41,123 +44,79 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId }) {
       socketClass.joinGame(newGameId)
       setWaitingScreen(true)
     }
-
     else {
       navigate(`/game/${newGameId}`)
     }
-
   }
 
-
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
+      <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-90 w-140
+        shadow-[rgba(23,56,74,0.15)] bg-[url('/greenbg.png')]
+         bg-center bg-cover">
 
-    <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
-      <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-65 w-140
-        shadow-[rgba(23,56,74,0.15)] flex items-center justify-center">
+        <div className="flex flex-col h-full gap-5 items-center">
 
-        <div
-          className=" flex flex-col items-center justify-center
-     gap-4 font-cormorant text-[#4A2F1D] ml-30">
-
-          <div className=" font-extrabold text-5xl flex-col items-center flex">
-            <img
-              src="/golden-crown.png"
-              alt="crown image"
-              className="w-12 h-12 "
-            />
-            Play Game
-          </div>
-
-          <div className="text-xs font-inter">
-            Choose your color to start a new game
-          </div>
-
-          <div className="w-80 h-65 border-2 border-[#e4d6bb] bg-[#FFF7EA] rounded-lg 
-          flex flex-col items-center justify-center">
-
-            <h1 className=" text-xl mb-4 font-bold">
+          <div className="flex flex-col items-center gap-2 mt-6">
+            <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
               Choose Your Color
             </h1>
-
-            <div className="flex  justify-between font-bold text-sm gap-4">
-
-              <div
-                onMouseEnter={() => { setHover("White") }}
-                onMouseLeave={() => { setHover(null) }}
-                onClick={
-                  () => {
-                    setTurn("White")
-                    setUserColor("White")
-                  }
-                }
-                className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
-            duration-150 cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)]
-             items-center rounded-lg  hover:text-[#E67E00] 
-            ${turn === "White" ? " text-[#E67E00] scale-105 duration-150 border-[#E67E00]"
-                    : "border-[#e4d6bb]"
-                  }
-            `}
-              >
-                <img
-                  src={
-                    turn === "White" || hover === "White" ? "/orange-white-king.png"
-                      : "/white-king.png"
-                  }
-                  alt="black piece"
-                  className="w-20 h-20 object-contain"
-                ></img>
-                <h1>
-                  White
-                </h1>
-              </div>
-
-              <div
-                onMouseEnter={() => { setHover("Black") }}
-                onMouseLeave={() => { setHover(null) }}
-                onClick={
-                  () => {
-                    setTurn("Black")
-                    setUserColor("Black")
-                  }
-                }
-                className={`h-30 w-30  border-3 flex flex-col hover:scale-105 
-            duration-150 cursor-pointer hover:border-[#E67E00] hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] 
-            items-center rounded-lg s hover:text-[#E67E00] 
-            ${turn === "Black" ? "text-[#E67E00] scale-105 duration-150 border-[#E67E00]"
-                    : "border-[#e4d6bb] "
-                  }
-            `}
-              >
-                <img
-                  src={
-                    turn === "Black" || hover === "Black" ? "/orange-black-king.png"
-                      : "/black-king.png"
-                  }
-                  alt="black piece"
-                  className="w-15 h-20 object-contain"
-                ></img>
-                <h1>
-                  Black
-                </h1>
-              </div>
-
-            </div>
+            <h1 className="text-xs font-inter text-[#17384A]">
+              Pick a side and start your Game
+            </h1>
           </div>
 
-          <button className="text-xl bg-[#E67E00] text-white px-15 py-2 rounded-lg hover:bg-[#17384A] hover:text-white hover:cursor-pointer hover:ring-white ring-2 hover:scale-102 duration-150
-       active:bg-[#f40000] active:text-white"
+          <div className="flex justify-center gap-10 w-full">
 
+            {
+              button.map((color) => {
+                return (
+                  <div key={color.text}
+                    className={`border-2 w-35 border-[#35843C] h-30 rounded-lg flex 
+                       items-center justify-center flex-col font-inter font-bold text-[#226d29] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#E6EBCF]" : ""}`}
+                    onClick={() => {
+                      setSelecctedColor(color.text)
+                      setUserColor(color.text)
+                    }}
+                  >
+                    <img className="w-21 h-22 object-contain"
+                      src={color.image}></img>
+                    <h1>{color.text}</h1>
+                  </div>
+                )
+              })
+            }
+          </div>
+
+          <button className="hover:cursor-pointer border-2 bg-[#35843C] rounded-lg font-inter
+               text-white py-2 hover:opacity-85 w-40 hover:scale-105 transition"
             onClick={() => {
               createGame()
             }}
-
           >
             Start Game
           </button>
+
+
+          <div className="flex justify-end w-full">
+            <button className="w-17 h-7 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
+              text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
+              onClick={() => {
+                setMode(null)
+              }}
+            >
+              Leave
+            </button>
+          </div>
+
         </div>
       </div>
-    </div>
+    </motion.div>
 
   )
 }
