@@ -40,7 +40,7 @@ function JoinScreen({ setGameId, setMode }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="bg-[url('/redbg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl
+        className="bg-[url('/orangebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl
          rounded-xl h-65 w-140 shadow-[rgba(23,56,74,0.15)] ">
 
         {!error && (
@@ -59,7 +59,7 @@ function JoinScreen({ setGameId, setMode }) {
               onSubmit={checkingId}>
 
               <input
-                className="ring ring-[#D9413A] rounded-lg w-70 py-3 px-4 bg-[#FFF7EA]/70 
+                className="ring ring-[#ff8127] rounded-lg w-70 py-3 px-4 bg-[#FFF7EA]/70 
               hover:scale-105 transition outline-none  focus:ring-2 hover:ring-2"
                 placeholder="Enter Game ID"
                 inputMode="numeric"
@@ -67,7 +67,7 @@ function JoinScreen({ setGameId, setMode }) {
                 onChange={(e) => setInput(e.target.value)}
               />
 
-              <button className="hover:cursor-pointer border-2 bg-[#D9413A] rounded-lg font-inter
+              <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
                text-white py-2 hover:opacity-85 w-40 hover:scale-105 transition"
                 type="submit">
                 Join Game
@@ -94,7 +94,7 @@ function JoinScreen({ setGameId, setMode }) {
             <div className="text-3xl font-bold font-cormorant text-[#17384A]">
               Invalid Game ID
             </div>
-            <button className="hover:cursor-pointer border-2 bg-[#D9413A] rounded-lg font-inter
+            <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
                text-white py-2 hover:opacity-85 w-40 font-medium hover:scale-105"
               onClick={() => {
                 setError(false)

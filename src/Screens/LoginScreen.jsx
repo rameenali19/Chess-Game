@@ -32,8 +32,8 @@ function LoginScreen() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="bg-[url('/bluebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl
-         rounded-xl h-65 w-140 shadow-[rgba(23,56,74,0.15)] ">
+        className="bg-[url('/orangebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl
+         rounded-xl h-65 w-120 shadow-[rgba(23,56,74,0.15)] ">
 
         <div className="flex flex-col h-full justify-center gap-6">
 
@@ -48,12 +48,12 @@ function LoginScreen() {
 
           <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
 
-            <button className="bg-[#17384A] hover:cursor-pointer w-30 py-2 rounded-lg
+            <button className="bg-[#ff8127] hover:cursor-pointer w-30 py-2 rounded-lg
             hover:opacity-85 hover:scale-105 transition">
               Login
             </button>
 
-            <button className="bg-[#17384A]  hover:cursor-pointer w-30 py-2 rounded-lg
+            <button className="bg-[#ff8127]  hover:cursor-pointer w-30 py-2 rounded-lg
             hover:opacity-85 hover:scale-105 transition"
               onClick={() => {
                 createGuestId();

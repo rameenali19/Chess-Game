@@ -56,7 +56,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
       <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-90 w-140
-        shadow-[rgba(23,56,74,0.15)] bg-[url('/greenbg.png')]
+        shadow-[rgba(23,56,74,0.15)] bg-[url('/orangebg.png')]
          bg-center bg-cover">
 
 
@@ -77,8 +77,8 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
               button.map((color) => {
                 return (
                   <div key={color.text}
-                    className={`border-2 w-35 border-[#35843C] h-30 rounded-lg flex 
-                       items-center justify-center flex-col font-inter font-bold text-[#226d29] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#E6EBCF]" : ""}`}
+                    className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
+                       items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#ffebdd]" : ""}`}
                     onClick={() => {
                       setSelecctedColor(color.text)
                       setUserColor(color.text)
@@ -93,7 +93,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
             }
           </div>
 
-          <button className="hover:cursor-pointer border-2 bg-[#35843C] rounded-lg font-inter
+          <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
                text-white py-2 hover:opacity-85 w-40 hover:scale-105 transition"
             onClick={() => {
               createGame()

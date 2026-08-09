@@ -7,6 +7,7 @@ import socket from "../Socket/socket";
 import ReconnectingScreen from "../Screens/ReconnectingScreen";
 import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
+import SocketClass from "../Socket/socketClass";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -21,6 +22,9 @@ function GamePage() {
   const [reconnectingScreen, setReconnectingScreen] = useState(false)
 
   useEffect(() => {
+
+    const socketClass = SocketClass.getObject();
+    socketClass.joinGame(id)
 
     socket.on("opponentDisconnected", () => {
       setDisconnectScreen(true)
