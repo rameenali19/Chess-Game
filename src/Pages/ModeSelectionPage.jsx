@@ -122,6 +122,7 @@ function ModeSelectionPage() {
           guestId && mode === "join" && mode !== null && (
             <JoinScreen
               setGameId={setGameId}
+              setMode={setMode}
             />
           )
         }
