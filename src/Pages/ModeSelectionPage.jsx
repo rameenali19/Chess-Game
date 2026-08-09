@@ -98,7 +98,7 @@ function ModeSelectionPage() {
         }
 
         {
-          guestId && mode !== "join" && mode !== null && (
+          guestId && mode !== "join" && mode !== null && !waitingScreen && (
 
             <ColorScreen
               mode={mode}
