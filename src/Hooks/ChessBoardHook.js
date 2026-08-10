@@ -99,7 +99,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         staleMate(gameData.board, gameData.turn, enPassant.current)
       )
     )
-
   }
 
   useEffect(() => {
@@ -107,6 +106,9 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       fromSocket.current = true
       resetData(gameData)
     });
+    return () => {
+      socket.off("gameUpdate");
+    };
   }, [])
 
   useEffect(() => {

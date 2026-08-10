@@ -25,7 +25,7 @@ function GamePage() {
   const [winner, setWinner] = useState(null)
 
   useEffect(() => {
-
+    if (!mode || !id) return;
     if (!mode) return
 
     if (mode === "multiplayer") {
@@ -46,7 +46,7 @@ function GamePage() {
       socket.off("opponentDisconnected");
       socket.off("opponentReconnected");
     };
-  }, [])
+  }, [mode, id])
 
   return (
     <div className="flex justify-center items-center">
