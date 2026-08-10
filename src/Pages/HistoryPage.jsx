@@ -6,6 +6,7 @@ import HistoryNavBar from "../Components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
+import DeleteScreen from "../Screens/DeleteScreen";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ function HistoryPage() {
   const [filter, setFilter] = useState("all")
   const [page, setPage] = useState(1)
   const { guestId } = useContext(UserContext);
-
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [selectedGameId, setSelectedGameId] = useState(null)
 
   useEffect(() => {
     if (!guestId) return;
@@ -82,8 +84,8 @@ function HistoryPage() {
               < div key={game.id}>
                 <HistoryButton
                   game={game}
-                  deleteGame={deleteGame}
-
+                  setDeleteModal={setDeleteModal}
+                  setSelectedGameId={setSelectedGameId}
                 />
               </div>
             )
@@ -129,6 +131,13 @@ function HistoryPage() {
           )
         }
       </div>
+
+      <DeleteScreen
+        id={selectedGameId}
+        deleteFunction={deleteGame}
+        open={deleteModal}
+        setDeleteModal={setDeleteModal}
+      />
 
     </motion.main>
 

@@ -2,7 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import ApiChess from "../api/apiChess";
 import { useState } from "react";
 
-function HistoryButton({ game, deleteGame }) {
+function HistoryButton({ game, setDeleteModal, setSelectedGameId }) {
   const navigate = useNavigate();
   const playerImage = game.mode === "single player" ? "/singleplayer.png" : "/multiplayer.png"
   const text = game.mode === "single player" ? "Single Player Game" : "Multiplayer Game"
@@ -60,7 +60,10 @@ function HistoryButton({ game, deleteGame }) {
           }
         </button>
         <button className="px-4 rounded-full  hover:cursor-pointer bg-[#eb1603] text-white hover:-translate-y-0.5 transition flex items-center"
-          onClick={() => { deleteGame(game.id) }}
+          onClick={() => {
+            setDeleteModal(true)
+            setSelectedGameId(game.id)
+          }}
           onMouseEnter={() => { setHover(false) }}
           onMouseLeave={() => { setHover(true) }}
         >
