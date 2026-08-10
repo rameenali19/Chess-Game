@@ -33,9 +33,9 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
-      console.log("useChessBoard mounted with id:", id, typeof id);
       const data = await game.getGameAndPlayer(id, guestId);
       const opponentColor = data.player_color === "White" ? "Black" : "White"
+      console.log(data.winner)
       setOpponentColor(opponentColor)
       setMode(data.mode)
       setUserColor(data.player_color)
@@ -73,7 +73,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       gameStatus: gameData.status,
       gameBoard: gameData.board,
       enPassant: gameData.enPassant,
-      promotion: gameData.promotion
+      promotion: gameData.promotion,
+      winner: gameData.winner
     })
 
   }
@@ -124,12 +125,14 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       fromSocket.current = false
       return
     }
+    const nextTurn = turn === "White" ? "Black" : "White"
     const gameData = {
       turn: turn,
       status: checkMate ? "finished" : isStaleMate ? "finished" : "unfinished",
       board: board,
       enPassant: enPassant.current,
-      promotion: promotion
+      promotion: promotion,
+      winner: checkMate || isStaleMate ? nextTurn : null
     }
     if (mode === "single player") {
       updateGame(gameData)
