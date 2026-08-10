@@ -14,7 +14,9 @@ function ChessBoard({
   setUserColor,
   setOpponentColor,
   mode,
-  setMode
+  setMode,
+  winner,
+  setWinner
 }) {
   const {
     board,
@@ -40,7 +42,9 @@ function ChessBoard({
     setUserColor,
     setOpponentColor,
     mode,
-    setMode
+    setMode,
+    winner,
+    setWinner
 
   });
 

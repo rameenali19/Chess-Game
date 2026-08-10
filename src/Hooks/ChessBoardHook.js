@@ -13,7 +13,7 @@ import { useContext } from "react";
 import SocketClass from "../Socket/socketClass";
 import socket from "../Socket/socket";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -125,14 +125,13 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       fromSocket.current = false
       return
     }
-    const nextTurn = turn === "White" ? "Black" : "White"
     const gameData = {
       turn: turn,
       status: checkMate ? "finished" : isStaleMate ? "finished" : "unfinished",
       board: board,
       enPassant: enPassant.current,
       promotion: promotion,
-      winner: checkMate || isStaleMate ? nextTurn : null
+      winner: checkMate || isStaleMate ? winner : null
     }
     if (mode === "single player") {
       updateGame(gameData)
@@ -142,9 +141,17 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       socketClass.updateGame(id, gameData)
     }
 
-  }, [board])
+  }, [board, winner])
 
-
+  function winnerHandling() {
+    const winner = turn === "White" ? "Black" : "White"
+    if (checkMate) {
+      setWinner(winner)
+    }
+    else {
+      setWinner("Draw")
+    }
+  }
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
@@ -213,13 +220,18 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        setCheckMate(CheckMate(updatedBoard, nextTurn, enPassant.current));
+        const mate = (CheckMate(updatedBoard, nextTurn, enPassant.current));
+        setCheckMate(mate)
+        if (mate) {
+          winnerHandling()
+        }
       }
       else {
         setCheckMate(false);
       }
 
       if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
+        winnerHandling()
         setIsStaleMate(true);
       }
       else {
@@ -269,13 +281,18 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setIsKingInCheck(opponentCheck);
 
     if (opponentCheck.inCheck) {
-      setCheckMate(CheckMate(newBoard, nextTurn, enPassant.current));
+      const mate = (CheckMate(newBoard, nextTurn, enPassant.current));
+      setCheckMate(mate)
+      if (mate) {
+        winnerHandling()
+      }
     }
     else {
       setCheckMate(false);
     }
 
     if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
+      winnerHandling()
       setIsStaleMate(true);
     }
     else {

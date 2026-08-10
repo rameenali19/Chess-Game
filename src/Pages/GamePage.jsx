@@ -8,6 +8,7 @@ import ReconnectingScreen from "../Screens/ReconnectingScreen";
 import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
+import GameOverScreen from "../Screens/GameOverScreen";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -21,6 +22,7 @@ function GamePage() {
   const [disconnectScreen, setDisconnectScreen] = useState(false)
   const [reconnectingScreen, setReconnectingScreen] = useState(false)
   const [mode, setMode] = useState(null)
+  const [winner, setWinner] = useState(null)
 
   useEffect(() => {
 
@@ -77,6 +79,8 @@ function GamePage() {
               setOpponentColor={setOpponentColor}
               mode={mode}
               setMode={setMode}
+              winner={winner}
+              setWinner={setWinner}
             />
           </div>
 
@@ -90,6 +94,12 @@ function GamePage() {
             open={reconnectingScreen}
             setReconnectingScreen={setReconnectingScreen}
             setDisconnectScreen={setDisconnectScreen}
+          />
+
+          <GameOverScreen
+            winner={winner}
+            userColor={userColor}
+            opponentColor={opponentColor}
           />
         </main>
       )}
