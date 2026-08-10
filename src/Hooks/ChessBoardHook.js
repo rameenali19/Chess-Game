@@ -43,7 +43,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setTurn(data.current_turn)
       setPromotion(data.promotion)
       enPassant.current = data.en_passant
-
+      setWinner(data.winner)
 
       const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
@@ -84,6 +84,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setBoard(gameData.board);
     setTurn(gameData.turn);
     setPromotion(gameData.promotion);
+    setWinner(gameData.winner)
     enPassant.current = gameData.enPassant;
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setIsKingInCheck(inCheck)
@@ -145,15 +146,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
   }, [board, winner])
 
-  function winnerHandling() {
-    const winner = turn === "White" ? "Black" : "White"
-    if (checkMate) {
-      setWinner(winner)
-    }
-    else {
-      setWinner("Draw")
-    }
-  }
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate) {
@@ -225,7 +217,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         const mate = (CheckMate(updatedBoard, nextTurn, enPassant.current));
         setCheckMate(mate)
         if (mate) {
-          winnerHandling()
+          setWinner(turn)
         }
       }
       else {
@@ -233,7 +225,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       }
 
       if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
-        winnerHandling()
+        setWinner("Draw")
         setIsStaleMate(true);
       }
       else {
@@ -286,7 +278,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const mate = (CheckMate(newBoard, nextTurn, enPassant.current));
       setCheckMate(mate)
       if (mate) {
-        winnerHandling()
+        setWinner(turn)
       }
     }
     else {
@@ -294,7 +286,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     }
 
     if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
-      winnerHandling()
+      setWinner("Draw")
       setIsStaleMate(true);
     }
     else {
