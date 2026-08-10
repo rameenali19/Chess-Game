@@ -52,7 +52,7 @@ function GamePage() {
     <div className="flex justify-center items-center">
 
       {id && (
-        <main className=" flex gap-3 items-center -translate-x-18">
+        <main className=" flex gap-3 items-center ">
 
           <Info
             turn={turn}
