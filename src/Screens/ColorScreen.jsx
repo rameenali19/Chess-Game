@@ -110,7 +110,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
                 setMode(null)
               }}
             >
-              Leave
+              Close
             </button>
           </div>
 

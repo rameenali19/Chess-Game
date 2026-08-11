@@ -81,7 +81,7 @@ function JoinScreen({ setGameId, setMode }) {
                   leaveGame()
                 }}
               >
-                Leave
+                Close
               </button>
             </div>
           </div>
