@@ -22,13 +22,13 @@ function GameOverScreen({ open, winner, userColor, setGameOver }) {
           </div>
 
           <div className="flex justify-center items-center gap-4">
-            <button className=" text-[#ff8127] hover:cursor-pointer w-40 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 border-2 border-[#ff8127] py-1 text-lg font-medium flex items-center justify-center gap-1"
+            <button className=" text-[#ff8127] hover:cursor-pointer w-40 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 border-2 border-[#ff8127] py-1 text-lg font-medium flex items-center justify-center "
               onClick={() => {
                 navigate(`/modeselection`)
               }}
             >
-              <img className=" object-contain w-5 h-5"
-                src="/sand-clock.png" alt="sand clock image"
+              <img className=" object-contain w-8 h-8"
+                src="/reload.png" alt="sand clock image"
               >
               </img>
               <div>Play Again</div>
