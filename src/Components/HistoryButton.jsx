@@ -1,15 +1,27 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import ApiChess from "../api/apiChess";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function HistoryButton({ game, setDeleteModal, setSelectedGameId }) {
+function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
+  const [player, setPlayer] = useState(null)
+  useEffect(() => {
+    async function getPlayer() {
+      const player = ApiChess.getAPI();
+      const data = await player.getPlayer(game.id, guestId);
+      setPlayer(data)
+    }
+    getPlayer()
+  }, [])
+
   const navigate = useNavigate();
   const playerImage = game.mode === "single player" ? "/singleplayer.png" : "/multiplayer.png"
   const text = game.mode === "single player" ? "Single Player Game" : "Multiplayer Game"
+  const textColor = game.mode === "single player" ? "text-[#eb1603]" : "text-[#ff8127]"
+
   const [hover, setHover] = useState(true)
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-6 hover:shadow-md hover:-translate-y-0.5 transition h-20 w-full
+        px-6 hover:shadow-md hover:-translate-y-0.5 transition h-23 w-full
           flex items-center text-xl rounded-lg justify-between" >
 
       <div className="flex items-center gap-2 ">
@@ -19,9 +31,19 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId }) {
             "h-5" : "h-12"
             }`}
         ></img>
-        <div className="hover:cursor-pointer  font-inter text-xl
-       text-[#17384A] font-semibold">
-          {text}
+
+        <div className="font-inter text-[#17384A]">
+          <h1 className="text-xl font-semibold">{text}</h1>
+          <div className="flex gap-1">
+            <div>
+              <h1 className="text-xs ">You : </h1>
+              <h1 className="text-xs ">Opponent : </h1>
+            </div>
+            <div className={`text-xs font-semibold ${textColor}`}>
+              <h1>{player?.player_color}</h1>
+              <h1> {player?.player_color === "White" ? "Black" : "White"}</h1>
+            </div>
+          </div>
         </div>
       </div>
 

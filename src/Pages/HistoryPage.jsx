@@ -84,6 +84,7 @@ function HistoryPage() {
                   game={game}
                   setDeleteModal={setDeleteModal}
                   setSelectedGameId={setSelectedGameId}
+                  guestId={guestId}
                 />
               </div>
             )
