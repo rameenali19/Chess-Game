@@ -23,7 +23,7 @@ function GamePage() {
   const [reconnectingScreen, setReconnectingScreen] = useState(false)
   const [mode, setMode] = useState(null)
   const [winner, setWinner] = useState(null)
-
+  const [gameOver, setGameOver] = useState(false)
   useEffect(() => {
     if (!mode || !id) return;
     if (!mode) return
@@ -47,6 +47,11 @@ function GamePage() {
       socket.off("opponentReconnected");
     };
   }, [mode, id])
+
+  useEffect(() => {
+    if (!winner) return
+    setGameOver(true)
+  }, [winner])
 
   return (
     <div className="flex justify-center items-center">
@@ -97,9 +102,10 @@ function GamePage() {
           />
 
           <GameOverScreen
+            open={gameOver}
             winner={winner}
             userColor={userColor}
-            opponentColor={opponentColor}
+            setGameOver={setGameOver}
           />
         </main>
       )}

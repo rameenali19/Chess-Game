@@ -120,7 +120,7 @@ function HistoryPage() {
           )
         }
         {
-          games.length === 10 && (
+          games.length >= 10 && (
             <button className="text-lg font-inter text-[#17384A] hover:cursor-pointer hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600"
               onClick={() => {
                 setPage(page + 1)
