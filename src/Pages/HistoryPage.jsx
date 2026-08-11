@@ -61,9 +61,7 @@ function HistoryPage() {
         </h1>
 
         <button className="bg-amber-600 text-[rgb(248,240,225)] px-5 py-2 rounded-lg 
-        hover:cursor-pointer hover:text-amber-600 hover:bg-[rgb(248,240,225)] font-inter 
-        transition-all duration-200 hover:ring-2 hover:ring-amber-600 mx-15"
-
+        hover:cursor-pointer font-inter hover:scale-105 transition hover:opacity-85 mx-15"
           onClick={() => { navigate(`/modeSelection`) }} >
 
           + New Game
