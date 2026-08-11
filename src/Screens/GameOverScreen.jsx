@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function GameOverScreen({ open, winner, userColor, setGameOver }) {
+function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
   const navigate = useNavigate()
   if (open) {
 
@@ -24,7 +24,11 @@ function GameOverScreen({ open, winner, userColor, setGameOver }) {
           <div className="flex justify-center items-center gap-4">
             <button className=" text-[#ff8127] hover:cursor-pointer w-40 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 border-2 border-[#ff8127] py-1 text-lg font-medium flex items-center justify-center "
               onClick={() => {
-                navigate(`/modeselection`)
+                navigate("/modeselection", {
+                  state: {
+                    mode: mode
+                  }
+                })
               }}
             >
               <img className=" object-contain w-8 h-8"

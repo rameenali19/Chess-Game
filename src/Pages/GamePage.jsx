@@ -106,6 +106,7 @@ function GamePage() {
             winner={winner}
             userColor={userColor}
             setGameOver={setGameOver}
+            mode={mode}
           />
         </main>
       )}
