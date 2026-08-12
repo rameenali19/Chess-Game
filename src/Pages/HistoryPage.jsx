@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import DeleteScreen from "../Screens/DeleteScreen";
+import Button from "../Components/Button";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -60,13 +61,13 @@ function HistoryPage() {
           Game History
         </h1>
 
-        <button className="bg-amber-600 text-[rgb(248,240,225)] px-5 py-2 rounded-lg 
-        hover:cursor-pointer font-inter hover:scale-105 transition hover:opacity-85 mx-15"
-          onClick={() => { navigate(`/modeSelection`) }} >
+        <Button
+          text="+ New Game"
+          onClick={() => navigate("/modeSelection")}
+          buttonType="newGame"
+          className="mx-15"
+        />
 
-          + New Game
-
-        </button>
       </div>
 
       <HistoryNavBar
