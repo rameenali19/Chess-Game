@@ -63,8 +63,10 @@ function HistoryPage() {
 
         <Button
           text="+ New Game"
+          variant="primary"
+          size="md"
+          weight="normal"
           onClick={() => navigate("/modeSelection")}
-          buttonType="newGame"
           className="mx-15"
         />
 
