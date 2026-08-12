@@ -1,7 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom"
 function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReconnectingScreen }) {
+  const navigate = useNavigate()
   if (open) {
-    const navigate = useNavigate()
     return (
       <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
