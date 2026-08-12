@@ -68,7 +68,6 @@ function HistoryPage() {
           textSize="normal"
           textWeight="normal"
           onClick={() => navigate("/modeSelection")}
-          className="mx-15"
         />
 
       </div>
