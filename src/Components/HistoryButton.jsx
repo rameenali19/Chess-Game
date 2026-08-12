@@ -87,7 +87,7 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
         </button>
 
 
-        <button className="w-25 h-12 rounded-full  hover:cursor-pointer bg-[#E64743] text-white hover:-translate-y-0.5 transition flex justify-center items-center"
+        <button className="w-15 h-10 rounded-full  hover:cursor-pointer bg-[#E64743] text-white hover:-translate-y-0.5 transition flex justify-center items-center"
           onClick={() => {
             setDeleteModal(true)
             setSelectedGameId(game.id)
@@ -95,10 +95,9 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
           onMouseEnter={() => { setHover(false) }}
           onMouseLeave={() => { setHover(true) }}
         >
-          <img className="w-5 mr-1 object-contain h-5"
+          <img className="w-6 object-contain h-5"
             src={hover ? "/dustbin-close.png" : "/dustbin-open.png"}
             alt="dustbin image"></img>
-          <div>Delete</div>
 
         </button>
 
