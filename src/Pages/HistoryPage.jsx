@@ -64,8 +64,9 @@ function HistoryPage() {
         <Button
           text="+ New Game"
           variant="primary"
-          size="md"
-          weight="normal"
+          buttonSize="medium"
+          textSize="normal"
+          textWeight="normal"
           onClick={() => navigate("/modeSelection")}
           className="mx-15"
         />
@@ -109,29 +110,33 @@ function HistoryPage() {
         </div>
       </div>
       <div className="mt-3 flex justify-between">
-        {
-          page > 1 && (
 
-            <button className="text-lg font-inter text-[#17384A] hover:cursor-pointer hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600"
-              onClick={() => {
-                setPage(page - 1)
-              }}
-            >
-              Previous Page
-            </button>
-          )
-        }
-        {
-          games.length >= 10 && (
-            <button className="text-lg font-inter text-[#17384A] hover:cursor-pointer hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600"
-              onClick={() => {
-                setPage(page + 1)
-              }}
-            >
-              Next Page
-            </button>
-          )
-        }
+        {page > 1 && (
+          <Button
+            text="Previous Page"
+            variant="outline"
+            buttonSize="medium"
+            textSize="large"
+            textWeight="normal"
+            onClick={() => {
+              setPage(page - 1)
+            }}
+          />
+
+        )}
+        {games.length >= 10 && (
+          <Button
+            text="Next Page"
+            variant="outline"
+            buttonSize="medium"
+            textSize="large"
+            textWeight="normal"
+            onClick={() => {
+              setPage(page + 1)
+            }}
+          />
+        )}
+
       </div>
 
       <DeleteScreen
