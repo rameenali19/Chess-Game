@@ -4,7 +4,8 @@ function Button({
   textSize = "",
   textWeight = "",
   onClick = "",
-  className: customClassName = ""
+  className: customClassName = "",
+  type = "button",
 }) {
 
   const buttonVariants = {
@@ -49,6 +50,7 @@ function Button({
 
   return (
     <button
+      type={type}
       className={className}
       onClick={onClick}
     >

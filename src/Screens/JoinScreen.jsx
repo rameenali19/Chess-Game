@@ -1,13 +1,13 @@
 import { UserContext } from "../Context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
-import { Navigate, useNavigate } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import Button from "../Components/Button";
 
 function JoinScreen({ setGameId, setMode }) {
-  const navigate = useNavigate();
+
   const { guestId } = useContext(UserContext)
   const location = useLocation();
   const [input, setInput] = useState(location.state?.gameId || "");
@@ -66,23 +66,37 @@ function JoinScreen({ setGameId, setMode }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
               />
+              <Button
+                text="Join Game"
+                variant="primary"
+                textSize="normal"
+                textWeight="normal"
+                className="w-40 py-2"
+                type="submit"
+              />
 
-              <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
-               text-white py-2 hover:opacity-85 w-40 hover:scale-105 transition"
-                type="submit">
-                Join Game
-              </button>
             </form>
 
             <div className="flex justify-end ">
-              <button className="w-17 h-7 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
+
+              <Button
+                text="Close"
+                variant="sideBarBlue"
+                textSize="small"
+                textWeight="medium"
+                className="w-17 h-7"
+                onClick={() => {
+                  leaveGame()
+                }}
+              />
+              {/* <button className="w-17 h-7 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
               text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
                 onClick={() => {
                   leaveGame()
                 }}
               >
                 Close
-              </button>
+              </button> */}
             </div>
           </div>
         )}
@@ -94,19 +108,21 @@ function JoinScreen({ setGameId, setMode }) {
             <div className="text-3xl font-bold font-cormorant text-[#17384A]">
               Invalid Game ID
             </div>
-            <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
-               text-white py-2 hover:opacity-85 w-40 font-medium hover:scale-105"
+
+            <Button
+              text="Try Again"
+              variant="primary"
+              textSize="normal"
+              textWeight="normal"
+              className="w-40 py-2"
               onClick={() => {
                 setError(false)
                 setInput("")
               }}
-            >
-              Try Again
-            </button>
+            />
+
           </div>
         )}
-
-
       </motion.div>
     </div >
 
