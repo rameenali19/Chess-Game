@@ -9,7 +9,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
     <Modal open={open}
       className="h-65 w-140">
 
-      <div className=" flex flex-col items-center gap-3 justify-center h-full mt-4">
+      <div className=" flex flex-col items-center gap-3 justify-center h-full mt-3 px-3 ">
         <div className="text-3xl font-bold font-cormorant text-[#17384A]">
           Waiting for Opponent
         </div>
