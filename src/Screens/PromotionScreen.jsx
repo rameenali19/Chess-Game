@@ -3,7 +3,7 @@ import Modal from "../Components/Modal";
 function Promotion({ turn, promote, open }) {
 
   const pieces = ["Queen", "Rook", "Bishop", "Knight"]
-
+  if (!turn) return null;
   return (
 
     <Modal open={open}

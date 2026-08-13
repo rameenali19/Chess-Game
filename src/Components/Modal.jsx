@@ -21,6 +21,7 @@ function Modal({ open, className, children }) {
     )
 
   }
+  else return null
 
 }
 export default Modal;
