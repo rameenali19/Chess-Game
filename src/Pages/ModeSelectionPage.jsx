@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ColorScreen from "../Screens/ColorScreen";
-import LoginScreen from "../Screens/LoginScreen";
+import LoginModal from "../Screens/LoginModal";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import JoinScreen from "../Screens/JoinScreen";
@@ -105,7 +105,7 @@ function ModeSelectionPage() {
 
       {
         loginCondition && (
-          <LoginScreen
+          <LoginModal
             open={loginCondition}
           />
         )

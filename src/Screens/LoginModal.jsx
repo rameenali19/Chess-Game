@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function LoginScreen({ open }) {
+function LoginModal({ open }) {
 
   const { guestId } = useContext(UserContext);
   const { setGuestId } = useContext(UserContext)
@@ -71,4 +71,4 @@ function LoginScreen({ open }) {
 
   )
 }
-export default LoginScreen
+export default LoginModal
