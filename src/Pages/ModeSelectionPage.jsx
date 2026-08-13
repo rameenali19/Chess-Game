@@ -23,7 +23,7 @@ function ModeSelectionPage() {
   const [gameId, setGameId] = useState(null)
   const loginCondition = !guestId
   const colorScreenCondition = guestId && mode !== "join" && mode !== null && !waitingScreen
-
+  const waitingScreenCondition = mode === "multiplayer" && mode !== null && guestId && waitingScreen
 
   useEffect(() => {
     function playerJoinedHandle(data) {
@@ -125,8 +125,9 @@ function ModeSelectionPage() {
       }
 
       {
-        mode === "multiplayer" && mode !== null && guestId && waitingScreen && (
+        waitingScreenCondition && (
           <WaitingScreen
+            open={waitingScreenCondition}
             setWaitingScreen={setWaitingScreen}
             gameId={gameId}
             setMode={setMode}

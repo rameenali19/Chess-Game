@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
+function WaitingScreen({ open, setWaitingScreen, gameId, setMode }) {
   const navigate = useNavigate();
   const [leavingGame, setLeavingGame] = useState(false)
 
@@ -19,7 +19,7 @@ function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
 
   return (
 
-    <Modal open={true}
+    <Modal open={open}
       className="h-65 w-140">
 
       <div className=" flex flex-col justify-center items-center w-full h-full gap-3 px-3">
