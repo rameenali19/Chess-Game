@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Button from "../Components/Button"
 
 function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
   const navigate = useNavigate()
@@ -22,7 +23,13 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
           </div>
 
           <div className="flex justify-center items-center gap-4">
-            <button className=" text-[#ff8127] hover:cursor-pointer w-40 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 border-2 border-[#ff8127] py-1 text-lg font-medium flex items-center justify-center "
+
+            <Button
+              text="Play Again"
+              variant="wait"
+              textSize="large"
+              fontWeight="medium"
+              className="w-40 items-center flex justify-center py-1"
               onClick={() => {
                 navigate("/modeselection", {
                   state: {
@@ -30,24 +37,25 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
                   }
                 })
               }}
-            >
-              <img className=" object-contain w-8 h-8"
-                src="/reload.png" alt="sand clock image"
-              >
-              </img>
-              <div>Play Again</div>
-            </button>
-            <button className="bg-[#ff8127] text-white hover:cursor-pointer w-40 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 py-1 border-2 border-[#ff8127] text-lg font-medium flex items-center justify-center gap-1"
+              image="/reload.png"
+              imageText="reload image"
+              imageStyling="object-contain w-8 h-8"
+            />
+
+            <Button
+              text="Home"
+              variant="leave"
+              textSize="large"
+              fontWeight="medium"
+              className="w-40 items-center flex justify-center py-1 gap-1"
               onClick={() => {
                 navigate(`/`)
               }}
-            >
-              <img className=" object-contain w-8 h-8"
-                src="/white-home.png" alt="white home image"
-              >
-              </img>
-              <div>Home </div>
-            </button>
+              image="/white-home.png"
+              imageText="white home image"
+              imageStyling="object-contain w-8 h-8"
+            />
+
           </div>
 
           <div className="flex justify-end w-full">
