@@ -19,7 +19,8 @@ function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
 
   return (
 
-    <Modal className="h-65 w-140">
+    <Modal open={true}
+      className="h-65 w-140">
 
       <div className=" flex flex-col justify-center items-center w-full h-full gap-3 px-3">
         {
