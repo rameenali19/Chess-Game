@@ -3,7 +3,7 @@ import ColorScreen from "../Screens/ColorScreen";
 import LoginModal from "../Screens/LoginModal";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import JoinScreen from "../Screens/JoinScreen";
+import JoinModal from "../Screens/JoinModal";
 import WaitingModal from "../Screens/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../Socket/socket";
@@ -137,7 +137,7 @@ function ModeSelectionPage() {
       }
       {
         joinScreenCondition && (
-          <JoinScreen
+          <JoinModal
             open={joinScreenCondition}
             setGameId={setGameId}
             setMode={setMode}

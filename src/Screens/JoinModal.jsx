@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function JoinScreen({ open, setGameId, setMode }) {
+function JoinModal({ open, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext)
   const location = useLocation();
@@ -118,4 +118,4 @@ function JoinScreen({ open, setGameId, setMode }) {
   )
 
 }
-export default JoinScreen
+export default JoinModal
