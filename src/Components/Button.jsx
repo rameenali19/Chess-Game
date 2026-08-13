@@ -24,7 +24,7 @@ function Button({
 
   };
 
-  const textWeights = {
+  const fontWeights = {
     normal: "font-normal",
     medium: "font-medium",
     semiBold: "font-semibold"
@@ -44,7 +44,7 @@ function Button({
     baseButtonStyle,
     buttonVariants[variant],
     textSizes[textSize],
-    textWeights[textWeight],
+    fontWeights[textWeight],
     customClassName
   ].join(" ");
 
