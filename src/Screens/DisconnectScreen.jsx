@@ -2,7 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom"
 import Button from "../Components/Button"
 import Modal from "../Components/Modal"
 
-function DisconnectScreen({ open, setDisconnectScreen, setWaitingModal, setReconnectingScreen }) {
+function DisconnectScreen({ open, setDisconnectScreen, setWaitingModal, setReconnectingModal }) {
   const navigate = useNavigate()
 
   return (
@@ -30,7 +30,7 @@ function DisconnectScreen({ open, setDisconnectScreen, setWaitingModal, setRecon
             className="w-35 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setDisconnectScreen(false)
-              setReconnectingScreen(true)
+              setReconnectingModal(true)
             }}
             image="/sand-clock.png"
             imageText="sand clock image"

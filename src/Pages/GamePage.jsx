@@ -4,7 +4,7 @@ import Info from "../Components/GamePageInfo";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../Socket/socket";
-import ReconnectingScreen from "../Screens/ReconnectingScreen";
+import ReconnectingModal from "../Screens/ReconnectingModal";
 import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
@@ -20,7 +20,7 @@ function GamePage() {
   const { guestId } = useContext(UserContext);
   const [gameId, setGameId] = useState(null)
   const [disconnectScreen, setDisconnectScreen] = useState(false)
-  const [reconnectingScreen, setReconnectingScreen] = useState(false)
+  const [reconnectingScreen, setReconnectingModal] = useState(false)
   const [mode, setMode] = useState(null)
   const [winner, setWinner] = useState(null)
   const [gameOver, setGameOver] = useState(false)
@@ -38,7 +38,7 @@ function GamePage() {
     });
 
     socket.on("opponentReconnected", () => {
-      setReconnectingScreen(false)
+      setReconnectingModal(false)
       setDisconnectScreen(false)
     });
 
@@ -92,12 +92,12 @@ function GamePage() {
           <DisconnectScreen
             open={disconnectScreen}
             setDisconnectScreen={setDisconnectScreen}
-            setReconnectingScreen={setReconnectingScreen}
+            setReconnectingModal={setReconnectingModal}
           />
 
-          <ReconnectingScreen
+          <ReconnectingModal
             open={reconnectingScreen}
-            setReconnectingScreen={setReconnectingScreen}
+            setReconnectingModal={setReconnectingModal}
             setDisconnectScreen={setDisconnectScreen}
           />
 

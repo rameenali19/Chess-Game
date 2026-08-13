@@ -2,7 +2,7 @@ import { useNavigate, Navigate } from "react-router-dom"
 import Modal from "../Components/Modal"
 import Button from "../Components/Button"
 
-function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }) {
+function ReconnectingModal({ open, setReconnectingModal, setDisconnectScreen }) {
 
   const navigate = useNavigate()
   return (
@@ -33,7 +33,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
             fontWeight="medium"
             className="w-25 items-center flex justify-center gap-1 py-1"
             onClick={() => {
-              setReconnectingScreen(false)
+              setReconnectingModal(false)
               setDisconnectScreen(false)
               navigate(`/modeselection`)
             }}
@@ -48,4 +48,4 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
   )
 
 }
-export default ReconnectingScreen
+export default ReconnectingModal
