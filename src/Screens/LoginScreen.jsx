@@ -2,6 +2,7 @@ import ApiChess from "../api/apiChess";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import { motion } from "framer-motion";
+import Button from "../Components/Button";
 
 function LoginScreen() {
 
@@ -48,19 +49,24 @@ function LoginScreen() {
 
           <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
 
-            <button className="bg-[#ff8127] hover:cursor-pointer w-30 py-2 rounded-lg
-            hover:opacity-85 hover:scale-105 transition">
-              Login
-            </button>
+            <Button
+              text="Login"
+              variant="primary"
+              textSize="normal"
+              fontWeight="medium"
+              className="w-30 py-2"
+            />
 
-            <button className="bg-[#ff8127]  hover:cursor-pointer w-30 py-2 rounded-lg
-            hover:opacity-85 hover:scale-105 transition"
+            <Button
+              text="No"
+              variant="primary"
+              textSize="normal"
+              fontWeight="medium"
+              className="w-30 py-2"
               onClick={() => {
                 createGuestId();
               }}
-            >
-              No
-            </button>
+            />
           </div>
 
         </div>
