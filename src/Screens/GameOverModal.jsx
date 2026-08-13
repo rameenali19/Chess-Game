@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import Button from "../Components/Button"
 import Modal from "../Components/Modal"
 
-function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
+function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
   const navigate = useNavigate()
 
   const result = winner === userColor ? "Won" : winner === "Draw" ? "Draw" : "Lost"
@@ -84,4 +84,4 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
 
 }
 
-export default GameOverScreen;
+export default GameOverModal;

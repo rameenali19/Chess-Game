@@ -8,7 +8,7 @@ import ReconnectingModal from "../Screens/ReconnectingModal";
 import DisconnectScreen from "../Screens/DisconnectScreen";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
-import GameOverScreen from "../Screens/GameOverScreen";
+import GameOverModal from "../Screens/GameOverModal";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -101,7 +101,7 @@ function GamePage() {
             setDisconnectScreen={setDisconnectScreen}
           />
 
-          <GameOverScreen
+          <GameOverModal
             open={gameOver}
             winner={winner}
             userColor={userColor}
