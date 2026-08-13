@@ -22,6 +22,7 @@ function HistoryNavBar({ games, filter, setFilter }) {
         filters.map((button) => {
           return (
             <Button
+              key={button.filter}
               text={button.text}
               variant="outline"
               textSize="large"

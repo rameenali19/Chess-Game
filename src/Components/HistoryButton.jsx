@@ -1,9 +1,13 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import ApiChess from "../api/apiChess";
 import { useState, useEffect } from "react";
+import Button from "./Button";
 
 function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const [player, setPlayer] = useState(null)
+  const navigate = useNavigate();
+  const [hover, setHover] = useState(true)
+
   useEffect(() => {
     async function getPlayer() {
       const player = ApiChess.getAPI();
@@ -13,20 +17,63 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
     getPlayer()
   }, [])
 
-  const navigate = useNavigate();
-  const playerImage = game.mode === "single player" ? "/singleplayer.png" : "/multiplayer.png"
-  const text = game.mode === "single player" ? "Single Player Game" : "Multiplayer Game"
-  const textColor = game.mode === "single player" ? "text-[#eb1603]" : "text-[#ff8127]"
+  const modeData = {
+    "single player": {
+      image: "/singleplayer.png",
+      text: "Single Player Game",
+      textColor: "text-[#eb1603]"
+    },
+    multiplayer: {
+      image: "/multiplayer.png",
+      text: "Multiplayer Game",
+      textColor: "text-[#ff8127]"
+    }
+  }
+  const currentMode = modeData[game.mode]
+  const statusData = {
+    finished: {
+      won: {
+        variant: "win",
+        text: "Won",
+        image: "/green-trophy.png"
+      },
+      lost: {
+        variant: "lose",
+        text: "Lost",
+        image: "/red-cross.png"
+      }
+    },
+    unfinished: {
+      variant: "pending",
+      text: "In Progress",
+      image: "/pending.png"
+    }
+  }
+  let currentStatus;
+  if (game.game_status === "finished") {
+    currentStatus =
+      game.winner === player?.player_color ?
+        statusData.finished.won :
+        statusData.finished.lost
+  }
+  else {
+    currentStatus = statusData["unfinished"]
+  }
 
-  const statusColor = game.game_status === "finished" ? (game.winner === player?.player_color ? "bg-[#D9E8C8] text-[#3F6B2A]" : "bg-[#FCDFDD] text-[#E64743]") : "bg-[#F9E4A4] text-[#8A5A00]"
+  const continueButtonStyle = {
+    finished: {
+      variant: "viewButton",
+      text: "View"
+    },
+    unfinished: {
+      variant: "continueButton",
+      text: "Continue"
+    }
+  }
 
-  const statusText = game.game_status === "finished" ? (game.winner === player?.player_color ? "Won" : "Lost")
-    : "In Progress"
-
-  const statusImage = game.game_status === "finished" ? (game.winner === player?.player_color ? "/green-trophy.png" : "/red-cross.png") : "/pending.png"
-
-  const [hover, setHover] = useState(true)
-
+  const continueButton = continueButtonStyle[
+    game.game_status === "finished" ?
+      "finished" : "unfinished"]
 
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
@@ -35,16 +82,17 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
       <div className="flex items-center gap-2 ">
 
-        <img src={playerImage} alt="mode image"
+        <img src={currentMode.image} alt="mode image"
           className={` w-12 mr-1 object-contain ${game.mode === "singleplayer" ?
             "h-5" : "h-12"
             }`}
         ></img>
 
         <div className="font-inter text-[#17384A] text-xs ">
-          <h1 className="text-xl font-semibold">{text}</h1>
+          <h1 className="text-xl font-semibold">{currentMode.text}</h1>
           <h1>Player color :
-            <span className={` font-semibold ${textColor}`}>{player?.player_color} </span>
+            <span className={` font-semibold ${currentMode.textColor}`}>
+              {player?.player_color} </span>
           </h1>
         </div>
       </div>
@@ -52,57 +100,53 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
       <div className="flex gap-5 font-inter text-sm font-semibold items-center">
 
-        <button className={` flex w-37 h-15 rounded-2xl hover:cursor-pointer  hover:-translate-y-0.5 transition 
-          ${statusColor} items-center justify-center gap-3`} >
-          <img className="object-contain w-9 h-9"
-            src={statusImage} alt="status Image">
-          </img>
-          <div>
-            <h1 className="font-bold">{statusText}</h1>
-          </div>
-        </button>
+        <Button
+          text={currentStatus.text}
+          variant={currentStatus.variant}
+          fontWeight="semibold"
+          className="flex w-37 h-15  items-center justify-center gap-3"
+          image={currentStatus.image}
+          imageText="status Image"
+          imageStyling="object-contain w-9 h-9"
+        />
 
+        <Button
+          text={continueButton.text}
+          variant={continueButton.variant}
+          onClick={() => {
+            if (game.mode === "multiplayer" &&
+              game.game_status !== "finished"
+            ) {
+              navigate("/modeselection", {
+                state: {
+                  mode: "join",
+                  gameId: game.id
+                }
+              })
+              return
+            }
+            navigate(`/game/${game.id}`)
+          }}
+          className="w-33 h-11"
+        />
 
-        <button className={`w-33 h-11 rounded-xl  hover:cursor-pointer hover:-translate-y-0.5 transition
-      ${game.game_status === "unfinished" || game.game_status === "waiting" ? "bg-[#2b6381] text-white"
-            : "ring-[#2b6381] ring-2 text-[#2b6381] "
-          }`
-        } onClick={() => {
-          if (game.mode === "multiplayer" &&
-            game.game_status !== "finished"
-          ) {
-            navigate("/modeselection", {
-              state: {
-                mode: "join",
-                gameId: game.id
-              }
-            })
-            return
-          }
-          navigate(`/game/${game.id}`)
-        }}>
-          {
-            game.game_status === "finished" ? "View" : "Continue"
-          }
-        </button>
-
-
-        <button className="w-15 h-10 rounded-full  hover:cursor-pointer bg-[#E64743] text-white hover:-translate-y-0.5 transition flex justify-center items-center"
+        <Button
+          text=""
+          variant="delete"
           onClick={() => {
             setDeleteModal(true)
             setSelectedGameId(game.id)
           }}
           onMouseEnter={() => { setHover(false) }}
           onMouseLeave={() => { setHover(true) }}
-        >
-          <img className="w-6 object-contain h-5"
-            src={hover ? "/dustbin-close.png" : "/dustbin-open.png"}
-            alt="dustbin image"></img>
-
-        </button>
+          className="w-15 h-10 flex justify-center items-center"
+          image={hover ? "/dustbin-close.png" : "/dustbin-open.png"}
+          imageText="dustbin image"
+          imageStyling="w-6 object-contain h-5"
+        />
 
       </div>
     </div >
   )
 }
-export default HistoryButton
+export default HistoryButton;
