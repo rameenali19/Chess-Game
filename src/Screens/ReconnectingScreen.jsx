@@ -9,7 +9,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
 
         <div className="bg-[url('/orangebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl rounded-xl h-65 w-140 shadow-[rgba(23,56,74,0.15)] px-3">
 
-          <div className=" flex flex-col items-center gap-3 justify-center h-full ">
+          <div className=" flex flex-col items-center gap-3 justify-center h-full mt-4">
 
             <div className="text-3xl font-bold font-cormorant text-[#17384A]">
               Waiting for Opponent
