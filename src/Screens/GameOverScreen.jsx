@@ -59,14 +59,22 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
           </div>
 
           <div className="flex justify-end w-full">
-            <button className="w-15 h-6 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
-                     text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
+
+
+            <Button
+              text="Close"
+              variant="sideBarBlue"
+              textSize="small"
+              fontWeight="medium"
+              className="w-15 h-6 items-center flex justify-center py-1 gap-1"
               onClick={() => {
                 setGameOver(false)
               }}
-            >
-              Close
-            </button>
+              image="/white-home.png"
+              imageText="white home image"
+              imageStyling="object-contain w-8 h-8"
+            />
+
           </div>
 
         </div>
