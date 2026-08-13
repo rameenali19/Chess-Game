@@ -9,7 +9,7 @@ function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReco
     <Modal open={open}
       className="h-65 w-125">
 
-      <div className="flex flex-col items-center justify-center gap-7">
+      <div className="flex flex-col items-center justify-center h-full gap-8">
 
         <div className=" flex flex-col items-center gap-3 text-[#17384A]">
           <h1 className="text-3xl font-bold font-cormorant">
