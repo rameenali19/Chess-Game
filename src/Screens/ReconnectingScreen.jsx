@@ -32,7 +32,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
                 variant="leave"
                 textSize="medium"
                 fontWeight="medium"
-                className="w-25 items-center flex justify-center gap-1"
+                className="w-25 items-center flex justify-center gap-1 py-1"
                 onClick={() => {
                   setReconnectingScreen(false)
                   setDisconnectScreen(false)
