@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import SocketClass from "../Socket/socketClass";
 import { motion } from "framer-motion";
+import Button from "../Components/Button";
 
 function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
   const navigate = useNavigate();
@@ -41,20 +42,19 @@ function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
               </div>
 
               <div
-                className="w-12 h-12 rounded-full
-             border-4 border-[#ffc79f]
-             border-t-[#ff8127]
-             animate-spin"
-              />
+                className="w-12 h-12 rounded-full border-4 border-[#ffc79f]
+                 border-t-[#ff8127] animate-spin" />
               <div className="flex justify-end w-full">
-                <button className="w-20 h-8 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
-                     text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
+
+                <Button
+                  text="Leave"
+                  variant="sideBarBlue"
+                  textSize="small"
+                  fontWeight="medium"
+                  className="w-20 h-8"
                   onClick={() => {
                     setLeavingGame(true)
-                  }}
-                >
-                  Leave
-                </button>
+                  }} />
               </div>
             </div>
           )}
@@ -69,23 +69,27 @@ function WaitingScreen({ setWaitingScreen, gameId, setMode }) {
               </div>
 
               <div className="flex w-full justify-center gap-10 items-center mt-5">
-                <button className="w-20 h-8 bg-[#1d4960] rounded-lg font-inter 
-                  hover:opacity-85 text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
+
+                <Button
+                  text="Leave"
+                  variant="sideBarBlue"
+                  textSize="small"
+                  fontWeight="medium"
+                  className="w-20 h-8"
                   onClick={() => {
                     leaveGame()
-                  }}
-                >
-                  Leave
-                </button>
+                  }} />
 
-                <button className="w-20 h-8 bg-[#1d4960] rounded-lg font-inter 
-                  hover:opacity-85 text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
+                <Button
+                  text="Stay"
+                  variant="sideBarBlue"
+                  textSize="small"
+                  fontWeight="medium"
+                  className="w-20 h-8"
                   onClick={() => {
                     setLeavingGame(false)
-                  }}
-                >
-                  Stay
-                </button>
+                  }} />
+
               </div>
             </div>
           )
