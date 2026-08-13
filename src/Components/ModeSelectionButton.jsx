@@ -43,7 +43,7 @@ function ModeSelectionButton({ setMode }) {
       title: "AI Bot",
       line1: "Challange AI bot ",
       line2: "and test your skills",
-      variant: "blue",
+      variant: "aiBlue",
       textColor: "#443496",
       borderColor: "#443496",
       mode: "ai",

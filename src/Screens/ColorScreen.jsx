@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import SocketClass from "../Socket/socketClass";
+import Button from "../Components/Button";
 
 function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
 
@@ -16,7 +17,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
 
-  const button = [{ image: "/white-king.png", text: "White", }, { image: "/black-king.png", text: "Black", }]
+  const pieces = [{ image: "/white-king.png", text: "White", }, { image: "/black-king.png", text: "Black", }]
 
   async function createGame() {
     if (!userColor) return
@@ -74,7 +75,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
           <div className="flex justify-center gap-10 w-full">
 
             {
-              button.map((color) => {
+              pieces.map((color) => {
                 return (
                   <div key={color.text}
                     className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
@@ -93,25 +94,26 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
             }
           </div>
 
-          <button className="hover:cursor-pointer border-2 bg-[#ff8127] rounded-lg font-inter
-               text-white py-2 hover:opacity-85 w-40 hover:scale-105 transition"
-            onClick={() => {
-              createGame()
-            }}
-          >
-            Start Game
-          </button>
+          <Button
+            text="Start Game"
+            variant="primary"
+            textSize="normal"
+            textWeight="normal"
+            onClick={() => createGame()}
+            className="w-40 py-2"
+          />
 
 
           <div className="flex justify-end w-full">
-            <button className="w-17 h-7 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
-              text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
-              onClick={() => {
-                setMode(null)
-              }}
-            >
-              Close
-            </button>
+
+            <Button
+              text="Close"
+              variant="sideBarBlue"
+              textSize="small"
+              textWeight="medium"
+              onClick={() => setMode(null)}
+              className="w-17 h-7"
+            />
           </div>
 
         </div>
