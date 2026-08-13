@@ -70,9 +70,7 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
               onClick={() => {
                 setGameOver(false)
               }}
-              image="/white-home.png"
-              imageText="white home image"
-              imageStyling="object-contain w-8 h-8"
+
             />
 
           </div>
