@@ -64,10 +64,10 @@ function HistoryPage() {
         <Button
           text="+ New Game"
           variant="primary"
-          buttonSize="medium"
           textSize="normal"
           textWeight="normal"
           onClick={() => navigate("/modeSelection")}
+          className="w-35 h-10"
         />
 
       </div>
@@ -114,7 +114,6 @@ function HistoryPage() {
           <Button
             text="Previous Page"
             variant="outline"
-            buttonSize="medium"
             textSize="large"
             textWeight="normal"
             onClick={() => {
@@ -127,7 +126,6 @@ function HistoryPage() {
           <Button
             text="Next Page"
             variant="outline"
-            buttonSize="medium"
             textSize="large"
             textWeight="normal"
             onClick={() => {

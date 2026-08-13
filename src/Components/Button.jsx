@@ -1,7 +1,6 @@
 function Button({
   text = "",
   variant = "",
-  buttonSize = "",
   textSize = "",
   textWeight = "",
   onClick = "",
@@ -24,10 +23,6 @@ function Button({
 
   };
 
-  const buttonSizes = {
-    medium: "px-5 py-2 ",
-  };
-
   const textWeights = {
     normal: "font-normal",
     medium: "font-medium",
@@ -47,7 +42,6 @@ function Button({
   const className = [
     baseButtonStyle,
     buttonVariants[variant],
-    buttonSizes[buttonSize],
     textSizes[textSize],
     textWeights[textWeight],
     customClassName
