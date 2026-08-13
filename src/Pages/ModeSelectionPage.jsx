@@ -4,7 +4,7 @@ import LoginScreen from "../Screens/LoginScreen";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import JoinScreen from "../Screens/JoinScreen";
-import WaitingScreen from "../Screens/WaitingScreen";
+import WaitingModal from "../Screens/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../Socket/socket";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ import Button from "../Components/Button";
 function ModeSelectionPage() {
 
   const navigate = useNavigate()
-  const [waitingScreen, setWaitingScreen] = useState(null)
+  const [waitingScreen, setWaitingModal] = useState(null)
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const { guestId } = useContext(UserContext);
@@ -29,13 +29,13 @@ function ModeSelectionPage() {
   useEffect(() => {
     function playerJoinedHandle(data) {
       console.log("PLAYER JOINED EVENT:", data);
-      setWaitingScreen(false);
+      setWaitingModal(false);
       navigate(`/game/${data.gameId}`)
     }
 
     function waitingScreenHandle() {
       setMode("multiplayer")
-      setWaitingScreen(true)
+      setWaitingModal(true)
     }
 
     socket.on("playerJoined", playerJoinedHandle);
@@ -118,7 +118,7 @@ function ModeSelectionPage() {
             open={colorScreenCondition}
             mode={mode}
             waitingScreen={waitingScreen}
-            setWaitingScreen={setWaitingScreen}
+            setWaitingModal={setWaitingModal}
             setGameId={setGameId}
             setMode={setMode}
           />
@@ -127,9 +127,9 @@ function ModeSelectionPage() {
 
       {
         waitingScreenCondition && (
-          <WaitingScreen
+          <WaitingModal
             open={waitingScreenCondition}
-            setWaitingScreen={setWaitingScreen}
+            setWaitingModal={setWaitingModal}
             gameId={gameId}
             setMode={setMode}
           />

@@ -2,7 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom"
 import Button from "../Components/Button"
 import Modal from "../Components/Modal"
 
-function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReconnectingScreen }) {
+function DisconnectScreen({ open, setDisconnectScreen, setWaitingModal, setReconnectingScreen }) {
   const navigate = useNavigate()
 
   return (

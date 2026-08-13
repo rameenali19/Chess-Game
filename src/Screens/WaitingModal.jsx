@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function WaitingScreen({ open, setWaitingScreen, gameId, setMode }) {
+function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
   const navigate = useNavigate();
   const [leavingGame, setLeavingGame] = useState(false)
 
   function leaveGame() {
     const socketClass = SocketClass.getObject();
     socketClass.leavingGame(gameId)
-    setWaitingScreen(false)
+    setWaitingModal(false)
     setMode(null)
     navigate(`/modeselection`)
   }
@@ -90,4 +90,4 @@ function WaitingScreen({ open, setWaitingScreen, gameId, setMode }) {
 
   )
 }
-export default WaitingScreen
+export default WaitingModal

@@ -9,7 +9,7 @@ import SocketClass from "../Socket/socketClass";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function ColorScreen({ open, mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
+function ColorScreen({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function ColorScreen({ open, mode, waitingScreen, setWaitingScreen, setGameId, s
     if (mode === "multiplayer") {
       const socketClass = SocketClass.getObject();
       socketClass.joinGame(newGameId)
-      setWaitingScreen(true)
+      setWaitingModal(true)
     }
     else {
       navigate(`/game/${newGameId}`)
