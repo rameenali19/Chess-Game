@@ -9,7 +9,7 @@ import SocketClass from "../Socket/socketClass";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
+function ColorScreen({ open, mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
 
   return (
 
-    <Modal open={true}
+    <Modal open={open}
       className="h-90 w-140">
 
       <div className="flex flex-col h-full gap-5 items-center px-2">

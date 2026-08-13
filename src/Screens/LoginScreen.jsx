@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function LoginScreen() {
+function LoginScreen({ open }) {
 
   const { guestId } = useContext(UserContext);
   const { setGuestId } = useContext(UserContext)
@@ -29,7 +29,7 @@ function LoginScreen() {
 
   return (
 
-    <Modal open={true}
+    <Modal open={open}
       className="h-65 w-120">
 
       <div className="flex flex-col h-full justify-center gap-6">

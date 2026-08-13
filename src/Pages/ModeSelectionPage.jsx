@@ -21,6 +21,9 @@ function ModeSelectionPage() {
   const { guestId } = useContext(UserContext);
   const [totalGames, setTotalGames] = useState(null)
   const [gameId, setGameId] = useState(null)
+  const loginCondition = !guestId
+  const colorScreenCondition = guestId && mode !== "join" && mode !== null && !waitingScreen
+
 
   useEffect(() => {
     function playerJoinedHandle(data) {
@@ -100,15 +103,18 @@ function ModeSelectionPage() {
       </motion.div>
 
       {
-        !guestId && (
-          <LoginScreen />
+        loginCondition && (
+          <LoginScreen
+            open={loginCondition}
+          />
         )
       }
 
       {
-        guestId && mode !== "join" && mode !== null && !waitingScreen && (
+        colorScreenCondition && (
 
           <ColorScreen
+            open={colorScreenCondition}
             mode={mode}
             waitingScreen={waitingScreen}
             setWaitingScreen={setWaitingScreen}
