@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import Button from "../Components/Button"
+import Modal from "../Components/Modal"
 
 function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
   const navigate = useNavigate()
@@ -8,10 +9,10 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
     const result = winner === userColor ? "Won" : winner === "Draw" ? "Draw" : "Lost"
 
     return (
-      <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
 
-        <div className="bg-[url('/orangebg.png')] bg-center bg-cover border border-[#E8DCC7] shadow-2xl rounded-xl px-2 h-65 w-125 shadow-[rgba(23,56,74,0.15)] flex flex-col items-center justify-center gap-7">
+      <Modal className=" h-65 w-125 ">
 
+        <div className="flex flex-col items-center justify-center gap-7 h-full px-2 ">
           <div className=" flex flex-col items-center gap-3 text-[#17384A]">
             <h1 className="text-3xl font-bold font-cormorant">
               {result === "Won" ? "You Won!" : result === "Draw" ? "Game Draw" : "You Lost"}
@@ -74,10 +75,11 @@ function GameOverScreen({ open, winner, userColor, setGameOver, mode }) {
             />
 
           </div>
-
         </div>
 
-      </div>
+
+      </Modal>
+
     )
   }
 }
