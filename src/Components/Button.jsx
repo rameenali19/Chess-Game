@@ -1,9 +1,9 @@
 function Button({
-  text = "",
-  variant = "",
-  textSize = "",
-  fontWeight = "",
-  onClick = "",
+  text = "+ New Game",
+  variant = "primary",
+  textSize = "normal",
+  fontWeight = "normal",
+  onClick = () => { },
   className: customClassName = "",
   type = "button",
 }) {
