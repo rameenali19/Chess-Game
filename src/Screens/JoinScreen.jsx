@@ -89,14 +89,7 @@ function JoinScreen({ setGameId, setMode }) {
                   leaveGame()
                 }}
               />
-              {/* <button className="w-17 h-7 bg-[#1d4960] rounded-lg font-inter hover:opacity-85
-              text-xs text-[white] hover:cursor-pointer font-medium hover:scale-105 transition"
-                onClick={() => {
-                  leaveGame()
-                }}
-              >
-                Close
-              </button> */}
+
             </div>
           </div>
         )}
