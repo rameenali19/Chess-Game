@@ -53,7 +53,8 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
 
   return (
 
-    <Modal className="h-90 w-140">
+    <Modal open={true}
+      className="h-90 w-140">
 
       <div className="flex flex-col h-full gap-5 items-center px-2">
 
