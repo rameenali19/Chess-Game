@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function Modal({ propotion, modal }) {
+function Modal({ size, modal }) {
 
   return (
     <div className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
@@ -11,7 +11,7 @@ function Modal({ propotion, modal }) {
         transition={{ duration: 0.4, ease: "easeOut" }}
         className={`border border-[#E8DCC7] shadow-2xl rounded-xl
          shadow-[rgba(23,56,74,0.15)] bg-[url('/orangebg.png')]
-         bg-center bg-cover ${propotion}`}>
+         bg-center bg-cover ${size}`}>
 
         {modal}
 
