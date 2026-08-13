@@ -7,7 +7,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Single Player",
       line1: "Play on the same device",
       line2: "with your friend",
-      buttonColor: "green",
+      variant: "green",
       textColor: "#35843C",
       borderColor: "#35843C",
       mode: "single player",
@@ -20,7 +20,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Multiplayer",
       line1: "Play with other players",
       line2: "around the world",
-      buttonColor: "primary",
+      variant: "primary",
       textColor: "#E67E00",
       borderColor: "#E67E00",
       mode: "multiplayer",
@@ -32,7 +32,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Join multiplayer",
       line1: "Join a friend or player",
       line2: "using a Game ID",
-      buttonColor: "red",
+      variant: "red",
       textColor: "#D9413A",
       borderColor: "#D9413A",
       mode: "join",
@@ -43,7 +43,7 @@ function ModeSelectionButton({ setMode }) {
       title: "AI Bot",
       line1: "Challange AI bot ",
       line2: "and test your skills",
-      buttonColor: "blue",
+      variant: "blue",
       textColor: "#443496",
       borderColor: "#443496",
       mode: "ai",
@@ -75,7 +75,7 @@ function ModeSelectionButton({ setMode }) {
               </div>
 
               <Button
-                variant={game.buttonColor}
+                variant={game.variant}
                 text={game.buttonText}
                 textSize="small"
                 textWeight="medium"
