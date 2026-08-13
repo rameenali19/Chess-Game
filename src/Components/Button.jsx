@@ -39,7 +39,9 @@ function Button({
     pending:
       "bg-[#F9E4A4] text-[#8A5A00] rounded-2xl",
     leave:
-      "border-2 border-[#ff8127] rounded-lg"
+      "bg-[#ff8127] text-white border-2 border-[#ff8127] rounded-lg",
+    wait:
+      "text-[#ff8127] border-2 border-[#ff8127] rounded-lg"
   };
 
   const fontWeights = {

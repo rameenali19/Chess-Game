@@ -39,7 +39,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
                   navigate(`/modeselection`)
                 }}
                 image="/door.png"
-                imageText="sand clock image"
+                imageText="door image"
                 imageStyling="object-contain w-5 h-5"
               />
             </div>

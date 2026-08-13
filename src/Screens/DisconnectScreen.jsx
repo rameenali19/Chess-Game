@@ -1,4 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom"
+import Button from "../Components/Button"
+
 function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReconnectingScreen }) {
   const navigate = useNavigate()
   if (open) {
@@ -17,30 +19,37 @@ function DisconnectScreen({ open, setDisconnectScreen, setWaitingScreen, setReco
           </div>
 
           <div className="flex justify-center items-center gap-4">
-            <button className=" text-[#ff8127] hover:cursor-pointer w-35 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 border-2 border-[#ff8127] py-1 text-lg font-medium flex items-center justify-center gap-1"
+
+            <Button
+              text="Wait"
+              variant="wait"
+              textSize="large"
+              fontWeight="medium"
+              className="w-35 items-center flex justify-center gap-1 py-1"
               onClick={() => {
                 setDisconnectScreen(false)
                 setReconnectingScreen(true)
               }}
-            >
-              <img className=" object-contain w-5 h-5"
-                src="/sand-clock.png" alt="sand clock image"
-              >
-              </img>
-              <div>Wait</div>
-            </button>
-            <button className="bg-[#ff8127] text-white hover:cursor-pointer w-35 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150 py-1 border-2 border-[#ff8127] text-lg font-medium flex items-center justify-center gap-1"
+              image="/sand-clock.png"
+              imageText="sand clock image"
+              imageStyling="object-contain w-5 h-5"
+            />
+
+            <Button
+              text="Leave"
+              variant="leave"
+              textSize="large"
+              fontWeight="medium"
+              className="w-35 items-center flex justify-center gap-1 py-1"
               onClick={() => {
                 setDisconnectScreen(false)
                 navigate(`/modeselection`)
               }}
-            >
-              <img className=" object-contain w-5 h-5"
-                src="/door.png" alt="sand clock image"
-              >
-              </img>
-              <div>Leave</div>
-            </button>
+              image="/door.png"
+              imageText="door image"
+              imageStyling="object-contain w-5 h-5"
+            />
+
           </div>
 
         </div>
