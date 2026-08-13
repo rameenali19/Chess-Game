@@ -29,7 +29,8 @@ function LoginScreen() {
 
   return (
 
-    <Modal className="h-65 w-120">
+    <Modal open={true}
+      className="h-65 w-120">
 
       <div className="flex flex-col h-full justify-center gap-6">
 
