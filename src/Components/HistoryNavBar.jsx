@@ -25,7 +25,7 @@ function HistoryNavBar({ games, filter, setFilter }) {
               text={button.text}
               variant="outline"
               textSize="large"
-              textWeight="normal"
+              fontWeight="normal"
               onClick={() => { setFilter(button.filter) }}
               className={
                 filter === button.filter ?

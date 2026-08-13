@@ -70,7 +70,7 @@ function JoinScreen({ setGameId, setMode }) {
                 text="Join Game"
                 variant="primary"
                 textSize="normal"
-                textWeight="normal"
+                fontWeight="normal"
                 className="w-40 py-2"
                 type="submit"
               />
@@ -83,7 +83,7 @@ function JoinScreen({ setGameId, setMode }) {
                 text="Close"
                 variant="sideBarBlue"
                 textSize="small"
-                textWeight="medium"
+                fontWeight="medium"
                 className="w-17 h-7"
                 onClick={() => {
                   leaveGame()
@@ -113,7 +113,7 @@ function JoinScreen({ setGameId, setMode }) {
               text="Try Again"
               variant="primary"
               textSize="normal"
-              textWeight="normal"
+              fontWeight="normal"
               className="w-40 py-2"
               onClick={() => {
                 setError(false)

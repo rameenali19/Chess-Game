@@ -78,7 +78,7 @@ function ModeSelectionButton({ setMode }) {
                 variant={game.variant}
                 text={game.buttonText}
                 textSize="small"
-                textWeight="medium"
+                fontWeight="medium"
                 onClick={() => setMode(game.mode)}
                 className={`w-27 h-9 mr-1`}
               />

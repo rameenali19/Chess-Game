@@ -98,7 +98,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
             text="Start Game"
             variant="primary"
             textSize="normal"
-            textWeight="normal"
+            fontWeight="normal"
             onClick={() => createGame()}
             className="w-40 py-2"
           />
@@ -110,7 +110,7 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
               text="Close"
               variant="sideBarBlue"
               textSize="small"
-              textWeight="medium"
+              fontWeight="medium"
               onClick={() => setMode(null)}
               className="w-17 h-7"
             />

@@ -65,7 +65,7 @@ function HistoryPage() {
           text="+ New Game"
           variant="primary"
           textSize="normal"
-          textWeight="normal"
+          fontWeight="normal"
           onClick={() => navigate("/modeSelection")}
           className="w-35 h-10"
         />
@@ -115,7 +115,7 @@ function HistoryPage() {
             text="Previous Page"
             variant="outline"
             textSize="large"
-            textWeight="normal"
+            fontWeight="normal"
             onClick={() => {
               setPage(page - 1)
             }}
@@ -127,7 +127,7 @@ function HistoryPage() {
             text="Next Page"
             variant="outline"
             textSize="large"
-            textWeight="normal"
+            fontWeight="normal"
             onClick={() => {
               setPage(page + 1)
             }}

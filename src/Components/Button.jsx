@@ -2,7 +2,7 @@ function Button({
   text = "",
   variant = "",
   textSize = "",
-  textWeight = "",
+  fontWeight = "",
   onClick = "",
   className: customClassName = "",
   type = "button",
@@ -44,7 +44,7 @@ function Button({
     baseButtonStyle,
     buttonVariants[variant],
     textSizes[textSize],
-    fontWeights[textWeight],
+    fontWeights[fontWeight],
     customClassName
   ].join(" ");
 
