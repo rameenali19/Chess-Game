@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 function ModeSelectionButton({ setMode }) {
   const button = [
     {
@@ -5,7 +7,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Single Player",
       line1: "Play on the same device",
       line2: "with your friend",
-      buttonColor: "#35843C",
+      buttonColor: "green",
       textColor: "#35843C",
       borderColor: "#35843C",
       mode: "single player",
@@ -18,7 +20,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Multiplayer",
       line1: "Play with other players",
       line2: "around the world",
-      buttonColor: "#E67E00",
+      buttonColor: "primary",
       textColor: "#E67E00",
       borderColor: "#E67E00",
       mode: "multiplayer",
@@ -30,7 +32,7 @@ function ModeSelectionButton({ setMode }) {
       title: "Join multiplayer",
       line1: "Join a friend or player",
       line2: "using a Game ID",
-      buttonColor: "#D9413A",
+      buttonColor: "red",
       textColor: "#D9413A",
       borderColor: "#D9413A",
       mode: "join",
@@ -41,7 +43,7 @@ function ModeSelectionButton({ setMode }) {
       title: "AI Bot",
       line1: "Challange AI bot ",
       line2: "and test your skills",
-      buttonColor: "#443496",
+      buttonColor: "blue",
       textColor: "#443496",
       borderColor: "#443496",
       mode: "ai",
@@ -72,16 +74,16 @@ function ModeSelectionButton({ setMode }) {
                   {game.line2}</h1>
               </div>
 
-              <button className="hover:scale-105 transition hover:cursor-pointer w-27 h-9 rounded-lg font-medium text-white text-xs mr-1 hover:opacity-80"
-                style={{ backgroundColor: game.buttonColor }}
-                onClick={() => {
-                  setMode(game.mode)
-                }}
-              >
-                {game.buttonText}
-              </button>
+              <Button
+                variant={game.buttonColor}
+                text={game.buttonText}
+                textSize="small"
+                textWeight="medium"
+                onClick={() => setMode(game.mode)}
+                className={`w-27 h-9 mr-1`}
+              />
 
-            </div>
+            </div >
           )
         })
       }
