@@ -104,7 +104,7 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
           text={currentStatus.text}
           variant={currentStatus.variant}
           fontWeight="semibold"
-          className="flex w-37 h-15  items-center justify-center gap-3"
+          className="flex w-37 h-15  items-center justify-center gap-2"
           image={currentStatus.image}
           imageText="status Image"
           imageStyling="object-contain w-9 h-9"

@@ -29,9 +29,9 @@ function Button({
     delete:
       "bg-[#E64743] text-white rounded-full",
     continueButton:
-      "bg-[#2b6381] text-white rounded-xl",
+      "bg-[#2b6381] text-white rounded-lg",
     viewButton:
-      "ring-[#2b6381] ring-2 text-[#2b6381] rounded-xl",
+      "ring-[#2b6381] ring-2 text-[#2b6381] rounded-lg",
     win:
       "bg-[#D9E8C8] text-[#3F6B2A] rounded-2xl",
     lose:

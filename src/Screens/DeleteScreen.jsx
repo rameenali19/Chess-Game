@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Button from "../Components/Button";
 function DeleteScreen({ open, id, deleteFunction, setDeleteModal }) {
 
   if (open) {
@@ -25,24 +26,26 @@ function DeleteScreen({ open, id, deleteFunction, setDeleteModal }) {
 
             <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
 
-              <button className="bg-[#ff8127] hover:cursor-pointer w-30 py-2 rounded-lg
-            hover:opacity-85 hover:scale-105 transition"
+              <Button
+                text="Yes"
+                variant="primary"
+                fontWeight="medium"
+                className="w-30 py-2"
                 onClick={() => {
                   deleteFunction(id)
                   setDeleteModal(false)
                 }}
-              >
-                Yes
-              </button>
+              />
 
-              <button className="bg-[#ff8127]  hover:cursor-pointer w-30 py-2 rounded-lg
-            hover:opacity-85 hover:scale-105 transition"
+              <Button
+                text="No"
+                variant="primary"
+                fontWeight="medium"
+                className="w-30 py-2"
                 onClick={() => {
                   setDeleteModal(false)
                 }}
-              >
-                No
-              </button>
+              />
             </div>
 
           </div>
