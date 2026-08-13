@@ -32,11 +32,10 @@ function JoinScreen({ setGameId, setMode }) {
     socketClass.joinGame(input)
     setGameId(input)
   }
-
-
   return (
 
-    <Modal className="h-65 w-140">
+    <Modal open={true}
+      className="h-65 w-140">
 
       {!error && (
         <div className="flex flex-col h-full justify-around px-4 w-full">
