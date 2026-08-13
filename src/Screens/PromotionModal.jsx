@@ -1,6 +1,6 @@
 import { pieceImages } from "../Chess/Constants";
 import Modal from "../Components/Modal";
-function Promotion({ turn, promote, open }) {
+function PromotionModal({ turn, promote, open }) {
 
   const pieces = ["Queen", "Rook", "Bishop", "Knight"]
   if (!turn) return null;
@@ -41,4 +41,4 @@ function Promotion({ turn, promote, open }) {
 
 
 }
-export default Promotion;
+export default PromotionModal;

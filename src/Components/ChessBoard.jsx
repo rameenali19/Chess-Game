@@ -1,5 +1,5 @@
 import Square from "./Square";
-import Promotion from "../Screens/PromotionScreen";
+import PromotionModal from "../Screens/PromotionModal";
 import { useChessBoard } from "../Hooks/ChessBoardHook";
 function ChessBoard({
   turn,
@@ -104,7 +104,7 @@ function ChessBoard({
         })
       )}
 
-      <Promotion
+      <PromotionModal
         turn={turn}
         promote={promote}
         open={promotion}
