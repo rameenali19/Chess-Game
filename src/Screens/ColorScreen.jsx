@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import SocketClass from "../Socket/socketClass";
 import Button from "../Components/Button";
+import Modal from "../Components/Modal";
 
 function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode }) {
 
@@ -51,74 +52,68 @@ function ColorScreen({ mode, waitingScreen, setWaitingScreen, setGameId, setMode
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="fixed inset-0  flex justify-center items-center bg-[#3E2C20]/25 z-50">
-      <div className="bg-[#FFF7EA] border border-[#E8DCC7] shadow-2xl rounded-xl p-3 h-90 w-140
-        shadow-[rgba(23,56,74,0.15)] bg-[url('/orangebg.png')]
-         bg-center bg-cover">
 
+    <Modal className="h-90 w-140">
 
-        <div className="flex flex-col h-full gap-5 items-center">
+      <div className="flex flex-col h-full gap-5 items-center px-2">
 
-          <div className="flex flex-col items-center gap-2 mt-6">
-            <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
-              Choose Your Color
-            </h1>
-            <h1 className="text-xs font-inter text-[#17384A]">
-              Pick a side and start your Game
-            </h1>
-          </div>
+        <div className="flex flex-col items-center gap-2 mt-6">
+          <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
+            Choose Your Color
+          </h1>
+          <h1 className="text-xs font-inter text-[#17384A]">
+            Pick a side and start your Game
+          </h1>
+        </div>
 
-          <div className="flex justify-center gap-10 w-full">
+        <div className="flex justify-center gap-10 w-full">
 
-            {
-              pieces.map((color) => {
-                return (
-                  <div key={color.text}
-                    className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
+          {
+            pieces.map((color) => {
+              return (
+                <div key={color.text}
+                  className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
                        items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#ffebdd]" : ""}`}
-                    onClick={() => {
-                      setSelecctedColor(color.text)
-                      setUserColor(color.text)
-                    }}
-                  >
-                    <img className="w-21 h-22 object-contain"
-                      src={color.image}></img>
-                    <h1>{color.text}</h1>
-                  </div>
-                )
-              })
-            }
-          </div>
+                  onClick={() => {
+                    setSelecctedColor(color.text)
+                    setUserColor(color.text)
+                  }}
+                >
+                  <img className="w-21 h-22 object-contain"
+                    src={color.image}></img>
+                  <h1>{color.text}</h1>
+                </div>
+              )
+            })
+          }
+        </div>
+
+        <Button
+          text="Start Game"
+          variant="primary"
+          textSize="normal"
+          fontWeight="normal"
+          onClick={() => createGame()}
+          className="w-40 py-2"
+        />
+
+
+        <div className="flex justify-end w-full">
 
           <Button
-            text="Start Game"
-            variant="primary"
-            textSize="normal"
-            fontWeight="normal"
-            onClick={() => createGame()}
-            className="w-40 py-2"
+            text="Close"
+            variant="sideBarBlue"
+            textSize="small"
+            fontWeight="medium"
+            onClick={() => setMode(null)}
+            className="w-17 h-7"
           />
-
-
-          <div className="flex justify-end w-full">
-
-            <Button
-              text="Close"
-              variant="sideBarBlue"
-              textSize="small"
-              fontWeight="medium"
-              onClick={() => setMode(null)}
-              className="w-17 h-7"
-            />
-          </div>
-
         </div>
+
       </div>
-    </motion.div>
+
+    </Modal>
+
 
   )
 }
