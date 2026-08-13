@@ -30,7 +30,7 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
               <Button
                 text="Leave"
                 variant="leave"
-                textSize="large"
+                textSize="medium"
                 fontWeight="medium"
                 className="w-25 items-center flex justify-center gap-1"
                 onClick={() => {
