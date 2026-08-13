@@ -1,4 +1,5 @@
 import { useNavigate, Navigate } from "react-router-dom"
+import Button from "../Components/Button"
 
 function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }) {
   if (open) {
@@ -25,19 +26,22 @@ function ReconnectingScreen({ open, setReconnectingScreen, setDisconnectScreen }
             />
 
             <div className="w-full justify-end flex">
-              <button className="bg-[#ff8127] text-white hover:cursor-pointer w-25 rounded-lg  hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] hover:scale-105 duration-150  border-2 border-[#ff8127] text-lg font-medium flex items-center justify-center gap-1"
+
+              <Button
+                text="Leave"
+                variant="leave"
+                textSize="large"
+                fontWeight="medium"
+                className="w-25 items-center flex justify-center gap-1"
                 onClick={() => {
                   setReconnectingScreen(false)
                   setDisconnectScreen(false)
                   navigate(`/modeselection`)
                 }}
-              >
-                <img className=" object-contain w-5 h-5"
-                  src="/door.png" alt="sand clock image"
-                >
-                </img>
-                <div>Leave</div>
-              </button>
+                image="/door.png"
+                imageText="sand clock image"
+                imageStyling="object-contain w-5 h-5"
+              />
             </div>
 
           </div>

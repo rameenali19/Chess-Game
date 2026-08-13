@@ -38,6 +38,8 @@ function Button({
       "bg-[#FCDFDD] text-[#E64743] rounded-2xl",
     pending:
       "bg-[#F9E4A4] text-[#8A5A00] rounded-2xl",
+    leave:
+      "border-2 border-[#ff8127] rounded-lg"
   };
 
   const fontWeights = {
