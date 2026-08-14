@@ -33,8 +33,8 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
       />
 
       <GameInfoDisplay
-        color={gameStatusDiv.color}
-        text={gameStatusDiv.text}
+        statusColor={gameStatusDiv.color}
+        status={gameStatusDiv.text}
         id={id}
       />
 

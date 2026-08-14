@@ -1,4 +1,4 @@
-function GameInfoDisplay({ color, text, id }) {
+function GameInfoDisplay({ statusColor, status, id }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] text-sm h-60
@@ -23,7 +23,7 @@ function GameInfoDisplay({ color, text, id }) {
         </div>
         <div className={` h-7 w-40 rounded-lg font-semibold 
           py-1 px-2 hover:scale-105 duration-150
-          ${color}`}>{text}
+          ${statusColor}`}>{status}
         </div>
       </div>
 
