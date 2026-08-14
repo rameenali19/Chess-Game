@@ -89,6 +89,8 @@ function GamePage() {
             />
           </div>
 
+          <ChessboardRightPanel />
+
           <DisconnectModal
             open={disconnectScreen}
             setDisconnectModal={setDisconnectModal}
