@@ -1,4 +1,5 @@
 import UserDisplay from "./UserDisplay";
+import GameInfoDisplay from "./GameInfoDisplay";
 import CurrentTurnDisplay from "./CurrentTurnDisplay";
 
 function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
