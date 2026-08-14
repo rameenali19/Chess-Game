@@ -6,7 +6,7 @@ import HistoryNavBar from "../Components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import DeleteScreen from "../Screens/DeleteScreen";
+import DeleteModal from "../Screens/DeleteModal";
 import Button from "../Components/Button";
 
 function HistoryPage() {
@@ -136,7 +136,7 @@ function HistoryPage() {
 
       </div>
 
-      <DeleteScreen
+      <DeleteModal
         id={selectedGameId}
         deleteFunction={deleteGame}
         open={deleteModal}

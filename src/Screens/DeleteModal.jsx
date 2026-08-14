@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
-function DeleteScreen({ open, id, deleteFunction, setDeleteModal }) {
+function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
 
 
   return (
@@ -52,4 +52,4 @@ function DeleteScreen({ open, id, deleteFunction, setDeleteModal }) {
   )
 
 }
-export default DeleteScreen;
+export default DeleteModal;
