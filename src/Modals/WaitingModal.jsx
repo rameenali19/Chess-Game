@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import SocketClass from "../Socket/socketClass";
-import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 

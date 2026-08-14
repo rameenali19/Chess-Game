@@ -3,7 +3,6 @@ import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
 import SocketClass from "../Socket/socketClass";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 

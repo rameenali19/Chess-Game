@@ -2,7 +2,6 @@ import ApiChess from "../api/apiChess"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { initialBoard } from "../Chess/Board";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import SocketClass from "../Socket/socketClass";
