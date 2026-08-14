@@ -1,3 +1,5 @@
+import UserDisplay from "./UserDisplay";
+
 function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
 
   const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
