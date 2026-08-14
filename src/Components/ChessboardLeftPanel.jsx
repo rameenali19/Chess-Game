@@ -20,7 +20,7 @@ function ChessboardLeftPanel({ turn, checkMate, staleMate, id, userColor, oppone
   const gameStatusDiv = statusColor[checkMate || staleMate ? "complete" : "onGoing"]
 
   return (
-    <div className=" w-60 flex flex-col items-center justify-center gap-3 mt-15">
+    <div className="flex flex-col items-center justify-center gap-3 mt-15">
 
       <UserDisplay
         color={opponentColor}
