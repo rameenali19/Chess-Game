@@ -83,7 +83,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     setBoard(gameData.board);
     setTurn(gameData.turn);
-    setPromotion(gameData.promotion ? JSON.parse(gameData.promotion) : null);
+    setPromotion(gameData.promotion);
     setWinner(gameData.winner)
     enPassant.current = gameData.enPassant;
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
@@ -177,8 +177,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       if (
         selectedPiece.type === "Pawn" &&
         (
-          (selectedPiece.color === userColor && rowIndex === 0) ||
-          (selectedPiece.color === opponentColor && rowIndex === 7)
+          (selectedPiece.color === "White" && rowIndex === 0) ||
+          (selectedPiece.color === "Black" && rowIndex === 7)
         )
       ) {
         const p = {
