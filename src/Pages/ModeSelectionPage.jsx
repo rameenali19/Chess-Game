@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ColorScreen from "../Screens/ColorScreen";
+import ColorModal from "../Screens/ColorModal";
 import LoginModal from "../Screens/LoginModal";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
@@ -114,7 +114,7 @@ function ModeSelectionPage() {
       {
         colorScreenCondition && (
 
-          <ColorScreen
+          <ColorModal
             open={colorScreenCondition}
             mode={mode}
             waitingScreen={waitingScreen}

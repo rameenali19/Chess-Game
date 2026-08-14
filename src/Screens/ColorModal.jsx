@@ -9,7 +9,7 @@ import SocketClass from "../Socket/socketClass";
 import Button from "../Components/Button";
 import Modal from "../Components/Modal";
 
-function ColorScreen({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
+function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -118,4 +118,4 @@ function ColorScreen({ open, mode, waitingScreen, setWaitingModal, setGameId, se
 
   )
 }
-export default ColorScreen
+export default ColorModal
