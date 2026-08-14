@@ -12,7 +12,9 @@ function Layout() {
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
       <UserContext.Provider value={{ guestId, setGuestId }}>
         <SideBar />
-        <Outlet />
+        <main className="ml-45">
+          <Outlet />
+        </main>
       </UserContext.Provider>
     </div>
   )
