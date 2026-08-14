@@ -6,6 +6,19 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
   const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
   const opponent = opponentColor === "White" ? "white" : "black"
   const user = userColor === "White" ? "white" : "black"
+  const statusColor = {
+    onGoing: {
+      color: "bg-[#F7D98D] text-[#8A5A00]",
+      text: "In Progress"
+    },
+
+    complete: {
+      color: "bg-[#D9E8C8] text-[#3F6B2A]",
+      text: "Completed"
+    }
+  }
+
+  const gameStatusDiv = statusColor[checkMate || staleMate ? "complete" : "onGoing"]
 
   return (
     <div className=" w-60 flex flex-col items-center justify-center gap-3 mt-15">
@@ -41,9 +54,8 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
             Game Status
           </div>
           <div className={` h-7 w-40 rounded-lg font-semibold py-1 px-2 hover:scale-105 duration-150
-          ${checkMate || staleMate ? "bg-[#D9E8C8] text-[#3F6B2A]"
-              : "bg-[#F7D98D] text-[#8A5A00]"
-            }`}>{checkMate || staleMate ? "Completed" : "In Progress"}</div>
+          ${gameStatusDiv.color}`}>{gameStatusDiv.text}
+          </div>
         </div>
 
         <div>
