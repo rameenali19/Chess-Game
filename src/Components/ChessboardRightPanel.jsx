@@ -1,12 +1,14 @@
 import MoveLogger from "./MoveLogger";
+import CapturedPieces from "./CapturedPieces";
 
 function ChessboardRightPanel() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-3 mt-15">
 
-      <MoveLogger
-      />
+      <MoveLogger />
+
+      <CapturedPieces />
 
     </div>
   )
