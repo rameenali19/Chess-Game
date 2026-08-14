@@ -1,5 +1,6 @@
 import MoveLogger from "./MoveLogger";
 import CapturedPieces from "./CapturedPieces";
+import RightPanelButtons from "./RightPanelButtons";
 
 function ChessboardRightPanel() {
 
@@ -9,6 +10,8 @@ function ChessboardRightPanel() {
       <MoveLogger />
 
       <CapturedPieces />
+
+      <RightPanelButtons />
 
     </div>
   )
