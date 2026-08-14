@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import ColorModal from "../Screens/ColorModal";
-import LoginModal from "../Screens/LoginModal";
+import ColorModal from "../Modals/ColorModal";
+import LoginModal from "../Modals/LoginModal";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import JoinModal from "../Screens/JoinModal";
-import WaitingModal from "../Screens/WaitingModal";
+import JoinModal from "../Modals/JoinModal";
+import WaitingModal from "../Modals/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../Socket/socket";
 import { motion } from "framer-motion";

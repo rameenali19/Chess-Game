@@ -1,5 +1,5 @@
 import Square from "./Square";
-import PromotionModal from "../Screens/PromotionModal";
+import PromotionModal from "../Modals/PromotionModal";
 import { useChessBoard } from "../Hooks/ChessBoardHook";
 function ChessBoard({
   turn,

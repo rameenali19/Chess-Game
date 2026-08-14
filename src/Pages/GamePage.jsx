@@ -4,11 +4,11 @@ import Info from "../Components/GamePageInfo";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../Socket/socket";
-import ReconnectingModal from "../Screens/ReconnectingModal";
-import DisconnectModal from "../Screens/DisconnectModal";
+import ReconnectingModal from "../Modals/ReconnectingModal";
+import DisconnectModal from "../Modals/DisconnectModal";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
-import GameOverModal from "../Screens/GameOverModal";
+import GameOverModal from "../Modals/GameOverModal";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)

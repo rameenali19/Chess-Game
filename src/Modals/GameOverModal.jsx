@@ -7,6 +7,26 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
 
   const result = winner === userColor ? "Won" : winner === "Draw" ? "Draw" : "Lost"
 
+  const resultText = {
+    Won: {
+      text1: "You Won!",
+      text2: "Congratulations! You have won the game.",
+      text3: "Play again or shift to Home"
+    },
+    Lost: {
+      text1: "You Lost",
+      text2: "BOOOOOO",
+      text3: "Go home loser or try again"
+    },
+    Draw: {
+      text1: "Game Draw",
+      text2: "Game Draw",
+      text3: "Play again or shift to Home"
+    }
+  }
+
+  const text = resultText[result]
+
   return (
 
     <Modal open={open}
@@ -15,12 +35,12 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
       <div className="flex flex-col items-center justify-center gap-7 h-full px-2 ">
         <div className=" flex flex-col items-center gap-3 text-[#17384A]">
           <h1 className="text-3xl font-bold font-cormorant">
-            {result === "Won" ? "You Won!" : result === "Draw" ? "Game Draw" : "You Lost"}
+            {text.text1}
           </h1>
           <h1 className="font-inter text-xs">
-            {result === "Won" ? " Congratulations! You have won the game." : result === "Draw" ? "Game Draw" : "BOOOOOO"}</h1>
+            {text.text2}</h1>
           <h1 className="font-inter text-xs">
-            {result === "Won" ? "Play again or shift to Home" : result === "Draw" ? "Game Draw" : "Go home loser or try again"}</h1>
+            {text.text3}</h1>
         </div>
 
         <div className="flex justify-center items-center gap-4">
