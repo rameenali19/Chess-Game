@@ -77,10 +77,10 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-6 hover:shadow-md hover:-translate-y-0.5 transition h-25 w-full
-          flex items-center text-xl rounded-lg justify-between" >
+         hover:shadow-md hover:-translate-y-0.5 transition h-25
+          flex items-center text-xl rounded-lg justify-between px-5" >
 
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2">
 
         <img src={currentMode.image} alt="mode image"
           className={` w-12 mr-1 object-contain ${game.mode === "singleplayer" ?

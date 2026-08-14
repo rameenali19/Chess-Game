@@ -49,13 +49,12 @@ function HistoryPage() {
 
   return (
 
-    <motion.main className="ml-52 p-10"
+    <motion.main className="flex gap-5 flex-col px-8 mb-2"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-
-      <div className="flex justify-between items-center mb-10 ">
+      <div className="flex justify-between items-center mt-5 mb-5">
 
         <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">
           Game History
@@ -78,7 +77,7 @@ function HistoryPage() {
         setFilter={setFilter}
       />
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {
           filteredGames.map((game) => {
             return (
@@ -98,17 +97,15 @@ function HistoryPage() {
 
       <div className="font-inter text-lg text-[#17384A] bg-[#FFF7EA] shadow-sm border 
         border-[#E8DCC7] px-6 hover:shadow-md hover:-translate-y-0.5 transition rounded-lg
-         h-15 w-full flex items-center justify-center mt-4">
-        <div>
-          <img className="object-contain w-12 h-8"
-            src="/bulb.png" alt="bulb image"
-          ></img>
-        </div>
+         h-15 w-full flex items-center justify-center">
+        <img className="object-contain w-12 h-8"
+          src="/bulb.png" alt="bulb image"
+        ></img>
         <div>
           Continue unfinished games or review completed matches
         </div>
       </div>
-      <div className="mt-3 flex justify-between">
+      <div className="flex justify-between">
 
         {page > 1 && (
           <Button
