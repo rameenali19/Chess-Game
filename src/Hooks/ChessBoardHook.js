@@ -35,13 +35,13 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const game = ApiChess.getAPI();
       const data = await game.getGameAndPlayer(id, guestId);
       const opponentColor = data.player_color === "White" ? "Black" : "White"
-      console.log(data.winner)
+
       setOpponentColor(opponentColor)
       setMode(data.mode)
       setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
-      setPromotion(data.promotion)
+      setPromotion(data.promotion ? JSON.parse(data.promotion) : null)
       enPassant.current = data.en_passant
       setWinner(data.winner)
 
@@ -83,7 +83,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     setBoard(gameData.board);
     setTurn(gameData.turn);
-    setPromotion(gameData.promotion);
+    setPromotion(gameData.promotion ? JSON.parse(gameData.promotion) : null);
     setWinner(gameData.winner)
     enPassant.current = gameData.enPassant;
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
