@@ -9,20 +9,10 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
   return (
     <div className=" w-60 flex flex-col items-center justify-center gap-3 mt-15">
 
-      <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7]
-        h-12 w-45 flex rounded-lg font-inter gap-4 justify-center items-center ">
-        <div className="flex items-center gap-1">
-          <img className="w-5 h-5 object-contain"
-            src="/blueplayer.png" alt="red player image"
-          ></img>
-          <h1 className="font-bold text-[#2d5e79] text-xs">
-            Opponent</h1>
-        </div>
-        <div className="  font-semibold text-xl text-[#ff8e3d]">
-          {opponentColor}
-        </div>
-
-      </div>
+      <UserDisplay
+        color={opponentColor}
+        text="Opponent"
+      />
 
       <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7]
         px-2 h-21 w-55 flex flex-col justify-center rounded-lg font-inter text-[#17384A] gap-2">
@@ -72,20 +62,10 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
 
       </div>
 
-      <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7]
-        h-12 w-45 flex rounded-lg font-inter gap-10 justify-center items-center ">
-        <div className="flex items-center gap-1">
-          <img className="w-5 h-5 object-contain"
-            src="/blueplayer.png" alt="red player image"
-          ></img>
-          <h1 className="font-bold text-[#2d5e79] text-xs">
-            You</h1>
-        </div>
-        <div className="  font-semibold text-xl text-[#ff8e3d]">
-          {userColor}
-        </div>
-
-      </div>
+      <UserDisplay
+        color={userColor}
+        text="You"
+      />
 
     </div>
 
