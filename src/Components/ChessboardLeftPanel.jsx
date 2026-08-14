@@ -2,7 +2,7 @@ import UserDisplay from "./UserDisplay";
 import GameInfoDisplay from "./GameInfoDisplay";
 import CurrentTurnDisplay from "./CurrentTurnDisplay";
 
-function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
+function ChessboardLeftPanel({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
 
   const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
   const opponent = opponentColor === "White" ? "white" : "black"
@@ -47,4 +47,4 @@ function Info({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
 
   )
 }
-export default Info
+export default ChessboardLeftPanel;

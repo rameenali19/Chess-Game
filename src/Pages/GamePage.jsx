@@ -1,6 +1,6 @@
 import ChessBoard from "../Components/ChessBoard";
 import { useState, useEffect } from "react";
-import Info from "../Components/GamePageInfo";
+import ChessboardLeftPanel from "../Components/ChessboardLeftPanel";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../Socket/socket";
@@ -59,7 +59,7 @@ function GamePage() {
       {id && (
         <main className=" flex gap-3 items-center ">
 
-          <Info
+          <ChessboardLeftPanel
             turn={turn}
             checkMate={checkMate}
             staleMate={isStaleMate}
