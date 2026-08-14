@@ -55,10 +55,10 @@ function GamePage() {
   }, [winner])
 
   return (
-    <div className="flex justify-center ">
 
+    <>
       {id && (
-        <main className=" flex items-center gap-7">
+        <div className="flex justify-center gap-7">
 
           <ChessboardLeftPanel
             turn={turn}
@@ -69,7 +69,7 @@ function GamePage() {
             opponentColor={opponentColor}
           />
 
-          <div className="ring-2 ring-[#C7A97A] translate-y-10   h-125 w-125 grid grid-cols-8">
+          <div className="ring-2 ring-[#C7A97A] translate-y-10 h-125 w-125 grid grid-cols-8">
             <ChessBoard
               turn={turn}
               setTurn={setTurn}
@@ -110,10 +110,9 @@ function GamePage() {
             setGameOver={setGameOver}
             mode={mode}
           />
-        </main>
+        </div>
       )}
-
-    </div>
+    </>
   )
 }
 export default GamePage;
