@@ -9,6 +9,7 @@ import DisconnectModal from "../Modals/DisconnectModal";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 import GameOverModal from "../Modals/GameOverModal";
+import ChessboardRightPanel from "../Components/ChessboardRightPanel";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -54,7 +55,7 @@ function GamePage() {
   }, [winner])
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center ">
 
       {id && (
         <main className=" flex gap-3 items-center ">
