@@ -55,10 +55,10 @@ function GamePage() {
   }, [winner])
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-end ">
 
       {id && (
-        <main className=" flex gap-3 items-center ">
+        <main className=" flex gap-8 px-5 items-center">
 
           <ChessboardLeftPanel
             turn={turn}
