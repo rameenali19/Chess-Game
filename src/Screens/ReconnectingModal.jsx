@@ -2,7 +2,7 @@ import { useNavigate, Navigate } from "react-router-dom"
 import Modal from "../Components/Modal"
 import Button from "../Components/Button"
 
-function ReconnectingModal({ open, setReconnectingModal, setDisconnectScreen }) {
+function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
 
   const navigate = useNavigate()
   return (
@@ -34,7 +34,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectScreen }) 
             className="w-25 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setReconnectingModal(false)
-              setDisconnectScreen(false)
+              setDisconnectModal(false)
               navigate(`/modeselection`)
             }}
             image="/door.png"
