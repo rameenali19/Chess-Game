@@ -49,47 +49,47 @@ function ModeSelectionPage() {
   }, [])
 
   return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="flex justify-center gap-8 items-center translate-y-6 ">
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="flex justify-center gap-8 items-center translate-y-6 ">
-
-      <div>
-        <div className="flex items-center gap-3 w-full mb-4">
-          <Button
-            text="How To Play"
-            variant="sideBarBlue"
-            textSize="small"
-            fontWeight="medium"
-            className="px-2 gap-2 justify-center h-8  flex items-center"
-            image="/book.png"
-            imageText="book image"
-            imageStyling="w-5 h-5" />
-          <div className="text-gray-700 font-medium">Move the piece to checkmate your opponent</div>
+        <div>
+          <div className="flex items-center gap-3 w-full mb-4">
+            <Button
+              text="How To Play"
+              variant="sideBarBlue"
+              textSize="small"
+              fontWeight="medium"
+              className="px-2 gap-2 justify-center h-8  flex items-center"
+              image="/book.png"
+              imageText="book image"
+              imageStyling="w-5 h-5" />
+            <div className="text-gray-700 font-medium">Move the piece to checkmate your opponent</div>
+          </div>
+          <img className=" mb-1 p-3 border-2 border-[#C7A97A] rounded-lg w-115"
+            src="/chessboard.png" alt="chessboard image"
+          ></img>
         </div>
-        <img className=" mb-1 p-3 border-2 border-[#C7A97A] rounded-lg w-115"
-          src="/chessboard.png" alt="chessboard image"
-        ></img>
-      </div>
 
 
-      <div>
-        <div className="flex gap-2 items-center justify-center">
-          <img className="object-contain w-6 h-7"
-            src="/trophy.png" alt="trophy image" >
-          </img>
-          <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
-            Choose a Game Mode</h1>
+        <div>
+          <div className="flex gap-2 items-center justify-center">
+            <img className="object-contain w-6 h-7"
+              src="/trophy.png" alt="trophy image" >
+            </img>
+            <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
+              Choose a Game Mode</h1>
+          </div>
+          <div className="flex flex-col gap-3 mt-3" >
+            <ModeSelectionButton
+              setMode={setMode} />
+          </div>
         </div>
-        <div className="flex flex-col gap-3 mt-3" >
-          <ModeSelectionButton
-            setMode={setMode} />
-        </div>
-      </div>
 
-
+      </motion.div>
       {
         loginCondition && (
           <LoginModal
@@ -131,9 +131,7 @@ function ModeSelectionPage() {
           />
         )
       }
-
-
-    </motion.div>
+    </>
 
   )
 }
