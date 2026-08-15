@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 import GameOverModal from "../Modals/GameOverModal";
 import ChessboardRightPanel from "../Components/ChessboardRightPanel";
+import ResignModal from "../Modals/ResignModal";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -27,6 +28,7 @@ function GamePage() {
   const [resign, setResign] = useState(false)
   const [endReason, setEndReason] = useState(false)
   const [gameOver, setGameOver] = useState(false)
+  const [resignModal, setResignModal] = useState(false)
   useEffect(() => {
     if (!mode || !id) return;
     if (!mode) return
@@ -108,7 +110,7 @@ function GamePage() {
           </div>
 
           <ChessboardRightPanel
-            resign={resigning}
+            setResignModal={setResignModal}
           />
 
           <DisconnectModal
@@ -130,6 +132,12 @@ function GamePage() {
             setGameOver={setGameOver}
             mode={mode}
           />
+
+          <ResignModal
+            open={resign}
+            setGameOver={setGameOver}
+          />
+
         </div>
       )}
     </>
