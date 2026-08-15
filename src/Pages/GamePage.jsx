@@ -70,15 +70,11 @@ function GamePage() {
   }, [])
 
   function resigning() {
-    if (mode === "multiplayer" && userColor !== turn) {
-      return
-    }
     const resignWinner = turn == "White" ? "Black" : "White"
     setResignModal(false)
     setWinner(resignWinner)
     setResign(true)
     setEndReason("resignation")
-    console.log("eeeeee", resignWinner)
   }
 
   useEffect(() => {
@@ -135,6 +131,9 @@ function GamePage() {
             setResignModal={setResignModal}
             moveHistory={moveHistory}
             winner={winner}
+            userColor={userColor}
+            turn={turn}
+            mode={mode}
           />
 
           <DisconnectModal

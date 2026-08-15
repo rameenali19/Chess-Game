@@ -1,6 +1,6 @@
 import Button from "../Components/Button"
 
-function RightPanelButtons({ setResignModal, winner }) {
+function RightPanelButtons({ setResignModal, winner, userColor, turn, mode }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] text-sm h-30
@@ -17,6 +17,9 @@ function RightPanelButtons({ setResignModal, winner }) {
         imageStyling="object-contain w-5 h-5"
         onClick={() => {
           if (winner) return;
+          if (mode === "multiplayer" && userColor !== turn) {
+            return
+          }
           setResignModal(true)
         }}
       />
