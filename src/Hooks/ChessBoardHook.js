@@ -13,7 +13,7 @@ import { useContext } from "react";
 import SocketClass from "../Socket/socketClass";
 import socket from "../Socket/socket";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner }) {
+export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -41,6 +41,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
+      setEndReason(data.end_reason)
       setPromotion(data.promotion ? JSON.parse(data.promotion) : null)
       enPassant.current = data.en_passant
       setWinner(data.winner)
@@ -60,6 +61,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         )
       )
 
+      setResign(data.end_reason === "resignation")
+
       setLoaded(true)
     }
     getGameAndPlayer();
@@ -74,7 +77,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       gameBoard: gameData.board,
       enPassant: gameData.enPassant,
       promotion: gameData.promotion,
-      winner: gameData.winner
+      winner: gameData.winner,
+      endReason: gameData.endReason
     })
 
   }
@@ -85,6 +89,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setTurn(gameData.turn);
     setPromotion(gameData.promotion);
     setWinner(gameData.winner)
+    setResign(gameData.endReason === "resignation")
+    setEndReason(gameData.endReason)
     enPassant.current = gameData.enPassant;
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setIsKingInCheck(inCheck)
@@ -130,11 +136,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     }
     const gameData = {
       turn: turn,
-      status: checkMate ? "finished" : isStaleMate ? "finished" : "unfinished",
+      status: checkMate || isStaleMate || resign ? "finished" : "unfinished",
       board: board,
       enPassant: enPassant.current,
       promotion: promotion,
-      winner: checkMate || isStaleMate ? winner : null
+      winner: checkMate || isStaleMate || resign ? winner : null,
+      endReason: resign ? "resignation" : checkMate ? "checkmate" : isStaleMate ? "stalemate" : null
     }
     if (mode === "single player") {
       updateGame(gameData)
@@ -144,11 +151,19 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       socketClass.updateGame(id, gameData)
     }
 
-  }, [board, winner])
+  }, [board, winner, resign])
 
+  useEffect(() => {
+    if (resign) {
+      setSelectedPiece(null);
+      setMoves([]);
+      setPromotion(null);
+    }
+    console.log(winner)
+  }, [resign]);
 
   function HandleClick(rowIndex, colIndex) {
-    if (checkMate || promotion || isStaleMate) {
+    if (checkMate || promotion || isStaleMate || resign) {
       return;
     }
     const validMove = moves.some(move =>

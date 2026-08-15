@@ -16,7 +16,11 @@ function ChessBoard({
   mode,
   setMode,
   winner,
-  setWinner
+  setWinner,
+  resign,
+  setResign,
+  endReason,
+  setEndReason
 }) {
   const {
     board,
@@ -44,7 +48,11 @@ function ChessBoard({
     mode,
     setMode,
     winner,
-    setWinner
+    setWinner,
+    resign,
+    setResign,
+    endReason,
+    setEndReason
 
   });
 

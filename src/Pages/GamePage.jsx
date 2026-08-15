@@ -24,6 +24,8 @@ function GamePage() {
   const [reconnectingScreen, setReconnectingModal] = useState(false)
   const [mode, setMode] = useState(null)
   const [winner, setWinner] = useState(null)
+  const [resign, setResign] = useState(false)
+  const [endReason, setEndReason] = useState(false)
   const [gameOver, setGameOver] = useState(false)
   useEffect(() => {
     if (!mode || !id) return;
@@ -54,6 +56,17 @@ function GamePage() {
     setGameOver(true)
   }, [winner])
 
+  function resigning() {
+    if (mode === "multiplayer" && userColor !== turn) {
+      return
+    }
+    const resignWinner = turn == "White" ? "Black" : "White"
+    setWinner(resignWinner)
+    setResign(true)
+    setEndReason("resignation")
+    console.log("eeeeee", resignWinner)
+  }
+
   return (
 
     <>
@@ -67,6 +80,7 @@ function GamePage() {
             id={id}
             userColor={userColor}
             opponentColor={opponentColor}
+            resign={resign}
           />
 
           <div className="ring-2 ring-[#C7A97A] translate-y-10 h-125 w-125 grid grid-cols-8">
@@ -86,10 +100,16 @@ function GamePage() {
               setMode={setMode}
               winner={winner}
               setWinner={setWinner}
+              resign={resign}
+              setResign={setResign}
+              endReason={endReason}
+              setEndReason={setEndReason}
             />
           </div>
 
-          <ChessboardRightPanel />
+          <ChessboardRightPanel
+            resign={resigning}
+          />
 
           <DisconnectModal
             open={disconnectScreen}

@@ -4,7 +4,7 @@ import Modal from "../Components/Modal"
 
 function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
   const navigate = useNavigate()
-
+  console.log(winner)
   const result = winner === userColor ? "Won" : winner === "Draw" ? "Draw" : "Lost"
 
   const resultText = {

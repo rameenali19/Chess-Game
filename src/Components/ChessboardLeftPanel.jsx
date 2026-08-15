@@ -2,7 +2,7 @@ import UserDisplay from "./UserDisplay";
 import GameInfoDisplay from "./GameInfoDisplay";
 import CurrentTurnDisplay from "./CurrentTurnDisplay";
 
-function ChessboardLeftPanel({ turn, checkMate, staleMate, id, userColor, opponentColor }) {
+function ChessboardLeftPanel({ turn, checkMate, staleMate, id, userColor, opponentColor, resign }) {
 
   const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
   const opponent = opponentColor === "White" ? "white" : "black"
@@ -17,7 +17,7 @@ function ChessboardLeftPanel({ turn, checkMate, staleMate, id, userColor, oppone
       text: "Completed"
     }
   }
-  const gameStatusDiv = statusColor[checkMate || staleMate ? "complete" : "onGoing"]
+  const gameStatusDiv = statusColor[checkMate || staleMate || resign ? "complete" : "onGoing"]
 
   return (
     <div className="flex flex-col items-center justify-center gap-3 mt-15">
