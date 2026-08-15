@@ -63,9 +63,9 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
           <Button
             text="Play Again"
             variant="wait"
-            textSize="large"
+            textSize="medium"
             fontWeight="medium"
-            className="w-40 items-center flex justify-center py-1"
+            className="w-30 items-center flex justify-center py-1"
             onClick={() => {
               navigate("/modeselection", {
                 state: {
@@ -75,21 +75,21 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
             }}
             image="/reload.png"
             imageText="reload image"
-            imageStyling="object-contain w-8 h-8"
+            imageStyling="object-contain w-6 h-6"
           />
 
           <Button
             text="Home"
             variant="leave"
-            textSize="large"
+            textSize="medium"
             fontWeight="medium"
-            className="w-40 items-center flex justify-center py-1 gap-1"
+            className="w-30 items-center flex justify-center py-1 gap-1"
             onClick={() => {
               navigate(`/`)
             }}
             image="/white-home.png"
             imageText="white home image"
-            imageStyling="object-contain w-8 h-8"
+            imageStyling="object-contain w-6 h-6"
           />
 
         </div>
