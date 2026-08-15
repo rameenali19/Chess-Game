@@ -9,7 +9,7 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
     <Modal open={open}
       className="h-65 w-125">
 
-      <div className="flex flex-col items-center justify-center h-full gap-8">
+      <div className="flex flex-col items-center justify-center h-full gap-5">
 
         <div className=" flex flex-col items-center gap-3 text-[#17384A]">
           <h1 className="text-3xl font-bold font-cormorant">
@@ -25,9 +25,9 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
           <Button
             text="Wait"
             variant="wait"
-            textSize="large"
+            textSize="medium"
             fontWeight="medium"
-            className="w-35 items-center flex justify-center gap-1 py-1"
+            className="w-30 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setDisconnectModal(false)
               setReconnectingModal(true)
@@ -40,9 +40,9 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
           <Button
             text="Leave"
             variant="leave"
-            textSize="large"
+            textSize="medium"
             fontWeight="medium"
-            className="w-35 items-center flex justify-center gap-1 py-1"
+            className="w-30 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setDisconnectModal(false)
               navigate(`/modeselection`)
