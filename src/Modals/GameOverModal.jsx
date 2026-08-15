@@ -40,6 +40,7 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
   }
 
   const text = result === "Draw" ? resultText.Draw : resultText[result][endReason];
+  if (!text) return null;
 
   return (
 
