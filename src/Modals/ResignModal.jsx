@@ -1,6 +1,7 @@
 import Button from "../Components/Button";
+import Modal from "../Components/Modal";
 
-function ResignModal({ open, setGameOver }) {
+function ResignModal({ open, resigning, setResignModal }) {
 
   return (
 
@@ -11,21 +12,22 @@ function ResignModal({ open, setGameOver }) {
 
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-cormorant text-[#17384A]">
-            login
+            Resign
           </h1>
           <h1 className="text-xs font-inter text-[#17384A]">
-            Do you want to Login
+            Do you want to Resign from on going game
           </h1>
         </div>
 
         <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
 
           <Button
-            text="Login"
+            text="yes"
             variant="primary"
             textSize="normal"
             fontWeight="medium"
             className="w-30 py-2"
+            onClick={resigning}
           />
 
           <Button
@@ -35,7 +37,7 @@ function ResignModal({ open, setGameOver }) {
             fontWeight="medium"
             className="w-30 py-2"
             onClick={() => {
-              createGuestId();
+              setResignModal(false);
             }}
           />
         </div>

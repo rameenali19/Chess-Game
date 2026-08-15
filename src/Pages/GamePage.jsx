@@ -63,6 +63,7 @@ function GamePage() {
       return
     }
     const resignWinner = turn == "White" ? "Black" : "White"
+    setResignModal(false)
     setWinner(resignWinner)
     setResign(true)
     setEndReason("resignation")
@@ -134,8 +135,9 @@ function GamePage() {
           />
 
           <ResignModal
-            open={resign}
-            setGameOver={setGameOver}
+            open={resignModal}
+            resigning={resigning}
+            setResignModal={setResignModal}
           />
 
         </div>

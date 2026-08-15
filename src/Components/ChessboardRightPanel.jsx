@@ -12,7 +12,7 @@ function ChessboardRightPanel({ setResignModal }) {
       <CapturedPieces />
 
       <RightPanelButtons
-        resign={setResignModal}
+        setResignModal={setResignModal}
       />
 
     </div>
