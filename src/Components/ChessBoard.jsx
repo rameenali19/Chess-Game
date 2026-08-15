@@ -20,7 +20,8 @@ function ChessBoard({
   resign,
   setResign,
   endReason,
-  setEndReason
+  setEndReason,
+  setMoveHistory
 }) {
   const {
     board,
@@ -52,7 +53,8 @@ function ChessBoard({
     resign,
     setResign,
     endReason,
-    setEndReason
+    setEndReason,
+    setMoveHistory
 
   });
 

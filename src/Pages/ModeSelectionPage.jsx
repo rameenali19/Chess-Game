@@ -28,7 +28,6 @@ function ModeSelectionPage() {
 
   useEffect(() => {
     function playerJoinedHandle(data) {
-      console.log("PLAYER JOINED EVENT:", data);
       setWaitingModal(false);
       navigate(`/game/${data.gameId}`)
     }

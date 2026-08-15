@@ -29,6 +29,8 @@ function GamePage() {
   const [endReason, setEndReason] = useState(false)
   const [gameOver, setGameOver] = useState(false)
   const [resignModal, setResignModal] = useState(false)
+  const [moveHistory, setMoveHistory] = useState([])
+
   useEffect(() => {
     if (!mode || !id) return;
     if (!mode) return
@@ -57,6 +59,15 @@ function GamePage() {
     if (!winner) return
     setGameOver(true)
   }, [winner])
+
+  useEffect(() => {
+    socket.on("moveCreated", (moveData) => {
+      setMoveHistory(prev => [...prev, moveData]);
+    });
+    return () => {
+      socket.off("moveCreated");
+    };
+  }, [])
 
   function resigning() {
     if (mode === "multiplayer" && userColor !== turn) {
@@ -107,11 +118,13 @@ function GamePage() {
               setResign={setResign}
               endReason={endReason}
               setEndReason={setEndReason}
+              setMoveHistory={setMoveHistory}
             />
           </div>
 
           <ChessboardRightPanel
             setResignModal={setResignModal}
+            moveHistory={moveHistory}
           />
 
           <DisconnectModal
