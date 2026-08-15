@@ -1,4 +1,4 @@
-function MoveLogger({ moveHistory }) {
+function MoveLogger({ moveHistory, winner }) {
 
   return (
 
@@ -12,20 +12,25 @@ function MoveLogger({ moveHistory }) {
       </div>
 
       <div className="overflow-y-auto text-base h-35 px-9">
-        {
-          moveHistory.map((move, index) => {
-            return (
-              <div key={index}
-                className="flex gap-6">
-                <h1 className="text-gray-400">{index}.</h1>
-                <div className="flex justify-between w-full">
-                  <h1>{move.source}</h1>
-                  <h1>{move.destination}</h1>
-                </div>
+
+        {moveHistory.map((move, index) => {
+          return (
+            <div key={index + 1}
+              className="flex gap-6">
+              <h1 className="text-gray-400">{index}.</h1>
+              <div className="flex justify-between w-full">
+                <h1>{move.source}</h1>
+                <h1>{move.destination}</h1>
               </div>
-            )
-          })
-        }
+            </div>
+          )
+        })}
+
+        {winner && (
+          <div className="text-lg font-medium text-center">
+            {winner === "Draw" ? "Draw!" : `${winner} Wins!`}
+          </div>
+        )}
       </div>
     </div >
 

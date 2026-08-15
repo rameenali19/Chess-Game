@@ -134,6 +134,7 @@ function GamePage() {
           <ChessboardRightPanel
             setResignModal={setResignModal}
             moveHistory={moveHistory}
+            winner={winner}
           />
 
           <DisconnectModal
