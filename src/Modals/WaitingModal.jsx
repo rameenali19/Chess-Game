@@ -21,7 +21,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
     <Modal open={open}
       className="h-65 w-140">
 
-      <div className=" flex flex-col justify-center items-center w-full h-full gap-3 px-3">
+      <div className=" flex flex-col justify-center items-center w-full h-full gap-3 px-2">
         {
           !leavingGame && (
             <>
@@ -36,7 +36,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
               </div>
 
               <div
-                className="w-12 h-12 rounded-full border-4 border-[#ffc79f]
+                className="w-10 h-10 rounded-full border-4 border-[#ffc79f]
                  border-t-[#ff8127] animate-spin" />
               <div className="flex justify-end w-full">
 
@@ -45,7 +45,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
                   variant="sideBarBlue"
                   textSize="small"
                   fontWeight="medium"
-                  className="w-20 h-8"
+                  className="w-18 h-7"
                   onClick={() => {
                     setLeavingGame(true)
                   }} />
