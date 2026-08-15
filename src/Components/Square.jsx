@@ -14,7 +14,7 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
   if (kingInCheck) squareColor = "bg-red-500";
 
   return (
-    <div className={`w-full h-[62.5px]  relative text-[rgb(85,107,47)]
+    <div className={`w-full h-17.5  relative text-[rgb(85,107,47)]
        ${squareColor}
     `}
       onClick={() => onClick()}

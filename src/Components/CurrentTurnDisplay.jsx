@@ -7,7 +7,7 @@ function CurrentTurnDisplay({ src, turn }) {
       <h1 className="font-semibold ">Current Turn</h1>
       <div className="h-8 w-full bg-[#ff8e3d] rounded-lg px-2  flex items-center
            hover:scale-105 duration-150 ">
-        <img src={src} alt="piece image " className="w-8 h-7 mr-1 object-contain" />
+        <img src={src} alt="piece image " className="w-7 h-6 mr-1 object-contain" />
         {turn}
       </div>
 

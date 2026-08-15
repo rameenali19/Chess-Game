@@ -102,7 +102,7 @@ function GamePage() {
             resign={resign}
           />
 
-          <div className="ring-2 ring-[#C7A97A] translate-y-10 h-125 w-125 grid grid-cols-8">
+          <div className="ring-2 ring-[#C7A97A] translate-y-3 h-140 w-140 grid grid-cols-8">
             <ChessBoard
               turn={turn}
               setTurn={setTurn}

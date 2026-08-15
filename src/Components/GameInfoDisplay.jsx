@@ -4,7 +4,7 @@ function GameInfoDisplay({ statusColor, status, id }) {
     <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] text-sm h-60
           w-55 flex flex-col  rounded-lg font-inter text-[#17384A] justify-around px-2 ">
 
-      <div className="font-semibold text-xl justify-center flex items-center ">
+      <div className="font-semibold text-lg justify-center flex items-center ">
         <img src="/bulb.png" alt="blub image" className="w-8 h-8 object-contain"></img>
         Game Info
       </div>
