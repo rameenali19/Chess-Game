@@ -16,6 +16,7 @@ function ChessboardRightPanel({ setResignModal, moveHistory, winner }) {
 
       <RightPanelButtons
         setResignModal={setResignModal}
+        winner={winner}
       />
 
     </div>

@@ -1,6 +1,6 @@
 import Button from "../Components/Button"
 
-function RightPanelButtons({ setResignModal }) {
+function RightPanelButtons({ setResignModal, winner }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] text-sm h-30
@@ -15,7 +15,10 @@ function RightPanelButtons({ setResignModal }) {
         image="/white-flag.png"
         imageText="white flag image"
         imageStyling="object-contain w-5 h-5"
-        onClick={() => { setResignModal(true) }}
+        onClick={() => {
+          if (winner) return;
+          setResignModal(true)
+        }}
       />
 
       <Button
