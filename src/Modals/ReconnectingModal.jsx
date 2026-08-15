@@ -9,7 +9,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
     <Modal open={open}
       className="h-65 w-140">
 
-      <div className=" flex flex-col items-center gap-3 justify-center h-full mt-3 px-3 ">
+      <div className=" flex flex-col items-center gap-4 justify-center h-full mt-5 px-2 ">
         <div className="text-3xl font-bold font-cormorant text-[#17384A]">
           Waiting for Opponent
         </div>
@@ -18,7 +18,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
         </div>
 
         <div
-          className="w-13 h-13 rounded-full mb-3
+          className="w-10 h-10 rounded-full mb-3
              border-4 border-[#ffc79f]
              border-t-[#ff8127]
              animate-spin"
@@ -29,9 +29,9 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
           <Button
             text="Leave"
             variant="leave"
-            textSize="medium"
+            textSize="small"
             fontWeight="medium"
-            className="w-25 items-center flex justify-center gap-1 py-1"
+            className="w-20 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setReconnectingModal(false)
               setDisconnectModal(false)
@@ -39,7 +39,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
             }}
             image="/door.png"
             imageText="door image"
-            imageStyling="object-contain w-5 h-5"
+            imageStyling="object-contain w-4 h-4"
           />
         </div>
       </div>
