@@ -13,7 +13,6 @@ function PromotionPieces({ pieces, promote, turn }) {
             onClick={() => promote(piece)}
           >
             <img
-
               src={pieceImages[turn][piece]}
               alt={piece}
               className="w-12 "

@@ -1,16 +1,13 @@
 function CurrentTurnDisplay({ src, turn }) {
-
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-        px-2 h-21 w-55 flex flex-col justify-center rounded-lg font-inter text-[#17384A] gap-2">
-
+        px-2 h-18 w-45 flex flex-col justify-center rounded-lg font-inter text-[#17384A] gap-1">
       <h1 className="font-semibold ">Current Turn</h1>
-      <div className="h-8 w-full bg-[#ff8e3d] rounded-lg px-2  flex items-center
-           hover:scale-105 duration-150 ">
+      <div className="h-7 w-full bg-[#ff8e3d] rounded-lg px-2 flex items-center
+           hover:scale-105 duration-150 text-sm">
         <img src={src} alt="piece image " className="w-7 h-6 mr-1 object-contain" />
         {turn}
       </div>
-
     </div>
   )
 }

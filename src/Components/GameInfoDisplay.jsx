@@ -2,10 +2,10 @@ function GameInfoDisplay({ statusColor, status, id }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7] text-sm h-60
-          w-55 flex flex-col  rounded-lg font-inter text-[#17384A] justify-around px-2 ">
+          w-45 flex flex-col rounded-lg font-inter text-[#17384A] justify-around px-2 ">
 
       <div className="font-semibold text-lg justify-center flex items-center ">
-        <img src="/bulb.png" alt="blub image" className="w-8 h-8 object-contain"></img>
+        <img src="/bulb.png" alt="blub image" className="w-5 h-5 object-contain"></img>
         Game Info
       </div>
 
@@ -21,7 +21,7 @@ function GameInfoDisplay({ statusColor, status, id }) {
           <img src="/game-status.png" alt="id image" className="w-5 h-6"></img>
           Game Status
         </div>
-        <div className={` h-7 w-40 rounded-lg font-semibold 
+        <div className={` h-7 w-35 rounded-lg font-semibold 
           py-1 px-2 hover:scale-105 duration-150
           ${statusColor}`}>{status}
         </div>
