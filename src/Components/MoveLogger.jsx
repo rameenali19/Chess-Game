@@ -2,7 +2,7 @@ function MoveLogger({ moveHistory, winner }) {
 
   return (
 
-    <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7] h-45
+    <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7] h-45
       w-50 rounded-lg text-[#17384A] font-inter">
 
       <div className="flex items-center justify-center text-lg font-semibold m-3">

@@ -1,7 +1,7 @@
 function CurrentTurnDisplay({ src, turn }) {
 
   return (
-    <div className=" bg-[#FFF7EA] shadow-lg border border-[#E8DCC7]
+    <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
         px-2 h-21 w-55 flex flex-col justify-center rounded-lg font-inter text-[#17384A] gap-2">
 
       <h1 className="font-semibold ">Current Turn</h1>
