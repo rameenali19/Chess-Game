@@ -30,12 +30,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   })
 
   useEffect(() => {
-
     async function getGameAndPlayer() {
       const game = ApiChess.getAPI();
       const data = await game.getGameAndPlayer(id, guestId);
       const opponentColor = data.player_color === "White" ? "Black" : "White"
-
       setOpponentColor(opponentColor)
       setMode(data.mode)
       setUserColor(data.player_color)
@@ -49,27 +47,20 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
 
-      if (inCheck.inCheck) {
-        setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current))
-      } else {
-        setCheckMate(false)
-      }
+      if (inCheck.inCheck) { setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current)) }
+      else { setCheckMate(false) }
 
       setIsStaleMate(
         !inCheck.inCheck && (
-          staleMate(data.game_board, data.current_turn, enPassant.current)
-        )
-      )
+          staleMate(data.game_board, data.current_turn, enPassant.current)))
 
       setResign(data.end_reason === "resignation")
-
       setLoaded(true)
     }
     getGameAndPlayer();
   }, [id])
 
   async function updateGame(gameData) {
-
     const game = ApiChess.getAPI();
     const data = await game.updateGame(id, {
       currentTurn: gameData.turn,
@@ -80,11 +71,14 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       winner: gameData.winner,
       endReason: gameData.endReason
     })
+  }
 
+  function coordinateConversion(row, col) {
+    const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    return `${alphabets[col]}${8 - row}`
   }
 
   function resetData(gameData) {
-
     setBoard(gameData.board);
     setTurn(gameData.turn);
     setPromotion(gameData.promotion);
@@ -95,17 +89,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setIsKingInCheck(inCheck)
 
-    if (inCheck.inCheck) {
-      setCheckMate(CheckMate(gameData.board, gameData.turn, enPassant.current))
-    } else {
-      setCheckMate(false)
-    }
+    if (inCheck.inCheck) { setCheckMate(CheckMate(gameData.board, gameData.turn, enPassant.current)) }
+    else { setCheckMate(false) }
 
     setIsStaleMate(
       !inCheck.inCheck && (
-        staleMate(gameData.board, gameData.turn, enPassant.current)
-      )
-    )
+        staleMate(gameData.board, gameData.turn, enPassant.current)))
   }
 
   useEffect(() => {
@@ -113,9 +102,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       fromSocket.current = true
       resetData(gameData)
     });
-    return () => {
-      socket.off("gameUpdate");
-    };
+    return () => { socket.off("gameUpdate"); };
   }, [])
 
   useEffect(() => {
@@ -143,14 +130,11 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       winner: checkMate || isStaleMate || resign ? winner : null,
       endReason: resign ? "resignation" : checkMate ? "checkmate" : isStaleMate ? "stalemate" : null
     }
-    if (mode === "single player") {
-      updateGame(gameData)
-    }
+    if (mode === "single player") { updateGame(gameData) }
     if (mode === "multiplayer") {
       const socketClass = SocketClass.getObject();
       socketClass.updateGame(id, gameData)
     }
-
   }, [board, winner, resign])
 
   useEffect(() => {
@@ -161,6 +145,8 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     }
     console.log(winner)
   }, [resign]);
+
+
 
   function HandleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate || resign) {
