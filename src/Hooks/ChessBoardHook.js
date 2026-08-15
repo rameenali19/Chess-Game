@@ -146,6 +146,31 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     console.log(winner)
   }, [resign]);
 
+  async function createMove(moveData) {
+    const move = ApiChess.getAPI();
+    const data = await move.createMove(id, {
+      pieceColor: moveData.pieceColor,
+      pieceType: moveData.pieceType,
+      source: moveData.source,
+      destination: moveData.destination
+    })
+  }
+
+  function moveLogger(fromRow, fromCol, toRow, toCol) {
+    const source = coordinateConversion(fromRow, fromCol)
+    const destination = coordinateConversion(toRow, toCol)
+    const moveData = {
+      pieceColor: selectedPiece.color,
+      pieceType: selectedPiece.type,
+      source: source,
+      destination: destination,
+    }
+    if (mode === "single player") { createMove(moveData) }
+    if (mode === "multiplayer") {
+      const socketClass = SocketClass.getObject();
+      socketClass.createMove(id, moveData)
+    }
+  }
 
 
   function HandleClick(rowIndex, colIndex) {
@@ -171,10 +196,14 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         setMoves([]);
         return;
       }
+      moveLogger(
+        selectedPiece.row,
+        selectedPiece.col,
+        rowIndex,
+        colIndex
+      );
 
       const nextTurn = turn === "White" ? "Black" : "White";
-
-
       if (
         selectedPiece.type === "Pawn" &&
         (
@@ -186,7 +215,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
           row: rowIndex,
           col: colIndex,
         };
-
         setPromotion(p);
         setBoard(updatedBoard);
         setSelectedPiece(null);
@@ -308,4 +336,5 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     promote,
 
   }
+
 }

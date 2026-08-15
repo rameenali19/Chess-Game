@@ -79,6 +79,12 @@ class ApiChess {
     });
     return request.data;
   }
+
+  //create moves by id
+  async createMove(gameId, moveInfo) {
+    const request = await this.apiClient.post(`/games/${gameId}/moves`, moveInfo);
+    return request.data;
+  }
 }
 
 export default ApiChess;

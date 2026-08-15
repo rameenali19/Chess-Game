@@ -36,5 +36,12 @@ class SocketClass {
       gameData: gameData
     })
   }
+
+  createMove(id, moveData) {
+    socket.emit("createMove", {
+      gameId: id,
+      moveData: moveData
+    })
+  }
 }
 export default SocketClass
