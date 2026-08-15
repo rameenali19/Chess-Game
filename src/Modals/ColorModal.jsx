@@ -55,7 +55,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
     <Modal open={open}
       className="h-90 w-140">
 
-      <div className="flex flex-col h-full gap-5 items-center px-2">
+      <div className="flex flex-col h-full gap-5 items-center px-2 justify-center">
 
         <div className="flex flex-col items-center gap-2 mt-6">
           <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
@@ -73,7 +73,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
               return (
                 <div key={color.text}
                   className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
-                       items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#ffebdd]" : ""}`}
+                       items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#ffddc4]" : ""}`}
                   onClick={() => {
                     setSelecctedColor(color.text)
                     setUserColor(color.text)
@@ -92,7 +92,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
           text="Start Game"
           variant="primary"
           textSize="normal"
-          fontWeight="normal"
+          fontWeight="medium"
           onClick={() => createGame()}
           className="w-40 py-2"
         />
