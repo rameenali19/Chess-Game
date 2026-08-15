@@ -154,6 +154,7 @@ function GamePage() {
             userColor={userColor}
             setGameOver={setGameOver}
             mode={mode}
+            endReason={endReason}
           />
 
           <ResignModal

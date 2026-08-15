@@ -2,42 +2,56 @@ import { useNavigate } from "react-router-dom"
 import Button from "../Components/Button"
 import Modal from "../Components/Modal"
 
-function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
+function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }) {
   const navigate = useNavigate()
   console.log(winner)
   const result = winner === userColor ? "Won" : winner === "Draw" ? "Draw" : "Lost"
 
   const resultText = {
     Won: {
-      text1: "You Won!",
-      text2: "Congratulations! You have won the game.",
-      text3: "Play again or shift to Home"
+      resignation: {
+        text1: "Opponent Resigned",
+        text2: "You Won!",
+        text3: "Play again or shift to Home"
+      },
+      checkmate: {
+        text1: "Checkmate",
+        text2: "You Won!",
+        text3: "Play again or shift to Home"
+      }
     },
     Lost: {
-      text1: "You Lost",
-      text2: "BOOOOOO",
-      text3: "Go home loser or try again"
+      resignation: {
+        text1: "You Resigned",
+        text2: "You Lost",
+        text3: "Play again or shift to Home"
+      },
+      checkmate: {
+        text1: "Checkmate",
+        text2: "You Lost",
+        text3: "Play again or shift to Home"
+      }
     },
     Draw: {
       text1: "Game Draw",
-      text2: "Game Draw",
+      text2: "The game ended in a draw.",
       text3: "Play again or shift to Home"
     }
   }
 
-  const text = resultText[result]
+  const text = result === "Draw" ? resultText.Draw : resultText[result][endReason];
 
   return (
 
     <Modal open={open}
       className=" h-65 w-125 ">
 
-      <div className="flex flex-col items-center justify-center gap-7 h-full px-2 ">
-        <div className=" flex flex-col items-center gap-3 text-[#17384A]">
+      <div className="flex flex-col items-center justify-center gap-7 h-full px-1 mt-3">
+        <div className=" flex flex-col items-center gap-2 text-[#17384A]">
           <h1 className="text-3xl font-bold font-cormorant">
             {text.text1}
           </h1>
-          <h1 className="font-inter text-xs">
+          <h1 className="font-inter text-lg">
             {text.text2}</h1>
           <h1 className="font-inter text-xs">
             {text.text3}</h1>
@@ -87,7 +101,7 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode }) {
             variant="sideBarBlue"
             textSize="small"
             fontWeight="medium"
-            className="w-15 h-6 items-center flex justify-center py-1 gap-1"
+            className="w-15 h-6 items-center flex justify-center"
             onClick={() => {
               setGameOver(false)
             }}
