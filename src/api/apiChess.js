@@ -85,6 +85,12 @@ class ApiChess {
     const request = await this.apiClient.post(`/games/${gameId}/moves`, moveInfo);
     return request.data;
   }
+
+  //get all moves
+  async getMoves(gameId) {
+    const request = await this.apiClient.get(`/games/${gameId}/moves`);
+    return request.data;
+  }
 }
 
 export default ApiChess;

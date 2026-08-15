@@ -11,6 +11,7 @@ import SocketClass from "../Socket/socketClass";
 import GameOverModal from "../Modals/GameOverModal";
 import ChessboardRightPanel from "../Components/ChessboardRightPanel";
 import ResignModal from "../Modals/ResignModal";
+import ApiChess from "../api/apiChess";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -33,7 +34,6 @@ function GamePage() {
 
   useEffect(() => {
     if (!mode || !id) return;
-    if (!mode) return
 
     if (mode === "multiplayer") {
       const socketClass = SocketClass.getObject();
@@ -80,6 +80,15 @@ function GamePage() {
     setEndReason("resignation")
     console.log("eeeeee", resignWinner)
   }
+
+  useEffect(() => {
+    async function getMoves() {
+      const game = ApiChess.getAPI();
+      const moves = await game.getMoves(id);
+      setMoveHistory(moves);
+    }
+    if (id) { getMoves(); }
+  }, [id]);
 
   return (
 
