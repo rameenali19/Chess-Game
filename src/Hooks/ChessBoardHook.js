@@ -6,7 +6,7 @@ import { IsKingInCheck } from "../Chess/IsKingInCheck";
 import { CheckMate } from "../Chess/CheckMate";
 import { pieceImages } from "../Chess/constants";
 import { useRef } from "react";
-import { staleMate } from "../Chess/Stalemate";
+import { stalemate } from "../Chess/stalemate";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
@@ -255,7 +255,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         setCheckMate(false);
       }
 
-      if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
+      if (!opponentCheck.inCheck && stalemate(updatedBoard, nextTurn, enPassant.current)) {
         setWinner("Draw")
         setIsStaleMate(true);
         setEndReason("stalemate");
@@ -318,7 +318,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setCheckMate(false);
     }
 
-    if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
+    if (!opponentCheck.inCheck && stalemate(newBoard, nextTurn, enPassant.current)) {
       setWinner("Draw")
       setIsStaleMate(true);
       setEndReason("stalemate");

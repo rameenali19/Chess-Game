@@ -1,7 +1,7 @@
 import { IsKingInCheck } from "./IsKingInCheck";
 import { MovePiece } from "../Components/MovePiece";
 import { generateMoves } from "./generateMoves";
-export function staleMate(board, turn, enPassant) {
+export function stalemate(board, turn, enPassant) {
 
   let tempBoard;
   for (let row = 0; row < 8; row++) {
