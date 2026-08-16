@@ -24,9 +24,9 @@ function ResignModal({ open, resigning, setResignModal }) {
           <Button
             text="yes"
             variant="primary"
-            textSize="normal"
+            textSize="large"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-27 py-1"
             onClick={resigning}
           />
 
@@ -35,7 +35,7 @@ function ResignModal({ open, resigning, setResignModal }) {
             variant="primary"
             textSize="normal"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-27 py-1"
             onClick={() => {
               setResignModal(false);
             }}
