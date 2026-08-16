@@ -3,10 +3,10 @@ import { initialBoard } from "../Chess/board";
 import { generateMoves } from "../Chess/generateMoves";
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "../Chess/IsKingInCheck";
-import { CheckMate } from "../Chess/CheckMate";
+import { checkmateLogic } from "../Chess/checkmateLogic";
 import { pieceImages } from "../Chess/constants";
 import { useRef } from "react";
-import { stalemate } from "../Chess/stalemate";
+import { stalemateLogic } from "../Chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
@@ -47,12 +47,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current)
       setIsKingInCheck(inCheck)
 
-      if (inCheck.inCheck) { setCheckMate(CheckMate(data.game_board, data.current_turn, enPassant.current)) }
+      if (inCheck.inCheck) { setCheckMate(checkmateLogic(data.game_board, data.current_turn, enPassant.current)) }
       else { setCheckMate(false) }
 
       setIsStaleMate(
         !inCheck.inCheck && (
-          staleMate(data.game_board, data.current_turn, enPassant.current)))
+          stalemateLogic(data.game_board, data.current_turn, enPassant.current)))
 
       setResign(data.end_reason === "resignation")
       setLoaded(true)
@@ -89,12 +89,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setIsKingInCheck(inCheck)
 
-    if (inCheck.inCheck) { setCheckMate(CheckMate(gameData.board, gameData.turn, enPassant.current)) }
+    if (inCheck.inCheck) { setCheckMate(checkmateLogic(gameData.board, gameData.turn, enPassant.current)) }
     else { setCheckMate(false) }
 
     setIsStaleMate(
       !inCheck.inCheck && (
-        staleMate(gameData.board, gameData.turn, enPassant.current)))
+        stalemateLogic(gameData.board, gameData.turn, enPassant.current)))
   }
 
   useEffect(() => {
@@ -143,7 +143,6 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setMoves([]);
       setPromotion(null);
     }
-    console.log(winner)
   }, [resign]);
 
   async function createMove(moveData) {
@@ -244,7 +243,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setSelectedPiece(null);
       setMoves([]);
       if (opponentCheck.inCheck) {
-        const mate = (CheckMate(updatedBoard, nextTurn, enPassant.current));
+        const mate = (checkmateLogic(updatedBoard, nextTurn, enPassant.current));
         setCheckMate(mate)
         if (mate) {
           setWinner(turn)
@@ -255,7 +254,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         setCheckMate(false);
       }
 
-      if (!opponentCheck.inCheck && stalemate(updatedBoard, nextTurn, enPassant.current)) {
+      if (!opponentCheck.inCheck && stalemateLogic(updatedBoard, nextTurn, enPassant.current)) {
         setWinner("Draw")
         setIsStaleMate(true);
         setEndReason("stalemate");
@@ -307,7 +306,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setIsKingInCheck(opponentCheck);
 
     if (opponentCheck.inCheck) {
-      const mate = (CheckMate(newBoard, nextTurn, enPassant.current));
+      const mate = (checkmateLogic(newBoard, nextTurn, enPassant.current));
       setCheckMate(mate)
       if (mate) {
         setWinner(turn)
@@ -318,7 +317,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setCheckMate(false);
     }
 
-    if (!opponentCheck.inCheck && stalemate(newBoard, nextTurn, enPassant.current)) {
+    if (!opponentCheck.inCheck && stalemateLogic(newBoard, nextTurn, enPassant.current)) {
       setWinner("Draw")
       setIsStaleMate(true);
       setEndReason("stalemate");

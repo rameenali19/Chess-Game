@@ -1,7 +1,7 @@
 import { IsKingInCheck } from "./IsKingInCheck";
 import { MovePiece } from "../Components/MovePiece";
 import { generateMoves } from "./generateMoves";
-export function CheckMate(board, turn, enPassant) {
+export function checkmateLogic(board, turn, enPassant) {
   let tempBoard;
   for (let row = 0; row < 8; row++) {
     for (let col = 0; col < 8; col++) {
