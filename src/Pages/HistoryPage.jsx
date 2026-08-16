@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import DeleteModal from "../Modals/DeleteModal";
 import Button from "../Components/Button";
+import Pagination from "../Components/Pagination";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -105,34 +106,12 @@ function HistoryPage() {
           Continue unfinished games or review completed matches
         </div>
       </div>
-      <div className="flex justify-between">
 
-        {games.length >= 10 && (
-          <Button
-            text="Next Page"
-            variant="outline"
-            textSize="large"
-            fontWeight="normal"
-            onClick={() => {
-              setPage(page + 1)
-            }}
-          />
-        )}
-
-        {page > 1 && (
-          <Button
-            text="Previous Page"
-            variant="outline"
-            textSize="large"
-            fontWeight="normal"
-            onClick={() => {
-              setPage(page - 1)
-            }}
-          />
-
-        )}
-
-      </div>
+      <Pagination
+        games={games}
+        page={page}
+        setPage={setPage}
+      />
 
       <DeleteModal
         id={selectedGameId}
