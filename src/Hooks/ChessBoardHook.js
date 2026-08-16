@@ -248,6 +248,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         setCheckMate(mate)
         if (mate) {
           setWinner(turn)
+          setEndReason("checkmate");
         }
       }
       else {
@@ -257,6 +258,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       if (!opponentCheck.inCheck && staleMate(updatedBoard, nextTurn, enPassant.current)) {
         setWinner("Draw")
         setIsStaleMate(true);
+        setEndReason("stalemate");
       }
       else {
         setIsStaleMate(false);
@@ -309,6 +311,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setCheckMate(mate)
       if (mate) {
         setWinner(turn)
+        setEndReason("checkmate");
       }
     }
     else {
@@ -318,6 +321,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     if (!opponentCheck.inCheck && staleMate(newBoard, nextTurn, enPassant.current)) {
       setWinner("Draw")
       setIsStaleMate(true);
+      setEndReason("stalemate");
     }
     else {
       setIsStaleMate(false);
