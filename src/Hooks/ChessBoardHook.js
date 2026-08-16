@@ -4,7 +4,7 @@ import { generateMoves } from "../Chess/generateMoves";
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "../Chess/IsKingInCheck";
 import { CheckMate } from "../Chess/CheckMate";
-import { pieceImages } from "../Chess/Constants";
+import { pieceImages } from "../Chess/constants";
 import { useRef } from "react";
 import { staleMate } from "../Chess/Stalemate";
 import ApiChess from "../api/apiChess";

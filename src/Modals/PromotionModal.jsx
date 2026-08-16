@@ -1,4 +1,3 @@
-import { pieceImages } from "../Chess/Constants";
 import Modal from "../Components/Modal";
 import PromotionPieces from "../Components/PromotionPieces";
 
