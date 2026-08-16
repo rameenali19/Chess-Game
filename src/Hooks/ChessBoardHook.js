@@ -13,7 +13,7 @@ import { useContext } from "react";
 import SocketClass from "../Socket/socketClass";
 import socket from "../Socket/socket";
 
-export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleMate, setIsStaleMate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
+export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
 
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [moves, setMoves] = useState([]);
@@ -47,10 +47,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const inCheck = isKingInCheck(data.game_board, data.current_turn, enPassant.current)
       setKingCheckState(inCheck)
 
-      if (inCheck.inCheck) { setCheckMate(checkmateLogic(data.game_board, data.current_turn, enPassant.current)) }
-      else { setCheckMate(false) }
+      if (inCheck.inCheck) { setCheckmate(checkmateLogic(data.game_board, data.current_turn, enPassant.current)) }
+      else { setCheckmate(false) }
 
-      setIsStaleMate(
+      setStalemate(
         !inCheck.inCheck && (
           stalemateLogic(data.game_board, data.current_turn, enPassant.current)))
 
@@ -89,10 +89,10 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     const inCheck = isKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setKingCheckState(inCheck)
 
-    if (inCheck.inCheck) { setCheckMate(checkmateLogic(gameData.board, gameData.turn, enPassant.current)) }
-    else { setCheckMate(false) }
+    if (inCheck.inCheck) { setCheckmate(checkmateLogic(gameData.board, gameData.turn, enPassant.current)) }
+    else { setCheckmate(false) }
 
-    setIsStaleMate(
+    setStalemate(
       !inCheck.inCheck && (
         stalemateLogic(gameData.board, gameData.turn, enPassant.current)))
   }
@@ -123,12 +123,12 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     }
     const gameData = {
       turn: turn,
-      status: checkMate || isStaleMate || resign ? "finished" : "unfinished",
+      status: checkmate || stalemate || resign ? "finished" : "unfinished",
       board: board,
       enPassant: enPassant.current,
       promotion: promotion,
-      winner: checkMate || isStaleMate || resign ? winner : null,
-      endReason: resign ? "resignation" : checkMate ? "checkmate" : isStaleMate ? "stalemate" : null
+      winner: checkmate || stalemate || resign ? winner : null,
+      endReason: resign ? "resignation" : checkmate ? "checkmate" : stalemate ? "stalemate" : null
     }
     if (mode === "single player") { updateGame(gameData) }
     if (mode === "multiplayer") {
@@ -174,7 +174,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
 
   function handleClick(rowIndex, colIndex) {
-    if (checkMate || promotion || isStaleMate || resign) {
+    if (checkmate || promotion || stalemate || resign) {
       return;
     }
     const validMove = moves.some(move =>
@@ -244,23 +244,23 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setMoves([]);
       if (opponentCheck.inCheck) {
         const mate = (checkmateLogic(updatedBoard, nextTurn, enPassant.current));
-        setCheckMate(mate)
+        setCheckmate(mate)
         if (mate) {
           setWinner(turn)
           setEndReason("checkmate");
         }
       }
       else {
-        setCheckMate(false);
+        setCheckmate(false);
       }
 
       if (!opponentCheck.inCheck && stalemateLogic(updatedBoard, nextTurn, enPassant.current)) {
         setWinner("Draw")
-        setIsStaleMate(true);
+        setStalemate(true);
         setEndReason("stalemate");
       }
       else {
-        setIsStaleMate(false);
+        setStalemate(false);
       }
 
       setTurn(nextTurn);
@@ -307,23 +307,23 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     if (opponentCheck.inCheck) {
       const mate = (checkmateLogic(newBoard, nextTurn, enPassant.current));
-      setCheckMate(mate)
+      setCheckmate(mate)
       if (mate) {
         setWinner(turn)
         setEndReason("checkmate");
       }
     }
     else {
-      setCheckMate(false);
+      setCheckmate(false);
     }
 
     if (!opponentCheck.inCheck && stalemateLogic(newBoard, nextTurn, enPassant.current)) {
       setWinner("Draw")
-      setIsStaleMate(true);
+      setStalemate(true);
       setEndReason("stalemate");
     }
     else {
-      setIsStaleMate(false);
+      setStalemate(false);
     }
     enPassant.current = null;
     setTurn(nextTurn);

@@ -15,8 +15,8 @@ import ApiChess from "../api/apiChess";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
-  const [checkMate, setCheckMate] = useState(false)
-  const [isStaleMate, setIsStaleMate] = useState(false);
+  const [checkmate, setCheckmate] = useState(false)
+  const [stalemate, setStalemate] = useState(false);
   const { id } = useParams();
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
@@ -94,8 +94,8 @@ function GamePage() {
 
           <ChessboardLeftPanel
             turn={turn}
-            checkMate={checkMate}
-            staleMate={isStaleMate}
+            checkmate={checkmate}
+            staleMate={stalemate}
             id={id}
             userColor={userColor}
             opponentColor={opponentColor}
@@ -106,10 +106,10 @@ function GamePage() {
             <ChessBoard
               turn={turn}
               setTurn={setTurn}
-              checkMate={checkMate}
-              setCheckMate={setCheckMate}
-              isStaleMate={isStaleMate}
-              setIsStaleMate={setIsStaleMate}
+              checkmate={checkmate}
+              setCheckmate={setCheckmate}
+              stalemate={stalemate}
+              setStalemate={setStalemate}
               id={id}
               userColor={userColor}
               opponentColor={opponentColor}

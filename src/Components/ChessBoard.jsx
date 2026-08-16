@@ -2,61 +2,14 @@ import Square from "./Square";
 import PromotionModal from "../Modals/PromotionModal";
 import { useChessBoard } from "../Hooks/ChessBoardHook";
 function ChessBoard({
-  turn,
-  setTurn,
-  checkMate,
-  setCheckMate,
-  isStaleMate,
-  setIsStaleMate,
-  id,
-  userColor,
-  opponentColor,
-  setUserColor,
-  setOpponentColor,
-  mode,
-  setMode,
-  winner,
-  setWinner,
-  resign,
-  setResign,
-  endReason,
-  setEndReason,
-  setMoveHistory
+  turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory
 }) {
   const {
-    board,
-    handleClick,
-    selectedPiece,
-    moves,
-    promotion,
-    enPassant,
-    kingCheckState,
-    promote,
-
-
-  } = useChessBoard({
-    turn,
-    setTurn,
-    checkMate,
-    setCheckMate,
-    isStaleMate,
-    setIsStaleMate,
-    id,
-    userColor,
-    opponentColor,
-    setUserColor,
-    setOpponentColor,
-    mode,
-    setMode,
-    winner,
-    setWinner,
-    resign,
-    setResign,
-    endReason,
-    setEndReason,
-    setMoveHistory
-
-  });
+    board, handleClick, selectedPiece, moves, promotion, enPassant, kingCheckState, promote,
+  } =
+    useChessBoard({
+      turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory
+    });
 
   const displayBoard =
     userColor === "White"
