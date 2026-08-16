@@ -30,7 +30,7 @@ function MoveLogger({ moveHistory, winner }) {
         })}
 
         {winner && (
-          <div className="font-medium text-center">
+          <div className="font-medium pl-6">
             {winner === "Draw" ? "Draw!" : `${winner} Wins!`}
           </div>
         )}
