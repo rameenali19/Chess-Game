@@ -23,7 +23,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   const [loaded, setLoaded] = useState(false);
   const fromSocket = useRef(false);
   const { guestId } = useContext(UserContext)
-  const [isKingInCheck, setIsKingInCheck] = useState({
+  const [kingCheckState, setKingCheckState] = useState({
     inCheck: false,
     attackers: [],
     king: null
@@ -45,7 +45,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       setWinner(data.winner)
 
       const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current)
-      setIsKingInCheck(inCheck)
+      setKingCheckState(inCheck)
 
       if (inCheck.inCheck) { setCheckMate(checkmateLogic(data.game_board, data.current_turn, enPassant.current)) }
       else { setCheckMate(false) }
@@ -87,7 +87,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setEndReason(gameData.endReason)
     enPassant.current = gameData.enPassant;
     const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
-    setIsKingInCheck(inCheck)
+    setKingCheckState(inCheck)
 
     if (inCheck.inCheck) { setCheckMate(checkmateLogic(gameData.board, gameData.turn, enPassant.current)) }
     else { setCheckMate(false) }
@@ -238,7 +238,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
 
       const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current);
-      setIsKingInCheck(opponentCheck);
+      setKingCheckState(opponentCheck);
       setBoard(updatedBoard);
       setSelectedPiece(null);
       setMoves([]);
@@ -303,7 +303,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
 
     const opponentCheck = IsKingInCheck(newBoard, nextTurn, enPassant.current);
 
-    setIsKingInCheck(opponentCheck);
+    setKingCheckState(opponentCheck);
 
     if (opponentCheck.inCheck) {
       const mate = (checkmateLogic(newBoard, nextTurn, enPassant.current));
@@ -336,7 +336,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     moves,
     promotion,
     enPassant,
-    isKingInCheck,
+    kingCheckState,
     promote,
 
   }

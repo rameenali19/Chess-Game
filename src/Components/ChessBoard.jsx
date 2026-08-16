@@ -30,7 +30,7 @@ function ChessBoard({
     moves,
     promotion,
     enPassant,
-    isKingInCheck,
+    kingCheckState,
     promote,
 
 
@@ -97,11 +97,11 @@ function ChessBoard({
                   piece !== "."
               )}
               kingInCheck={
-                isKingInCheck.inCheck &&
-                realRow === isKingInCheck.king?.row &&
-                realCol === isKingInCheck.king?.col
+                kingCheckState.inCheck &&
+                realRow === kingCheckState.king?.row &&
+                realCol === kingCheckState.king?.col
               }
-              checkingPiece={isKingInCheck.attackers.some(
+              checkingPiece={kingCheckState.attackers.some(
                 (attacker) =>
                   realRow === attacker.row &&
                   realCol === attacker.col
