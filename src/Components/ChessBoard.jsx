@@ -1,6 +1,6 @@
 import Square from "./Square";
 import PromotionModal from "../modals/PromotionModal";
-import { useChessBoard } from "../Hooks/ChessBoardHook";
+import { useChessBoard } from "../hooks/ChessBoardHook";
 function ChessBoard({
   turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory
 }) {
