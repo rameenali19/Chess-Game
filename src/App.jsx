@@ -1,11 +1,11 @@
-import GamePage from "./Pages/GamePage";
+import GamePage from "./pages/GamePage";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import HistoryPage from "./Pages/HistoryPage";
-import HomePage from "./Pages/HomePage";
-import AboutMe from "./Pages/AboutMe";
+import HistoryPage from "./pages/HistoryPage";
+import HomePage from "./pages/HomePage";
+import AboutMe from "./pages/AboutMe";
 import Layout from "./Layout/Layout";
 import socket from "./Socket/socket";
-import ModeSelectionPage from "./Pages/ModeSelectionPage";
+import ModeSelectionPage from "./pages/ModeSelectionPage";
 
 function App() {
   return (
