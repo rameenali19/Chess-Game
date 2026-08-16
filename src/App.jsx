@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import HistoryPage from "./pages/HistoryPage";
 import HomePage from "./pages/HomePage";
 import AboutMe from "./pages/AboutMe";
-import Layout from "./Layout/Layout";
+import Layout from "./layout/Layout";
 import socket from "./Socket/socket";
 import ModeSelectionPage from "./pages/ModeSelectionPage";
 
