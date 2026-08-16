@@ -1,4 +1,4 @@
-import { PawnMoves } from "./Pawn";
+import { pawnMoves } from "./pawn";
 import { RookMoves } from "./Rook";
 import { KnightMoves } from "./Knight";
 import { BishopMoves } from "./Bishop";
@@ -33,7 +33,7 @@ export function generateMoves(selectedPiece, board, enPassant, checkOnly = false
     );
   }
   if (selectedPiece.type === "Pawn") {
-    return PawnMoves(
+    return pawnMoves(
       selectedPiece,
       board,
       enPassant,

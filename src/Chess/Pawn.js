@@ -1,4 +1,4 @@
-export function PawnMoves(selectedPiece, board, enPassant) {
+export function pawnMoves(selectedPiece, board, enPassant) {
 
   let moves = [];
 
