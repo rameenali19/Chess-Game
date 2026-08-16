@@ -6,7 +6,7 @@ import { UserContext } from "../Context/UserContext";
 import JoinModal from "../Modals/JoinModal";
 import WaitingModal from "../Modals/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";
-import socket from "../Socket/socket";
+import socket from "../socket/socket";
 import { motion } from "framer-motion";
 import ModeSelectionButton from "../components/ModeSelectionButton"
 import { Navigate } from "react-router-dom";

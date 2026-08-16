@@ -1,7 +1,7 @@
 import { UserContext } from "../Context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
-import SocketClass from "../Socket/socketClass";
+import SocketClass from "../socket/socketClass";
 import { useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import Modal from "../components/Modal";

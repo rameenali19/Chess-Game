@@ -4,7 +4,7 @@ import { initialBoard } from "../chess/Board";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import SocketClass from "../Socket/socketClass";
+import SocketClass from "../socket/socketClass";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
