@@ -26,7 +26,7 @@ function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
             text="Yes"
             variant="primary"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-20 py-1"
             onClick={() => {
               deleteFunction(id)
               setDeleteModal(false)
@@ -37,7 +37,7 @@ function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
             text="No"
             variant="primary"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-20 py-1"
             onClick={() => {
               setDeleteModal(false)
             }}
