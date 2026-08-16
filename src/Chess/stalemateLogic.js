@@ -1,4 +1,4 @@
-import { IsKingInCheck } from "./IsKingInCheck";
+import { isKingInCheck } from "./isKingInCheck";
 import { MovePiece } from "../Components/MovePiece";
 import { generateMoves } from "./generateMoves";
 export function stalemateLogic(board, turn, enPassant) {
@@ -29,7 +29,7 @@ export function stalemateLogic(board, turn, enPassant) {
           move.castle,
           move.enPassant
         );
-        const stillInCheck = IsKingInCheck(tempBoard, turn, enPassant);
+        const stillInCheck = isKingInCheck(tempBoard, turn, enPassant);
         if (!stillInCheck.inCheck) {
           return false;
         }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { initialBoard } from "../Chess/board";
 import { generateMoves } from "../Chess/generateMoves";
 import { MovePiece } from "../Components/MovePiece";
-import { IsKingInCheck } from "../Chess/IsKingInCheck";
+import { isKingInCheck } from "../Chess/isKingInCheck";
 import { checkmateLogic } from "../Chess/checkmateLogic";
 import { pieceImages } from "../Chess/constants";
 import { useRef } from "react";
@@ -44,7 +44,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       enPassant.current = data.en_passant
       setWinner(data.winner)
 
-      const inCheck = IsKingInCheck(data.game_board, data.current_turn, enPassant.current)
+      const inCheck = isKingInCheck(data.game_board, data.current_turn, enPassant.current)
       setKingCheckState(inCheck)
 
       if (inCheck.inCheck) { setCheckMate(checkmateLogic(data.game_board, data.current_turn, enPassant.current)) }
@@ -86,7 +86,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setResign(gameData.endReason === "resignation")
     setEndReason(gameData.endReason)
     enPassant.current = gameData.enPassant;
-    const inCheck = IsKingInCheck(gameData.board, gameData.turn, enPassant.current)
+    const inCheck = isKingInCheck(gameData.board, gameData.turn, enPassant.current)
     setKingCheckState(inCheck)
 
     if (inCheck.inCheck) { setCheckMate(checkmateLogic(gameData.board, gameData.turn, enPassant.current)) }
@@ -189,7 +189,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board,
         selectedMove?.castle, selectedMove?.enPassant);
 
-      const selfCheck = IsKingInCheck(updatedBoard, turn, enPassant.current)
+      const selfCheck = isKingInCheck(updatedBoard, turn, enPassant.current)
 
       if (selfCheck.inCheck) {
         setSelectedPiece(null);
@@ -237,7 +237,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       }
 
 
-      const opponentCheck = IsKingInCheck(updatedBoard, nextTurn, enPassant.current);
+      const opponentCheck = isKingInCheck(updatedBoard, nextTurn, enPassant.current);
       setKingCheckState(opponentCheck);
       setBoard(updatedBoard);
       setSelectedPiece(null);
@@ -301,7 +301,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
     setSelectedPiece(null);
     const nextTurn = turn === "White" ? "Black" : "White";
 
-    const opponentCheck = IsKingInCheck(newBoard, nextTurn, enPassant.current);
+    const opponentCheck = isKingInCheck(newBoard, nextTurn, enPassant.current);
 
     setKingCheckState(opponentCheck);
 

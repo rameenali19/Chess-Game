@@ -1,12 +1,12 @@
 import { MovePiece } from "../Components/MovePiece";
-import { IsKingInCheck } from "./IsKingInCheck";
+import { isKingInCheck } from "./isKingInCheck";
 
 export function kingMoves(selectedPiece, board, movesOnly = false) {
   let moves = [];
   const homeRow = selectedPiece.color === "White" ? 7 : 0;
   function canCastle(homeRow, col, color) {
     const testBoard = MovePiece(homeRow, col, selectedPiece, board)
-    return !IsKingInCheck(testBoard, color).inCheck
+    return !isKingInCheck(testBoard, color).inCheck
   }
 
   function addMove(row, col) {
@@ -54,7 +54,7 @@ export function kingMoves(selectedPiece, board, movesOnly = false) {
       !kingSideRook.hasMoved &&
       board[homeRow][5] === "." &&
       board[homeRow][6] === "." &&
-      !IsKingInCheck(board, selectedPiece.color).inCheck
+      !isKingInCheck(board, selectedPiece.color).inCheck
     ) {
       if (
         canCastle(homeRow, 5, selectedPiece.color) &&
@@ -80,7 +80,7 @@ export function kingMoves(selectedPiece, board, movesOnly = false) {
       board[homeRow][1] === "." &&
       board[homeRow][2] === "." &&
       board[homeRow][3] === "." &&
-      !IsKingInCheck(board, selectedPiece.color).inCheck
+      !isKingInCheck(board, selectedPiece.color).inCheck
     ) {
       if (
         canCastle(homeRow, 3, selectedPiece.color) &&
