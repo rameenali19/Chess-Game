@@ -1,6 +1,6 @@
 import ApiChess from "../api/apiChess";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 

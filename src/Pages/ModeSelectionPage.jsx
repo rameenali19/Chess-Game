@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ColorModal from "../modals/ColorModal";
 import LoginModal from "../modals/LoginModal";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import JoinModal from "../modals/JoinModal";
 import WaitingModal from "../modals/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";

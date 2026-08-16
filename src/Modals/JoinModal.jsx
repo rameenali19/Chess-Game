@@ -1,4 +1,4 @@
-import { UserContext } from "../Context/UserContext"
+import { UserContext } from "../context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
 import SocketClass from "../socket/socketClass";

@@ -5,7 +5,7 @@ import HistoryButton from "../components/HistoryButton";
 import HistoryNavBar from "../components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import DeleteModal from "../modals/DeleteModal";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";

@@ -1,6 +1,6 @@
 import SideBar from "../components/SideBar"
 import { Outlet } from "react-router-dom"
-import { UserContext } from "../Context/UserContext"
+import { UserContext } from "../context/UserContext"
 import { useState } from "react"
 
 function Layout() {

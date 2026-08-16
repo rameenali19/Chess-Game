@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { initialBoard } from "../chess/Board";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import SocketClass from "../socket/socketClass";
 import Button from "../components/Button";
 import Modal from "../components/Modal";

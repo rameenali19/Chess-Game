@@ -2,7 +2,7 @@ import ChessBoard from "../components/ChessBoard";
 import { useState, useEffect } from "react";
 import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import socket from "../socket/socket";
 import ReconnectingModal from "../modals/ReconnectingModal";
 import DisconnectModal from "../modals/DisconnectModal";

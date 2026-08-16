@@ -8,7 +8,7 @@ import { pieceImages } from "../chess/constants";
 import { useRef } from "react";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 import SocketClass from "../socket/socketClass";
 import socket from "../socket/socket";
