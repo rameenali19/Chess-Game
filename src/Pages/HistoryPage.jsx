@@ -107,6 +107,18 @@ function HistoryPage() {
       </div>
       <div className="flex justify-between">
 
+        {games.length >= 10 && (
+          <Button
+            text="Next Page"
+            variant="outline"
+            textSize="large"
+            fontWeight="normal"
+            onClick={() => {
+              setPage(page + 1)
+            }}
+          />
+        )}
+
         {page > 1 && (
           <Button
             text="Previous Page"
@@ -118,17 +130,6 @@ function HistoryPage() {
             }}
           />
 
-        )}
-        {games.length >= 10 && (
-          <Button
-            text="Next Page"
-            variant="outline"
-            textSize="large"
-            fontWeight="normal"
-            onClick={() => {
-              setPage(page + 1)
-            }}
-          />
         )}
 
       </div>
