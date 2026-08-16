@@ -1,5 +1,5 @@
 import { isKingInCheck } from "./isKingInCheck";
-import { MovePiece } from "../Components/MovePiece";
+import { movePiece } from "./movePiece";
 import { generateMoves } from "./generateMoves";
 export function checkmateLogic(board, turn, enPassant) {
   let tempBoard;
@@ -20,7 +20,7 @@ export function checkmateLogic(board, turn, enPassant) {
       }
       const moves = generateMoves(piece, board, enPassant);
       for (const move of moves) {
-        tempBoard = MovePiece(
+        tempBoard = movePiece(
           move.row,
           move.col,
           piece,

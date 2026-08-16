@@ -1,4 +1,4 @@
-export function MovePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant) {
+export function movePiece(rowIndex, colIndex, selectedPiece, board, castle, enPassant) {
 
   const newBoard = board.map(row => [...row])
 

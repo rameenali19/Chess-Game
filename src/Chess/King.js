@@ -1,11 +1,11 @@
-import { MovePiece } from "../Components/MovePiece";
+import { movePiece } from "./movePiece";
 import { isKingInCheck } from "./isKingInCheck";
 
 export function kingMoves(selectedPiece, board, movesOnly = false) {
   let moves = [];
   const homeRow = selectedPiece.color === "White" ? 7 : 0;
   function canCastle(homeRow, col, color) {
-    const testBoard = MovePiece(homeRow, col, selectedPiece, board)
+    const testBoard = movePiece(homeRow, col, selectedPiece, board)
     return !isKingInCheck(testBoard, color).inCheck
   }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { initialBoard } from "../Chess/board";
 import { generateMoves } from "../Chess/generateMoves";
-import { MovePiece } from "../Components/MovePiece";
+import { movePiece } from "../Chess/movePiece";
 import { isKingInCheck } from "../Chess/isKingInCheck";
 import { checkmateLogic } from "../Chess/checkmateLogic";
 import { pieceImages } from "../Chess/constants";
@@ -186,7 +186,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
         move.row === rowIndex &&
         move.col === colIndex
       );
-      const updatedBoard = MovePiece(rowIndex, colIndex, selectedPiece, board,
+      const updatedBoard = movePiece(rowIndex, colIndex, selectedPiece, board,
         selectedMove?.castle, selectedMove?.enPassant);
 
       const selfCheck = isKingInCheck(updatedBoard, turn, enPassant.current)

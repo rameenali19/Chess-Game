@@ -1,5 +1,5 @@
 import { isKingInCheck } from "./isKingInCheck";
-import { MovePiece } from "../Components/MovePiece";
+import { movePiece } from "./movePiece";
 import { generateMoves } from "./generateMoves";
 export function stalemateLogic(board, turn, enPassant) {
 
@@ -21,7 +21,7 @@ export function stalemateLogic(board, turn, enPassant) {
       }
       const moves = generateMoves(piece, board, enPassant);
       for (const move of moves) {
-        tempBoard = MovePiece(
+        tempBoard = movePiece(
           move.row,
           move.col,
           piece,
