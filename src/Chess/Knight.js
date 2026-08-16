@@ -1,4 +1,4 @@
-export function KnightMoves(selectedPiece, board) {
+export function knightMoves(selectedPiece, board) {
   let moves = [];
 
   function addMove(row, col) {
