@@ -76,7 +76,7 @@ function ModeSelectionPage() {
 
         <div>
           <div className="flex gap-2 items-center justify-center">
-            <img className="object-contain w-6 h-7"
+            <img className="object-contain w-10 h-8"
               src="/trophy.png" alt="trophy image" >
             </img>
             <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
