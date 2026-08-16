@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { initialBoard } from "../Chess/Board";
+import { initialBoard } from "../Chess/board";
 import { generateMoves } from "../Chess/generateMoves";
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "../Chess/IsKingInCheck";
