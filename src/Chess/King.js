@@ -1,7 +1,7 @@
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "./IsKingInCheck";
 
-export function KingMoves(selectedPiece, board, movesOnly = false) {
+export function kingMoves(selectedPiece, board, movesOnly = false) {
   let moves = [];
   const homeRow = selectedPiece.color === "White" ? 7 : 0;
   function canCastle(homeRow, col, color) {
