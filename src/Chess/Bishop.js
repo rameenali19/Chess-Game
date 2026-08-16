@@ -1,4 +1,4 @@
-export function BishopMoves(selectedPiece, board) {
+export function bishopMoves(selectedPiece, board) {
   let moves = [];
 
   for (let i = 1; i < 8; i++) {
