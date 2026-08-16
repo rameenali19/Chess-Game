@@ -4,13 +4,13 @@ import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../socket/socket";
-import ReconnectingModal from "../Modals/ReconnectingModal";
-import DisconnectModal from "../Modals/DisconnectModal";
+import ReconnectingModal from "../modals/ReconnectingModal";
+import DisconnectModal from "../modals/DisconnectModal";
 import { useParams } from "react-router-dom";
 import SocketClass from "../socket/socketClass";
-import GameOverModal from "../Modals/GameOverModal";
+import GameOverModal from "../modals/GameOverModal";
 import ChessboardRightPanel from "../components/ChessboardRightPanel";
-import ResignModal from "../Modals/ResignModal";
+import ResignModal from "../modals/ResignModal";
 import ApiChess from "../api/apiChess";
 
 function GamePage() {

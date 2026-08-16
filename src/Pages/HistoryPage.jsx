@@ -6,7 +6,7 @@ import HistoryNavBar from "../components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import DeleteModal from "../Modals/DeleteModal";
+import DeleteModal from "../modals/DeleteModal";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";
 import FooterHistoryPage from "../components/FooterHistoryPage";
