@@ -1,4 +1,4 @@
-export function FindingKing(board, turn) {
+export function findingKing(board, turn) {
   for (let row = 0; row < 8; row++) {
     for (let col = 0; col < 8; col++) {
       const piece = board[row][col];

@@ -1,8 +1,8 @@
-import { FindingKing } from "./FindingKing";
+import { findingKing } from "./findingKing";
 import { generateMoves } from "./generateMoves";
 
 export function IsKingInCheck(board, turn, enPassant) {
-  const king = FindingKing(board, turn);
+  const king = findingKing(board, turn);
   const attackers = [];
   for (let row = 0; row < 8; row++) {
     for (let col = 0; col < 8; col++) {
