@@ -1,5 +1,5 @@
 import axios from "axios";
-import { api } from "./Axios";
+import { api } from "./axios";
 
 class ApiChess {
 
