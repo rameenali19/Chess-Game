@@ -1,9 +1,9 @@
 import { bishopMoves } from "./bishop";
-import { RookMoves } from "./Rook";
+import { rookMoves } from "./rook";
 
 export function queenMoves(selectedPiece, board) {
 
-  const fakeRookMoves = RookMoves(selectedPiece, board);
+  const fakeRookMoves = rookMoves(selectedPiece, board);
   const fakeBishopMoves = bishopMoves(selectedPiece, board);
 
   return [...fakeRookMoves, ...fakeBishopMoves];

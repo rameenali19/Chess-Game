@@ -1,4 +1,4 @@
-export function RookMoves(selectedPiece, board) {
+export function rookMoves(selectedPiece, board) {
   let moves = [];
 
   //UPWARDS MOVEMENT

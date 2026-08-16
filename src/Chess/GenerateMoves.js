@@ -1,5 +1,5 @@
 import { pawnMoves } from "./pawn";
-import { RookMoves } from "./Rook";
+import { rookMoves } from "./rook";
 import { knightMoves } from "./knight";
 import { bishopMoves } from "./bishop";
 import { queenMoves } from "./queen";
@@ -8,7 +8,7 @@ import { kingMoves } from "./king";
 export function generateMoves(selectedPiece, board, enPassant, checkOnly = false) {
 
   if (selectedPiece.type === "Rook") {
-    return RookMoves(
+    return rookMoves(
       selectedPiece,
       board
     );
