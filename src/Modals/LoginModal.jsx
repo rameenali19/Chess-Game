@@ -49,7 +49,7 @@ function LoginModal({ open }) {
             variant="primary"
             textSize="normal"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-22 py-1"
           />
 
           <Button
@@ -57,7 +57,7 @@ function LoginModal({ open }) {
             variant="primary"
             textSize="normal"
             fontWeight="medium"
-            className="w-30 py-2"
+            className="w-22 py-1"
             onClick={() => {
               createGuestId();
             }}
