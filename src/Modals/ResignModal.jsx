@@ -1,5 +1,5 @@
-import Button from "../Components/Button";
-import Modal from "../Components/Modal";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 function ResignModal({ open, resigning, setResignModal }) {
 

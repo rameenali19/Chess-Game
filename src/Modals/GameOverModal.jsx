@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import Button from "../Components/Button"
-import Modal from "../Components/Modal"
+import Button from "../components/Button"
+import Modal from "../components/Modal"
 
 function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }) {
   const navigate = useNavigate()

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import SocketClass from "../Socket/socketClass";
-import Button from "../Components/Button";
-import Modal from "../Components/Modal";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
 

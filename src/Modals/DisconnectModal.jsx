@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom"
-import Button from "../Components/Button"
-import Modal from "../Components/Modal"
+import Button from "../components/Button"
+import Modal from "../components/Modal"
 
 function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconnectingModal }) {
   const navigate = useNavigate()

@@ -3,8 +3,8 @@ import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
 import SocketClass from "../Socket/socketClass";
 import { useLocation } from "react-router-dom";
-import Button from "../Components/Button";
-import Modal from "../Components/Modal";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 function JoinModal({ open, setGameId, setMode }) {
 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "../Components/Button";
-import Modal from "../Components/Modal";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
 
 

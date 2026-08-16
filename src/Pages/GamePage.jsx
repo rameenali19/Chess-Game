@@ -1,6 +1,6 @@
-import ChessBoard from "../Components/ChessBoard";
+import ChessBoard from "../components/ChessBoard";
 import { useState, useEffect } from "react";
-import ChessboardLeftPanel from "../Components/ChessboardLeftPanel";
+import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import socket from "../Socket/socket";
@@ -9,7 +9,7 @@ import DisconnectModal from "../Modals/DisconnectModal";
 import { useParams } from "react-router-dom";
 import SocketClass from "../Socket/socketClass";
 import GameOverModal from "../Modals/GameOverModal";
-import ChessboardRightPanel from "../Components/ChessboardRightPanel";
+import ChessboardRightPanel from "../components/ChessboardRightPanel";
 import ResignModal from "../Modals/ResignModal";
 import ApiChess from "../api/apiChess";
 

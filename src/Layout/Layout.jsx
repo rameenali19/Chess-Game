@@ -1,4 +1,4 @@
-import SideBar from "../Components/SideBar"
+import SideBar from "../components/SideBar"
 import { Outlet } from "react-router-dom"
 import { UserContext } from "../Context/UserContext"
 import { useState } from "react"

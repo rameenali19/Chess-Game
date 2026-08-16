@@ -1,5 +1,5 @@
-import Modal from "../Components/Modal";
-import PromotionPieces from "../Components/PromotionPieces";
+import Modal from "../components/Modal";
+import PromotionPieces from "../components/PromotionPieces";
 
 function PromotionModal({ turn, promote, open }) {
 

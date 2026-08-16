@@ -1,4 +1,4 @@
-import Button from "../Components/Button"
+import Button from "../components/Button"
 
 function RightPanelButtons({ setResignModal, winner, userColor, turn, mode }) {
 

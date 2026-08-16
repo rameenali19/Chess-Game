@@ -1,6 +1,6 @@
 import { useNavigate, Navigate } from "react-router-dom"
-import Modal from "../Components/Modal"
-import Button from "../Components/Button"
+import Modal from "../components/Modal"
+import Button from "../components/Button"
 
 function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
 

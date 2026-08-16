@@ -1,16 +1,16 @@
 import ApiChess from "../api/apiChess";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import HistoryButton from "../Components/HistoryButton";
-import HistoryNavBar from "../Components/HistoryNavBar";
+import HistoryButton from "../components/HistoryButton";
+import HistoryNavBar from "../components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import DeleteModal from "../Modals/DeleteModal";
-import Button from "../Components/Button";
-import Pagination from "../Components/Pagination";
-import FooterHistoryPage from "../Components/FooterHistoryPage";
-import HeaderHistoryPage from "../Components/HeaderHistoryPage";
+import Button from "../components/Button";
+import Pagination from "../components/Pagination";
+import FooterHistoryPage from "../components/FooterHistoryPage";
+import HeaderHistoryPage from "../components/HeaderHistoryPage";
 
 function HistoryPage() {
   const navigate = useNavigate();
