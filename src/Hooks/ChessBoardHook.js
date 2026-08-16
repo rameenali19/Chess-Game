@@ -173,7 +173,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }
 
 
-  function HandleClick(rowIndex, colIndex) {
+  function handleClick(rowIndex, colIndex) {
     if (checkMate || promotion || isStaleMate || resign) {
       return;
     }
@@ -331,7 +331,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
   }
   return {
     board,
-    HandleClick,
+    handleClick,
     selectedPiece,
     moves,
     promotion,

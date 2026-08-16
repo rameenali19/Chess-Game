@@ -25,7 +25,7 @@ function ChessBoard({
 }) {
   const {
     board,
-    HandleClick,
+    handleClick,
     selectedPiece,
     moves,
     promotion,
@@ -79,7 +79,7 @@ function ChessBoard({
               row={realRow}
               col={realCol}
               piece={piece}
-              onClick={() => HandleClick(realRow, realCol)}
+              onClick={() => handleClick(realRow, realCol)}
               selected={
                 selectedPiece &&
                 selectedPiece.row === realRow &&
