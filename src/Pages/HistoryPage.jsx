@@ -10,6 +10,7 @@ import DeleteModal from "../Modals/DeleteModal";
 import Button from "../Components/Button";
 import Pagination from "../Components/Pagination";
 import FooterHistoryPage from "../Components/FooterHistoryPage";
+import HeaderHistoryPage from "../Components/HeaderHistoryPage";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -56,22 +57,8 @@ function HistoryPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <div className="flex justify-between items-center mt-5 mb-5">
 
-        <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">
-          Game History
-        </h1>
-
-        <Button
-          text="+ New Game"
-          variant="primary"
-          textSize="normal"
-          fontWeight="normal"
-          onClick={() => navigate("/modeSelection")}
-          className="w-35 h-10"
-        />
-
-      </div>
+      <HeaderHistoryPage />
 
       <HistoryNavBar
         games={games}
