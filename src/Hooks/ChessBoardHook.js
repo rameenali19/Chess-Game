@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { initialBoard } from "../Chess/Board";
-import { GenerateMoves } from "../Chess/GenerateMoves";
+import { generateMoves } from "../Chess/generateMoves";
 import { MovePiece } from "../Components/MovePiece";
 import { IsKingInCheck } from "../Chess/IsKingInCheck";
 import { CheckMate } from "../Chess/CheckMate";
@@ -284,7 +284,7 @@ export function useChessBoard({ turn, setTurn, checkMate, setCheckMate, isStaleM
       col: colIndex
     };
     setSelectedPiece(newSelectedPiece)
-    const generatedMoves = GenerateMoves(newSelectedPiece, board, enPassant.current);
+    const generatedMoves = generateMoves(newSelectedPiece, board, enPassant.current);
     setMoves(generatedMoves);
   }
 

@@ -1,5 +1,5 @@
 import { FindingKing } from "./FindingKing";
-import { GenerateMoves } from "./GenerateMoves";
+import { generateMoves } from "./generateMoves";
 
 export function IsKingInCheck(board, turn, enPassant) {
   const king = FindingKing(board, turn);
@@ -15,7 +15,7 @@ export function IsKingInCheck(board, turn, enPassant) {
           row: row,
           col: col
         }
-        const moves = GenerateMoves(enemyPiece, board, enPassant, true);
+        const moves = generateMoves(enemyPiece, board, enPassant, true);
         const KingInDanger = moves.some(move =>
           move.row === king.row &&
           move.col === king.col

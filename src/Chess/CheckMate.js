@@ -1,6 +1,6 @@
 import { IsKingInCheck } from "./IsKingInCheck";
 import { MovePiece } from "../Components/MovePiece";
-import { GenerateMoves } from "./GenerateMoves";
+import { generateMoves } from "./generateMoves";
 export function CheckMate(board, turn, enPassant) {
   let tempBoard;
   for (let row = 0; row < 8; row++) {
@@ -18,7 +18,7 @@ export function CheckMate(board, turn, enPassant) {
         row: row,
         col: col
       }
-      const moves = GenerateMoves(piece, board, enPassant);
+      const moves = generateMoves(piece, board, enPassant);
       for (const move of moves) {
         tempBoard = MovePiece(
           move.row,

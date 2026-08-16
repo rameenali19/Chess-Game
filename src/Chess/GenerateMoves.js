@@ -5,7 +5,7 @@ import { BishopMoves } from "./Bishop";
 import { QueenMoves } from "./Queen";
 import { KingMoves } from "./King";
 
-export function GenerateMoves(selectedPiece, board, enPassant, checkOnly = false) {
+export function generateMoves(selectedPiece, board, enPassant, checkOnly = false) {
 
   if (selectedPiece.type === "Rook") {
     return RookMoves(
