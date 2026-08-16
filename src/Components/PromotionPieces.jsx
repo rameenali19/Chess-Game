@@ -1,4 +1,4 @@
-import { pieceImages } from "../Chess/constants";
+import { pieceImages } from "../chess/constants";
 
 function PromotionPieces({ pieces, promote, turn }) {
   return (
