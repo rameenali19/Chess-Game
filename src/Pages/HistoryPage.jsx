@@ -10,7 +10,7 @@ import DeleteModal from "../modals/DeleteModal";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";
 import FooterHistoryPage from "../components/FooterHistoryPage";
-import HeaderHistoryPage from "../components/HeaderHistoryPage";
+import HistoryHeader from "../components/HistoryHeader";
 
 function HistoryPage() {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ function HistoryPage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
 
-      <HeaderHistoryPage />
+      <HistoryHeader />
 
       <HistoryNavbar
         games={games}

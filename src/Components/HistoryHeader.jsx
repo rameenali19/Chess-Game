@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-function HeaderHistoryPage() {
+function HistoryHeader() {
   const navigate = useNavigate()
   return (
     <div className="flex justify-between items-center mt-5 mb-5">
@@ -19,4 +19,4 @@ function HeaderHistoryPage() {
     </div>
   )
 }
-export default HeaderHistoryPage;
+export default HistoryHeader;
