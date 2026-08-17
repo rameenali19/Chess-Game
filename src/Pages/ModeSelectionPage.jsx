@@ -8,7 +8,7 @@ import WaitingModal from "../modals/WaitingModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../socket/socket";
 import { motion } from "framer-motion";
-import ModeSelectionButton from "../components/ModeSelectionButton"
+import ModeSelectionCards from "../components/ModeSelectionCards"
 import { Navigate } from "react-router-dom";
 import Button from "../components/Button";
 
@@ -83,7 +83,7 @@ function ModeSelectionPage() {
               Choose a Game Mode</h1>
           </div>
           <div className="flex flex-col gap-3 mt-3" >
-            <ModeSelectionButton
+            <ModeSelectionCards
               setMode={setMode} />
           </div>
         </div>

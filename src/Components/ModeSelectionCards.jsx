@@ -1,6 +1,6 @@
 import Button from "./Button"
 
-function ModeSelectionButton({ setMode }) {
+function ModeSelectionCards({ setMode }) {
   const button = [
     {
       image: "/greenbutton.png",
@@ -90,4 +90,4 @@ function ModeSelectionButton({ setMode }) {
     </>
   )
 }
-export default ModeSelectionButton
+export default ModeSelectionCards;
