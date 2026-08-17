@@ -3,7 +3,7 @@ import ApiChess from "../api/apiChess";
 import { useState, useEffect } from "react";
 import Button from "./Button";
 
-function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
+function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const [player, setPlayer] = useState(null)
   const navigate = useNavigate();
   const [hover, setHover] = useState(true)
@@ -149,4 +149,4 @@ function HistoryButton({ game, setDeleteModal, setSelectedGameId, guestId }) {
     </div >
   )
 }
-export default HistoryButton;
+export default HistoryCard;

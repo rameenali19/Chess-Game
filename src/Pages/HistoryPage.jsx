@@ -1,7 +1,7 @@
 import ApiChess from "../api/apiChess";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import HistoryButton from "../components/HistoryButton";
+import HistoryCard from "../components/HistoryCard";
 import HistoryNavBar from "../components/HistoryNavBar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
@@ -71,7 +71,7 @@ function HistoryPage() {
           filteredGames.map((game) => {
             return (
               < div key={game.id}>
-                <HistoryButton
+                <HistoryCard
                   game={game}
                   setDeleteModal={setDeleteModal}
                   setSelectedGameId={setSelectedGameId}
