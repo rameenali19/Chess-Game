@@ -1,4 +1,4 @@
-function FooterHistoryPage() {
+function HistoryFooter() {
 
   return (
     <div className="font-inter text-lg text-[#17384A] bg-[#FFF7EA] shadow-sm border 
@@ -13,4 +13,4 @@ function FooterHistoryPage() {
     </div>
   )
 }
-export default FooterHistoryPage;
+export default HistoryFooter;

@@ -9,7 +9,7 @@ import { UserContext } from "../context/UserContext";
 import DeleteModal from "../modals/DeleteModal";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";
-import FooterHistoryPage from "../components/FooterHistoryPage";
+import HistoryFooter from "../components/HistoryFooter";
 import HistoryHeader from "../components/HistoryHeader";
 
 function HistoryPage() {
@@ -83,7 +83,7 @@ function HistoryPage() {
         }
       </div>
 
-      <FooterHistoryPage />
+      <HistoryFooter />
 
       <Pagination
         games={games}
