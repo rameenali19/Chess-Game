@@ -16,19 +16,19 @@ class ApiChess {
     return this.instance;
   }
 
-  //creating a new game
+  //Creating a new game
   async createGame(gameInfo) {
     const request = await this.apiClient.post("/games", gameInfo)
     return request.data;
   }
 
-  //creating a new guest
+  //Creating a new guest
   async createGuest(guestId) {
     const request = await this.apiClient.post("/guests", guestId)
     return request.data;
   }
 
-  //get all games
+  //Get all games
   async getAllGames(page, limit, guestId) {
     const request = await this.apiClient.get("/games", {
       params: {
@@ -42,14 +42,14 @@ class ApiChess {
     return request.data;
   }
 
-  //get game by id and player
+  //Get game by id and player
   async getGameAndPlayer(id, guestId) {
     console.log("API getGameAndPlayer", { id, guestId });
     const request = await this.apiClient.get(`/games/${id}/player/${guestId}`);
     return request.data;
   }
 
-  //join game by id 
+  //Join game by id 
   async joinGame(id, guestId) {
     const request = await this.apiClient.post(`/games/${id}/join`, {
       guestId
@@ -57,20 +57,20 @@ class ApiChess {
     return request.data;
   }
 
-  //update game by id
+  //Update game by id
   async updateGame(id, gameInfo) {
     const request = await this.apiClient.post(`/games/${id}`, gameInfo);
     return request.data;
   }
 
-  //delete game
+  //Delete game
   async deleteGame(id, guestId) {
     const request = await this.apiClient.delete(`/games/${id}`);
     return request.data;
   }
 
 
-  //get player by id
+  //Get player by id
   async getPlayer(gameId, guestId) {
     const request = await this.apiClient.get(`/games/${gameId}/player`, {
       params: {
@@ -80,13 +80,13 @@ class ApiChess {
     return request.data;
   }
 
-  //create moves by id
+  //Create moves by id
   async createMove(gameId, moveInfo) {
     const request = await this.apiClient.post(`/games/${gameId}/moves`, moveInfo);
     return request.data;
   }
 
-  //get all moves
+  //Get all moves
   async getMoves(gameId) {
     const request = await this.apiClient.get(`/games/${gameId}/moves`);
     return request.data;
