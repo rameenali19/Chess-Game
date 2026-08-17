@@ -2,7 +2,7 @@ import ApiChess from "../api/apiChess";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HistoryCard from "../components/HistoryCard";
-import HistoryNavBar from "../components/HistoryNavBar";
+import HistoryNavbar from "../components/HistoryNavbar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
@@ -60,7 +60,7 @@ function HistoryPage() {
 
       <HeaderHistoryPage />
 
-      <HistoryNavBar
+      <HistoryNavbar
         games={games}
         filter={filter}
         setFilter={setFilter}

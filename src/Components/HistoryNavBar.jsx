@@ -1,6 +1,6 @@
 import Button from "./Button"
 
-function HistoryNavBar({ games, filter, setFilter }) {
+function HistoryNavbar({ games, filter, setFilter }) {
   const filters = [
     {
       filter: "all",
@@ -41,4 +41,4 @@ function HistoryNavBar({ games, filter, setFilter }) {
     </nav>
   )
 }
-export default HistoryNavBar;
+export default HistoryNavbar;
