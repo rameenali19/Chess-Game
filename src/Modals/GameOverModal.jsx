@@ -67,7 +67,7 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
             fontWeight="medium"
             className="w-30 items-center flex justify-center py-1"
             onClick={() => {
-              navigate("/modeselection", {
+              navigate("/mode-selection", {
                 state: {
                   mode: mode
                 }
