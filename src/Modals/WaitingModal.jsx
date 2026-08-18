@@ -13,7 +13,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
     socketClass.leavingGame(gameId)
     setWaitingModal(false)
     setMode(null)
-    navigate(`/modeselection`)
+    navigate(`/mode-selection`)
   }
 
   return (
