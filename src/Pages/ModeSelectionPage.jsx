@@ -62,51 +62,42 @@ function ModeSelectionPage() {
         <GameModeSelection
           setMode={setMode}
         />
-
       </motion.div>
-      {
-        loginCondition && (
-          <LoginModal
-            open={loginCondition}
-          />
-        )
-      }
 
-      {
-        colorScreenCondition && (
+      {loginCondition && (
+        <LoginModal
+          open={loginCondition}
+        />
+      )}
 
-          <ColorModal
-            open={colorScreenCondition}
-            mode={mode}
-            waitingScreen={waitingScreen}
-            setWaitingModal={setWaitingModal}
-            setGameId={setGameId}
-            setMode={setMode}
-          />
-        )
-      }
+      {colorScreenCondition && (
+        <ColorModal
+          open={colorScreenCondition}
+          mode={mode}
+          waitingScreen={waitingScreen}
+          setWaitingModal={setWaitingModal}
+          setGameId={setGameId}
+          setMode={setMode}
+        />
+      )}
 
-      {
-        waitingScreenCondition && (
-          <WaitingModal
-            open={waitingScreenCondition}
-            setWaitingModal={setWaitingModal}
-            gameId={gameId}
-            setMode={setMode}
-          />
-        )
-      }
-      {
-        joinScreenCondition && (
-          <JoinModal
-            open={joinScreenCondition}
-            setGameId={setGameId}
-            setMode={setMode}
-          />
-        )
-      }
+      {waitingScreenCondition && (
+        <WaitingModal
+          open={waitingScreenCondition}
+          setWaitingModal={setWaitingModal}
+          gameId={gameId}
+          setMode={setMode}
+        />
+      )}
+
+      {joinScreenCondition && (
+        <JoinModal
+          open={joinScreenCondition}
+          setGameId={setGameId}
+          setMode={setMode}
+        />
+      )}
     </>
-
   )
 }
 export default ModeSelectionPage;
