@@ -45,7 +45,7 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
             className="w-30 items-center flex justify-center gap-1 py-1"
             onClick={() => {
               setDisconnectModal(false)
-              navigate(`/modeselection`)
+              navigate(`/mode-selection`)
             }}
             image="/door.png"
             imageText="door image"
