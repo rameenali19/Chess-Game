@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function SideBar() {
+function Sidebar() {
   return (
 
     <nav className=" fixed left-0 top-0 w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl z-50">
@@ -104,4 +104,4 @@ function SideBar() {
 
   )
 }
-export default SideBar
+export default Sidebar
