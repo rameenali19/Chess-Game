@@ -13,7 +13,7 @@ function HistoryHeader() {
         variant="primary"
         textSize="normal"
         fontWeight="normal"
-        onClick={() => navigate("/modeSelection")}
+        onClick={() => navigate("/mode-selection")}
         className="w-35 h-10"
       />
     </div>
