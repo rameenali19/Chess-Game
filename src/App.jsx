@@ -12,10 +12,10 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/modeSelection" element={<ModeSelectionPage />} />
+        <Route path="/mode-selection" element={<ModeSelectionPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/game/:id" element={<GamePage />} />
-        <Route path="/aboutMe" element={<AboutMe />} />
+        <Route path="/about-me" element={<AboutMe />} />
       </Route>
     </Routes>
   );
