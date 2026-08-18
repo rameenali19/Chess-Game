@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import ModeSelectionCards from "../components/ModeSelectionCards"
 import { Navigate } from "react-router-dom";
 import Button from "../components/Button";
+import GameModeSelection from "../components/GameModeSelection";
 
 function ModeSelectionPage() {
 
@@ -73,8 +74,10 @@ function ModeSelectionPage() {
           ></img>
         </div>
 
+        <GameModeSelection
+          setMode={setMode}
+        />
 
-       
       </motion.div>
       {
         loginCondition && (
