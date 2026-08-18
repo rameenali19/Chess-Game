@@ -79,9 +79,7 @@ function ChessBoard({
         promote={promote}
         open={promotion}
       />
-
     </>
   );
 }
-
 export default ChessBoard;
