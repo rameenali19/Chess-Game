@@ -35,7 +35,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
             onClick={() => {
               setReconnectingModal(false)
               setDisconnectModal(false)
-              navigate(`/modeselection`)
+              navigate(`/mode-selection`)
             }}
             image="/door.png"
             imageText="door image"
