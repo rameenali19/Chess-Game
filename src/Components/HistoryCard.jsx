@@ -117,7 +117,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             if (game.mode === "multiplayer" &&
               game.game_status !== "finished"
             ) {
-              navigate("/modeselection", {
+              navigate("/mode-selection", {
                 state: {
                   mode: "join",
                   gameId: game.id
