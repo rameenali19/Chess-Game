@@ -70,4 +70,4 @@ function LoginModal({ open }) {
 
   )
 }
-export default LoginModal
+export default LoginModal;

@@ -61,4 +61,4 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
 
 
 }
-export default DisconnectModal
+export default DisconnectModal;

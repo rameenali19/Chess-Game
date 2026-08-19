@@ -48,4 +48,4 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
   )
 
 }
-export default ReconnectingModal
+export default ReconnectingModal;

@@ -89,4 +89,4 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
 
   )
 }
-export default WaitingModal
+export default WaitingModal;

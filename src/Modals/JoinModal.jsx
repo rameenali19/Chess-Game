@@ -117,4 +117,4 @@ function JoinModal({ open, setGameId, setMode }) {
   )
 
 }
-export default JoinModal
+export default JoinModal;
