@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import SidePanelHeader from "./SidePanelHeader";
 
 function SidePanel() {
   const sidePanelComponents = [
@@ -32,15 +33,7 @@ function SidePanel() {
 
     <nav className=" fixed left-0 top-0 w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl z-50">
 
-      <div className="flex items-center py-4 ">
-        <img src="/logo-chess-piece.png" alt="chess piece"
-          className="w-15 h-15" />
-
-        <div className="font-cormorant text-2xl">
-          <h1>Chess</h1>
-          <h1>Mastery</h1>
-        </div>
-      </div>
+      <SidePanelHeader />
 
       <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-sm">
         {
