@@ -1,11 +1,8 @@
-import { motion } from "framer-motion";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
 
-
   return (
-
     <Modal open={open}
       className="h-65 w-120">
 
@@ -46,10 +43,7 @@ function DeleteModal({ open, id, deleteFunction, setDeleteModal }) {
 
       </div>
 
-
     </Modal>
-
   )
-
 }
 export default DeleteModal;
