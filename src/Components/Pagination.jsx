@@ -1,5 +1,4 @@
 import Button from "./Button";
-
 function Pagination({ games, page, setPage }) {
   return (
     <div className="flex justify-between px-2">
@@ -24,7 +23,6 @@ function Pagination({ games, page, setPage }) {
             setPage(page - 1)
           }}
         />
-
       )}
     </div>
   )
