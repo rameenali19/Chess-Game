@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import SocketService from "../socket/socketService";
+import socketService from "../socket/socketService";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
@@ -9,8 +9,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
   const [leavingGame, setLeavingGame] = useState(false)
 
   function leaveGame() {
-    const socketClass = SocketService.getObject();
-    socketClass.leavingGame(gameId)
+    socketService.leavingGame(gameId)
     setWaitingModal(false)
     setMode(null)
     navigate(`/mode-selection`)

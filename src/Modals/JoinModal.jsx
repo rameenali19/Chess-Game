@@ -1,7 +1,7 @@
 import { UserContext } from "../context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
-import SocketService from "../socket/socketService";
+import socketService from "../socket/socketService";
 import { useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -27,8 +27,7 @@ function JoinModal({ open, setGameId, setMode }) {
       return
     }
 
-    const socketClass = SocketService.getObject();
-    socketClass.joinGame(input)
+    socketService.joinGame(input)
     setGameId(input)
   }
   return (

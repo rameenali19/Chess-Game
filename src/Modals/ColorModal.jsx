@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { initialBoard } from "../chess/Board";
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import SocketService from "../socket/socketService";
+import socketService from "../socket/socketService";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
@@ -39,8 +39,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
     setGameId(newGameId);
 
     if (mode === "multiplayer") {
-      const socketClass = SocketService.getObject();
-      socketClass.joinGame(newGameId)
+      socketService.joinGame(newGameId)
       setWaitingModal(true)
     }
     else {
