@@ -85,10 +85,9 @@ function GamePage() {
   }, [id]);
 
   return (
-
     <>
       {id && (
-        <div className="page flex justify-center gap-7">
+        <div className="flex justify-center gap-7">
 
           <ChessboardLeftPanel
             turn={turn}
@@ -100,7 +99,7 @@ function GamePage() {
             resign={resign}
           />
 
-          <div className="ring-2 ring-[#C7A97A] translate-y-3 h-140 w-150 grid grid-cols-8">
+          <div className="ring-2 ring-[#C7A97A] mt-4 h-140 w-150 grid grid-cols-8">
             <ChessBoard
               turn={turn}
               setTurn={setTurn}
