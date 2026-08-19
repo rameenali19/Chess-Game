@@ -1,16 +1,15 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import socket from "../socket/socket";
 import ChessBoard from "../components/ChessBoard";
 import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import ReconnectingModal from "../modals/ReconnectingModal";
 import DisconnectModal from "../modals/DisconnectModal";
-import SocketService from "../socket/socketService";
 import GameOverModal from "../modals/GameOverModal";
 import ChessboardRightPanel from "../components/ChessboardRightPanel";
 import ResignModal from "../modals/ResignModal";
 import ApiChess from "../api/apiChess";
+import socketService from "../socket/socketService";
 
 function GamePage() {
   const [turn, setTurn] = useState(null)
@@ -34,22 +33,23 @@ function GamePage() {
     if (!mode || !id) return;
 
     if (mode === "multiplayer") {
-      const socketClass = SocketService.getObject();
-      socketClass.joinGame(id)
+      socketService.joinGame(id)
+    }
+    function handleDisconnected() {
+      setDisconnectModal(true)
     }
 
-    socket.on("opponentDisconnected", () => {
-      setDisconnectModal(true)
-    });
-
-    socket.on("opponentReconnected", () => {
+    function handleReconnected() {
       setReconnectingModal(false)
       setDisconnectModal(false)
-    });
+    }
+
+    socketService.onOpponentDisconnected(handleDisconnected);
+    socketService.onOpponentReconnected(handleReconnected);
 
     return () => {
-      socket.off("opponentDisconnected");
-      socket.off("opponentReconnected");
+      socketService.offOpponentDisconnected(handleDisconnected);
+      socketService.offOpponentReconnected(handleReconnected);
     };
   }, [mode, id])
 
@@ -59,11 +59,13 @@ function GamePage() {
   }, [winner])
 
   useEffect(() => {
-    socket.on("moveCreated", (moveData) => {
+    function handleMove(moveData) {
       setMoveHistory(prev => [...prev, moveData]);
-    });
+    }
+    socketService.onMoveCreated(handleMove);
+
     return () => {
-      socket.off("moveCreated");
+      socketService.offMoveCreated(handleMove);
     };
   }, [])
 

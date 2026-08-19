@@ -6,14 +6,6 @@ class SocketService {
     this.socket = socket;
   }
 
-  // Singleton Design Pattern
-  static getObject() {
-    if (!this.instance) {
-      this.instance = new SocketService;
-    }
-    return this.instance;
-  }
-
   joinGame(id) {
     this.socket.emit("joinGame", {
       gameId: id,
@@ -56,5 +48,28 @@ class SocketService {
     this.socket.off("waitingScreen", callback);
   }
 
+  onOpponentDisconnected(callback) {
+    this.socket.on("opponentDisconnected", callback);
+  }
+
+  offOpponentDisconnected(callback) {
+    this.socket.off("opponentDisconnected", callback);
+  }
+
+  onOpponentReconnected(callback) {
+    this.socket.on("opponentReconnected", callback);
+  }
+
+  offOpponentReconnected(callback) {
+    this.socket.off("opponentReconnected", callback);
+  }
+
+  onMoveCreated(callback) {
+    this.socket.on("moveCreated", callback);
+  }
+
+  offMoveCreated(callback) {
+    this.socket.off("moveCreated", callback);
+  }
 }
 export default new SocketService(socket);
