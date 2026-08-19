@@ -1,4 +1,4 @@
-import { pieceImages } from "../chess/constants";
+import DisplayPiece from "./DisplayPiece";
 function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCaptures, kingInCheck, checkingPiece, displayRow, displayCol, userColor }) {
 
   const whiteBox = (displayRow + displayCol) % 2 === 0;
