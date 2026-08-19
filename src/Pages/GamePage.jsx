@@ -6,7 +6,7 @@ import ChessBoard from "../components/ChessBoard";
 import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import ReconnectingModal from "../modals/ReconnectingModal";
 import DisconnectModal from "../modals/DisconnectModal";
-import SocketClass from "../socket/socketService";
+import SocketService from "../socket/socketService";
 import GameOverModal from "../modals/GameOverModal";
 import ChessboardRightPanel from "../components/ChessboardRightPanel";
 import ResignModal from "../modals/ResignModal";
@@ -34,7 +34,7 @@ function GamePage() {
     if (!mode || !id) return;
 
     if (mode === "multiplayer") {
-      const socketClass = SocketClass.getObject();
+      const socketClass = SocketService.getObject();
       socketClass.joinGame(id)
     }
 

@@ -8,7 +8,7 @@ import { checkmateLogic } from "../chess/checkmateLogic";
 import { pieceImages } from "../chess/constants";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
-import SocketClass from "../socket/socketService";
+import SocketService from "../socket/socketService";
 import socket from "../socket/socket";
 
 export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
@@ -106,7 +106,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   useEffect(() => {
     return () => {
       if (!id) return
-      const socketClass = SocketClass.getObject();
+      const socketClass = SocketService.getObject();
       socketClass.leavingGame(id)
     };
   }, [id]);
@@ -130,7 +130,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     }
     if (mode === "single player") { updateGame(gameData) }
     if (mode === "multiplayer") {
-      const socketClass = SocketClass.getObject();
+      const socketClass = SocketService.getObject();
       socketClass.updateGame(id, gameData)
     }
   }, [board, winner, resign])
@@ -165,7 +165,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     setMoveHistory(prev => [...prev, moveData])
     if (mode === "single player") { createMove(moveData) }
     if (mode === "multiplayer") {
-      const socketClass = SocketClass.getObject();
+      const socketClass = SocketService.getObject();
       socketClass.createMove(id, moveData)
     }
   }
