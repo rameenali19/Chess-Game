@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Sidebar() {
+function SidePanel() {
   return (
 
     <nav className=" fixed left-0 top-0 w-45 h-screen bg-[#17384A] text-white flex flex-col shadow-xl z-50">
@@ -103,4 +103,4 @@ function Sidebar() {
 
   )
 }
-export default Sidebar
+export default SidePanel;

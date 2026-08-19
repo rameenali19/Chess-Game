@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar"
+import SidePanel from "../components/SidePanel"
 import { Outlet } from "react-router-dom"
 import { UserContext } from "../context/UserContext"
 import { useState } from "react"
@@ -11,7 +11,7 @@ function Layout() {
   return (
     <div className="bg-[rgb(248,240,225)] min-h-screen ">
       <UserContext.Provider value={{ guestId, setGuestId }}>
-        <Sidebar />
+        <SidePanel />
         <main className="ml-45">
           <Outlet />
         </main>
