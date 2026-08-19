@@ -71,5 +71,13 @@ class SocketService {
   offMoveCreated(callback) {
     this.socket.off("moveCreated", callback);
   }
+
+  onGameUpdate(callback) {
+    this.socket.on("gameUpdate", callback);
+  }
+
+  offGameUpdate(callback) {
+    this.socket.off("gameUpdate", callback);
+  }
 }
 export default new SocketService(socket);

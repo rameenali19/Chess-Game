@@ -8,8 +8,7 @@ import { checkmateLogic } from "../chess/checkmateLogic";
 import { pieceImages } from "../chess/constants";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
-import SocketService from "../socket/socketService";
-import socket from "../socket/socket";
+import socketService from "../socket/socketService";
 
 export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
 
@@ -96,18 +95,20 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   }
 
   useEffect(() => {
-    socket.on("gameUpdate", (gameData) => {
+    function handleGame(gameData) {
       fromSocket.current = true
       resetData(gameData)
-    });
-    return () => { socket.off("gameUpdate"); };
+    }
+    socketService.onGameUpdate(handleGame);
+    return () => {
+      socketService.offGameUpdate(handleGame);
+    };
   }, [])
 
   useEffect(() => {
     return () => {
       if (!id) return
-      const socketClass = SocketService.getObject();
-      socketClass.leavingGame(id)
+      socketService.leavingGame(id)
     };
   }, [id]);
 
@@ -130,8 +131,8 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     }
     if (mode === "single player") { updateGame(gameData) }
     if (mode === "multiplayer") {
-      const socketClass = SocketService.getObject();
-      socketClass.updateGame(id, gameData)
+
+      socketService.updateGame(id, gameData)
     }
   }, [board, winner, resign])
 
@@ -165,8 +166,8 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     setMoveHistory(prev => [...prev, moveData])
     if (mode === "single player") { createMove(moveData) }
     if (mode === "multiplayer") {
-      const socketClass = SocketService.getObject();
-      socketClass.createMove(id, moveData)
+
+      socketService.createMove(id, moveData)
     }
   }
 
