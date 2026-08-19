@@ -59,7 +59,6 @@ function SidePanel() {
                 <img src={panel.image} alt={panel.imageText}
                   className="w-8 h-8 mr-1 object-contain"
                 ></img>
-
                 {panel.text}
               </NavLink>
             )
@@ -67,7 +66,6 @@ function SidePanel() {
         }
       </div>
     </nav>
-
   )
 }
 export default SidePanel;
