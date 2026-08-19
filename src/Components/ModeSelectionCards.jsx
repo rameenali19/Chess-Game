@@ -60,15 +60,11 @@ function ModeSelectionCards({ setMode }) {
               className="border-2 flex h-26 w-100 rounded-lg items-center justify-around font-inter hover:-translate-y-1 transition"
               style={{ borderColor: game.borderColor }}
             >
-
               <img className="w-18 h-18"
-                src={game.image} alt={game.mode}
-              ></img>
-
+                src={game.image} alt={game.mode} />
               <div >
                 <h1 className="font-bold"
-                  style={{ color: game.textColor }}
-                >
+                  style={{ color: game.textColor }}>
                   {game.title}</h1>
                 <h1 className="text-gray-700 text-xs">{game.line1}<br />
                   {game.line2}</h1>
