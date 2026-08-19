@@ -1,12 +1,12 @@
-import ChessBoard from "../components/ChessBoard";
-import { useState, useEffect } from "react";
-import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { motion } from "framer-motion";
 import socket from "../socket/socket";
+import ChessBoard from "../components/ChessBoard";
+import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
 import ReconnectingModal from "../modals/ReconnectingModal";
 import DisconnectModal from "../modals/DisconnectModal";
-import { useParams } from "react-router-dom";
 import SocketClass from "../socket/socketClass";
 import GameOverModal from "../modals/GameOverModal";
 import ChessboardRightPanel from "../components/ChessboardRightPanel";
@@ -21,13 +21,12 @@ function GamePage() {
   const [userColor, setUserColor] = useState()
   const [opponentColor, setOpponentColor] = useState()
   const { guestId } = useContext(UserContext);
-  const [gameId, setGameId] = useState(null)
   const [disconnectScreen, setDisconnectModal] = useState(false)
   const [reconnectingScreen, setReconnectingModal] = useState(false)
   const [mode, setMode] = useState(null)
   const [winner, setWinner] = useState(null)
   const [resign, setResign] = useState(false)
-  const [endReason, setEndReason] = useState(false)
+  const [endReason, setEndReason] = useState(null)
   const [gameOver, setGameOver] = useState(false)
   const [resignModal, setResignModal] = useState(false)
   const [moveHistory, setMoveHistory] = useState([])
@@ -135,6 +134,7 @@ function GamePage() {
             turn={turn}
             mode={mode}
           />
+
 
           <DisconnectModal
             open={disconnectScreen}

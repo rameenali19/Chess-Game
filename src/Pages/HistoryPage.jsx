@@ -15,7 +15,7 @@ function HistoryPage() {
   const [page, setPage] = useState(1)
   const { guestId } = useContext(UserContext);
   const [deleteModal, setDeleteModal] = useState(false)
-  const [selectedGameId, setSelectedGameId] = usaeState(null)
+  const [selectedGameId, setSelectedGameId] = useState(null)
 
   useEffect(() => {
     if (!guestId) return;
