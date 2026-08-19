@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import SocketClass from "../socket/socketClass";
+import SocketClass from "../socket/socketService";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 

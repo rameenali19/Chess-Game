@@ -1,6 +1,6 @@
 import socket from "./socket";
 
-class SocketClass {
+class SocketService {
 
   constructor() {
     this.instance = null;
@@ -9,7 +9,7 @@ class SocketClass {
   // Singleton Design Pattern
   static getObject() {
     if (!this.instance) {
-      this.instance = new SocketClass;
+      this.instance = new SocketService;
     }
     return this.instance;
   }
@@ -40,4 +40,4 @@ class SocketClass {
     })
   }
 }
-export default SocketClass
+export default SocketService;

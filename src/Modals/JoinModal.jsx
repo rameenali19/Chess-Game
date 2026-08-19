@@ -1,7 +1,7 @@
 import { UserContext } from "../context/UserContext"
 import { useContext, useState } from "react"
 import ApiChess from "../api/apiChess"
-import SocketClass from "../socket/socketClass";
+import SocketClass from "../socket/socketService";
 import { useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -109,12 +109,7 @@ function JoinModal({ open, setGameId, setMode }) {
 
         </div>
       )}
-
-
-
     </Modal>
-
   )
-
 }
 export default JoinModal;

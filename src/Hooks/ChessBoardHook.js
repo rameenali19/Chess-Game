@@ -8,7 +8,7 @@ import { checkmateLogic } from "../chess/checkmateLogic";
 import { pieceImages } from "../chess/constants";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
-import SocketClass from "../socket/socketClass";
+import SocketClass from "../socket/socketService";
 import socket from "../socket/socket";
 
 export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
