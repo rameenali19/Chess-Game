@@ -15,7 +15,8 @@ function HistoryPage() {
   const [deleteModal, setDeleteModal] = useState(false)
   const [selectedGameId, setSelectedGameId] = useState(null)
   const [status, setStatus] = useState(null)
-
+  const [total, setTotal] = useState(0)
+  let unfinishedGames = 0;
   useEffect(() => {
     if (!guestId) return;
 
@@ -23,6 +24,7 @@ function HistoryPage() {
       const game = ApiChess.getAPI();
       const data = await game.getAllGames(page, 10, guestId, status);
       setGames(data.result);
+      setTotal(data.total)
     }
     getAllGames();
   }, [page, guestId, status])
@@ -68,7 +70,7 @@ function HistoryPage() {
       <HistoryFooter />
 
       <Pagination
-        games={games}
+        total={total}
         page={page}
         setPage={setPage}
       />

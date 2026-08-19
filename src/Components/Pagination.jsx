@@ -1,8 +1,9 @@
 import Button from "./Button";
-function Pagination({ games, page, setPage }) {
+function Pagination({ total, page, setPage }) {
+  const totalPages = Math.ceil(total / 10)
   return (
     <div className="flex justify-between px-2">
-      {games.length >= 10 && (
+      {page < totalPages && (
         <Button
           text="Next Page"
           variant="outline"
