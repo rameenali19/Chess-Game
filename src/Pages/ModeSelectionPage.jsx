@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import ColorModal from "../modals/ColorModal";
 import LoginModal from "../modals/LoginModal";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 import JoinModal from "../modals/JoinModal";
 import WaitingModal from "../modals/WaitingModal";
-import { useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import socket from "../socket/socket";
-import { motion } from "framer-motion";
-import ModeSelectionCards from "../components/ModeSelectionCards"
-import { Navigate } from "react-router-dom";
-import Button from "../components/Button";
 import GameModeSelection from "../components/GameModeSelection";
 import ChessboardPreview from "../components/ChessboardPreview";
 
@@ -62,6 +58,7 @@ function ModeSelectionPage() {
         <GameModeSelection
           setMode={setMode}
         />
+
       </motion.div>
 
       {loginCondition && (
