@@ -15,22 +15,18 @@ class SocketClass {
   }
 
   joinGame(id) {
-    console.log("joinGame", id);
     socket.emit("joinGame", {
       gameId: id,
     })
   }
 
   leavingGame(id) {
-    console.log("leavingGame", id);
-
     socket.emit("leavingGame", {
       gameId: id
     })
   }
 
   updateGame(id, gameData) {
-    console.log("updateGame", id);
     socket.emit("gameUpdate", {
       gameId: id,
       gameData: gameData
