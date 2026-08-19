@@ -20,10 +20,9 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
 
   return (
     <div className={`w-full h-17.5  relative text-[rgb(85,107,47)]
-       ${squareColor}
-    `}
-      onClick={() => onClick()}
-    >
+       ${squareColor}`}
+      onClick={() => onClick()}>
+
       <DisplayPiece
         piece={piece}
       />
