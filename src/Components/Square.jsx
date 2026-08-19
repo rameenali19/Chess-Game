@@ -8,19 +8,33 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
       ["a", "b", "c", "d", "e", "f", "g", "h"]
       : ["h", "g", "f", "e", "d", "c", "b", "a"];
 
-  function squareStyles() {
-    if (selected) return "bg-sky-300";
-    if (checkingPiece) return "bg-yellow-200 ";
-    if (possibleCaptures) return "bg-red-300";
-    if (kingInCheck) return "bg-red-500";
-    return whiteBox ? "bg-[#F5E8D7]" : "bg-[#D8B892]";
-  }
+  const squareColors = {
+    kingInCheck: "bg-red-500",
+    possibleCaptures: "bg-red-300",
+    checkingPiece: "bg-yellow-200",
+    selected: "bg-sky-300",
+    whiteBox: "bg-[#F5E8D7]",
+    blackBox: "bg-[#D8B892]",
+  };
 
-  const squareColor = squareStyles();
+  const state =
+    kingInCheck
+      ? "kingInCheck"
+      : possibleCaptures
+        ? "possibleCaptures"
+        : checkingPiece
+          ? "checkingPiece"
+          : selected
+            ? "selected"
+            : whiteBox
+              ? "whiteBox"
+              : "blackBox";
+
+  const square = squareColors[state]
 
   return (
     <div className={`w-full h-17.5  relative text-[rgb(85,107,47)]
-       ${squareColor}`}
+       ${square}`}
       onClick={() => onClick()}>
 
       <DisplayPiece
