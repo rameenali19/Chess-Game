@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import { initialBoard } from "../chess/board";
 import { generateMoves } from "../chess/generateMoves";
 import { movePiece } from "../chess/movePiece";
 import { isKingInCheck } from "../chess/isKingInCheck";
 import { checkmateLogic } from "../chess/checkmateLogic";
 import { pieceImages } from "../chess/constants";
-import { useRef } from "react";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
-import { UserContext } from "../context/UserContext";
-import { useContext } from "react";
 import SocketClass from "../socket/socketClass";
 import socket from "../socket/socket";
 
