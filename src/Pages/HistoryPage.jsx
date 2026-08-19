@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import { motion } from "framer-motion";
 import { UserContext } from "../context/UserContext";
 import ApiChess from "../api/apiChess";
 import HistoryCard from "../components/HistoryCard";
@@ -48,11 +47,7 @@ function HistoryPage() {
 
   return (
 
-    <motion.main className="flex gap-5 flex-col px-8 mb-2"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-    >
+    <main className="page-enter flex gap-5 flex-col px-8 mb-2">
 
       <HistoryHeader />
 
@@ -94,8 +89,7 @@ function HistoryPage() {
         setDeleteModal={setDeleteModal}
       />
 
-    </motion.main>
-
+    </main>
 
   )
 }
