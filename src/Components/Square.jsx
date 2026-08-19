@@ -7,11 +7,16 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
     userColor === "White" ?
       ["a", "b", "c", "d", "e", "f", "g", "h"]
       : ["h", "g", "f", "e", "d", "c", "b", "a"];
-  let squareColor = whiteBox ? "bg-[#F5E8D7]" : "bg-[#D8B892]";
-  if (selected) squareColor = "bg-sky-300";
-  if (checkingPiece) squareColor = "bg-yellow-200 ";
-  if (possibleCaptures) squareColor = "bg-red-300";
-  if (kingInCheck) squareColor = "bg-red-500";
+
+  function squareStyles() {
+    if (selected) return "bg-sky-300";
+    if (checkingPiece) return "bg-yellow-200 ";
+    if (possibleCaptures) return "bg-red-300";
+    if (kingInCheck) return "bg-red-500";
+    return whiteBox ? "bg-[#F5E8D7]" : "bg-[#D8B892]";
+  }
+
+  const squareColor = squareStyles();
 
   return (
     <div className={`w-full h-17.5  relative text-[rgb(85,107,47)]
@@ -19,33 +24,27 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
     `}
       onClick={() => onClick()}
     >
-
-      {
-        piece !== "." &&
+      {piece !== "." &&
         <img className="w-full h-full object-contain"
           src={pieceImages[piece.color][piece.type]}
           alt="Piece Image"
-        />
-      }
-      {
-        displayRow === 7 && (
-          <span className="absolute right-0.5 -bottom-0.5">{alphabetarray[displayCol]}</span>
-        )
-      }
-      {
-        displayCol === 0 && (
-          <span className="absolute left-0.5 -top-0.5">
-            {userColor === "White"
-              ? 8 - displayRow
-              : displayRow + 1}
-          </span>
-        )
-      }
-      {
-        possibleMoves ? (
-          <div className=" absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-300"></div>
-        ) : ""
-      }
+        />}
+
+      {displayRow === 7 && (
+        <span className="absolute right-0.5 -bottom-0.5">{alphabetarray[displayCol]}</span>
+      )}
+
+      {displayCol === 0 && (
+        <span className="absolute left-0.5 -top-0.5">
+          {userColor === "White"
+            ? 8 - displayRow
+            : displayRow + 1}
+        </span>
+      )}
+
+      {possibleMoves && (
+        <div className=" absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-300"></div>
+      )}
     </div>
   )
 }
