@@ -1,8 +1,7 @@
 import ApiChess from "../api/apiChess"
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { initialBoard } from "../chess/Board";
-import { useEffect, useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import SocketClass from "../socket/socketClass";
 import Button from "../components/Button";
@@ -16,7 +15,6 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
   const [turn, setTurn] = useState(null)
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
-
   const pieces = [{ image: "/white-king.png", text: "White", }, { image: "/black-king.png", text: "Black", }]
 
   async function createGame() {
@@ -51,21 +49,18 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
   }
 
   return (
-
     <Modal open={open}
       className="h-90 w-140">
 
-      <div className="flex flex-col h-full gap-5 items-center px-2 justify-center">
-
+      <div className="flex flex-col h-full gap-5 items-center px-2 justify-center text-[#17384A]">
         <div className="flex flex-col items-center gap-2 mt-6">
-          <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
+          <h1 className="text-3xl font-bold font-cormorant ">
             Choose Your Color
           </h1>
-          <h1 className="text-xs font-inter text-[#17384A]">
+          <h1 className="text-xs font-inter">
             Pick a side and start your Game
           </h1>
         </div>
-
         <div className="flex justify-center gap-10 w-full">
 
           {
@@ -97,9 +92,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
           className="w-40 py-2"
         />
 
-
         <div className="flex justify-end w-full">
-
           <Button
             text="Close"
             variant="sideBarBlue"
@@ -111,10 +104,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
         </div>
 
       </div>
-
     </Modal>
-
-
   )
 }
-export default ColorModal
+export default ColorModal;
