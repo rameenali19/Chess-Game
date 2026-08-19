@@ -24,11 +24,9 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
     `}
       onClick={() => onClick()}
     >
-      {piece !== "." &&
-        <img className="w-full h-full object-contain"
-          src={pieceImages[piece.color][piece.type]}
-          alt="Piece Image"
-        />}
+      <DisplayPiece
+        piece={piece}
+      />
 
       {displayRow === 7 && (
         <span className="absolute right-0.5 -bottom-0.5">{alphabetarray[displayCol]}</span>
