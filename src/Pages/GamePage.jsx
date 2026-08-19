@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import { motion } from "framer-motion";
 import socket from "../socket/socket";
 import ChessBoard from "../components/ChessBoard";
 import ChessboardLeftPanel from "../components/ChessboardLeftPanel";
@@ -134,7 +133,6 @@ function GamePage() {
             turn={turn}
             mode={mode}
           />
-
 
           <DisconnectModal
             open={disconnectScreen}
