@@ -31,7 +31,7 @@ function SidePanelNavigation() {
       {
         sidePanelComponents.map((panel) => {
           return (
-            <NavLink
+            <NavLink key={panel.link}
               to={panel.link}
               className={({ isActive }) =>
                 `flex items-center px-3 py-2 rounded-lg transition-all duration-200 

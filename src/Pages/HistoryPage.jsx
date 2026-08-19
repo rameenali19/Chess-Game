@@ -10,22 +10,22 @@ import HistoryHeader from "../components/HistoryHeader";
 
 function HistoryPage() {
   const [games, setGames] = useState([]);
-  const [filter, setFilter] = useState("all")
   const [page, setPage] = useState(1)
   const { guestId } = useContext(UserContext);
   const [deleteModal, setDeleteModal] = useState(false)
   const [selectedGameId, setSelectedGameId] = useState(null)
+  const [status, setStatus] = useState(null)
 
   useEffect(() => {
     if (!guestId) return;
 
     async function getAllGames() {
       const game = ApiChess.getAPI();
-      const data = await game.getAllGames(page, 10, guestId);
+      const data = await game.getAllGames(page, 10, guestId, status);
       setGames(data.result);
     }
     getAllGames();
-  }, [page, guestId])
+  }, [page, guestId, status])
 
   async function deleteGame(id) {
     const api = ApiChess.getAPI();
@@ -33,17 +33,9 @@ function HistoryPage() {
     setGames((prev) => prev.filter((game) => game.id !== id))
   }
 
-  const filteredGames = games.filter((game) => {
-    if (filter === "all") {
-      return true;
-    }
-    if (filter === "unfinished") {
-      return (game.game_status === filter ||
-        game.game_status === "waiting"
-      )
-    }
-    return game.game_status === filter
-  })
+  useEffect(() => {
+    setPage(1)
+  }, [status])
 
   return (
 
@@ -52,14 +44,13 @@ function HistoryPage() {
       <HistoryHeader />
 
       <HistoryNavbar
-        games={games}
-        filter={filter}
-        setFilter={setFilter}
+        status={status}
+        setStatus={setStatus}
       />
 
       <div className="flex flex-col gap-3">
         {
-          filteredGames.map((game) => {
+          games.map((game) => {
             return (
               < div key={game.id}>
                 <HistoryCard

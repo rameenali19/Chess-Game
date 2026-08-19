@@ -1,17 +1,17 @@
 import Button from "./Button"
 
-function HistoryNavbar({ games, filter, setFilter }) {
+function HistoryNavbar({ status, setStatus }) {
   const filters = [
     {
-      filter: "all",
+      status: null,
       text: "All Games"
     },
     {
-      filter: "finished",
+      status: "finished",
       text: "Completed"
     },
     {
-      filter: "unfinished",
+      status: "unfinished",
       text: "In Progress"
     }
   ]
@@ -22,14 +22,14 @@ function HistoryNavbar({ games, filter, setFilter }) {
         filters.map((button) => {
           return (
             <Button
-              key={button.filter}
+              key={button.status}
               text={button.text}
               variant="outline"
               textSize="large"
               fontWeight="normal"
-              onClick={() => { setFilter(button.filter) }}
+              onClick={() => { setStatus(button.status) }}
               className={
-                filter === button.filter ?
+                status === button.status ?
                   "underline decoration-2 decoration-amber-600 underline-offset-4 text-amber-600"
                   : ""
               }

@@ -29,15 +29,15 @@ class ApiChess {
   }
 
   //Get all games
-  async getAllGames(page, limit, guestId) {
+  async getAllGames(page, limit, guestId, status) {
     const request = await this.apiClient.get("/games", {
       params: {
         page: page,
         limit: limit,
-        guestId: guestId
+        guestId: guestId,
+        status: status
       }
     }
-
     );
     return request.data;
   }
