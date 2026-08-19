@@ -1,25 +1,21 @@
+import { useEffect, useState, useContext } from "react";
+import { motion } from "framer-motion";
+import { UserContext } from "../context/UserContext";
 import ApiChess from "../api/apiChess";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import HistoryCard from "../components/HistoryCard";
 import HistoryNavbar from "../components/HistoryNavbar";
-import { motion } from "framer-motion";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 import DeleteModal from "../modals/DeleteModal";
-import Button from "../components/Button";
 import Pagination from "../components/Pagination";
 import HistoryFooter from "../components/HistoryFooter";
 import HistoryHeader from "../components/HistoryHeader";
 
 function HistoryPage() {
-  const navigate = useNavigate();
   const [games, setGames] = useState([]);
   const [filter, setFilter] = useState("all")
   const [page, setPage] = useState(1)
   const { guestId } = useContext(UserContext);
   const [deleteModal, setDeleteModal] = useState(false)
-  const [selectedGameId, setSelectedGameId] = useState(null)
+  const [selectedGameId, setSelectedGameId] = usaeState(null)
 
   useEffect(() => {
     if (!guestId) return;
