@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import SocketClass from "../socket/socketClass";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
