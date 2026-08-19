@@ -6,7 +6,7 @@
   --font-inter: "Inter", sans-serif;
 }
 
-@keyframes page-enter {
+@keyframes page {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -18,6 +18,6 @@
   }
 }
 
-.page-enter {
-  animation: page-enter 0.4s ease-out;
+.page {
+  animation: page 0.4s ease-out;
 }

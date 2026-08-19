@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import ColorModal from "../modals/ColorModal";
 import LoginModal from "../modals/LoginModal";
 import JoinModal from "../modals/JoinModal";
@@ -47,11 +46,7 @@ function ModeSelectionPage() {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex justify-center gap-8 items-center translate-y-6 ">
+      <div className="page flex justify-center gap-8 items-center translate-y-6 ">
 
         <ChessboardPreview />
 
@@ -59,7 +54,7 @@ function ModeSelectionPage() {
           setMode={setMode}
         />
 
-      </motion.div>
+      </div>
 
       {loginCondition && (
         <LoginModal

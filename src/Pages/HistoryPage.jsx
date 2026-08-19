@@ -47,7 +47,7 @@ function HistoryPage() {
 
   return (
 
-    <main className="page-enter flex gap-5 flex-col px-8 mb-2">
+    <main className="page flex gap-5 flex-col px-8 mb-2">
 
       <HistoryHeader />
 
