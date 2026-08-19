@@ -5,9 +5,9 @@ import LoginModal from "../modals/LoginModal";
 import JoinModal from "../modals/JoinModal";
 import WaitingModal from "../modals/WaitingModal";
 import { UserContext } from "../context/UserContext";
-import socket from "../socket/socket";
 import GameModeSelection from "../components/GameModeSelection";
 import ChessboardPreview from "../components/ChessboardPreview";
+import socketService from "../socket/socketService";
 
 function ModeSelectionPage() {
 
@@ -34,13 +34,12 @@ function ModeSelectionPage() {
       setWaitingModal(true)
     }
 
-    socket.on("playerJoined", playerJoinedHandle);
-
-    socket.on("waitingScreen", waitingScreenHandle)
+    socketService.onPlayerJoined(playerJoinedHandle);
+    socketService.onWaitingScreen(waitingScreenHandle);
 
     return () => {
-      socket.off("waitingScreen", waitingScreenHandle);
-      socket.off("playerJoined", playerJoinedHandle);
+      socketService.offWaitingScreen(waitingScreenHandle);
+      socketService.offPlayerJoined(playerJoinedHandle);
     }
   }, [])
 

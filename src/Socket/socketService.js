@@ -2,8 +2,8 @@ import socket from "./socket";
 
 class SocketService {
 
-  constructor() {
-    this.instance = null;
+  constructor(socket) {
+    this.socket = socket;
   }
 
   // Singleton Design Pattern
@@ -15,29 +15,46 @@ class SocketService {
   }
 
   joinGame(id) {
-    socket.emit("joinGame", {
+    this.socket.emit("joinGame", {
       gameId: id,
     })
   }
 
   leavingGame(id) {
-    socket.emit("leavingGame", {
+    this.socket.emit("leavingGame", {
       gameId: id
     })
   }
 
   updateGame(id, gameData) {
-    socket.emit("gameUpdate", {
+    this.socket.emit("gameUpdate", {
       gameId: id,
       gameData: gameData
     })
   }
 
   createMove(id, moveData) {
-    socket.emit("createMove", {
+    this.socket.emit("createMove", {
       gameId: id,
       moveData: moveData
     })
   }
+
+  onPlayerJoined(callback) {
+    this.socket.on("playerJoined", callback);
+  }
+
+  offPlayerJoined(callback) {
+    this.socket.off("playerJoined", callback);
+  }
+
+  onWaitingScreen(callback) {
+    this.socket.on("waitingScreen", callback);
+  }
+
+  offWaitingScreen(callback) {
+    this.socket.off("waitingScreen", callback);
+  }
+
 }
-export default SocketService;
+export default new SocketService(socket);
