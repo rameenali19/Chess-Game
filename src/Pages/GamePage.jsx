@@ -88,7 +88,7 @@ function GamePage() {
 
     <>
       {id && (
-        <div className="flex justify-center gap-7">
+        <div className="page flex justify-center gap-7">
 
           <ChessboardLeftPanel
             turn={turn}
