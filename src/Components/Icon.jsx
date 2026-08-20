@@ -17,6 +17,7 @@ import gameIdIcon from './../../public/game-id.png'
 import dustbinOpenIcon from './../../public/dustbin-open.png'
 import dustbinCloseIcon from './../../public/dustbin-close.png'
 import doorIcon from './../../public/door.png'
+import crownIcon from './../../public/crown.png'
 
 
 const iconMap = {
