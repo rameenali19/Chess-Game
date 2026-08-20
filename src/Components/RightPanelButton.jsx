@@ -1,6 +1,6 @@
-import Button from "../components/Button"
+import Button from "./Button"
 
-function RightPanelButtons({ setResignModal, winner, userColor, turn, mode }) {
+function RightPanelButton({ setResignModal, winner, userColor, turn, mode }) {
 
   return (
     <Button
@@ -21,4 +21,4 @@ function RightPanelButtons({ setResignModal, winner, userColor, turn, mode }) {
     />
   )
 }
-export default RightPanelButtons;
+export default RightPanelButton;

@@ -1,5 +1,5 @@
 import MoveLogger from "./MoveLogger";
-import RightPanelButtons from "./RightPanelButtons";
+import RightPanelButton from "./RightPanelButton";
 
 function ChessboardRightPanel({ setResignModal, moveHistory, winner, userColor, turn, mode }) {
 
@@ -11,7 +11,7 @@ function ChessboardRightPanel({ setResignModal, moveHistory, winner, userColor, 
         winner={winner}
       />
 
-      <RightPanelButtons
+      <RightPanelButton
         setResignModal={setResignModal}
         winner={winner}
         userColor={userColor}
