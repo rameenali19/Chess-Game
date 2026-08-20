@@ -27,6 +27,18 @@ import greenButtonIcon from './../../public/green-button.png'
 import blueButtonIcon from './../../public/blue-button.png'
 import redButtonIcon from './../../public/red-button.png'
 import orangeButtonIcon from './../../public/orange-button.png'
+import whiteKingIcon from './../../public/white-king.png'
+import whitePawnIcon from './../../public/white-pawn.png'
+import whiteBishopIcon from './../../public/white-bishop.png'
+import whiteKnightIcon from './../../public/white-knight.png'
+import whiteRookIcon from './../../public/white-rook.png'
+import whiteQueenIcon from './../../public/white-queen.png'
+import blackKingIcon from './../../public/black-king.png'
+import blackPawnIcon from './../../public/black-pawn.png'
+import blackBishopIcon from './../../public/black-bishop.png'
+import blackKnightIcon from './../../public/black-knight.png'
+import blackRookIcon from './../../public/black-rook.png'
+import blackQueenIcon from './../../public/black-queen.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -57,7 +69,19 @@ const iconMap = {
   greenButton: greenButtonIcon,
   blueButton: blueButtonIcon,
   redButton: redButtonIcon,
-  orangeButton: orangeButtonIcon
+  orangeButton: orangeButtonIcon,
+  whiteKing: whiteKingIcon,
+  whitePawn: whitePawnIcon,
+  whiteBishop: whiteBishopIcon,
+  whiteKnight: whiteKnightIcon,
+  whiteRook: whiteRookIcon,
+  whiteQueen: whiteQueenIcon,
+  blackKing: blackKingIcon,
+  blackPawn: blackPawnIcon,
+  blackBishop: blackBishopIcon,
+  blackKnight: blackKnightIcon,
+  blackRook: blackRookIcon,
+  blackQueen: blackQueenIcon
 }
 
 function Icon({
