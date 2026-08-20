@@ -1,6 +1,7 @@
 import { useNavigate, Navigate } from "react-router-dom"
 import Modal from "../components/Modal"
 import Button from "../components/Button"
+import Icon from "../components/Icon"
 
 function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
 
@@ -37,9 +38,8 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
               setDisconnectModal(false)
               navigate(`/mode-selection`)
             }}
-            image="/door.png"
-            imageText="door image"
-            imageStyling="object-contain w-4 h-4"
+            imageName="door"
+            imageClassName="w-4 h-4"
           />
         </div>
       </div>
