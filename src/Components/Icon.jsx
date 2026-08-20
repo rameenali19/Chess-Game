@@ -28,7 +28,29 @@ import blueReloadIcon from './../../public/blue-reload.png'
 const iconMap = {
   trophy: trophyIcon,
   statusWin: statusWinIcon,
-
+  statusWinRate: statusWinRateIcon,
+  statuController: statuControllerIcon,
+  singlePlayer: singlePlayerIcon,
+  sandClock: sandClockIcon,
+  reload: reloadIcon,
+  redCross: redCrossIcon,
+  pending: pendingIcon,
+  multiplayer: multiplayerIcon,
+  moveLog: moveLogIcon,
+  logoChess: logoChessIcon,
+  greenTrophy: greenTrophyIcon,
+  greenTick: greenTickIcon,
+  gameStatus: gameStatusIcon,
+  gameId: gameIdIcon,
+  dustbinOpen: dustbinOpenIcon,
+  dustbinClose: dustbinCloseIcon,
+  door: doorIcon,
+  crown: crownIcon,
+  chessboard: chessboardIcon,
+  calendar: calendarIcon,
+  bulb: bulbIcon,
+  book: bookIcon,
+  blueReload: blueReloadIcon
 }
 
 function Icon({
