@@ -6,7 +6,6 @@ function PromotionModal({ turn, promote, open }) {
   const pieces = ["Queen", "Rook", "Bishop", "Knight"]
   if (!turn) return null;
   return (
-
     <Modal open={open}
       className="h-67 w-130">
 
@@ -25,10 +24,7 @@ function PromotionModal({ turn, promote, open }) {
           turn={turn}
         />
       </div>
-
     </Modal>
   )
-
-
 }
 export default PromotionModal;
