@@ -86,8 +86,8 @@ const iconMap = {
 
 function Icon({
   name = "",
-  height = "",
-  width = "",
+  height,
+  width,
   className = ""
 }) {
   return (
