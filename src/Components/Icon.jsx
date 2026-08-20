@@ -21,6 +21,7 @@ import crownIcon from './../../public/crown.png'
 import chessboardIcon from './../../public/chessboard.png'
 import calendarIcon from './../../public/calendar.png'
 import bulbIcon from './../../public/bulb.png'
+import bookIcon from './../../public/book.png'
 
 
 const iconMap = {
