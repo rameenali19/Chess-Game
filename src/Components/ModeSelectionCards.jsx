@@ -62,8 +62,7 @@ function ModeSelectionCards({ setMode }) {
               style={{ borderColor: game.borderColor }}>
               <Icon
                 name={game.image}
-                height="72"
-                width="72"
+               className="w-18"
               />
               <div >
                 <h1 className="font-bold"

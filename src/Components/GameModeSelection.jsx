@@ -7,8 +7,7 @@ function GameModeSelection({ setMode }) {
       <div className="flex gap-2 items-center justify-center">
         <Icon
           name="trophy"
-          height="32"
-          width="40"
+          className="w-10"
         />
         <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
           Choose a Game Mode</h1>
