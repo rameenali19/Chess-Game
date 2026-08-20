@@ -5,6 +5,7 @@ import statuControllerIcon from './../../public/status-controller.png'
 import singlePlayerIcon from './../../public/single-player.png'
 import sandClockIcon from './../../public/sand-clock.png'
 import reloadIcon from './../../public/reload.png'
+import redCrossIcon from './../../public/red-cross.png'
 
 const iconMap = {
   trophy: trophyIcon,
