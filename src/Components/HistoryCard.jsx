@@ -84,9 +84,8 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       <div className="flex items-center gap-2">
 
         <Icon
-          name={currentMode.image}
-          width="50"
-          className="mr-1"
+          name={currentMode.image} s
+          className="mr-1 w-12"
         />
 
         <div className="font-inter text-[#17384A] text-xs ">
@@ -107,8 +106,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           fontWeight="semibold"
           className="flex w-37 h-15  items-center justify-center gap-2"
           imageName={currentStatus.image}
-          imageHeight="36"
-          imageWidth="36"
+          imageClassName="w-9"
         />
 
         <Button
@@ -142,7 +140,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           onMouseLeave={() => { setHover(true) }}
           className="w-15 h-10 flex justify-center items-center"
           imageName={hover ? "dustbinClose" : "dustbinOpen"}
-          imageWidth="18"
+          imageClassName="w-6 h-5"
         />
 
       </div>
