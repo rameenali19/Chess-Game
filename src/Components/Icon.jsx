@@ -54,7 +54,10 @@ const iconMap = {
 }
 
 function Icon({
-  name, height, width
+  name = "",
+  height = "",
+  width = "",
+  className = ""
 }) {
   return (
     <img
@@ -62,7 +65,7 @@ function Icon({
       alt={`${name} image`}
       width={width}
       height={height}
-      className="object-contain"
+      className={`${className} object-contain`}
     />
   )
 }

@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Icon from "./Icon";
 
 function ChessboardPreview() {
   return (
@@ -10,14 +11,16 @@ function ChessboardPreview() {
           textSize="small"
           fontWeight="medium"
           className="px-2 gap-2 justify-center h-8  flex items-center"
-          image="/book.png"
-          imageText="book image"
-          imageStyling="w-5 h-5" />
+          imageName="book"
+          imageHeight="20"
+          imageWidth="20" />
         <div className="text-gray-700 font-medium">Move the piece to checkmate your opponent</div>
       </div>
-      <img className=" mb-1 p-3 border-2 border-[#C7A97A] rounded-lg w-115"
-        src="/chessboard.png" alt="chessboard image"
-      ></img>
+      <Icon
+        name="chessboard"
+        className="p-3 border-2 border-[#C7A97A] rounded-lg"
+        width="455"
+      />
     </div>
   )
 }

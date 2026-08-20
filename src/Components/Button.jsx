@@ -1,3 +1,4 @@
+import Icon from "./Icon";
 function Button({
   text = "+ New Game",
   variant = "primary",
@@ -6,9 +7,10 @@ function Button({
   onClick = () => { },
   className: customClassName = "",
   type = "button",
-  image = "",
-  imageText = "",
-  imageStyling = "",
+  imageName = "",
+  imageHeight = "",
+  imageWidth = "",
+  imageClassName = "",
   onMouseEnter = () => { },
   onMouseLeave = () => { }
 }) {
@@ -76,9 +78,12 @@ function Button({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {image && (
-        <img
-          src={image} alt={imageText} className={imageStyling}
+      {imageName && (
+        <Icon
+          name={imageName}
+          height={imageHeight}
+          width={imageWidth}
+          className={imageClassName}
         />
       )}
       {text}
