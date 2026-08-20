@@ -4,7 +4,7 @@ import statusWinRateIcon from './../../public/status-win-rate.png'
 import statuControllerIcon from './../../public/status-controller.png'
 import singlePlayerIcon from './../../public/single-player.png'
 import sandClockIcon from './../../public/sand-clock.png'
-
+import reloadIcon from './../../public/reload.png'
 
 const iconMap = {
   trophy: trophyIcon,
