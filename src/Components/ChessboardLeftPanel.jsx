@@ -4,7 +4,7 @@ import CurrentTurnDisplay from "./CurrentTurnDisplay";
 
 function ChessboardLeftPanel({ turn, checkmate, stalemate, id, userColor, opponentColor, resign }) {
 
-  const src = turn === "White" ? "/white-queen.png" : "/black-queen.png";
+  const src = turn === "White" ? "whiteQueen" : "blackQueen";
   const opponent = opponentColor === "White" ? "white" : "black"
   const user = userColor === "White" ? "white" : "black"
   const statusColor = {

@@ -1,3 +1,4 @@
+import Icon from "./Icon";
 function CurrentTurnDisplay({ src, turn }) {
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
@@ -5,7 +6,10 @@ function CurrentTurnDisplay({ src, turn }) {
       <h1 className="font-semibold ">Current Turn</h1>
       <div className="h-7 w-full bg-[#ff8e3d] rounded-lg px-2 flex items-center
            hover:scale-105 duration-150 text-sm">
-        <img src={src} alt="piece image " className="w-7 h-6 mr-1 object-contain" />
+        <Icon
+          name={src}
+          className="w-7 h-6 mr-1"
+        />
         {turn}
       </div>
     </div>
