@@ -76,7 +76,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
                 >
                   <Icon
                     name={color.image}
-                    width="65"
+                    className="w-21 h-21"
                   />
                   <h1>{color.text}</h1>
                 </div>
