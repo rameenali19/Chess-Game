@@ -1,12 +1,15 @@
 import ModeSelectionCards from "./ModeSelectionCards";
+import Icon from "./Icons";
 
 function GameModeSelection({ setMode }) {
   return (
     <div>
       <div className="flex gap-2 items-center justify-center">
-        <img className="object-contain w-10 h-8"
-          src="/trophy.png" alt="trophy image" >
-        </img>
+        <Icon
+          name="trophy"
+          height={32}
+          width={40}
+        />
         <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
           Choose a Game Mode</h1>
       </div>
