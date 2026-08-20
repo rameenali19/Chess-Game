@@ -1,7 +1,14 @@
 import trophyIcon from './../../public/trophy.png'
+import statusWinIcon from './../../public/status-win.png'
+import statusWinRateIcon from './../../public/status-win-rate.png'
+import statuControllerIcon from './../../public/status-controller.png'
+import singlePlayerIcon from './../../public/single-player.png'
+
 
 const iconMap = {
   trophy: trophyIcon,
+  statusWin: statusWinIcon,
+
 }
 
 function Icon({
