@@ -2,6 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import ApiChess from "../api/apiChess";
 import { useState, useEffect } from "react";
 import Button from "./Button";
+import Icon from "./Icon";
 
 function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const [player, setPlayer] = useState(null)
@@ -19,12 +20,12 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
   const modeData = {
     "single player": {
-      image: "/singleplayer.png",
+      image: "singlePlayer",
       text: "Single Player Game",
       textColor: "text-[#eb1603]"
     },
     multiplayer: {
-      image: "/multiplayer.png",
+      image: "multiplayer",
       text: "Multiplayer Game",
       textColor: "text-[#ff8127]"
     }
@@ -35,18 +36,18 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       won: {
         variant: "win",
         text: "Won",
-        image: "/green-trophy.png"
+        image: "greenTrophy"
       },
       lost: {
         variant: "lose",
         text: "Lost",
-        image: "/red-cross.png"
+        image: "redCross"
       }
     },
     unfinished: {
       variant: "pending",
       text: "In Progress",
-      image: "/pending.png"
+      image: "pending"
     }
   }
   let currentStatus;
@@ -82,11 +83,11 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
       <div className="flex items-center gap-2">
 
-        <img src={currentMode.image} alt="mode image"
-          className={` w-12 mr-1 object-contain ${game.mode === "singleplayer" ?
-            "h-5" : "h-12"
-            }`}
-        ></img>
+        <Icon
+          name={currentMode.image}
+          width="50"
+          className="mr-1"
+        />
 
         <div className="font-inter text-[#17384A] text-xs ">
           <h1 className="text-xl font-semibold">{currentMode.text}</h1>
@@ -105,9 +106,9 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           variant={currentStatus.variant}
           fontWeight="semibold"
           className="flex w-37 h-15  items-center justify-center gap-2"
-          image={currentStatus.image}
-          imageText="status Image"
-          imageStyling="object-contain w-9 h-9"
+          imageName={currentStatus.image}
+          imageHeight="36"
+          imageWidth="36"
         />
 
         <Button
@@ -140,9 +141,8 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           onMouseEnter={() => { setHover(false) }}
           onMouseLeave={() => { setHover(true) }}
           className="w-15 h-10 flex justify-center items-center"
-          image={hover ? "/dustbin-close.png" : "/dustbin-open.png"}
-          imageText="dustbin image"
-          imageStyling="w-6 object-contain h-5"
+          imageName={hover ? "dustbinClose" : "dustbinOpen"}
+          imageWidth="18"
         />
 
       </div>
