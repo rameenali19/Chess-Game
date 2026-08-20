@@ -9,6 +9,7 @@ import redCrossIcon from './../../public/red-cross.png'
 import pendingIcon from './../../public/pending.png'
 import multiplayerIcon from './../../public/multiplayer.png'
 import moveLogIcon from './../../public/move-log.png'
+import logoChessIcon from './../../public/logo-chess-piece.png'
 
 const iconMap = {
   trophy: trophyIcon,
