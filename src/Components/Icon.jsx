@@ -22,6 +22,7 @@ import chessboardIcon from './../../public/chessboard.png'
 import calendarIcon from './../../public/calendar.png'
 import bulbIcon from './../../public/bulb.png'
 import bookIcon from './../../public/book.png'
+import blueReloadIcon from './../../public/blue-reload.png'
 
 
 const iconMap = {
