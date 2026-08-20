@@ -1,3 +1,4 @@
+import Icon from "./Icon";
 function GameInfoDisplay({ statusColor, status, id }) {
 
   return (
@@ -5,20 +6,29 @@ function GameInfoDisplay({ statusColor, status, id }) {
           w-45 flex flex-col rounded-lg font-inter text-[#17384A] justify-around px-2 ">
 
       <div className="font-semibold text-lg justify-center flex items-center ">
-        <img src="/bulb.png" alt="blub image" className="w-5 h-5 object-contain"></img>
+        <Icon
+          name="bulb"
+          className="w-5 h-5"
+        />
         Game Info
       </div>
 
       <div>
         <div className="text-sm flex items-center justify-start ">
-          <img src="/game-id.png" alt="id image" className="w-6 h-6"></img>
+          <Icon
+            name="gameId"
+            className="w-6 h-6"
+          />
           Game ID</div>
         <p className="text-lg font-semibold">{id}</p>
       </div>
 
       <div>
         <div className="text-sm mb-1 flex items-center justify-start">
-          <img src="/game-status.png" alt="id image" className="w-5 h-6"></img>
+          <Icon
+            name="gameStatus"
+            className="w-5 h-6"
+          />
           Game Status
         </div>
         <div className={` h-7 w-35 rounded-lg font-semibold 
@@ -29,7 +39,10 @@ function GameInfoDisplay({ statusColor, status, id }) {
 
       <div>
         <div className="text-sm flex items-center justify-start ">
-          <img src="/calendar.png" alt="id image" className="w-6 h-6"></img>
+          <Icon
+            name="calendar"
+            className="w-6"
+          />
           Date</div>
         <p className="font-semibold">{new Date().toLocaleDateString()}</p>
       </div>
