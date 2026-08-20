@@ -19,6 +19,7 @@ import dustbinCloseIcon from './../../public/dustbin-close.png'
 import doorIcon from './../../public/door.png'
 import crownIcon from './../../public/crown.png'
 import chessboardIcon from './../../public/chessboard.png'
+import calendarIcon from './../../public/calendar.png'
 
 
 const iconMap = {
