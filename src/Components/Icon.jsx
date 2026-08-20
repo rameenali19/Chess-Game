@@ -12,6 +12,8 @@ import moveLogIcon from './../../public/move-log.png'
 import logoChessIcon from './../../public/logo-chess-piece.png'
 import greenTrophyIcon from './../../public/green-trophy.png'
 import greenTickIcon from './../../public/green-tick.png'
+import gameStatusIcon from './../../public/game-status.png'
+
 
 const iconMap = {
   trophy: trophyIcon,
