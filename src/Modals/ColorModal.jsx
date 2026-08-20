@@ -6,6 +6,7 @@ import { UserContext } from "../context/UserContext";
 import socketService from "../socket/socketService";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
+import Icon from "../components/Icon";
 
 function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
 
@@ -15,7 +16,7 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
   const [turn, setTurn] = useState(null)
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
-  const pieces = [{ image: "/white-king.png", text: "White", }, { image: "/black-king.png", text: "Black", }]
+  const pieces = [{ image: "whiteKing", text: "White", }, { image: "blackKing", text: "Black", }]
 
   async function createGame() {
     if (!userColor) return
@@ -73,8 +74,10 @@ function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, set
                     setUserColor(color.text)
                   }}
                 >
-                  <img className="w-21 h-22 object-contain"
-                    src={color.image}></img>
+                  <Icon
+                    name={color.image}
+                    width="65"
+                  />
                   <h1>{color.text}</h1>
                 </div>
               )
