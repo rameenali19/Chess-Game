@@ -23,7 +23,10 @@ import calendarIcon from './../../public/calendar.png'
 import bulbIcon from './../../public/bulb.png'
 import bookIcon from './../../public/book.png'
 import blueReloadIcon from './../../public/blue-reload.png'
-
+import greenButtonIcon from './../../public/green-button.png'
+import blueButtonIcon from './../../public/blue-button.png'
+import redButtonIcon from './../../public/red-button.png'
+import orangeButtonIcon from './../../public/orange-button.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -50,7 +53,11 @@ const iconMap = {
   calendar: calendarIcon,
   bulb: bulbIcon,
   book: bookIcon,
-  blueReload: blueReloadIcon
+  blueReload: blueReloadIcon,
+  greenButton: greenButtonIcon,
+  blueButton: blueButtonIcon,
+  redButton: redButtonIcon,
+  orangeButton: orangeButtonIcon
 }
 
 function Icon({
