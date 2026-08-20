@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
+import Icon from "../components/Icon"
 
 function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconnectingModal }) {
   const navigate = useNavigate()
@@ -32,9 +33,8 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
               setDisconnectModal(false)
               setReconnectingModal(true)
             }}
-            image="/sand-clock.png"
-            imageText="sand clock image"
-            imageStyling="object-contain w-5 h-5"
+            imageName="sandClock"
+            imageClassName="w-5 h-5"
           />
 
           <Button
@@ -47,9 +47,8 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
               setDisconnectModal(false)
               navigate(`/mode-selection`)
             }}
-            image="/door.png"
-            imageText="door image"
-            imageStyling="object-contain w-5 h-5"
+            imageName="door"
+            imageClassName="w-5 h-5"
           />
 
         </div>
