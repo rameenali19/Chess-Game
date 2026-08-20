@@ -1,11 +1,12 @@
 import { pieceImages } from "../chess/constants";
+import Icon from "./Icon";
 function DisplayPiece({ piece }) {
   return (
     <>
       {piece !== "." &&
-        <img className="w-full h-full object-contain"
-          src={pieceImages[piece.color][piece.type]}
-          alt="Piece Image"
+        <Icon
+          name={pieceImages[piece.color][piece.type]}
+          className="w-full h-full"
         />}
     </>
   )
