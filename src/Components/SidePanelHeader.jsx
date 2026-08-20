@@ -4,7 +4,7 @@ function SidePanelHeader() {
     <div className="flex items-center py-4 ">
       <Icon
         name="logoChess"
-        width="60"
+        className="w-15"
       />
       <div className="font-cormorant text-2xl">
         <h1>Chess</h1>
