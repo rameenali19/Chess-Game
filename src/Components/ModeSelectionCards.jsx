@@ -1,9 +1,10 @@
 import Button from "./Button"
+import Icon from "./Icon"
 
 function ModeSelectionCards({ setMode }) {
   const button = [
     {
-      image: "/greenbutton.png",
+      image: "greenButton",
       title: "Single Player",
       line1: "Play on the same device",
       line2: "with your friend",
@@ -16,7 +17,7 @@ function ModeSelectionCards({ setMode }) {
     },
 
     {
-      image: "/orangebutton.png",
+      image: "orangeButton",
       title: "Multiplayer",
       line1: "Play with other players",
       line2: "around the world",
@@ -28,7 +29,7 @@ function ModeSelectionCards({ setMode }) {
     },
 
     {
-      image: "/redbutton.png",
+      image: "redButton",
       title: "Join multiplayer",
       line1: "Join a friend or player",
       line2: "using a Game ID",
@@ -39,7 +40,7 @@ function ModeSelectionCards({ setMode }) {
       buttonText: "Join Game"
     },
     {
-      image: "/bluebutton.png",
+      image: "blueButton",
       title: "AI Bot",
       line1: "Challange AI bot ",
       line2: "and test your skills",
@@ -58,10 +59,12 @@ function ModeSelectionCards({ setMode }) {
           return (
             <div key={game.mode}
               className="border-2 flex h-26 w-100 rounded-lg items-center justify-around font-inter hover:-translate-y-1 transition"
-              style={{ borderColor: game.borderColor }}
-            >
-              <img className="w-18 h-18"
-                src={game.image} alt={game.mode} />
+              style={{ borderColor: game.borderColor }}>
+              <Icon
+                name={game.image}
+                height="72"
+                width="72"
+              />
               <div >
                 <h1 className="font-bold"
                   style={{ color: game.textColor }}>
