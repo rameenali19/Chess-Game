@@ -1,4 +1,5 @@
 import { pieceImages } from "../chess/constants";
+import Icon from "./Icon";
 function PromotionPieces({ pieces, promote, turn }) {
   return (
     <div className="flex justify-around">
@@ -10,10 +11,9 @@ function PromotionPieces({ pieces, promote, turn }) {
                 hover:shadow-[0_0_40px_rgba(210,170,90,0.25)] text-sm 
                 bg-[#fff4e6] font-semibold"
             onClick={() => promote(piece)}>
-            <img
-              src={pieceImages[turn][piece]}
-              alt={piece}
-              className="w-12 "
+            <Icon
+              name={pieceImages[turn][piece]}
+              className="w-12"
             />
             {piece}
           </div>
