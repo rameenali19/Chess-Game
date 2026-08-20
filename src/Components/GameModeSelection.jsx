@@ -1,5 +1,5 @@
 import ModeSelectionCards from "./ModeSelectionCards";
-import Icon from "./Icons";
+import Icon from "./Icon";
 
 function GameModeSelection({ setMode }) {
   return (
