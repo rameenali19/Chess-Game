@@ -8,20 +8,23 @@ function PromotionModal({ turn, promote, open }) {
   return (
 
     <Modal open={open}
-      className="h-60 w-120">
+      className="h-67 w-130">
 
-      <div className="text-3xl font-bold p-4 flex flex-col items-center font-cormorant text-[#4A2F1D]">
-        <img src="/crown.png" alt="crown image" className="w-10 h-8 hover:scale-120 duration-150"></img>
-        <div>
-          Choose Promotion
+      <div className="flex flex-col h-full text-[#4A2F1D] font-cormorant gap-5 mt-6">
+
+        <div className="flex flex-col items-center">
+          <img src="/crown.png" alt="crown image" className="w-10 h-8 hover:scale-120 duration-150"></img>
+          <div className="text-3xl font-bold">
+            Choose Promotion
+          </div>
         </div>
-      </div>
 
-      <PromotionPieces
-        pieces={pieces}
-        promote={promote}
-        turn={turn}
-      />
+        <PromotionPieces
+          pieces={pieces}
+          promote={promote}
+          turn={turn}
+        />
+      </div>
 
     </Modal>
   )
