@@ -42,6 +42,7 @@ import blackBishopIcon from './../../public/black-bishop.png'
 import blackKnightIcon from './../../public/black-knight.png'
 import blackRookIcon from './../../public/black-rook.png'
 import blackQueenIcon from './../../public/black-queen.png'
+import bluePlayerIcon from './../../public/blue-player.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -57,6 +58,7 @@ const iconMap = {
   moveLog: moveLogIcon,
   logoChess: logoChessIcon,
   greenTrophy: greenTrophyIcon,
+  bluePlayer: bluePlayerIcon,
   greenTick: greenTickIcon,
   gameStatus: gameStatusIcon,
   gameId: gameIdIcon,
