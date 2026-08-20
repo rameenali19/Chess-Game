@@ -17,20 +17,18 @@ function Square({ row, col, piece, onClick, selected, possibleMoves, possibleCap
     blackBox: "bg-[#D8B892]",
   };
 
-  const state =
-    kingInCheck
-      ? "kingInCheck"
-      : possibleCaptures
-        ? "possibleCaptures"
-        : checkingPiece
-          ? "checkingPiece"
-          : selected
-            ? "selected"
-            : whiteBox
-              ? "whiteBox"
-              : "blackBox";
+  const squareStates = {
+    kingInCheck,
+    possibleCaptures,
+    checkingPiece,
+    selected,
+    whiteBox,
+  };
 
-  const square = squareColors[state]
+  const stateKey =
+    Object.keys(squareStates).find((key) => squareStates[key]) ?? "blackBox";
+
+  const square = squareColors[stateKey];
 
   return (
     <div className={`w-full h-17.5  relative text-[rgb(85,107,47)]
