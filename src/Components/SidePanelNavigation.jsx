@@ -1,28 +1,29 @@
 import { NavLink } from "react-router-dom";
+import Icon from "./Icon";
 function SidePanelNavigation() {
   const sidePanelComponents = [
     {
       link: "/",
       text: "Home",
-      image: "/white-home.png",
+      image: "whiteHome",
       imageText: "White home image"
     },
     {
       link: "/mode-selection",
       text: "Play",
-      image: "/white-knight.png",
+      image: "whiteKnight",
       imageText: "White knight image"
     },
     {
       link: "/history",
       text: "History",
-      image: "/white-clock.png",
+      image: "whiteClock",
       imageText: "White clock image"
     },
     {
       link: "/about-me",
       text: "About Me",
-      image: "/white-person.png",
+      image: "whitePerson",
       imageText: "White home image"
     },
   ]
@@ -37,9 +38,13 @@ function SidePanelNavigation() {
                 `flex items-center px-3 py-2 rounded-lg transition-all duration-200 
                   ${isActive ? "bg-[#D96B1E]" : "hover:bg-[#21485C]"
                 }`}>
-              <img src={panel.image} alt={panel.imageText}
+              <Icon
+                name={panel.image}
+                className="mr-1 w-8 h-8"
+              />
+              {/* <img src={panel.image} alt={panel.imageText}
                 className="w-8 h-8 mr-1 object-contain"
-              ></img>
+              ></img> */}
               {panel.text}
             </NavLink>
           )

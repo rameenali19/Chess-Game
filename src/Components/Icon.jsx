@@ -21,7 +21,9 @@ import crownIcon from './../../public/crown.png'
 import chessboardIcon from './../../public/chessboard.png'
 import calendarIcon from './../../public/calendar.png'
 import bulbIcon from './../../public/bulb.png'
+import whitePersonIcon from './../../public/white-person.png'
 import bookIcon from './../../public/book.png'
+import whiteClockIcon from './../../public/white-clock.png'
 import blueReloadIcon from './../../public/blue-reload.png'
 import greenButtonIcon from './../../public/green-button.png'
 import blueButtonIcon from './../../public/blue-button.png'
@@ -60,12 +62,14 @@ const iconMap = {
   gameId: gameIdIcon,
   dustbinOpen: dustbinOpenIcon,
   dustbinClose: dustbinCloseIcon,
+  whitePerson: whitePersonIcon,
   door: doorIcon,
   crown: crownIcon,
   chessboard: chessboardIcon,
   calendar: calendarIcon,
   bulb: bulbIcon,
   book: bookIcon,
+  whiteClock: whiteClockIcon,
   blueReload: blueReloadIcon,
   greenButton: greenButtonIcon,
   blueButton: blueButtonIcon,
@@ -88,16 +92,12 @@ const iconMap = {
 
 function Icon({
   name = "",
-  height,
-  width,
   className = ""
 }) {
   return (
     <img
       src={iconMap[name]}
       alt={`${name} image`}
-      width={width}
-      height={height}
       className={`${className} object-contain`}
     />
   )

@@ -8,8 +8,6 @@ function Button({
   className: customClassName = "",
   type = "button",
   imageName = "",
-  imageHeight = "",
-  imageWidth = "",
   imageClassName = "",
   onMouseEnter = () => { },
   onMouseLeave = () => { }
@@ -81,8 +79,6 @@ function Button({
       {imageName && (
         <Icon
           name={imageName}
-          height={imageHeight}
-          width={imageWidth}
           className={imageClassName}
         />
       )}
