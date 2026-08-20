@@ -1,13 +1,15 @@
+import Icon from "./Icon";
 function MoveLogger({ moveHistory, winner }) {
 
   return (
-
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7] h-full
       w-45 rounded-lg text-[#17384A] font-inter">
 
       <div className="flex items-center justify-center text-lg font-semibold m-3">
-        <img className="w-8 h-5 object-contain"
-          src="/move-log.png" alt="move log image" />
+        <Icon
+          name="moveLog"
+          className="w-8 h-5"
+        />
         <h1>Move Log</h1>
       </div>
 
@@ -36,7 +38,6 @@ function MoveLogger({ moveHistory, winner }) {
         )}
       </div>
     </div >
-
   )
 }
 export default MoveLogger;

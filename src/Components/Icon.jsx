@@ -43,6 +43,7 @@ import blackKnightIcon from './../../public/black-knight.png'
 import blackRookIcon from './../../public/black-rook.png'
 import blackQueenIcon from './../../public/black-queen.png'
 import bluePlayerIcon from './../../public/blue-player.png'
+import whiteFlagIcon from './../../public/white-flag.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -55,6 +56,7 @@ const iconMap = {
   redCross: redCrossIcon,
   pending: pendingIcon,
   multiplayer: multiplayerIcon,
+  whiteFlag: whiteFlagIcon,
   moveLog: moveLogIcon,
   logoChess: logoChessIcon,
   greenTrophy: greenTrophyIcon,
