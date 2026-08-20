@@ -1,5 +1,6 @@
 import Modal from "../components/Modal";
 import PromotionPieces from "../components/PromotionPieces";
+import Icon from "../components/Icon";
 
 function PromotionModal({ turn, promote, open }) {
 
@@ -12,7 +13,10 @@ function PromotionModal({ turn, promote, open }) {
       <div className="flex flex-col h-full text-[#4A2F1D] font-cormorant gap-5 mt-6">
 
         <div className="flex flex-col items-center">
-          <img src="/crown.png" alt="crown image" className="w-10 h-8 hover:scale-120 duration-150"></img>
+          <Icon
+            name="crown"
+            className="w-10 hover:scale-120 duration-150"
+          />
           <div className="text-3xl font-bold">
             Choose Promotion
           </div>
