@@ -11,6 +11,7 @@ import multiplayerIcon from './../../public/multiplayer.png'
 import moveLogIcon from './../../public/move-log.png'
 import logoChessIcon from './../../public/logo-chess-piece.png'
 import greenTrophyIcon from './../../public/green-trophy.png'
+import greenTickIcon from './../../public/green-tick.png'
 
 const iconMap = {
   trophy: trophyIcon,
