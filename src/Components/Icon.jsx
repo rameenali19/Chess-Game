@@ -7,6 +7,7 @@ import sandClockIcon from './../../public/sand-clock.png'
 import reloadIcon from './../../public/reload.png'
 import redCrossIcon from './../../public/red-cross.png'
 import pendingIcon from './../../public/pending.png'
+import multiplayerIcon from './../../public/multiplayer.png'
 
 const iconMap = {
   trophy: trophyIcon,
