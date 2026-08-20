@@ -42,9 +42,6 @@ function SidePanelNavigation() {
                 name={panel.image}
                 className="mr-1 w-8 h-8"
               />
-              {/* <img src={panel.image} alt={panel.imageText}
-                className="w-8 h-8 mr-1 object-contain"
-              ></img> */}
               {panel.text}
             </NavLink>
           )
