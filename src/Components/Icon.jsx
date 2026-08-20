@@ -26,6 +26,7 @@ import blueReloadIcon from './../../public/blue-reload.png'
 import greenButtonIcon from './../../public/green-button.png'
 import blueButtonIcon from './../../public/blue-button.png'
 import redButtonIcon from './../../public/red-button.png'
+import whiteHomeIcon from './../../public/white-home.png'
 import orangeButtonIcon from './../../public/orange-button.png'
 import whiteKingIcon from './../../public/white-king.png'
 import whitePawnIcon from './../../public/white-pawn.png'
@@ -70,6 +71,7 @@ const iconMap = {
   blueButton: blueButtonIcon,
   redButton: redButtonIcon,
   orangeButton: orangeButtonIcon,
+  whiteHome: whiteHomeIcon,
   whiteKing: whiteKingIcon,
   whitePawn: whitePawnIcon,
   whiteBishop: whiteBishopIcon,
