@@ -13,6 +13,7 @@ import logoChessIcon from './../../public/logo-chess-piece.png'
 import greenTrophyIcon from './../../public/green-trophy.png'
 import greenTickIcon from './../../public/green-tick.png'
 import gameStatusIcon from './../../public/game-status.png'
+import gameIdIcon from './../../public/game-id.png'
 
 
 const iconMap = {
