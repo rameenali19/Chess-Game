@@ -12,14 +12,12 @@ function ChessboardPreview() {
           fontWeight="medium"
           className="px-2 gap-2 justify-center h-8  flex items-center"
           imageName="book"
-          imageHeight="20"
-          imageWidth="20" />
+          imageClassName="w-5" />
         <div className="text-gray-700 font-medium">Move the piece to checkmate your opponent</div>
       </div>
       <Icon
         name="chessboard"
-        className="p-3 border-2 border-[#C7A97A] rounded-lg"
-        width="455"
+        className="p-3 border-2 border-[#C7A97A] rounded-lg w-115"
       />
     </div>
   )
