@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
+import Icon from "../components/Icon"
 
 function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }) {
   const navigate = useNavigate()
@@ -43,7 +44,6 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
   if (!text) return null;
 
   return (
-
     <Modal open={open}
       className=" h-65 w-125 ">
 
@@ -73,9 +73,8 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
                 }
               })
             }}
-            image="/reload.png"
-            imageText="reload image"
-            imageStyling="object-contain w-6 h-6"
+            imageName="reload"
+            imageClassName="w-6"
           />
 
           <Button
@@ -87,15 +86,13 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
             onClick={() => {
               navigate(`/`)
             }}
-            image="/white-home.png"
-            imageText="white home image"
-            imageStyling="object-contain w-6 h-6"
+            imageName="whiteHome"
+            imageClassName="w-6"
           />
 
         </div>
 
         <div className="flex justify-end w-full">
-
 
           <Button
             text="Close"
@@ -108,15 +105,9 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
             }}
 
           />
-
         </div>
       </div>
-
-
     </Modal>
-
   )
-
 }
-
 export default GameOverModal;
