@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ColorModal from "../modals/ColorModal";
-import LoginModal from "../modals/LoginModal";
+import WelcomeModal from "../modals/WelcomeModal";
 import JoinModal from "../modals/JoinModal";
 import WaitingModal from "../modals/WaitingModal";
 import { UserContext } from "../context/UserContext";
@@ -16,9 +16,8 @@ function ModeSelectionPage() {
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const { guestId } = useContext(UserContext);
-  const [totalGames, setTotalGames] = useState(null)
   const [gameId, setGameId] = useState(null)
-  const loginCondition = !guestId
+  const welcomeCondition = !guestId
   const colorScreenCondition = guestId && mode !== "join" && mode !== null && !waitingScreen
   const waitingScreenCondition = mode === "multiplayer" && mode !== null && guestId && waitingScreen
   const joinScreenCondition = guestId && mode === "join" && mode !== null
@@ -55,9 +54,9 @@ function ModeSelectionPage() {
 
       </div>
 
-      {loginCondition && (
-        <LoginModal
-          open={loginCondition}
+      {welcomeCondition && (
+        <WelcomeModal
+          open={welcomeCondition}
         />
       )}
 
