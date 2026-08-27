@@ -5,7 +5,7 @@ import Icon from "./Icon";
 function SidePanel({ open, setOpen }) {
   return (
     <nav className={`fixed left-0 top-0 h-screen bg-[#17384A]
-     text-white shadow-xl z-50 ${open ? "w-45" : "w-15"}
+     text-white shadow-xl z-50 ${open ? "w-47" : "w-20"}
       duration-300 ease-in-out`}>
       <Icon
         name="open"

@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 function SidePanelHeader({ open }) {
   return (
-    <div className="flex items-center py-4 px-2 gap-2">
+    <div className="flex items-center py-4 px-6 gap-2">
       <Icon
         name="logoChess"
         className="h-9"
