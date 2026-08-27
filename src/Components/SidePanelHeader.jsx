@@ -1,14 +1,13 @@
 import Icon from "./Icon";
 function SidePanelHeader() {
   return (
-    <div className="flex items-center py-4 ">
+    <div className="flex items-center py-4 px-2 gap-1">
       <Icon
         name="logoChess"
-        className="w-15"
+        className="h-9"
       />
       <div className="font-cormorant text-2xl">
-        <h1>Chess</h1>
-        <h1>Mastery</h1>
+        <h1>Checkmate</h1>
       </div>
     </div>
   )
