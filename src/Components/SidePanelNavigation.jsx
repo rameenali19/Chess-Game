@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Icon from "./Icon";
-function SidePanelNavigation() {
+function SidePanelNavigation({ open }) {
   const sidePanelComponents = [
     {
       link: "/",
@@ -28,7 +28,7 @@ function SidePanelNavigation() {
     },
   ]
   return (
-    <div className="flex flex-col mt-3 gap-2 px-2 font-inter text-sm">
+    <div className={`flex flex-col mt-3 gap-2 px-2 font-inter text-sm ${!open && "scale-0"}`}>
       {
         sidePanelComponents.map((panel) => {
           return (

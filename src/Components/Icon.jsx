@@ -44,6 +44,7 @@ import blackRookIcon from '../assets/icons/black-rook.png'
 import blackQueenIcon from '../assets/icons/black-queen.png'
 import bluePlayerIcon from '../assets/icons/blue-player.png'
 import whiteFlagIcon from '../assets/icons/white-flag.png'
+import openIcon from '../assets/Icons/open.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -64,6 +65,7 @@ const iconMap = {
   greenTick: greenTickIcon,
   gameStatus: gameStatusIcon,
   gameId: gameIdIcon,
+  open: openIcon,
   dustbinOpen: dustbinOpenIcon,
   dustbinClose: dustbinCloseIcon,
   whitePerson: whitePersonIcon,
@@ -96,13 +98,15 @@ const iconMap = {
 
 function Icon({
   name = "",
-  className = ""
+  className = "",
+  onClick = () => { }
 }) {
   return (
     <img
       src={iconMap[name]}
       alt={`${name} image`}
       className={`${className} object-contain`}
+      onClick={onClick}
     />
   )
 }

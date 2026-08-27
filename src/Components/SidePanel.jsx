@@ -1,26 +1,24 @@
-import { useState } from "react";
 import SidePanelHeader from "./SidePanelHeader";
 import SidePanelNavigation from "./SidePanelNavigation";
-import OpenSidePanel from "./OpenSidePanel";
+import Icon from "./Icon";
 
-function SidePanel() {
-  const [open, setOpen] = useState(true)
+function SidePanel({ open, setOpen }) {
   return (
     <nav className={`fixed left-0 top-0 h-screen bg-[#17384A]
-     text-white flex flex-col shadow-xl z-50 ${open ? "w-45" : "w-12"}`}>
-      {open && (
-        <>
-          <SidePanelHeader
-            setOpen={setOpen}
-          />
-          <SidePanelNavigation />
-        </>
-      )}
-      {!open && (
-        <OpenSidePanel
-          setOpen={setOpen}
-        />
-      )}
+     text-white shadow-xl z-50 ${open ? "w-45" : "w-15"}
+      duration-300 ease-in-out`}>
+      <Icon
+        name="open"
+        className={`absolute -right-3 top-5 h-6 
+        ${open ? "rotate-180" : ""} hover:cursor-pointer`}
+        onClick={() => { setOpen(!open) }}
+      />
+      <SidePanelHeader
+        open={open}
+      />
+      <SidePanelNavigation
+        open={open}
+      />
     </nav>
   )
 }
