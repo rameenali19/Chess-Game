@@ -28,7 +28,7 @@ function SidePanelNavigation() {
     },
   ]
   return (
-    <div className="flex flex-col mt-5 gap-2 px-2 font-inter text-sm">
+    <div className="flex flex-col mt-3 gap-2 px-2 font-inter text-sm">
       {
         sidePanelComponents.map((panel) => {
           return (
