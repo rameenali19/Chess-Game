@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import ApiChess from "../api/apiChess";
 import HistoryCard from "../components/HistoryCard";
-import HistoryNavbar from "../components/HistoryNavbar";
+import HistoryNavbar from "../components/HistoryNavBar";
 import DeleteModal from "../modals/DeleteModal";
 import Pagination from "../components/Pagination";
 import HistoryFooter from "../components/HistoryFooter";
