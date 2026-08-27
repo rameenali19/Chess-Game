@@ -1,10 +1,10 @@
 import GamePage from "./pages/GamePage";
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route} from "react-router-dom"
 import HistoryPage from "./pages/HistoryPage";
 import HomePage from "./pages/HomePage";
 import AboutMe from "./pages/AboutMe";
 import Layout from "./layout/Layout";
-import socket from "./Socket/socket";
+import socket from "./socket/socket";
 import ModeSelectionPage from "./pages/ModeSelectionPage";
 
 function App() {
