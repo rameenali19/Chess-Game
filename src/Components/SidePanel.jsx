@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SidePanelHeader from "./SidePanelHeader";
 import SidePanelNavigation from "./SidePanelNavigation";
-import Icon from "./Icon";
+import CloseSidePanel from "./CloseSidePanel";
 
 function SidePanel() {
   const [open, setOpen] = useState(true)
@@ -17,14 +17,9 @@ function SidePanel() {
         </>
       )}
       {!open && (
-        <div className="py-4 px-2 hover:cursor-pointer"
-          onClick={() => { setOpen(true) }}
-        >
-          <Icon
-            name="logoChess"
-            className="h-9"
-          />
-        </div>
+        <CloseSidePanel
+          setOpen={setOpen}
+        />
       )}
     </nav>
   )
