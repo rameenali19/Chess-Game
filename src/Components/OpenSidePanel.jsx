@@ -1,6 +1,6 @@
 import Icon from "./Icon";
 
-function CloseSidePanel({ setOpen }) {
+function OpenSidePanel({ setOpen }) {
   return (
     <div className="py-4 px-2 hover:cursor-pointer"
       onClick={() => { setOpen(true) }}
@@ -12,4 +12,4 @@ function CloseSidePanel({ setOpen }) {
     </div>
   )
 }
-export default CloseSidePanel;
+export default OpenSidePanel;

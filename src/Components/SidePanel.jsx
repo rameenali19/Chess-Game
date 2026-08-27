@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SidePanelHeader from "./SidePanelHeader";
 import SidePanelNavigation from "./SidePanelNavigation";
-import CloseSidePanel from "./CloseSidePanel";
+import OpenSidePanel from "./OpenSidePanel";
 
 function SidePanel() {
   const [open, setOpen] = useState(true)
@@ -17,7 +17,7 @@ function SidePanel() {
         </>
       )}
       {!open && (
-        <CloseSidePanel
+        <OpenSidePanel
           setOpen={setOpen}
         />
       )}
