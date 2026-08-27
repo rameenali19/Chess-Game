@@ -6,7 +6,8 @@ function SidePanelHeader({ open }) {
         name="logoChess"
         className="h-9"
       />
-      <div className={`font-cormorant text-2xl ${!open && "scale-0"}`}>
+      <div className={`font-cormorant text-2xl ${!open && "scale-0"}
+       ${open && "  duration-500"}`}>
         <h1>Checkmate</h1>
       </div>
     </div>
