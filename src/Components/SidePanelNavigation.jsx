@@ -29,7 +29,7 @@ function SidePanelNavigation({ open }) {
   ]
   return (
     <div className={`flex flex-col mt-3 gap-2 px-2 font-inter text-sm 
-    ${!open && "scale-0"} ${open && "  duration-500"}`}>
+    ${!open && "scale-0"} ${open && "duration-500"}`}>
       {
         sidePanelComponents.map((panel) => {
           return (
