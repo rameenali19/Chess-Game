@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 function SidePanelHeader({ setOpen }) {
   return (
-    <div className="flex items-center py-4 px-2 gap-1">
+    <div className="flex items-center py-4 px-2 gap-2">
       <div onClick={() => { setOpen(false) }}
         className=" hover:cursor-pointer"
       >
