@@ -11,7 +11,7 @@ function ModeSelectionCards({ setMode }) {
       variant: "green",
       textColor: "#35843C",
       borderColor: "#35843C",
-      mode: "single player",
+      mode: "singleplayer",
       buttonText: "Play Now"
 
     },
