@@ -129,7 +129,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       winner: checkmate || stalemate || resign ? winner : null,
       endReason: resign ? "resignation" : checkmate ? "checkmate" : stalemate ? "stalemate" : null
     }
-    if (mode === "single player") { updateGame(gameData) }
+    if (mode === "singleplayer") { updateGame(gameData) }
     if (mode === "multiplayer") {
 
       socketService.updateGame(id, gameData)
@@ -164,7 +164,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       destination: destination,
     }
     setMoveHistory(prev => [...prev, moveData])
-    if (mode === "single player") { createMove(moveData) }
+    if (mode === "singleplayer") { createMove(moveData) }
     if (mode === "multiplayer") {
 
       socketService.createMove(id, moveData)
