@@ -12,7 +12,7 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
-  const status = mode === "single player" ? "unfinished" : mode === "multiplayer" ? "waiting" : null
+  const status = mode === "multiplayer" ? "waiting" : "unfinished"
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
   const pieces = [{ image: "whiteKing", text: "White", }, { image: "blackKing", text: "Black", }]
