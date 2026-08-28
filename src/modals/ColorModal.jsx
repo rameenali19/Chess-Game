@@ -8,12 +8,11 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
 
-function ColorModal({ open, mode, waitingScreen, setWaitingModal, setGameId, setMode }) {
+function ColorModal({ open, mode, setWaitingModal, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
   const status = mode === "single player" ? "unfinished" : mode === "multiplayer" ? "waiting" : null
-  const [turn, setTurn] = useState(null)
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
   const pieces = [{ image: "whiteKing", text: "White", }, { image: "blackKing", text: "Black", }]
