@@ -22,7 +22,7 @@ function SidePanelNavigation({ open }) {
     },
     {
       link: "/about-me",
-      text: "About Me",
+      text: "About",
       image: "whitePerson",
       imageText: "White home image"
     },
@@ -36,7 +36,7 @@ function SidePanelNavigation({ open }) {
             <NavLink key={panel.link}
               to={panel.link}
               className={({ isActive }) =>
-                `flex items-center px-2 py-2 rounded-lg transition-all duration-200 
+                `flex items-center px-4 py-2 rounded-lg transition-all duration-200 
                   ${isActive ? "bg-[#D96B1E]" : "hover:bg-[#21485C]"
                 }`}>
               <Icon
