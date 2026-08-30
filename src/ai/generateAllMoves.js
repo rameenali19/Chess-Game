@@ -22,7 +22,7 @@ export function generateAllMoves(board, color, enpassant) {
       for (const move of possibleMoves) {
         const newBoard = movePiece(move.row, move.col, piecePosition, board, move.castle, move.enpassant)
         const kingState = isKingInCheck(newBoard, color, enpassant)
-        if (kingState) continue;
+        if (kingState.inCheck) continue;
         legalMoves.push({
           piece: piecePosition,
           source: {
