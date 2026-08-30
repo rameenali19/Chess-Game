@@ -12,6 +12,7 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
 
   if (maximizingPlayer) {
     let bestScore = - Infinity;
+    let bestMove = null;
 
     for (const move of moves) {
       const newBoard = movePiece(move.destination.row,
@@ -32,11 +33,15 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
 
       bestScore = Math.max(bestScore, score)
     }
-    return bestScore;
+    return {
+      score: bestScore,
+      move: bestMove
+    };
   }
 
   else {
     let bestScore = Infinity;
+    let bestMove = null;
 
     for (const move of moves) {
       const newBoard = movePiece(move.destination.row,
@@ -57,6 +62,9 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
 
       bestScore = Math.min(bestScore, score)
     }
-    return bestScore;
+    return {
+      score: bestScore,
+      move: bestMove
+    };
   }
 }
