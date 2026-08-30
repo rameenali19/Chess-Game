@@ -7,4 +7,6 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
   if (depth === 0) {
     return evaluateBoard(board, aiColor)
   }
+
+  const moves = generateAllMoves(board, currentColor, enPassant)
 }
