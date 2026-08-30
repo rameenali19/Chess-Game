@@ -9,6 +9,7 @@ import { pieceImages } from "../chess/constants";
 import { stalemateLogic } from "../chess/stalemateLogic";
 import ApiChess from "../api/apiChess";
 import socketService from "../socket/socketService";
+import { bestMove } from "../ai/bestMove";
 
 export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemate, setStalemate, id, userColor, opponentColor, setUserColor, setOpponentColor, mode, setMode, winner, setWinner, resign, setResign, endReason, setEndReason, setMoveHistory }) {
 
