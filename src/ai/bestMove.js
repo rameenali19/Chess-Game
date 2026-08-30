@@ -9,4 +9,5 @@ export function bestMove(board, aiColor, enPassant) {
     aiColor,
     enPassant
   )
+  return bestMove;
 }
