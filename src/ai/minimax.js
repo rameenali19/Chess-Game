@@ -24,14 +24,17 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
 
       const nextColor = currentColor === "White" ? "Black" : "White";
 
-      const score = minimax(newBoard,
+      const result = minimax(newBoard,
         depth - 1,
         false,
         nextColor,
         aiColor,
         enPassant)
 
-      bestScore = Math.max(bestScore, score)
+      if (result.score > bestScore) {
+        bestScore = result.score;
+        bestMove = move;
+      }
     }
     return {
       score: bestScore,
@@ -53,14 +56,17 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
 
       const nextColor = currentColor === "White" ? "Black" : "White";
 
-      const score = minimax(newBoard,
+      const result = minimax(newBoard,
         depth - 1,
         true,
         nextColor,
         aiColor,
         enPassant)
 
-      bestScore = Math.min(bestScore, score)
+      if (result.score < bestScore) {
+        bestScore = result.score;
+        bestMove = move;
+      }
     }
     return {
       score: bestScore,
