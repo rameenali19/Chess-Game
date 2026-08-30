@@ -9,4 +9,29 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
   }
 
   const moves = generateAllMoves(board, currentColor, enPassant)
+
+  if (maximizingPlayer) {
+    let bestScore = - Infinity;
+
+    for (const move of moves) {
+      const newBoard = movePiece(move.destination.row,
+        move.destination.col,
+        move.piece,
+        board,
+        move.destination.castle,
+        move.destination.enPassant)
+
+      const nextColor = currentColor === "White" ? "Black" : "White";
+
+      const score = minimax(board,
+        depth - 1,
+        false,
+        nextColor,
+        aiColor,
+        enPassant)
+
+      bestScore = Math.max(bestScore, score)
+    }
+    return bestScore;
+  }
 }
