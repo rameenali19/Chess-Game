@@ -130,6 +130,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
         <Button
           text={continueButton.text}
+          fontWeight="normal"
           variant={continueButton.variant}
           onClick={() => {
             if (game.mode === "multiplayer" &&
@@ -145,7 +146,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             }
             navigate(`/game/${game.id}`)
           }}
-          className="w-33 h-12"
+          className="w-33 h-11 tracking-wider"
         />
 
         <Button
