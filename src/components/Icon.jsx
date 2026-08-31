@@ -20,6 +20,7 @@ import doorIcon from '../assets/Icons/door.png'
 import crownIcon from '../assets/Icons/crown.png'
 import chessboardIcon from '../assets/Icons/chessboard.png'
 import calendarIcon from '../assets/Icons/calendar.png'
+import redSingleplayerButtonIcon from '../assets/Icons/red-singleplayer-button.pngs'
 import bulbIcon from '../assets/Icons/bulb.png'
 import whitePersonIcon from '../assets/Icons/white-person.png'
 import bookIcon from '../assets/Icons/book.png'
@@ -54,6 +55,7 @@ const iconMap = {
   singlePlayer: singlePlayerIcon,
   sandClock: sandClockIcon,
   reload: reloadIcon,
+  redSingleplayerButton: redSingleplayerButtonIcon,
   redCross: redCrossIcon,
   pending: pendingIcon,
   multiplayer: multiplayerIcon,
