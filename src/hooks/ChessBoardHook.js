@@ -169,7 +169,9 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       applyMove(aiMove.piece,
         aiMove.destination,
         aiMove.destination.row,
-        aiMove.destination.col)
+        aiMove.destination.col,
+        true
+      )
     }, 500);
   }, [turn])
 
@@ -192,7 +194,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   }
 
 
-  function applyMove(selectedPiece, selectedMove, rowIndex, colIndex) {
+  function applyMove(selectedPiece, selectedMove, rowIndex, colIndex, aiPromotion = false) {
 
     const updatedBoard = movePiece(rowIndex, colIndex, selectedPiece, board,
       selectedMove?.castle, selectedMove?.enPassant);
