@@ -37,6 +37,20 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
           type: "Queen",
         }
       }
+
+      let newEnpassant = null;
+
+      if (
+        move.piece.type === "Pawn" &&
+        Math.abs(move.piece.row - move.destination.row) === 2
+      ) {
+        newEnpassant = {
+          row: move.destination.row,
+          col: move.destination.col,
+          color: move.piece.color
+        };
+      }
+
       const nextColor = currentColor === "White" ? "Black" : "White";
 
       const result = minimax(newBoard,
@@ -44,7 +58,7 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         false,
         nextColor,
         aiColor,
-        enPassant)
+        newEnpassant)
 
       if (result.score > bestScore) {
         bestScore = result.score;
@@ -82,6 +96,18 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
           type: "Queen",
         }
       }
+      let newEnpassant = null;
+
+      if (
+        move.piece.type === "Pawn" &&
+        Math.abs(move.piece.row - move.destination.row) === 2
+      ) {
+        newEnpassant = {
+          row: move.destination.row,
+          col: move.destination.col,
+          color: move.piece.color
+        };
+      }
 
       const nextColor = currentColor === "White" ? "Black" : "White";
 
@@ -90,7 +116,7 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         true,
         nextColor,
         aiColor,
-        enPassant)
+        newEnpassant)
 
       if (result.score < bestScore) {
         bestScore = result.score;
