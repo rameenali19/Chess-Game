@@ -173,6 +173,88 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   }
 
 
+  function applyMove(selectedPiece, selectedMove, rowIndex, colIndex) {
+
+    const updatedBoard = movePiece(rowIndex, colIndex, selectedPiece, board,
+      selectedMove?.castle, selectedMove?.enPassant);
+    const selfCheck = isKingInCheck(updatedBoard, turn, enPassant.current)
+
+    if (selfCheck.inCheck) {
+      setSelectedPiece(null);
+      setMoves([]);
+      return;
+    }
+    moveLogger(
+      selectedPiece.row,
+      selectedPiece.col,
+      rowIndex,
+      colIndex
+    );
+
+    const nextTurn = turn === "White" ? "Black" : "White";
+    if (
+      selectedPiece.type === "Pawn" &&
+      (
+        (selectedPiece.color === "White" && rowIndex === 0) ||
+        (selectedPiece.color === "Black" && rowIndex === 7)
+      )
+    ) {
+      const p = {
+        row: rowIndex,
+        col: colIndex,
+      };
+      setPromotion(p);
+      setBoard(updatedBoard);
+      setSelectedPiece(null);
+      setMoves([]);
+      return;
+    }
+
+    if (
+      selectedPiece.type === "Pawn" &&
+      Math.abs(selectedPiece.row - rowIndex) === 2
+    ) {
+      enPassant.current = {
+        row: rowIndex,
+        col: colIndex,
+        color: selectedPiece.color
+      };
+    }
+    else {
+      enPassant.current = null;
+    }
+
+
+    const opponentCheck = isKingInCheck(updatedBoard, nextTurn, enPassant.current);
+    setKingCheckState(opponentCheck);
+    setBoard(updatedBoard);
+    setSelectedPiece(null);
+    setMoves([]);
+    if (opponentCheck.inCheck) {
+      const mate = (checkmateLogic(updatedBoard, nextTurn, enPassant.current));
+      setCheckmate(mate)
+      if (mate) {
+        setWinner(turn)
+        setEndReason("checkmate");
+      }
+    }
+    else {
+      setCheckmate(false);
+    }
+
+    if (!opponentCheck.inCheck && stalemateLogic(updatedBoard, nextTurn, enPassant.current)) {
+      setWinner("Draw")
+      setStalemate(true);
+      setEndReason("stalemate");
+    }
+    else {
+      setStalemate(false);
+    }
+
+    setTurn(nextTurn);
+  }
+
+
   function handleClick(rowIndex, colIndex) {
     if (checkmate || promotion || stalemate || resign) {
       return;
@@ -186,84 +268,9 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
         move.row === rowIndex &&
         move.col === colIndex
       );
-      const updatedBoard = movePiece(rowIndex, colIndex, selectedPiece, board,
-        selectedMove?.castle, selectedMove?.enPassant);
 
-      const selfCheck = isKingInCheck(updatedBoard, turn, enPassant.current)
-
-      if (selfCheck.inCheck) {
-        setSelectedPiece(null);
-        setMoves([]);
-        return;
-      }
-      moveLogger(
-        selectedPiece.row,
-        selectedPiece.col,
-        rowIndex,
-        colIndex
-      );
-
-      const nextTurn = turn === "White" ? "Black" : "White";
-      if (
-        selectedPiece.type === "Pawn" &&
-        (
-          (selectedPiece.color === "White" && rowIndex === 0) ||
-          (selectedPiece.color === "Black" && rowIndex === 7)
-        )
-      ) {
-        const p = {
-          row: rowIndex,
-          col: colIndex,
-        };
-        setPromotion(p);
-        setBoard(updatedBoard);
-        setSelectedPiece(null);
-        setMoves([]);
-        return;
-      }
-
-      if (
-        selectedPiece.type === "Pawn" &&
-        Math.abs(selectedPiece.row - rowIndex) === 2
-      ) {
-        enPassant.current = {
-          row: rowIndex,
-          col: colIndex,
-          color: selectedPiece.color
-        };
-      }
-      else {
-        enPassant.current = null;
-      }
-
-
-      const opponentCheck = isKingInCheck(updatedBoard, nextTurn, enPassant.current);
-      setKingCheckState(opponentCheck);
-      setBoard(updatedBoard);
-      setSelectedPiece(null);
-      setMoves([]);
-      if (opponentCheck.inCheck) {
-        const mate = (checkmateLogic(updatedBoard, nextTurn, enPassant.current));
-        setCheckmate(mate)
-        if (mate) {
-          setWinner(turn)
-          setEndReason("checkmate");
-        }
-      }
-      else {
-        setCheckmate(false);
-      }
-
-      if (!opponentCheck.inCheck && stalemateLogic(updatedBoard, nextTurn, enPassant.current)) {
-        setWinner("Draw")
-        setStalemate(true);
-        setEndReason("stalemate");
-      }
-      else {
-        setStalemate(false);
-      }
-
-      setTurn(nextTurn);
+      applyMove(selectedPiece, selectedMove, rowIndex, colIndex)
+      return;
     }
     selectPieceFunction(rowIndex, colIndex);
   }
@@ -286,6 +293,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     const generatedMoves = generateMoves(newSelectedPiece, board, enPassant.current);
     setMoves(generatedMoves);
   }
+
 
   function promote(type) {
 
