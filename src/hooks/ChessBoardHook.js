@@ -155,7 +155,26 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     })
   }
 
-  function moveLogger(fromRow, fromCol, toRow, toCol) {
+
+  useEffect(() => {
+    if (mode !== "ai") return;
+    if (turn !== opponentColor) return;
+
+    const result = bestMove(board, opponentColor, enPassant.current)
+    if (!result?.move) return
+
+    const aiMove = result.move;
+
+    setTimeout(() => {
+      applyMove(aiMove.piece,
+        aiMove.destination,
+        aiMove.destination.row,
+        aiMove.destination.col)
+    }, 500);
+  }, [turn])
+
+
+  function moveLogger(selectedPiece, fromRow, fromCol, toRow, toCol) {
     const source = coordinateConversion(fromRow, fromCol)
     const destination = coordinateConversion(toRow, toCol)
     const moveData = {
@@ -185,6 +204,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       return;
     }
     moveLogger(
+      selectedPiece,
       selectedPiece.row,
       selectedPiece.col,
       rowIndex,

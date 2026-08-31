@@ -28,6 +28,11 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       image: "multiplayer",
       text: "Multiplayer Game",
       textColor: "text-[#ff8127]"
+    },
+    ai: {
+      image: "multiplayer",
+      text: "AI Bot",
+      textColor: "text-[#ff8127]"
     }
   }
   const currentMode = modeData[game.mode]
