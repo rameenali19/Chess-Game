@@ -221,15 +221,23 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
         (selectedPiece.color === "Black" && rowIndex === 7)
       )
     ) {
-      const p = {
-        row: rowIndex,
-        col: colIndex,
-      };
-      setPromotion(p);
-      setBoard(updatedBoard);
-      setSelectedPiece(null);
-      setMoves([]);
-      return;
+      if (!aiPromotion) {
+        const p = {
+          row: rowIndex,
+          col: colIndex,
+        };
+        setPromotion(p);
+        setBoard(updatedBoard);
+        setSelectedPiece(null);
+        setMoves([]);
+        return;
+      }
+      const newBoard = board.map(row => [...row]);
+      newBoard[promotion.row][promotion.col] = {
+        ...newBoard[promotion.row][promotion.col],
+        type: "Queen",
+        image: pieceImages[turn]["Queen"]
+      }
     }
 
     if (
