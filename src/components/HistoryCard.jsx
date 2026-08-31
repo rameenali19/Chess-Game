@@ -95,9 +95,9 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           className="mr-1 w-14"
         />
 
-        <div className="font-inter text-[#17384A] text-xs ">
+        <div className="font-inter text-[#17384A] text-xs">
           <h1 className="text-xl font-semibold">{currentMode.text}</h1>
-          <h1>Player color :
+          <h1 className="tracking-wider">Player color :
             <span className={` font-semibold ${currentMode.textColor}`}>
               {player?.player_color} </span>
           </h1>
