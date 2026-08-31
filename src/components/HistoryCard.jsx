@@ -111,9 +111,9 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           text={showText ? currentStatus.text : ""}
           variant={currentStatus.variant}
           fontWeight="semibold"
-          className={` ${hoverStatus? "w-37":"w-15"} flex h-15  items-center justify-center gap-2 transition-all duration-300  overflow-hidden`}
+          className={` ${hoverStatus ? "w-37" : "w-15"} flex h-12  items-center justify-center gap-2 transition-all duration-300  overflow-hidden`}
           imageName={currentStatus.image}
-          imageClassName="w-9"
+          imageClassName="w-8"
           onMouseEnter={() => {
             setHoverStatus(true)
             setTimeout(() => {
@@ -145,7 +145,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             }
             navigate(`/game/${game.id}`)
           }}
-          className="w-33 h-11"
+          className="w-33 h-12"
         />
 
         <Button
@@ -157,7 +157,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           }}
           onMouseEnter={() => { setHoverDelete(true) }}
           onMouseLeave={() => { setHoverDelete(false) }}
-          className="w-15 h-10 flex justify-center items-center"
+          className="w-15 h-12 flex justify-center items-center"
           imageName={!hoverDelete ? "dustbinClose" : "dustbinOpen"}
           imageClassName="w-6 h-5"
         />
