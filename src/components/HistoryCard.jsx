@@ -118,7 +118,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             setHoverStatus(true)
             setTimeout(() => {
               setShowText(true)
-            }, 200);
+            }, 100);
           }}
           onMouseLeave={() => {
             setHoverStatus(false)
