@@ -32,7 +32,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
     ai: {
       image: "blueButton",
       text: "AI Bot",
-      textColor: "text-[#ff8127]"
+      textColor: "text-[#443496]"
     }
   }
   const currentMode = modeData[game.mode]
