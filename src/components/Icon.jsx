@@ -2,12 +2,10 @@ import trophyIcon from '../assets/Icons/trophy.png'
 import statusWinIcon from '../assets/Icons/status-win.png'
 import statusWinRateIcon from '../assets/Icons/status-win-rate.png'
 import statuControllerIcon from '../assets/Icons/status-controller.png'
-import singlePlayerIcon from '../assets/Icons/single-player.png'
 import sandClockIcon from '../assets/Icons/sand-clock.png'
 import reloadIcon from '../assets/Icons/reload.png'
 import redCrossIcon from '../assets/Icons/red-cross.png'
 import pendingIcon from '../assets/Icons/pending.png'
-import multiplayerIcon from '../assets/Icons/multiplayer.png'
 import moveLogIcon from '../assets/Icons/move-log.png'
 import logoChessIcon from '../assets/Icons/logo-chess-piece.png'
 import greenTrophyIcon from '../assets/Icons/green-trophy.png'
@@ -52,13 +50,11 @@ const iconMap = {
   statusWin: statusWinIcon,
   statusWinRate: statusWinRateIcon,
   statuController: statuControllerIcon,
-  singlePlayer: singlePlayerIcon,
   sandClock: sandClockIcon,
   reload: reloadIcon,
-  redPlayerIcon: redPlayer,
+  redPlayer: redPlayerIcon,
   redCross: redCrossIcon,
   pending: pendingIcon,
-  multiplayer: multiplayerIcon,
   whiteFlag: whiteFlagIcon,
   moveLog: moveLogIcon,
   logoChess: logoChessIcon,
