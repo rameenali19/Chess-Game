@@ -7,7 +7,7 @@ import Icon from "./Icon";
 function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const [player, setPlayer] = useState(null)
   const navigate = useNavigate();
-  const [hover, setHover] = useState(true)
+  const [hover, setHover] = useState(false)
 
   useEffect(() => {
     async function getPlayer() {
@@ -51,7 +51,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
     },
     unfinished: {
       variant: "pending",
-      text: "In Progress",
+      text: "Ongoing",
       image: "pending"
     }
   }
@@ -83,7 +83,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
   return (
     <div className=" bg-[#FFF7EA] shadow-sm border border-[#E8DCC7]
-         hover:shadow-md hover:-translate-y-0.5 transition h-25
+         hover:shadow-md h-25
           flex items-center text-xl rounded-lg justify-between px-5" >
 
       <div className="flex items-center gap-2">
@@ -106,12 +106,14 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       <div className="flex gap-5 font-inter text-sm font-semibold items-center">
 
         <Button
-          text={currentStatus.text}
+          text={hover ? currentStatus.text : ""}
           variant={currentStatus.variant}
           fontWeight="semibold"
-          className="flex w-37 h-15  items-center justify-center gap-2"
+          className={` ${hover && "w-37"} flex w-20 h-15  items-center justify-center gap-2 transition-all duration-500`}
           imageName={currentStatus.image}
           imageClassName="w-9"
+          onMouseEnter={() => { setHover(true) }}
+          onMouseLeave={() => { setHover(false) }}
         />
 
         <Button
@@ -141,10 +143,10 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             setDeleteModal(true)
             setSelectedGameId(game.id)
           }}
-          onMouseEnter={() => { setHover(false) }}
-          onMouseLeave={() => { setHover(true) }}
+          onMouseEnter={() => { setHover(true) }}
+          onMouseLeave={() => { setHover(false) }}
           className="w-15 h-10 flex justify-center items-center"
-          imageName={hover ? "dustbinClose" : "dustbinOpen"}
+          imageName={!hover ? "dustbinClose" : "dustbinOpen"}
           imageClassName="w-6 h-5"
         />
 
