@@ -24,6 +24,19 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         move.destination.castle,
         move.destination.enPassant)
 
+      if (
+        move.piece.type === "Pawn" &&
+        (
+          (move.piece.color === "White" && move.destination.row === 0) ||
+          (move.piece.color === "Black" && move.destination.row === 7)
+        )
+      ) {
+
+        newBoard[move.destination.row][move.destination.col] = {
+          ...newBoard[move.destination.row][move.destination.col],
+          type: "Queen",
+        }
+      }
       const nextColor = currentColor === "White" ? "Black" : "White";
 
       const result = minimax(newBoard,
@@ -55,6 +68,20 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         board,
         move.destination.castle,
         move.destination.enPassant)
+
+      if (
+        move.piece.type === "Pawn" &&
+        (
+          (move.piece.color === "White" && move.destination.row === 0) ||
+          (move.piece.color === "Black" && move.destination.row === 7)
+        )
+      ) {
+
+        newBoard[move.destination.row][move.destination.col] = {
+          ...newBoard[move.destination.row][move.destination.col],
+          type: "Queen",
+        }
+      }
 
       const nextColor = currentColor === "White" ? "Black" : "White";
 
