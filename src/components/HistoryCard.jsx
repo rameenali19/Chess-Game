@@ -124,7 +124,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             setHoverStatus(false)
             setTimeout(() => {
               setShowText(false)
-            }, 200);
+            }, 100);
           }}
         />
 
