@@ -90,7 +90,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
         <Icon
           name={currentMode.image} s
-          className="mr-1 w-12"
+          className="mr-1 w-15"
         />
 
         <div className="font-inter text-[#17384A] text-xs ">
