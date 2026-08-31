@@ -38,13 +38,13 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         }
       }
 
-      let newEnpassant = null;
+      let newEnPassant = null;
 
       if (
         move.piece.type === "Pawn" &&
         Math.abs(move.piece.row - move.destination.row) === 2
       ) {
-        newEnpassant = {
+        newEnPassant = {
           row: move.destination.row,
           col: move.destination.col,
           color: move.piece.color
@@ -58,7 +58,7 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         false,
         nextColor,
         aiColor,
-        newEnpassant)
+        newEnPassant)
 
       if (result.score > bestScore) {
         bestScore = result.score;
@@ -96,13 +96,13 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
           type: "Queen",
         }
       }
-      let newEnpassant = null;
+      let newEnPassant = null;
 
       if (
         move.piece.type === "Pawn" &&
         Math.abs(move.piece.row - move.destination.row) === 2
       ) {
-        newEnpassant = {
+        newEnPassant = {
           row: move.destination.row,
           col: move.destination.col,
           color: move.piece.color
@@ -116,7 +116,7 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         true,
         nextColor,
         aiColor,
-        newEnpassant)
+        newEnPassant)
 
       if (result.score < bestScore) {
         bestScore = result.score;
