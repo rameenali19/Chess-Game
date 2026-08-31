@@ -232,11 +232,11 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
         setMoves([]);
         return;
       }
-      const newBoard = board.map(row => [...row]);
-      newBoard[promotion.row][promotion.col] = {
-        ...newBoard[promotion.row][promotion.col],
+
+      updatedBoard[rowIndex][colIndex] = {
+        ...updatedBoard[rowIndex][colIndex],
         type: "Queen",
-        image: pieceImages[turn]["Queen"]
+        image: pieceImages[selectedPiece.color]["Queen"]
       }
     }
 
