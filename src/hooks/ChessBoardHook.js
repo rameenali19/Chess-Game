@@ -130,7 +130,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       winner: checkmate || stalemate || resign ? winner : null,
       endReason: resign ? "resignation" : checkmate ? "checkmate" : stalemate ? "stalemate" : null
     }
-    if (mode === "singleplayer") { updateGame(gameData) }
+    if (mode === "singleplayer" || mode === "ai") { updateGame(gameData) }
     if (mode === "multiplayer") {
 
       socketService.updateGame(id, gameData)
