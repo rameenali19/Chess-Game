@@ -172,7 +172,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
         aiMove.destination.col,
         true
       )
-    }, 500);
+    }, 1000);
   }, [turn])
 
 
