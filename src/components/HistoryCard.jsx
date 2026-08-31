@@ -92,7 +92,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
         <Icon
           name={currentMode.image}
-          className="mr-1 w-15"
+          className="mr-1 w-14"
         />
 
         <div className="font-inter text-[#17384A] text-xs ">
@@ -111,9 +111,9 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
           text={showText ? currentStatus.text : ""}
           variant={currentStatus.variant}
           fontWeight="semibold"
-          className={` ${hoverStatus && "w-37"} flex w-20 h-15  items-center justify-center gap-2 transition-all duration-500  overflow-hidden`}
+          className={` ${hoverStatus? "w-37":"w-15"} flex h-15  items-center justify-center gap-2 transition-all duration-300  overflow-hidden`}
           imageName={currentStatus.image}
-          imageClassName="w-10"
+          imageClassName="w-9"
           onMouseEnter={() => {
             setHoverStatus(true)
             setTimeout(() => {
