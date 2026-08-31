@@ -7,7 +7,8 @@ import Icon from "./Icon";
 function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const [player, setPlayer] = useState(null)
   const navigate = useNavigate();
-  const [hover, setHover] = useState(false)
+  const [hoverDelete, setHoverDelete] = useState(false)
+  const [hoverStatus, setHoverStatus] = useState(false)
 
   useEffect(() => {
     async function getPlayer() {
@@ -89,7 +90,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       <div className="flex items-center gap-2">
 
         <Icon
-          name={currentMode.image} s
+          name={currentMode.image}
           className="mr-1 w-15"
         />
 
@@ -106,14 +107,14 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       <div className="flex gap-5 font-inter text-sm font-semibold items-center">
 
         <Button
-          text={hover ? currentStatus.text : ""}
+          text={hoverStatus ? currentStatus.text : ""}
           variant={currentStatus.variant}
           fontWeight="semibold"
-          className={` ${hover && "w-37"} flex w-20 h-15  items-center justify-center gap-2 transition-all duration-500`}
+          className={` ${hoverStatus && "w-37"} flex w-20 h-15  items-center justify-center gap-2 transition-all duration-500  overflow-hidden`}
           imageName={currentStatus.image}
-          imageClassName="w-9"
-          onMouseEnter={() => { setHover(true) }}
-          onMouseLeave={() => { setHover(false) }}
+          imageClassName="w-10"
+          onMouseEnter={() => { setHoverStatus(true) }}
+          onMouseLeave={() => { setHoverStatus(false) }}
         />
 
         <Button
@@ -143,10 +144,10 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
             setDeleteModal(true)
             setSelectedGameId(game.id)
           }}
-          onMouseEnter={() => { setHover(true) }}
-          onMouseLeave={() => { setHover(false) }}
+          onMouseEnter={() => { setHoverDelete(true) }}
+          onMouseLeave={() => { setHoverDelete(false) }}
           className="w-15 h-10 flex justify-center items-center"
-          imageName={!hover ? "dustbinClose" : "dustbinOpen"}
+          imageName={!hoverDelete ? "dustbinClose" : "dustbinOpen"}
           imageClassName="w-6 h-5"
         />
 
