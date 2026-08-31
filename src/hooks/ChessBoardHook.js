@@ -165,7 +165,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       destination: destination,
     }
     setMoveHistory(prev => [...prev, moveData])
-    if (mode === "singleplayer") { createMove(moveData) }
+    if (mode === "singleplayer" || mode === "ai") { createMove(moveData) }
     if (mode === "multiplayer") {
 
       socketService.createMove(id, moveData)
