@@ -20,7 +20,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
 
   const modeData = {
     singleplayer: {
-      image: "greenButton",
+      image: "redSingleplayerButton",
       text: "Single Player Game",
       textColor: "text-[#eb1603]"
     },
