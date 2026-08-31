@@ -5,7 +5,7 @@ export function bestMove(board, aiColor, enPassant) {
   const beta = Infinity;
   const bestMove = minimax(
     board,
-    2,
+    5,
     true,
     aiColor,
     aiColor,

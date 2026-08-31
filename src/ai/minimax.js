@@ -2,7 +2,7 @@ import { generateAllMoves } from "./generateAllMoves";
 import { evaluateBoard } from "./evaluateBoard";
 import { movePiece } from "../chess/movePiece";
 
-export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, enPassant) {
+export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, enPassant, alpha, beta) {
 
   if (depth === 0) {
     return {
@@ -58,11 +58,19 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         false,
         nextColor,
         aiColor,
-        newEnPassant)
+        newEnPassant,
+        alpha,
+        beta
+      )
 
       if (result.score > bestScore) {
         bestScore = result.score;
         bestMove = move;
+      }
+      alpha = Math.max(alpha, bestScore);
+
+      if (beta <= alpha) {
+        break;
       }
     }
     return {
@@ -116,11 +124,20 @@ export function minimax(board, depth, maximizingPlayer, currentColor, aiColor, e
         true,
         nextColor,
         aiColor,
-        newEnPassant)
+        newEnPassant,
+        alpha,
+        beta
+      )
 
       if (result.score < bestScore) {
         bestScore = result.score;
         bestMove = move;
+      }
+
+      beta = Math.min(beta, bestScore);
+
+      if (beta <= alpha) {
+        break;
       }
     }
     return {
