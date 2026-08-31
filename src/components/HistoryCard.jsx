@@ -9,6 +9,7 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
   const navigate = useNavigate();
   const [hoverDelete, setHoverDelete] = useState(false)
   const [hoverStatus, setHoverStatus] = useState(false)
+  const [showText, setShowText] = useState(false)
 
   useEffect(() => {
     async function getPlayer() {
@@ -107,14 +108,24 @@ function HistoryCard({ game, setDeleteModal, setSelectedGameId, guestId }) {
       <div className="flex gap-5 font-inter text-sm font-semibold items-center">
 
         <Button
-          text={hoverStatus ? currentStatus.text : ""}
+          text={showText ? currentStatus.text : ""}
           variant={currentStatus.variant}
           fontWeight="semibold"
           className={` ${hoverStatus && "w-37"} flex w-20 h-15  items-center justify-center gap-2 transition-all duration-500  overflow-hidden`}
           imageName={currentStatus.image}
           imageClassName="w-10"
-          onMouseEnter={() => { setHoverStatus(true) }}
-          onMouseLeave={() => { setHoverStatus(false) }}
+          onMouseEnter={() => {
+            setHoverStatus(true)
+            setTimeout(() => {
+              setShowText(true)
+            }, 200);
+          }}
+          onMouseLeave={() => {
+            setHoverStatus(false)
+            setTimeout(() => {
+              setShowText(false)
+            }, 200);
+          }}
         />
 
         <Button
