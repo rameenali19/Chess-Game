@@ -57,7 +57,7 @@ function Button({
   }
 
   const baseButtonStyle =
-    "transition hover:cursor-pointer hover:scale-105 hover:opacity-85 font-inter";
+    "transition hover:cursor-pointer hover:scale-105 hover:opacity-85 font-inter tracking-wider";
 
 
   const className = [
