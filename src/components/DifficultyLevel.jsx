@@ -55,7 +55,7 @@ function DifficultyLevel() {
                 style={{ backgroundColor: game.divColor }}>
                 <Icon
                   name={game.image}
-                  className="w-7"
+                  className="w-6"
                 />
               </div>
               <div >
