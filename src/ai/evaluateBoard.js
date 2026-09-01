@@ -22,7 +22,7 @@ const whitePawn = [
 const blackPawn = [...whitePawn].reverse();
 
 
-const knightEval = [
+const knight = [
   [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0],
   [-4.0, -2.0, 0.0, 0.0, 0.0, 0.0, -2.0, -4.0],
   [-3.0, 0.0, 1.0, 1.5, 1.5, 1.0, 0.0, -3.0],
@@ -97,7 +97,7 @@ function getPositionValue(piece, row, col) {
         : blackPawn[row][col];
 
     case "Knight":
-      return knightEval[row][col];
+      return knight[row][col];
 
     case "Bishop":
       return piece.color === "White"
