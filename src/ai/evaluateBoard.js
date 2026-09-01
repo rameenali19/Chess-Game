@@ -62,7 +62,7 @@ const whiteRook = [
 const blackRook = [...whiteRook].reverse();
 
 
-const evalQueen = [
+const queen = [
   [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0],
   [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
   [-1.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
@@ -110,7 +110,7 @@ function getPositionValue(piece, row, col) {
         : blackRook[row][col];
 
     case "Queen":
-      return evalQueen[row][col];
+      return queen[row][col];
 
     case "King":
       return piece.color === "White"
