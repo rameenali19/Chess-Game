@@ -15,6 +15,7 @@ function ModeSelectionPage() {
   const navigate = useNavigate()
   const [waitingModal, setWaitingModal] = useState(null)
   const [difficultyLevel, setDifficultyLevel] = useState(null)
+  const [difficultyModal, setDifficultyModal] = useState(false)
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const { guestId } = useContext(UserContext);
@@ -23,7 +24,7 @@ function ModeSelectionPage() {
   const colorModalCondition = guestId && mode !== "join" && mode !== null && !waitingModal
   const waitingModalCondition = mode === "multiplayer" && mode !== null && guestId && waitingModal
   const joinModalCondition = guestId && mode === "join" && mode !== null
-  const difficultyModalCondition = guestId && mode === "ai" && difficultyLevel;
+  const difficultyModalCondition = guestId && mode === "ai" && difficultyModal;
 
   useEffect(() => {
     function playerJoinedHandle(data) {
@@ -67,7 +68,7 @@ function ModeSelectionPage() {
         <ColorModal
           open={colorModalCondition}
           mode={mode}
-          waitingModal={waitingModal}
+          setDifficultyModal={setDifficultyModal}
           setWaitingModal={setWaitingModal}
           setGameId={setGameId}
           setMode={setMode}
