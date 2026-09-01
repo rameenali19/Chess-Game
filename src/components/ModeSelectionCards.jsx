@@ -68,7 +68,7 @@ function ModeSelectionCards({ setMode, setDifficultyModal }) {
                 <h1 className="font-bold"
                   style={{ color: game.textColor }}>
                   {game.title}</h1>
-                <h1 className="text-gray-700 text-xs">{game.line1}<br />
+                <h1 className="text-gray-700 text-xs tracking-wider">{game.line1}<br />
                   {game.line2}</h1>
               </div>
 
