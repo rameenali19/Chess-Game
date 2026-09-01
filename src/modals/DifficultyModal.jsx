@@ -5,7 +5,7 @@ function DifficultyModal({ open }) {
 
   return (
     <Modal open={open}
-      className="h-90 w-140">
+      className="h-80 w-110">
 
     </Modal>
   )

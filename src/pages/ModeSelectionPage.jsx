@@ -21,7 +21,7 @@ function ModeSelectionPage() {
   const { guestId } = useContext(UserContext);
   const [gameId, setGameId] = useState(null)
   const welcomeCondition = !guestId
-  const colorModalCondition = guestId && mode !== "join" && mode !== null && !waitingModal
+  const colorModalCondition = guestId && mode !== "join" && mode !== null && !waitingModal && !difficultyModal
   const waitingModalCondition = mode === "multiplayer" && mode !== null && guestId && waitingModal
   const joinModalCondition = guestId && mode === "join" && mode !== null
   const difficultyModalCondition = guestId && mode === "ai" && difficultyModal;
