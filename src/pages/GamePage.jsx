@@ -55,7 +55,9 @@ function GamePage() {
 
   useEffect(() => {
     if (!winner) return
-    setGameOver(true)
+    setTimeout(() => {
+      setGameOver(true)
+    }, 1500);
   }, [winner])
 
   useEffect(() => {
