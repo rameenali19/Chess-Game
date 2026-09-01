@@ -29,6 +29,8 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
             textSize="small"
             fontWeight="medium"
             onClick={() => {
+              setMode("ai")
+              setDifficultyModal(false)
             }}
             className={`w-27 h-8 mr-1`}
           />
