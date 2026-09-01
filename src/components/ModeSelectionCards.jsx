@@ -1,7 +1,7 @@
 import Button from "./Button"
 import Icon from "./Icon"
 
-function ModeSelectionCards({ setMode }) {
+function ModeSelectionCards({ setMode, setDifficultyModal }) {
   const button = [
     {
       image: "greenButton",
@@ -62,7 +62,7 @@ function ModeSelectionCards({ setMode }) {
               style={{ borderColor: game.borderColor }}>
               <Icon
                 name={game.image}
-               className="w-18"
+                className="w-18"
               />
               <div >
                 <h1 className="font-bold"
@@ -77,7 +77,12 @@ function ModeSelectionCards({ setMode }) {
                 text={game.buttonText}
                 textSize="small"
                 fontWeight="medium"
-                onClick={() => setMode(game.mode)}
+                onClick={() => {
+                  setMode(game.mode)
+                  if (game.mode === "ai") {
+                    setDifficultyModal(true)
+                  }
+                }}
                 className={`w-27 h-9 mr-1`}
               />
 

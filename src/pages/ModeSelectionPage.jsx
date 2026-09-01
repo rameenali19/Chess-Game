@@ -54,6 +54,7 @@ function ModeSelectionPage() {
 
         <GameModeSelection
           setMode={setMode}
+          setDifficultyModal={setDifficultyModal}
         />
 
       </div>
@@ -68,7 +69,6 @@ function ModeSelectionPage() {
         <ColorModal
           open={colorModalCondition}
           mode={mode}
-          setDifficultyModal={setDifficultyModal}
           setWaitingModal={setWaitingModal}
           setGameId={setGameId}
           setMode={setMode}

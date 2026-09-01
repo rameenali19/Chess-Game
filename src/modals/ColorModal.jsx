@@ -8,7 +8,7 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
 
-function ColorModal({ open, mode, setDifficultyModal, setWaitingModal, setGameId, setMode }) {
+function ColorModal({ open, mode, setWaitingModal, setGameId, setMode }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -41,10 +41,6 @@ function ColorModal({ open, mode, setDifficultyModal, setWaitingModal, setGameId
     if (mode === "multiplayer") {
       socketService.joinGame(newGameId)
       setWaitingModal(true)
-    }
-
-    if (mode === "ai") {
-      setDifficultyModal(true)
     }
     else {
       navigate(`/game/${newGameId}`)

@@ -1,7 +1,7 @@
 import ModeSelectionCards from "./ModeSelectionCards";
 import Icon from "./Icon";
 
-function GameModeSelection({ setMode }) {
+function GameModeSelection({ setMode, setDifficultyModal }) {
   return (
     <div>
       <div className="flex gap-2 items-center justify-center">
@@ -14,7 +14,9 @@ function GameModeSelection({ setMode }) {
       </div>
       <div className="flex flex-col gap-3 mt-3" >
         <ModeSelectionCards
-          setMode={setMode} />
+          setMode={setMode}
+          setDifficultyModal={setDifficultyModal}
+        />
       </div>
     </div>
 
