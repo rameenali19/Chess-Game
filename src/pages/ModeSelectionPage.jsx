@@ -95,6 +95,9 @@ function ModeSelectionPage() {
       {difficultyModalCondition && (
         <DifficultyModal
           open={difficultyModalCondition}
+          setDifficultyModal={setDifficultyModal}
+          setMode={setMode}
+          setDifficultyLevel={setDifficultyLevel}
         />
       )
 

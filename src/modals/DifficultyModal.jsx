@@ -1,6 +1,6 @@
 import Modal from "../components/Modal";
 
-function DifficultyModal({ open }) {
+function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel }) {
 
 
   return (
