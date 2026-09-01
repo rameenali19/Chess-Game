@@ -44,6 +44,10 @@ import blackQueenIcon from '../assets/Icons/black-queen.png'
 import bluePlayerIcon from '../assets/Icons/blue-player.png'
 import whiteFlagIcon from '../assets/Icons/white-flag.png'
 import openIcon from '../assets/Icons/open.png'
+import greenPawnIcon from '../assets/Icons/green-pawn.png'
+import orangeRookIcon from '../assets/Icons/orange-rook.png'
+import yellowKnightIcon from '../assets/Icons/yellow-knight.png'
+import redQueenIcon from '../assets/Icons/red-queen.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -91,7 +95,11 @@ const iconMap = {
   blackBishop: blackBishopIcon,
   blackKnight: blackKnightIcon,
   blackRook: blackRookIcon,
-  blackQueen: blackQueenIcon
+  blackQueen: blackQueenIcon,
+  greenPawn: greenButtonIcon,
+  orangeRook: orangeButtonIcon,
+  yellowKnight: yellowKnightIcon,
+  redQueen: redQueenIcon
 }
 
 function Icon({
