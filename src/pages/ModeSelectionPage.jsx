@@ -8,12 +8,13 @@ import { UserContext } from "../context/UserContext";
 import GameModeSelection from "../components/GameModeSelection";
 import ChessboardPreview from "../components/ChessboardPreview";
 import socketService from "../socket/socketService";
+import DifficultyModal from "../modals/DifficultyModal";
 
 function ModeSelectionPage() {
 
   const navigate = useNavigate()
   const [waitingModal, setWaitingModal] = useState(null)
-  const [difficulty, setDifficulty] = useState(null)
+  const [difficultyLevel, setDifficultyLevel] = useState(null)
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const { guestId } = useContext(UserContext);
@@ -22,7 +23,7 @@ function ModeSelectionPage() {
   const colorModalCondition = guestId && mode !== "join" && mode !== null && !waitingModal
   const waitingModalCondition = mode === "multiplayer" && mode !== null && guestId && waitingModal
   const joinModalCondition = guestId && mode === "join" && mode !== null
-  const difficultyModalCondition = guestId && mode === "ai" && difficulty;
+  const difficultyModalCondition = guestId && mode === "ai" && difficultyLevel;
 
   useEffect(() => {
     function playerJoinedHandle(data) {
@@ -89,6 +90,14 @@ function ModeSelectionPage() {
           setMode={setMode}
         />
       )}
+
+      {difficultyModalCondition && (
+        <DifficultyModal
+          open={difficultyModalCondition}
+        />
+      )
+
+      }
     </>
   )
 }
