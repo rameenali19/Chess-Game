@@ -41,7 +41,9 @@ function Button({
     leave:
       "bg-[#ff8127] text-white border-2 border-[#ff8127] rounded-lg",
     wait:
-      "text-[#ff8127] border-2 border-[#ff8127] rounded-lg"
+      "text-[#ff8127] border-2 border-[#ff8127] rounded-lg",
+    cross:
+      "text-[#5A432B] ring-1 ring-[#E8D7B8] rounded-full"
   };
 
   const fontWeights = {
