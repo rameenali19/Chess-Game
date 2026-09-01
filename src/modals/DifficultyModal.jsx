@@ -1,4 +1,6 @@
 import Modal from "../components/Modal";
+import Icon from "../components/Icon";
+import Button from "../components/Button";
 
 function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel }) {
 
