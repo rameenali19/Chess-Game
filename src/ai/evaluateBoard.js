@@ -74,7 +74,7 @@ const queen = [
 ];
 
 
-const kingEvalWhite = [
+const whiteKing = [
   [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
   [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
   [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
@@ -85,7 +85,7 @@ const kingEvalWhite = [
   [2.0, 3.0, 1.0, 0.0, 0.0, 1.0, 3.0, 2.0]
 ];
 
-const kingEvalBlack = [...kingEvalWhite].reverse();
+const blackKing = [...whiteKing].reverse();
 
 function getPositionValue(piece, row, col) {
 
@@ -114,8 +114,8 @@ function getPositionValue(piece, row, col) {
 
     case "King":
       return piece.color === "White"
-        ? kingEvalWhite[row][col]
-        : kingEvalBlack[row][col];
+        ? whiteKing[row][col]
+        : blackKing[row][col];
 
     default:
       return 0;
