@@ -34,7 +34,7 @@ const knight = [
 ];
 
 
-const bishopEvalWhite = [
+const whiteBishop = [
   [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0],
   [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
   [-1.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, -1.0],
@@ -45,7 +45,7 @@ const bishopEvalWhite = [
   [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0]
 ];
 
-const bishopEvalBlack = [...bishopEvalWhite].reverse();
+const blackBishop = [...whiteBishop].reverse();
 
 
 const rookEvalWhite = [
@@ -101,8 +101,8 @@ function getPositionValue(piece, row, col) {
 
     case "Bishop":
       return piece.color === "White"
-        ? bishopEvalWhite[row][col]
-        : bishopEvalBlack[row][col];
+        ? whiteBishop[row][col]
+        : blackBishop[row][col];
 
     case "Rook":
       return piece.color === "White"
