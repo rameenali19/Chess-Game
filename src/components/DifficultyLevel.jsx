@@ -1,3 +1,5 @@
+import Icon from "./Icon";
+
 function DifficultyLevel() {
 
   const levels = [
@@ -9,7 +11,6 @@ function DifficultyLevel() {
       divColor: "#E8F0E2",
       textColor: "#35843C",
       borderColor: "#35843C",
-      mode: "singleplayer",
     },
 
     {
@@ -20,7 +21,6 @@ function DifficultyLevel() {
       divColor: "#FFF1CC",
       textColor: "#D99A00",
       borderColor: "#D99A00",
-      mode: "multiplayer",
     },
 
     {
@@ -31,20 +31,44 @@ function DifficultyLevel() {
       divColor: "#FCE8D4",
       textColor: "#E67E00",
       borderColor: "#E67E00",
-      mode: "join",
     },
     {
-      image: "redQueens",
+      image: "redQueen",
       title: "Expert",
       line1: "For advanced players",
       line2: "seeking the ultimate test",
       divColor: "#FBE0E0",
       textColor: "#D9413A",
       borderColor: "#D9413A",
-      mode: "ai",
     }
   ]
 
+  return (
+    <>
+      {
+        levels.map((game) => {
+          return (
+            <div key={game.text}
+              className="border-2 flex h-26 w-100 rounded-lg items-center justify-around font-inter hover:-translate-y-1 transition"
+              style={{ borderColor: game.borderColor }}>
+              <Icon
+                name={game.image}
+                className="w-18"
+              />
+              <div >
+                <h1 className="font-bold"
+                  style={{ color: game.textColor }}>
+                  {game.title}</h1>
+                <h1 className="text-gray-700 text-xs tracking-wider">{game.line1}<br />
+                  {game.line2}</h1>
+              </div>
+
+            </div >
+          )
+        })
+      }
+    </>
+  )
 
 }
 export default DifficultyLevel;

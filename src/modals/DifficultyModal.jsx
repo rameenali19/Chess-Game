@@ -1,6 +1,7 @@
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
 import Button from "../components/Button";
+import DifficultyLevel from "../components/DifficultyLevel";
 
 function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel }) {
 
@@ -17,6 +18,8 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
           <h1 className="text-gray-700 text-xs tracking-wider">
             Select the difficulty level you want to play
           </h1>
+
+          <DifficultyLevel />
 
           <Button
             variant="sideBarBlue"
