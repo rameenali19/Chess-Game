@@ -40,12 +40,12 @@ class SocketService {
     this.socket.off("playerJoined", callback);
   }
 
-  onWaitingScreen(callback) {
-    this.socket.on("waitingScreen", callback);
+  onWaitingModal(callback) {
+    this.socket.on("waitingModal", callback);
   }
 
-  offWaitingScreen(callback) {
-    this.socket.off("waitingScreen", callback);
+  offWaitingModal(callback) {
+    this.socket.off("waitingModal", callback);
   }
 
   onOpponentDisconnected(callback) {

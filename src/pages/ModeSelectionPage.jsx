@@ -12,15 +12,15 @@ import socketService from "../socket/socketService";
 function ModeSelectionPage() {
 
   const navigate = useNavigate()
-  const [waitingScreen, setWaitingModal] = useState(null)
+  const [waitingModal, setWaitingModal] = useState(null)
   const location = useLocation()
   const [mode, setMode] = useState(location.state?.mode ?? null);
   const { guestId } = useContext(UserContext);
   const [gameId, setGameId] = useState(null)
   const welcomeCondition = !guestId
-  const colorScreenCondition = guestId && mode !== "join" && mode !== null && !waitingScreen
-  const waitingScreenCondition = mode === "multiplayer" && mode !== null && guestId && waitingScreen
-  const joinScreenCondition = guestId && mode === "join" && mode !== null
+  const colorModalCondition = guestId && mode !== "join" && mode !== null && !waitingModal
+  const waitingModalCondition = mode === "multiplayer" && mode !== null && guestId && waitingModal
+  const joinModalCondition = guestId && mode === "join" && mode !== null
 
   useEffect(() => {
     function playerJoinedHandle(data) {
@@ -28,16 +28,16 @@ function ModeSelectionPage() {
       navigate(`/game/${data.gameId}`)
     }
 
-    function waitingScreenHandle() {
+    function waitingModalHandle() {
       setMode("multiplayer")
       setWaitingModal(true)
     }
 
     socketService.onPlayerJoined(playerJoinedHandle);
-    socketService.onWaitingScreen(waitingScreenHandle);
+    socketService.onWaitingModal(waitingModalHandle);
 
     return () => {
-      socketService.offWaitingScreen(waitingScreenHandle);
+      socketService.offWaitingModal(waitingModalHandle);
       socketService.offPlayerJoined(playerJoinedHandle);
     }
   }, [])
@@ -60,29 +60,29 @@ function ModeSelectionPage() {
         />
       )}
 
-      {colorScreenCondition && (
+      {colorModalCondition && (
         <ColorModal
-          open={colorScreenCondition}
+          open={colorModalCondition}
           mode={mode}
-          waitingScreen={waitingScreen}
+          waitingModal={waitingModal}
           setWaitingModal={setWaitingModal}
           setGameId={setGameId}
           setMode={setMode}
         />
       )}
 
-      {waitingScreenCondition && (
+      {waitingModalCondition && (
         <WaitingModal
-          open={waitingScreenCondition}
+          open={waitingModalCondition}
           setWaitingModal={setWaitingModal}
           gameId={gameId}
           setMode={setMode}
         />
       )}
 
-      {joinScreenCondition && (
+      {joinModalCondition && (
         <JoinModal
-          open={joinScreenCondition}
+          open={joinModalCondition}
           setGameId={setGameId}
           setMode={setMode}
         />
