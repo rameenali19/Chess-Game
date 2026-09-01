@@ -96,7 +96,7 @@ const iconMap = {
   blackKnight: blackKnightIcon,
   blackRook: blackRookIcon,
   blackQueen: blackQueenIcon,
-  greenPawn: greenButtonIcon,
+  greenPawn: greenPawnIcon,
   orangeRook: orangeRookIcon,
   yellowKnight: yellowKnightIcon,
   redQueen: redQueenIcon
