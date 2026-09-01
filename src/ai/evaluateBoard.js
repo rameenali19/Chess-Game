@@ -8,7 +8,7 @@ const pieceValue = {
 };
 
 
-const pawnEvalWhite = [
+const whitePawn = [
   [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
   [5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0],
   [1.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0],
@@ -19,7 +19,7 @@ const pawnEvalWhite = [
   [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 ];
 
-const pawnEvalBlack = [...pawnEvalWhite].reverse();
+const blackPawn = [...whitePawn].reverse();
 
 
 const knightEval = [
@@ -93,8 +93,8 @@ function getPositionValue(piece, row, col) {
 
     case "Pawn":
       return piece.color === "White"
-        ? pawnEvalWhite[row][col]
-        : pawnEvalBlack[row][col];
+        ? whitePawn[row][col]
+        : blackPawn[row][col];
 
     case "Knight":
       return knightEval[row][col];
