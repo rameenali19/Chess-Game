@@ -11,9 +11,9 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
       className="h-120 w-100">
       <div className="relative flex justify-center">
 
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-5">
           <div>
-            <h1 className="font-cormorant text-2xl  font-semibold text-[#17384A] tracking-wide">
+            <h1 className="font-cormorant text-2xl  font-semibold text-[#17384A] tracking-wide mt-4">
               Choose AI Difficulty
             </h1>
             <h1 className="text-gray-700 text-xs tracking-wider">
@@ -43,7 +43,7 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
             setMode(null)
             setDifficultyModal(false)
           }}
-          className="w-6 h-6 text-center absolute right-3 top-1"
+          className="w-6 h-6 text-center absolute right-3 top-2"
         />
       </div>
 

@@ -49,12 +49,15 @@ function DifficultyLevel() {
         levels.map((game) => {
           return (
             <div key={game.text}
-              className="border-2 flex h-15 w-70 rounded-lg items-center justify-start gap-10 font-inter hover:-translate-y-1 transition"
+              className="border-2 flex h-17 w-70 rounded-lg items-center px-3 gap-7 font-inter hover:-translate-y-1 transition hover:cursor-pointer"
               style={{ borderColor: game.borderColor }}>
-              <Icon
-                name={game.image}
-                className="w-5"
-              />
+              <div className="w-12 h-12 rounded-lg flex justify-center"
+                style={{ backgroundColor: game.divColor }}>
+                <Icon
+                  name={game.image}
+                  className="w-7"
+                />
+              </div>
               <div >
                 <h1 className="font-bold"
                   style={{ color: game.textColor }}>
