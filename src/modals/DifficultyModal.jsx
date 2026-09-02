@@ -8,7 +8,7 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
 
   return (
     <Modal open={open}
-      className="h-120 w-100">
+      className="h-123 w-100">
       <div className="relative flex justify-center">
 
         <div className="flex flex-col items-center gap-4">
