@@ -52,7 +52,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       {
         levels.map((game) => {
           return (
-            <div key={game.text}
+            <div key={game.level}
               className="border-2 flex h-18 w-70 rounded-lg items-center px-3 gap-7 font-inter hover:-translate-y-1 transition hover:cursor-pointer"
               style={{ borderColor: game.borderColor }}
               onClick={() => { setDifficultyLevel(game.level) }}
