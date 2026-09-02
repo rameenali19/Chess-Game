@@ -12,7 +12,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#E8F0E2",
       textColor: "#35843C",
       borderColor: "#35843C",
-      level: "1"
+      level: 1
     },
 
     {
@@ -23,7 +23,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FFF1CC",
       textColor: "#FFC107",
       borderColor: "#FFC107",
-      level: "2"
+      level: 2
     },
 
     {
@@ -34,7 +34,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FCE8D4",
       textColor: "#ff8127",
       borderColor: "#ff8127",
-      level: "3"
+      level: 3
     },
     {
       image: "redQueen",
@@ -44,7 +44,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FBE0E0",
       textColor: "#D9413A",
       borderColor: "#D9413A",
-      level: "4"
+      level: 4
     }
   ]
 
