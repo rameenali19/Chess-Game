@@ -161,10 +161,8 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   useEffect(() => {
     if (mode !== "ai") return;
     if (turn !== opponentColor) return;
-
-    const result = bestMove(board, opponentColor, aiDifficulty, enPassant.current)
+    const result = bestMove(board, aiDifficulty, opponentColor, enPassant.current)
     if (!result?.move) return
-    console.log(aiDifficulty)
     const aiMove = result.move;
 
     setTimeout(() => {
@@ -175,7 +173,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
         true
       )
     }, 1500);
-  }, [turn])
+  }, [turn, mode, opponentColor, aiDifficulty])
 
 
   function moveLogger(selectedPiece, fromRow, fromCol, toRow, toCol) {
