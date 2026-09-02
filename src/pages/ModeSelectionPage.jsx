@@ -73,6 +73,7 @@ function ModeSelectionPage() {
           setGameId={setGameId}
           setMode={setMode}
           difficultyLevel={difficultyLevel}
+          setDifficultyLevel={setDifficultyLevel}
         />
       )}
 

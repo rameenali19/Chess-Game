@@ -8,7 +8,7 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
 
-function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficultyLevel }) {
+function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficultyLevel, setDifficultyLevel }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -100,7 +100,10 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficult
             variant="sideBarBlue"
             textSize="small"
             fontWeight="medium"
-            onClick={() => setMode(null)}
+            onClick={() => {
+              setMode(null)
+              setDifficultyLevel(null)
+            }}
             className="w-17 h-7"
           />
         </div>
