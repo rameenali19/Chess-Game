@@ -7,17 +7,17 @@ import socketService from "../socket/socketService";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
+import ColorSelection from "../components/ColorSelection";
 
 function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficultyLevel, setDifficultyLevel }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
   const status = mode === "multiplayer" ? "waiting" : "unfinished"
-  const [userColor, setUserColor] = useState(null)
-  const [selectedColor, setSelecctedColor] = useState(null)
-  
+  const [selectedColor, setSelectedColor] = useState(null)
+
   async function createGame() {
-    if (!userColor) return
+    if (!selectedColor) return
     const game = ApiChess.getAPI();
     const createGameInfo = {
       currentTurn: "White",
@@ -27,7 +27,7 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficult
       promotion: null,
       mode: mode,
       difficulty: difficultyLevel,
-      playerColor: userColor,
+      playerColor: selectedColor,
       guestId: guestId
     }
     const response = await game.createGame(createGameInfo)
@@ -60,29 +60,11 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficult
             Pick a side and start your Game
           </h1>
         </div>
-        <div className="flex justify-center gap-10 w-full">
 
-          {
-            pieces.map((color) => {
-              return (
-                <div key={color.text}
-                  className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
-                       items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer ${selectedColor === color.text ? "bg-[#ffddc4]" : ""}`}
-                  onClick={() => {
-                    setSelecctedColor(color.text)
-                    setUserColor(color.text)
-                  }}
-                >
-                  <Icon
-                    name={color.image}
-                    className="w-21 h-21"
-                  />
-                  <h1>{color.text}</h1>
-                </div>
-              )
-            })
-          }
-        </div>
+        <ColorSelection
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
 
         <Button
           text="Start Game"
