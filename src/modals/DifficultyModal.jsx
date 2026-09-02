@@ -13,7 +13,7 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
 
         <div className="flex flex-col items-center gap-4">
           <div>
-            <h1 className="font-cormorant text-2xl  font-semibold text-[#17384A] tracking-wide mt-4">
+            <h1 className="font-cormorant text-2xl font-semibold text-[#17384A] tracking-wide mt-4">
               Choose AI Difficulty
             </h1>
             <h1 className="text-gray-700 text-xs tracking-wider">

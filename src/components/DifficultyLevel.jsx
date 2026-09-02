@@ -55,7 +55,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
           return (
             <div key={game.level}
               className={`border-2 flex h-18 w-70 rounded-lg items-center px-3 gap-7 font-inter
-                transition hover:cursor-pointer 
+                transition hover:cursor-pointer hover:-translate-y-0.5
                 ${selectedLevel === game.level ? "scale-105 shadow-xl" : ""}`}
               style={{ borderColor: game.borderColor }}
               onClick={() => {
