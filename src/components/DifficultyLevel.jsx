@@ -29,8 +29,8 @@ function DifficultyLevel({ setDifficultyLevel }) {
       line1: "For experienced players",
       line2: "looking for a challenge",
       divColor: "#FCE8D4",
-      textColor: "#E67E00",
-      borderColor: "#E67E00",
+      textColor: "#ff8127",
+      borderColor: "#ff8127",
     },
     {
       image: "redQueen",
