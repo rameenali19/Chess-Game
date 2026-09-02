@@ -8,7 +8,7 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Icon from "../components/Icon";
 
-function ColorModal({ open, mode, setWaitingModal, setGameId, setMode }) {
+function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficultyLevel }) {
 
   const { guestId } = useContext(UserContext);
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode }) {
       enPassant: null,
       promotion: null,
       mode: mode,
+      difficulty: difficultyLevel,
       playerColor: userColor,
       guestId: guestId
     }

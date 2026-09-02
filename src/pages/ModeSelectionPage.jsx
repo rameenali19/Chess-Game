@@ -72,6 +72,7 @@ function ModeSelectionPage() {
           setWaitingModal={setWaitingModal}
           setGameId={setGameId}
           setMode={setMode}
+          difficultyLevel={difficultyLevel}
         />
       )}
 
