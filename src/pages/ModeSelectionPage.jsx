@@ -100,6 +100,7 @@ function ModeSelectionPage() {
           setDifficultyModal={setDifficultyModal}
           setMode={setMode}
           setDifficultyLevel={setDifficultyLevel}
+          difficultyLevel={difficultyLevel}
         />
       )
 

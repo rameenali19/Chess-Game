@@ -3,7 +3,7 @@ import Icon from "../components/Icon";
 import Button from "../components/Button";
 import DifficultyLevel from "../components/DifficultyLevel";
 
-function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel }) {
+function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel, difficultyLevel }) {
 
 
   return (
