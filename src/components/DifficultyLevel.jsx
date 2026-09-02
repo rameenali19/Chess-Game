@@ -11,6 +11,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#E8F0E2",
       textColor: "#35843C",
       borderColor: "#35843C",
+      level: "1"
     },
 
     {
@@ -21,6 +22,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FFF1CC",
       textColor: "#FFC107",
       borderColor: "#FFC107",
+      level: "2"
     },
 
     {
@@ -31,6 +33,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FCE8D4",
       textColor: "#ff8127",
       borderColor: "#ff8127",
+      level: "3"
     },
     {
       image: "redQueen",
@@ -40,6 +43,7 @@ function DifficultyLevel({ setDifficultyLevel }) {
       divColor: "#FBE0E0",
       textColor: "#D9413A",
       borderColor: "#D9413A",
+      level: "4"
     }
   ]
 
@@ -50,7 +54,9 @@ function DifficultyLevel({ setDifficultyLevel }) {
           return (
             <div key={game.text}
               className="border-2 flex h-18 w-70 rounded-lg items-center px-3 gap-7 font-inter hover:-translate-y-1 transition hover:cursor-pointer"
-              style={{ borderColor: game.borderColor }}>
+              style={{ borderColor: game.borderColor }}
+              onClick={() => { setDifficultyLevel(game.level) }}
+            >
               <div className="w-12 h-12 rounded-lg flex justify-center"
                 style={{ backgroundColor: game.divColor }}>
                 <Icon
