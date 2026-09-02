@@ -9,9 +9,7 @@ function ColorSelection({ selectedColor, setSelectedColor }) {
         pieces.map((color) => {
           return (
             <div key={color.text}
-              className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex 
-                       items-center justify-center flex-col font-inter font-bold text-[#ff8127] hover:scale-105 transition hover:cursor-pointer
-                        ${selectedColor === color.text ? "scale-105 shadow-lg" : ""}`}
+              className={`border-2 w-35 border-[#ff8127] h-30 rounded-lg flex items-center justify-center flex-col font-inter font-bold text-[#ff8127] transition hover:cursor-pointer ${selectedColor === color.text ? "scale-105 shadow-xl bg-orange-200" : ""}`}
               onClick={() => {
                 setSelectedColor(color.text)
               }}
