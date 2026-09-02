@@ -1,6 +1,6 @@
 import Icon from "./Icon";
 
-function DifficultyLevel() {
+function DifficultyLevel({ setDifficultyLevel }) {
 
   const levels = [
     {

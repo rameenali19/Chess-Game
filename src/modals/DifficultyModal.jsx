@@ -21,7 +21,9 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
             </h1>
           </div>
 
-          <DifficultyLevel />
+          <DifficultyLevel
+            setDifficultyLevel={setDifficultyLevel}
+          />
 
           <Button
             variant="sideBarBlue"
