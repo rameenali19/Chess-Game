@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Icon from "./Icon";
 
 function DifficultyLevel({ setDifficultyLevel }) {
-
+  const [selectedLevel, setSelectedLevel] = useState(null)
   const levels = [
     {
       image: "greenPawn",
@@ -53,9 +54,14 @@ function DifficultyLevel({ setDifficultyLevel }) {
         levels.map((game) => {
           return (
             <div key={game.level}
-              className="border-2 flex h-18 w-70 rounded-lg items-center px-3 gap-7 font-inter hover:-translate-y-1 transition hover:cursor-pointer"
+              className={`border-2 flex h-18 w-70 rounded-lg items-center px-3 gap-7 font-inter
+                transition hover:cursor-pointer 
+                ${selectedLevel === game.level ? "scale-107 shadow-xl" : ""}`}
               style={{ borderColor: game.borderColor }}
-              onClick={() => { setDifficultyLevel(game.level) }}
+              onClick={() => {
+                setDifficultyLevel(game.level)
+                setSelectedLevel(game.level)
+              }}
             >
               <div className="w-12 h-12 rounded-lg flex justify-center"
                 style={{ backgroundColor: game.divColor }}>
