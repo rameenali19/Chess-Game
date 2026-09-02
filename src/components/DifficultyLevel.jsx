@@ -19,8 +19,8 @@ function DifficultyLevel({ setDifficultyLevel }) {
       line1: "A balanced challange",
       line2: "for improving players",
       divColor: "#FFF1CC",
-      textColor: "#D99A00",
-      borderColor: "#D99A00",
+      textColor: "#FFC107",
+      borderColor: "#FFC107",
     },
 
     {
