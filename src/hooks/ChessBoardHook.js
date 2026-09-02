@@ -18,6 +18,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
   const [board, setBoard] = useState(initialBoard)
   const [promotion, setPromotion] = useState(null);
   const enPassant = useRef(null)
+  const [aiDifficulty, setAiDifficulty] = useState(null)
   const [loaded, setLoaded] = useState(false);
   const fromSocket = useRef(false);
   const { guestId } = useContext(UserContext)
@@ -37,6 +38,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
       setUserColor(data.player_color)
       setBoard(data.game_board);
       setTurn(data.current_turn)
+      setAiDifficulty(data.difficulty)
       setEndReason(data.end_reason)
       setPromotion(data.promotion ? JSON.parse(data.promotion) : null)
       enPassant.current = data.en_passant
@@ -160,9 +162,9 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     if (mode !== "ai") return;
     if (turn !== opponentColor) return;
 
-    const result = bestMove(board, opponentColor, enPassant.current)
+    const result = bestMove(board, opponentColor, aiDifficulty, enPassant.current)
     if (!result?.move) return
-
+    console.log(aiDifficulty)
     const aiMove = result.move;
 
     setTimeout(() => {

@@ -1,11 +1,11 @@
 import { minimax } from "./minimax"
 
-export function bestMove(board, aiColor, enPassant) {
+export function bestMove(board, depth, aiColor, enPassant) {
   const alpha = - Infinity;
   const beta = Infinity;
   const bestMove = minimax(
     board,
-    3,
+    depth,
     true,
     aiColor,
     aiColor,
