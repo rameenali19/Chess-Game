@@ -15,8 +15,7 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficult
   const status = mode === "multiplayer" ? "waiting" : "unfinished"
   const [userColor, setUserColor] = useState(null)
   const [selectedColor, setSelecctedColor] = useState(null)
-  const pieces = [{ image: "whiteKing", text: "White", }, { image: "blackKing", text: "Black", }]
-
+  
   async function createGame() {
     if (!userColor) return
     const game = ApiChess.getAPI();
