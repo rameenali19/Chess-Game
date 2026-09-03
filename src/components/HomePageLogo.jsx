@@ -5,7 +5,7 @@ function HomePageLogo() {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="tracking-wider flex-col flex gap-2">
+      <div className="tracking-wider flex-col flex gap-5">
         <div className="flex flex-col font-cormorant text-6xl text-[#17384A]">
           <h1> Welcome to</h1>
           <h1>Checkmate</h1>
@@ -24,7 +24,7 @@ function HomePageLogo() {
             className="w-34 h-9"
           />
           <Button
-            text="+ Join Game"
+            text="Join Game"
             variant="viewButton"
             textSize="normal"
             fontWeight="normal"
