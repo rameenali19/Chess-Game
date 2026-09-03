@@ -48,9 +48,12 @@ import greenPawnIcon from '../assets/Icons/green-pawn.png'
 import orangeRookIcon from '../assets/Icons/orange-rook.png'
 import yellowKnightIcon from '../assets/Icons/yellow-knight.png'
 import redQueenIcon from '../assets/Icons/red-queen.png'
+import homePageIcon from '../assets/Icons/home-page.png'
+
 
 const iconMap = {
   trophy: trophyIcon,
+  homePage: homePageIcon,
   statusWin: statusWinIcon,
   statusWinRate: statusWinRateIcon,
   statuController: statuControllerIcon,
