@@ -1,12 +1,13 @@
 import Button from "../components/Button"
 import { useNavigate } from "react-router-dom";
+import Icon from "./Icon";
 
 function HomePageLogo() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="flex items-center">
       <div className="tracking-wider flex-col flex gap-5">
-        <div className="flex flex-col font-cormorant text-6xl text-[#17384A]">
+        <div className="flex flex-col font-cormorant text-7xl text-[#17384A]">
           <h1> Welcome to</h1>
           <h1>Checkmate</h1>
         </div>
@@ -37,6 +38,10 @@ function HomePageLogo() {
           />
         </div>
       </div>
+      <Icon
+        name="homePage"
+        className="w-150 h-165"
+      />
     </div>
   )
 }
