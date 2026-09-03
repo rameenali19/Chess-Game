@@ -21,14 +21,18 @@ function HomePageLogo() {
             textSize="normal"
             fontWeight="normal"
             onClick={() => navigate("/mode-selection")}
-            className="w-33 h-9"
+            className="w-34 h-9"
           />
           <Button
             text="+ Join Game"
             variant="viewButton"
             textSize="normal"
             fontWeight="normal"
-            onClick={() => navigate("/mode-selection")}
+            onClick={() => navigate("/mode-selection", {
+              state: {
+                mode: "join"
+              }
+            })}
             className="w-32 h-9"
           />
         </div>
