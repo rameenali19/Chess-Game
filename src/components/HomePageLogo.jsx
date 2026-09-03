@@ -1,7 +1,8 @@
 import Button from "../components/Button"
+import { useNavigate } from "react-router-dom";
 
 function HomePageLogo() {
-
+  const navigate = useNavigate();
   return (
     <div>
       <div className="tracking-wider flex-col flex gap-2">
