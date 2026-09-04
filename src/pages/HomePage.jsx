@@ -1,5 +1,6 @@
 import HomePageLogo from "../components/HomePageLogo"
 import HomePageCards from "./HomePageCards"
+import HomePageStats from "../components/HomePageStats"
 
 function HomePage() {
   return (
@@ -9,6 +10,8 @@ function HomePage() {
       <HomePageLogo />
 
       <HomePageCards />
+
+      <HomePageStats />
     </div>
 
   )
