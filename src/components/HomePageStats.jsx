@@ -26,7 +26,7 @@ function HomePageStats() {
         variant="sideBarBlue"
         textSize="normal"
         fontWeight="normal"
-        onClick={() => navigate("/about-me")}
+        onClick={() => navigate("/leaderboard")}
         className="w-45 h-10 flex items-center justify-center gap-2"
         imageName="whiteStats"
         imageClassName="w-5"
