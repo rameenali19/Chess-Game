@@ -51,11 +51,12 @@ import redQueenIcon from '../assets/Icons/red-queen.png'
 import homePageIcon from '../assets/Icons/home-page.png'
 import greenBoardIcon from '../assets/Icons/green-board.png'
 import targetIcon from '../assets/Icons/target.png'
-
+import purpleQueenIcon from '../assets/Icons/purple-queen.png'
 
 const iconMap = {
   trophy: trophyIcon,
   homePage: homePageIcon,
+  purpleQueen: purpleQueenIcon,
   target: targetIcon,
   greenBoard: greenBoardIcon,
   statusWin: statusWinIcon,
