@@ -18,7 +18,7 @@ function HomePageCards() {
       color: "#ff8127"
     },
     {
-      image: "statusWinRate",
+      image: "target",
       heading: "Track & Improve",
       line1: "View your game history,",
       line2: "learn from your moves,",

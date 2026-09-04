@@ -1,6 +1,6 @@
 import trophyIcon from '../assets/Icons/trophy.png'
 import statusWinIcon from '../assets/Icons/status-win.png'
-import statusWinRateIcon from '../assets/Icons/status-win-rate.png'
+import targetIcon from '../assets/Icons/target.png'
 import statuControllerIcon from '../assets/Icons/status-controller.png'
 import sandClockIcon from '../assets/Icons/sand-clock.png'
 import reloadIcon from '../assets/Icons/reload.png'
@@ -63,7 +63,7 @@ const iconMap = {
   greenBoard: greenBoardIcon,
   statusWin: statusWinIcon,
   whiteStats: whiteStatsIcon,
-  statusWinRate: statusWinRateIcon,
+  target: targetIcon,
   statuController: statuControllerIcon,
   sandClock: sandClockIcon,
   reload: reloadIcon,
