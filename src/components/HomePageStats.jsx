@@ -5,14 +5,18 @@ import { useNavigate } from "react-router-dom";
 function HomePageStats() {
   const navigate = useNavigate()
   return (
-    <div className="flex tracking-wider bg-[#FFF8EA] w-200 h-37 justify-around border-2
-     border-[#E67E00] rounded-lg items-center m-12">
-      <div>wwwww</div>
+    <div className="flex bg-[#FFF8EA] w-200 h-37 justify-around shadow-lg
+     rounded-lg items-center m-12">
+
+      <Icon
+        name="stats"
+        className="h-27 hover:scale-105 transition"
+      />
 
       <div className="flex flex-col gap-3">
         <h1 className="font-cormorant text-[#17384A] text-2xl font-semibold">
           Curious about your performance?</h1>
-        <div className="font-inter text-xs text-gray-700 flex flex-col gap-1">
+        <div className="font-inter text-xs text-gray-700 flex flex-col gap-1 tracking-wider">
           <h1>View your stats, win rate, ranking and more.</h1>
           <h1>Keep track of your chess journey.</h1>
         </div>
