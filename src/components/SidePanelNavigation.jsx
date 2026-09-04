@@ -51,7 +51,7 @@ function SidePanelNavigation({ open }) {
               <h1 className={`${!open && "scale-0"} tracking-wider`}>{panel.text}</h1>
               <Tooltip
                 id="sidepanel-tooltip"
-                className={`bg-[#ff8127]!`}
+                className={`bg-[#ff8127]! font-inter! tracking-wider! font-medium! rounded-lg!`}
               />
             </NavLink>
           )
