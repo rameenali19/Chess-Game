@@ -52,7 +52,7 @@ function HomePageCards() {
                   name={feature.image}
                   className="w-15 h-15"
                 />
-                <h1 className="font-semibold font-playfair"
+                <h1 className="font-bold font-playfair"
                   style={{ color: feature.color }}
                 >{feature.heading}</h1>
                 <div className="text-gray-700 text-xs tracking-wider flex flex-col gap-1 font-inter">
