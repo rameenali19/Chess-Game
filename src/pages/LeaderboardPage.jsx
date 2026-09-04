@@ -14,6 +14,12 @@ function LeaderboardPage() {
         setStatus={setStatus}
       />
 
+      {
+        status === "myStatus" && (
+          <MyStats />
+        )
+      }
+
     </main>
   )
 }
