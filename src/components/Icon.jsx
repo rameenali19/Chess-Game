@@ -28,7 +28,7 @@ import greenButtonIcon from '../assets/Icons/green-button.png'
 import blueButtonIcon from '../assets/Icons/blue-button.png'
 import redButtonIcon from '../assets/Icons/red-button.png'
 import whiteHomeIcon from '../assets/Icons/white-home.png'
-import orangeButtonIcon from '../assets/Icons/orange-button.png'
+import orangeButtonBorderIcon from '../assets/Icons/orange-button-border.png'
 import whiteKingIcon from '../assets/Icons/white-king.png'
 import whitePawnIcon from '../assets/Icons/white-pawn.png'
 import whiteBishopIcon from '../assets/Icons/white-bishop.png'
@@ -92,7 +92,7 @@ const iconMap = {
   greenButton: greenButtonIcon,
   blueButton: blueButtonIcon,
   redButton: redButtonIcon,
-  orangeButton: orangeButtonIcon,
+  orangeButtonBorder: orangeButtonBorderIcon,
   whiteHome: whiteHomeIcon,
   whiteKing: whiteKingIcon,
   whitePawn: whitePawnIcon,
