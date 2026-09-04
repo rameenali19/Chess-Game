@@ -22,8 +22,8 @@ function ModeSelectionCards({ setMode, setDifficultyModal }) {
       line1: "Play with other players",
       line2: "around the world",
       variant: "primary",
-      textColor: "#E67E00",
-      borderColor: "#E67E00",
+      textColor: "#ff8127",
+      borderColor: "#ff8127",
       mode: "multiplayer",
       buttonText: "Play Now"
     },

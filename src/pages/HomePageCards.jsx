@@ -15,7 +15,7 @@ function HomePageCards() {
       line1: "Create a game and invite",
       line2: "your friends or join others",
       line3: "around the world",
-      color: "#E67E00"
+      color: "#ff8127"
     },
     {
       image: "statusWinRate",
