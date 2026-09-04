@@ -33,5 +33,11 @@ function HomePageCards() {
       textColor: "#E67E00"
     }
   ]
+
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="font-cormorant text-[#17384A] text-3xl">Features</h1>
+    </div>
+  )
 }
 export default HomePageCards;
