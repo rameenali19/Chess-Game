@@ -44,17 +44,18 @@ function HomePageCards() {
           cards.map((feature) => {
             return (
               <div key={feature.heading}
-                className="flex flex-col bg-[#FFF8EA] border-2 w-55 h-50 px-3 
-                font-inter rounded-lg gap-2 py-3 hover:scale-105 transition shadow-md"
-                style={{ borderColor: feature.color }}>
+                className="flex flex-col bg-[#FFF8EA] w-55 h-50 px-3 border-b-4
+                rounded-lg gap-2 py-3 hover:scale-105 transition shadow-md"
+                style={{ borderBottomColor: feature.color }}>
+
                 <Icon
                   name={feature.image}
                   className="w-15 h-15"
                 />
-                <h1 className="font-semibold"
+                <h1 className="font-semibold font-cormorant"
                   style={{ color: feature.color }}
                 >{feature.heading}</h1>
-                <div className="text-gray-700 text-xs tracking-wider flex flex-col gap-1">
+                <div className="text-gray-700 text-xs tracking-wider flex flex-col gap-1 font-inter">
                   <h1>{feature.line1}</h1>
                   <h1>{feature.line2}</h1>
                   <h1>{feature.line3}</h1>
