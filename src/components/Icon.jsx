@@ -50,11 +50,13 @@ import yellowKnightIcon from '../assets/Icons/yellow-knight.png'
 import redQueenIcon from '../assets/Icons/red-queen.png'
 import homePageIcon from '../assets/Icons/home-page.png'
 import greenBoardIcon from '../assets/Icons/green-board.png'
+import targetIcon from '../assets/Icons/target.png'
 
 
 const iconMap = {
   trophy: trophyIcon,
   homePage: homePageIcon,
+  target: targetIcon,
   greenBoard: greenBoardIcon,
   statusWin: statusWinIcon,
   statusWinRate: statusWinRateIcon,
