@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { Tooltip } from 'react-tooltip';
 import Icon from "./Icon";
 function SidePanelNavigation({ open }) {
   const sidePanelComponents = [
