@@ -24,7 +24,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
         {
           !leavingGame && (
             <>
-              <div className="text-3xl font-bold font-cormorant text-[#17384A] mt-5">
+              <div className="text-3xl font-bold font-playfair text-[#17384A] mt-5">
                 Waiting for Opponent
               </div>
               <div className="text-[#17384A] font-inter text-xs ">
@@ -54,7 +54,7 @@ function WaitingModal({ open, setWaitingModal, gameId, setMode }) {
         {
           leavingGame && (
             <>
-              <div className="text-3xl font-bold font-cormorant  text-[#17384A] ">
+              <div className="text-3xl font-bold font-playfair  text-[#17384A] ">
                 Leave the waiting room?
               </div>
 

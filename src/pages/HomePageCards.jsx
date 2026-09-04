@@ -37,7 +37,7 @@ function HomePageCards() {
 
   return (
     <div className="flex flex-col gap-7 w-full items-center">
-      <h1 className="font-cormorant text-[#17384A] text-4xl">
+      <h1 className="font-playfair text-[#17384A] text-4xl font-medium">
         Features to Explore</h1>
       <div className="flex gap-6">
         {
@@ -52,7 +52,7 @@ function HomePageCards() {
                   name={feature.image}
                   className="w-15 h-15"
                 />
-                <h1 className="font-semibold font-cormorant"
+                <h1 className="font-semibold font-playfair"
                   style={{ color: feature.color }}
                 >{feature.heading}</h1>
                 <div className="text-gray-700 text-xs tracking-wider flex flex-col gap-1 font-inter">

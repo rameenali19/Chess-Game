@@ -34,7 +34,7 @@ function WelcomeModal({ open }) {
       <div className="flex flex-col h-full justify-center gap-6 items-center">
 
         <div className="flex flex-col items-center gap-4  text-[#17384A]">
-          <h1 className="text-4xl font-bold font-cormorant">
+          <h1 className="text-4xl font-bold font-playfair">
             Welcome to Checkmate!
           </h1>
           <h1 className="text-xs font-inter">

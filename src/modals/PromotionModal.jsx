@@ -10,7 +10,7 @@ function PromotionModal({ turn, promote, open }) {
     <Modal open={open}
       className="h-67 w-130">
 
-      <div className="flex flex-col h-full text-[#4A2F1D] font-cormorant gap-5 mt-6">
+      <div className="flex flex-col h-full text-[#4A2F1D] font-playfair gap-5 mt-6">
 
         <div className="flex flex-col items-center">
           <Icon

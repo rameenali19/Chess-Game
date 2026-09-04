@@ -39,7 +39,7 @@ function JoinModal({ open, setGameId, setMode }) {
         <div className="flex flex-col h-full justify-around px-4 w-full">
 
           <div className="flex flex-col items-center gap-2 mt-6">
-            <h1 className="text-3xl font-bold font-cormorant text-[#17384A]">
+            <h1 className="text-3xl font-bold font-playfair text-[#17384A]">
               Join Game
             </h1>
             <h1 className="text-xs font-inter text-[#17384A]">
@@ -90,7 +90,7 @@ function JoinModal({ open, setGameId, setMode }) {
       {error && (
         <div className="flex flex-col h-full justify-center items-center gap-8">
 
-          <div className="text-3xl font-bold font-cormorant text-[#17384A]">
+          <div className="text-3xl font-bold font-playfair text-[#17384A]">
             Invalid Game ID
           </div>
 

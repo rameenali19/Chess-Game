@@ -13,7 +13,7 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
       <div className="flex flex-col items-center justify-center h-full gap-5">
 
         <div className=" flex flex-col items-center gap-3 text-[#17384A]">
-          <h1 className="text-3xl font-bold font-cormorant">
+          <h1 className="text-3xl font-bold font-playfair">
             Connection Lost
           </h1>
           <h1 className="font-inter text-xs">

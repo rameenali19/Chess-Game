@@ -49,7 +49,7 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
 
       <div className="flex flex-col items-center justify-center gap-7 h-full px-1 mt-3">
         <div className=" flex flex-col items-center gap-2 text-[#17384A]">
-          <h1 className="text-3xl font-bold font-cormorant">
+          <h1 className="text-3xl font-bold font-playfair">
             {text.text1}
           </h1>
           <h1 className="font-inter text-lg">

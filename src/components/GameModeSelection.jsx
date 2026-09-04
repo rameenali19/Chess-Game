@@ -9,7 +9,7 @@ function GameModeSelection({ setMode, setDifficultyModal }) {
           name="trophy"
           className="w-10"
         />
-        <h1 className="font-cormorant text-3xl font-bold flex text-[#113447] ">
+        <h1 className="font-playfair text-3xl font-bold flex text-[#113447] ">
           Choose a Game Mode</h1>
       </div>
       <div className="flex flex-col gap-3 mt-3" >

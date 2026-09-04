@@ -11,7 +11,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
       className="h-65 w-140">
 
       <div className=" flex flex-col items-center gap-4 justify-center h-full mt-5 px-2 ">
-        <div className="text-3xl font-bold font-cormorant text-[#17384A]">
+        <div className="text-3xl font-bold font-playfair text-[#17384A]">
           Waiting for Opponent
         </div>
         <div className="text-[#17384A] font-inter ">

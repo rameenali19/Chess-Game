@@ -5,7 +5,7 @@ function HistoryHeader() {
   const navigate = useNavigate()
   return (
     <div className="flex justify-between items-center mt-5 mb-5">
-      <h1 className="text-3xl font-semibold text-[#17384A] font-cormorant">
+      <h1 className="text-3xl font-semibold text-[#17384A] font-playfair">
         Game History
       </h1>
       <Button

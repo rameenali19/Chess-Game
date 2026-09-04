@@ -53,7 +53,7 @@ function ColorModal({ open, mode, setWaitingModal, setGameId, setMode, difficult
 
       <div className="flex flex-col h-full gap-5 items-center px-2 justify-center text-[#17384A]">
         <div className="flex flex-col items-center gap-2 mt-6">
-          <h1 className="text-3xl font-bold font-cormorant ">
+          <h1 className="text-3xl font-bold font-playfair ">
             Choose Your Color
           </h1>
           <h1 className="text-xs font-inter">
