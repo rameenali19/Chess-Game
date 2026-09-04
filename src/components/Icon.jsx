@@ -52,6 +52,7 @@ import homePageIcon from '../assets/Icons/home-page.png'
 import greenBoardIcon from '../assets/Icons/green-board.png'
 import targetIcon from '../assets/Icons/target.png'
 import purpleQueenIcon from '../assets/Icons/purple-queen.png'
+import whiteStatsIcon from '../assets/Icons/white-stats.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -60,6 +61,7 @@ const iconMap = {
   target: targetIcon,
   greenBoard: greenBoardIcon,
   statusWin: statusWinIcon,
+  whiteStats: whiteStatsIcon,
   statusWinRate: statusWinRateIcon,
   statuController: statuControllerIcon,
   sandClock: sandClockIcon,
