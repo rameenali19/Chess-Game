@@ -2,6 +2,7 @@ import { useState } from "react";
 import LeaderboardHeader from "../components/LeaderboardHeader";
 import LeaderboardNavbar from "../components/LeaderboardNavbar";
 import MyStats from "../components/MyStats";
+import GlobalStats from "../components/GlobalStats";
 
 function LeaderboardPage() {
   const [status, setStatus] = useState(null)
@@ -17,6 +18,12 @@ function LeaderboardPage() {
       {
         status === "myStatus" && (
           <MyStats />
+        )
+      }
+
+      {
+        status === "globalStats" && (
+          <GlobalStats />
         )
       }
 
