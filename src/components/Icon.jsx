@@ -54,10 +54,12 @@ import statsIcon from '../assets/Icons/stats.png'
 import purpleQueenIcon from '../assets/Icons/purple-queen.png'
 import whiteStatsIcon from '../assets/Icons/white-stats.png'
 import orangeButtonIcon from '../assets/Icons/orange-button.png'
+import joinIcon from '../assets/Icons/join.png'
 
 const iconMap = {
   trophy: trophyIcon,
   homePage: homePageIcon,
+  join: joinIcon,
   purpleQueen: purpleQueenIcon,
   stats: statsIcon,
   greenBoard: greenBoardIcon,

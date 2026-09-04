@@ -26,7 +26,7 @@ function HomePageLogo() {
           />
           <Button
             text="Join Game"
-            variant="viewButton"
+            variant="primary"
             textSize="normal"
             fontWeight="normal"
             onClick={() => navigate("/mode-selection", {
@@ -34,7 +34,9 @@ function HomePageLogo() {
                 mode: "join"
               }
             })}
-            className="w-35 h-9"
+            className="w-35 h-9 flex justify-center items-center gap-2"
+            imageName="join"
+            imageClassName="h-4"
           />
         </div>
       </div>
