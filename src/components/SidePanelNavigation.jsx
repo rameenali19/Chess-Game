@@ -22,8 +22,8 @@ function SidePanelNavigation({ open }) {
       imageText: "White clock image"
     },
     {
-      link: "/about-me",
-      text: "About",
+      link: "/leaderboard",
+      text: "Leaderboard",
       image: "whitePerson",
       imageText: "White home image"
     },
