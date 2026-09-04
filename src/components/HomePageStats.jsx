@@ -10,11 +10,11 @@ function HomePageStats() {
 
       <Icon
         name="stats"
-        className="h-22  hover:scale-105 transition"
+        className="h-40 hover:scale-105 transition"
       />
 
       <div className="flex flex-col gap-3">
-        <h1 className="font-cormorant text-[#D9413A] text-3xl font-semibold">
+        <h1 className="font-cormorant text-[#443496] text-3xl font-semibold">
           Curious about your performance?</h1>
         <div className="font-inter text-xs text-gray-700 flex flex-col gap-1 tracking-wider">
           <h1>View your stats, win rate, ranking and more.</h1>
