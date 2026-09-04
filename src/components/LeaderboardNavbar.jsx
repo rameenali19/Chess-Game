@@ -14,8 +14,7 @@ function LeaderboardNavbar({ setStatus }) {
     }
   ]
   return (
-    <nav className="font-inter text-xs text-[#17384A] shadow-sm border-b-[#E8DCC7] px-6
-     h-15 flex items-center justify-start gap-15">
+    <nav className="shadow-sm border-b-[#E8DCC7] px-6 h-15 flex items-center justify-start gap-15">
       {
         filter.map((button) => {
           return (
@@ -23,7 +22,7 @@ function LeaderboardNavbar({ setStatus }) {
               key={button.status}
               text={button.text}
               variant="outline"
-              textSize="large"
+              textSize="normal"
               fontWeight="normal"
               onClick={() => {
                 setStatus(button.status)
