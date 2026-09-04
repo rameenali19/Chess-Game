@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "./Button";
 
 function LeaderboardNavbar({ setStatus }) {
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState("myStats")
   const filter = [
     {
       text: "My Stats",
