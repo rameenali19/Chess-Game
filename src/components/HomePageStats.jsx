@@ -6,11 +6,11 @@ function HomePageStats() {
   const navigate = useNavigate()
   return (
     <div className="flex bg-[#FFF8EA] w-240 h-37 justify-around shadow-md
-     rounded-lg items-center m-12">
+     rounded-lg items-center m-12 px-5">
 
       <Icon
         name="stats"
-        className="h-42 hover:scale-105 transition"
+        className="h-25 hover:scale-105 transition"
       />
 
       <div className="flex flex-col gap-3">
