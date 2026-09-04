@@ -6,10 +6,6 @@
   --font-inter: "Inter", sans-serif;
 }
 
-.page {
-  animation: page 0.4s ease-out;
-}
-
 @keyframes page {
   from {
     opacity: 0;
@@ -22,20 +18,6 @@
   }
 }
 
-.scroll-reveal {
-  animation: reveal linear both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 30%;
-}
-
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.page {
+  animation: page 0.4s ease-out;
 }
