@@ -53,6 +53,7 @@ import greenBoardIcon from '../assets/Icons/green-board.png'
 import statsIcon from '../assets/Icons/stats.png'
 import purpleQueenIcon from '../assets/Icons/purple-queen.png'
 import whiteStatsIcon from '../assets/Icons/white-stats.png'
+import orangeButtonIcon from '../assets/Icons/orange-button.png'
 
 const iconMap = {
   trophy: trophyIcon,
@@ -93,6 +94,7 @@ const iconMap = {
   blueButton: blueButtonIcon,
   redButton: redButtonIcon,
   orangeButtonBorder: orangeButtonBorderIcon,
+  orangeButton: orangeButtonIcon,
   whiteHome: whiteHomeIcon,
   whiteKing: whiteKingIcon,
   whitePawn: whitePawnIcon,
