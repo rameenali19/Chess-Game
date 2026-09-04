@@ -12,7 +12,7 @@ function HomePageLogo() {
           <h1>Checkmate</h1>
         </div>
         <div className="font-inter text-gray-700 text-xs">
-          <h1> Challange your mind, sharpen your strategy,</h1>
+          <h1>Challange your mind, sharpen your strategy,</h1>
           <h1>and conqure the board</h1>
         </div>
         <div className="flex gap-3 items-center">
