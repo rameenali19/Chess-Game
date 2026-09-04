@@ -39,12 +39,20 @@ function SidePanelNavigation({ open }) {
               className={({ isActive }) =>
                 `flex items-center px-4 py-2 rounded-lg transition-all duration-200 
                   ${isActive ? "bg-[#D96B1E]" : "hover:bg-[#21485C]"
-                }`}>
+                }`}
+              data-tooltip-id={!open ? "sidepanel-tooltip" : undefined}
+              data-tooltip-content={!open ? panel.text : undefined}
+              data-tooltip-place="right"
+            >
               <Icon
                 name={panel.image}
                 className="mr-1 w-8 h-8 shrink-0"
               />
               <h1 className={`${!open && "scale-0"} tracking-wider`}>{panel.text}</h1>
+              <Tooltip
+                id="sidepanel-tooltip"
+                className={`bg-[#ff8127]!`}
+              />
             </NavLink>
           )
         })

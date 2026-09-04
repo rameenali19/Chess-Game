@@ -1,5 +1,5 @@
 import HomePageLogo from "../components/HomePageLogo"
-import HomePageCards from "./HomePageCards"
+import HomePageCards from "../components/HomePageCards"
 import HomePageStats from "../components/HomePageStats"
 
 function HomePage() {
