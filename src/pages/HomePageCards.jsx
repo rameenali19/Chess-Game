@@ -1,3 +1,4 @@
+import Icon from "../components/Icon";
 function HomePageCards() {
   const cards = [
     {
@@ -25,7 +26,7 @@ function HomePageCards() {
       textColor: "#D9413A"
     },
     {
-      image: "orangeButton",
+      image: "purpleQueen",
       heading: "Built for Everyone",
       line1: "Whether you are a beginner",
       line2: "or a pro, Checkmate is",
@@ -37,6 +38,17 @@ function HomePageCards() {
   return (
     <div className="flex flex-col gap-3">
       <h1 className="font-cormorant text-[#17384A] text-3xl">Features</h1>
+      {
+        cards.map((feature) => {
+          return (
+            <div key={feature.heading}
+              className="flex felx-col"
+            >
+
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
