@@ -15,14 +15,14 @@ function HomePageLogo() {
           <h1> Challange your mind, sharpen your strategy,</h1>
           <h1>and conqure the board</h1>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-center">
           <Button
             text="+ Create Game"
             variant="primary"
             textSize="normal"
             fontWeight="normal"
             onClick={() => navigate("/mode-selection")}
-            className="w-34 h-9"
+            className="w-35 h-9"
           />
           <Button
             text="Join Game"
@@ -34,7 +34,7 @@ function HomePageLogo() {
                 mode: "join"
               }
             })}
-            className="w-32 h-9"
+            className="w-35 h-9"
           />
         </div>
       </div>
