@@ -17,7 +17,7 @@ function HomePageCards() {
       textColor: "#E67E00"
     },
     {
-      image: "orangeButton",
+      image: "target",
       heading: "Track & Improve",
       line1: "View your game history,",
       line2: "learn from your moves,",
