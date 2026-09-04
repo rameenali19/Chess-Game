@@ -39,7 +39,7 @@ function DisconnectModal({ open, setDisconnectModal, setWaitingModal, setReconne
 
           <Button
             text="Leave"
-            variant="leave"
+            variant="primary"
             textSize="medium"
             fontWeight="medium"
             className="w-30 items-center flex justify-center gap-1 py-1"

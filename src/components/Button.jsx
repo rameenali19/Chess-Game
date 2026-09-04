@@ -15,7 +15,7 @@ function Button({
 
   const buttonVariants = {
     primary:
-      "bg-[#ff8127] text-[rgb(248,240,225)] rounded-lg ",
+      "bg-[#ff8127] text-white border-2 border-[#ff8127] rounded-lg",
     outline:
       "text-[#17384A] hover:underline hover:decoration-2 hover:decoration-amber-600 hover:underline-offset-4 hover:text-amber-600",
     red:
@@ -38,8 +38,6 @@ function Button({
       "bg-[#FCDFDD] text-[#E64743] rounded-2xl",
     pending:
       "bg-[#F9E4A4] text-[#8A5A00] rounded-2xl",
-    leave:
-      "bg-[#ff8127] text-white border-2 border-[#ff8127] rounded-lg",
     wait:
       "text-[#ff8127] border-2 border-[#ff8127] rounded-lg",
     cross:
