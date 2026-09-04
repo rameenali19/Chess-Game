@@ -6,7 +6,7 @@ function HomePageStats() {
   const navigate = useNavigate()
   return (
     <div className="flex tracking-wider bg-[#FFF8EA] w-200 h-37 justify-around border-2
-     border-[#D2B27A] rounded-lg items-center">
+     border-[#E67E00] rounded-lg items-center m-12">
       <div>wwwww</div>
 
       <div className="flex flex-col gap-3">

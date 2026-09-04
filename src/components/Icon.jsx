@@ -50,7 +50,7 @@ import yellowKnightIcon from '../assets/Icons/yellow-knight.png'
 import redQueenIcon from '../assets/Icons/red-queen.png'
 import homePageIcon from '../assets/Icons/home-page.png'
 import greenBoardIcon from '../assets/Icons/green-board.png'
-import targetIcon from '../assets/Icons/target.png'
+import statsIcon from '../assets/Icons/stats.png'
 import purpleQueenIcon from '../assets/Icons/purple-queen.png'
 import whiteStatsIcon from '../assets/Icons/white-stats.png'
 
@@ -58,7 +58,7 @@ const iconMap = {
   trophy: trophyIcon,
   homePage: homePageIcon,
   purpleQueen: purpleQueenIcon,
-  target: targetIcon,
+  stats: statsIcon,
   greenBoard: greenBoardIcon,
   statusWin: statusWinIcon,
   whiteStats: whiteStatsIcon,

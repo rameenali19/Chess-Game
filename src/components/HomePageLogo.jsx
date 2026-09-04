@@ -40,7 +40,7 @@ function HomePageLogo() {
       </div>
       <Icon
         name="homePage"
-        className="w-150 h-165"
+        className="w-150 h-150"
       />
     </div>
   )
