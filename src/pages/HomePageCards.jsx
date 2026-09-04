@@ -1,7 +1,7 @@
 function HomePageCards() {
   const cards = [
     {
-      image: "orangeButton",
+      image: "greenBoard",
       heading: "Play Your Way",
       line1: "Choose from single player,",
       line2: "multiplayer, or challange",
