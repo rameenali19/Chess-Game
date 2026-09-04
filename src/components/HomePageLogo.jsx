@@ -7,7 +7,7 @@ function HomePageLogo() {
   return (
     <div className="flex items-center">
       <div className="tracking-wider flex-col flex gap-5">
-        <div className="flex flex-col font-cormorant text-7xl text-[#17384A]">
+        <div className="flex flex-col font-cormorant text-7xl text-[#17384A] font-medium">
           <h1> Welcome to</h1>
           <h1>Checkmate</h1>
         </div>
