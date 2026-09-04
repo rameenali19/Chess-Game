@@ -10,7 +10,7 @@ function HomePageStats() {
 
       <Icon
         name="stats"
-        className="h-40 hover:scale-105 transition"
+        className="h-42 hover:scale-105 transition"
       />
 
       <div className="flex flex-col gap-3">
