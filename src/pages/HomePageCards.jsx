@@ -10,7 +10,7 @@ function HomePageCards() {
       color: "#35843C"
     },
     {
-      image: "orangeButton",
+      image: "orangeButtonBorder",
       heading: "Create & Connect",
       line1: "Create a game and invite",
       line2: "your friends or join others",
