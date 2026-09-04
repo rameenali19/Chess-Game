@@ -44,7 +44,7 @@ function HomePageCards() {
             return (
               <div key={feature.heading}
                 className="flex flex-col bg-[#FFF8EA] border-2 w-55 h-50 px-3 
-                font-inter rounded-lg gap-2 py-3 hover:scale-105 transition shadow-lg"
+                font-inter rounded-lg gap-2 py-3 hover:scale-105 transition shadow-md"
                 style={{ borderColor: feature.color }}>
                 <Icon
                   name={feature.image}
