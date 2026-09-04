@@ -31,24 +31,38 @@ function HomePageCards() {
       line1: "Whether you are a beginner",
       line2: "or a pro, Checkmate is",
       line3: "for you",
-      textColor: "#E67E00"
+      textColor: "#443496"
     }
   ]
 
   return (
     <div className="flex flex-col gap-3">
       <h1 className="font-cormorant text-[#17384A] text-3xl">Features</h1>
-      {
-        cards.map((feature) => {
-          return (
-            <div key={feature.heading}
-              className="flex felx-col"
-            >
-
-            </div>
-          )
-        })
-      }
+      <div className="flex">
+        {
+          cards.map((feature) => {
+            return (
+              <div key={feature.heading}
+                className="flex flex-col bg-[#FFF8EA] border-2 border-[#D2B27A] w-55 
+                h-50 px-3 font-inter rounded-lg gap-2 py-3 hover:scale-105 transition"
+              >
+                <Icon
+                  name={feature.image}
+                  className="w-15 h-15"
+                />
+                <h1 className="font-semibold"
+                  style={{ color: feature.textColor }}
+                >{feature.heading}</h1>
+                <div className="text-gray-700 text-xs tracking-wider flex flex-col gap-1">
+                  <h1>{feature.line1}</h1>
+                  <h1>{feature.line2}</h1>
+                  <h1>{feature.line3}</h1>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }
