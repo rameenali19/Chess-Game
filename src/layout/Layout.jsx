@@ -19,7 +19,7 @@ function Layout() {
         <main
           className={`
             transition-all duration-300 ease-in-out
-            ${open ? "ml-45" : "ml-20"}
+            ${open ? "ml-47" : "ml-20"}
           `}
         >
           <Outlet />
