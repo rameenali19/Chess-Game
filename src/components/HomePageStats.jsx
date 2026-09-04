@@ -1,12 +1,28 @@
 import Icon from "./Icon";
-function HomePageStats() {
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
+function HomePageStats() {
+  const navigate = useNavigate()
   return (
-    <div className="flex">
+    <div className="flex tracking-wider bg-[#FFF8EA] w-200 h-37 justify-around">
       <div>wwwww</div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col gap-3">
         <h1 className="font-cormorant text-[#17384A] text-2xl">Curious about your performance?</h1>
+        <div className="font-inter text-xs text-gray-700 flex flex-col gap-1">
+          <h1>View your stats, win rate, ranking and more.</h1>
+          <h1>Keep track of your chess journey.</h1>
+        </div>
       </div>
+      <Button
+        text="View your stats"
+        variant="sideBarBlue"
+        textSize="normal"
+        fontWeight="normal"
+        onClick={() => navigate("/about-me")}
+        className="w-40 h-10"
+      />
     </div>
   )
 }
