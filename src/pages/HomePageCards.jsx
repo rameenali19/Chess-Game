@@ -37,7 +37,8 @@ function HomePageCards() {
 
   return (
     <div className="flex flex-col gap-7 w-full items-center">
-      <h1 className="font-cormorant text-[#17384A] text-4xl">Why Play on Checkmate?</h1>
+      <h1 className="font-cormorant text-[#17384A] text-4xl">
+        Features to Explore</h1>
       <div className="flex gap-6">
         {
           cards.map((feature) => {
