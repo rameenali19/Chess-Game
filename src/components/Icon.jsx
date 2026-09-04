@@ -20,7 +20,7 @@ import chessboardIcon from '../assets/Icons/chessboard.png'
 import calendarIcon from '../assets/Icons/calendar.png'
 import redPlayerIcon from '../assets/Icons/red-player.png'
 import bulbIcon from '../assets/Icons/bulb.png'
-import whitePersonIcon from '../assets/Icons/white-person.png'
+import whiteTrophyIcon from '../assets/Icons/white-trophy.png'
 import bookIcon from '../assets/Icons/book.png'
 import whiteClockIcon from '../assets/Icons/white-clock.png'
 import blueReloadIcon from '../assets/Icons/blue-reload.png'
@@ -83,7 +83,7 @@ const iconMap = {
   open: openIcon,
   dustbinOpen: dustbinOpenIcon,
   dustbinClose: dustbinCloseIcon,
-  whitePerson: whitePersonIcon,
+  whiteTrophy: whiteTrophyIcon,
   door: doorIcon,
   crown: crownIcon,
   chessboard: chessboardIcon,

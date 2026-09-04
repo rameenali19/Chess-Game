@@ -24,7 +24,7 @@ function SidePanelNavigation({ open }) {
     {
       link: "/leaderboard",
       text: "Leaderboard",
-      image: "whitePerson",
+      image: "whiteTrophy",
       imageText: "White home image"
     },
   ]
