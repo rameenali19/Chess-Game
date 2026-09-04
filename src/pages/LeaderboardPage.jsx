@@ -5,7 +5,7 @@ function LeaderboardPage() {
     <main className="page flex gap-5 flex-col px-8 mb-2">
 
       <LeaderboardHeader />
-
+      
     </main>
   )
 }
