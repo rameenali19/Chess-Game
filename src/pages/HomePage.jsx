@@ -1,4 +1,5 @@
 import HomePageLogo from "../components/HomePageLogo"
+import HomePageCards from "./HomePageCards"
 
 function HomePage() {
   return (
@@ -7,6 +8,7 @@ function HomePage() {
 
       <HomePageLogo />
 
+      <HomePageCards />
     </div>
 
   )
