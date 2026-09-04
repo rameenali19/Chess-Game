@@ -41,7 +41,7 @@ function SidePanelNavigation({ open }) {
                 }`}>
               <Icon
                 name={panel.image}
-                className="mr-1 w-8 h-8"
+                className="mr-1 w-8 h-8 shrink-0"
               />
               <h1 className={`${!open && "scale-0"} tracking-wider`}>{panel.text}</h1>
             </NavLink>
