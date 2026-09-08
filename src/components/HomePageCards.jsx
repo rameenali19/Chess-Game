@@ -37,7 +37,7 @@ function HomePageCards() {
 
   return (
     <div className="flex flex-col gap-7 w-full items-center">
-      <h1 className="font-playfair text-[#17384A] text-4xl font-medium">
+      <h1 className="font-playfair text-[#17384A] text-4xl font-semibold">
         Features to Explore</h1>
       <div className="flex gap-6">
         {

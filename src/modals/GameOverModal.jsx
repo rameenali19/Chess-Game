@@ -52,7 +52,7 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
           <h1 className="text-3xl font-bold font-playfair">
             {text.text1}
           </h1>
-          <h1 className="font-inter text-lg">
+          <h1 className="font-inter">
             {text.text2}</h1>
           <h1 className="font-inter text-xs">
             {text.text3}</h1>
@@ -63,9 +63,9 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
           <Button
             text="Play Again"
             variant="wait"
-            textSize="medium"
+            textSize="small"
             fontWeight="medium"
-            className="w-30 items-center flex justify-center py-1"
+            className="w-30 items-center flex justify-center py-2"
             onClick={() => {
               navigate("/mode-selection", {
                 state: {
@@ -79,15 +79,15 @@ function GameOverModal({ open, winner, userColor, setGameOver, mode, endReason }
 
           <Button
             text="Home"
-            variant="leave"
-            textSize="medium"
+            variant="primary"
+            textSize="small"
             fontWeight="medium"
             className="w-30 items-center flex justify-center py-1 gap-1"
             onClick={() => {
               navigate(`/`)
             }}
             imageName="whiteHome"
-            imageClassName="w-6"
+            imageClassName="w-5"
           />
 
         </div>
