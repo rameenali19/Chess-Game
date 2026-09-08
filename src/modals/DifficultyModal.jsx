@@ -43,7 +43,7 @@ function DifficultyModal({ open, setDifficultyModal, setMode, setDifficultyLevel
         <Button
           variant="cross"
           text="x"
-          textSize="normal"
+          textSize="small"
           fontWeight="medium"
           onClick={() => {
             setMode(null)
