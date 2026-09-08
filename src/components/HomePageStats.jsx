@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function HomePageStats() {
   const navigate = useNavigate()
   return (
-    <div className="flex bg-[#FFF8EA] w-240 h-37 justify-around shadow-md
+    <div className="flex bg-[#FFF8EA] w-240 h-37 justify-around shadow-sm
      rounded-lg items-center m-12 px-5">
 
       <Icon
