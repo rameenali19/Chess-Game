@@ -47,7 +47,7 @@ function WelcomeModal({ open }) {
           variant="primary"
           textSize="normal"
           fontWeight="medium"
-          className="w-22 py-1"
+          className="w-25 py-1"
           onClick={() => {
             createGuestId();
           }}
