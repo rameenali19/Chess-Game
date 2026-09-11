@@ -310,7 +310,7 @@ export function useChessBoard({ turn, setTurn, checkmate, setCheckmate, stalemat
     const piece = board[rowIndex][colIndex]
     if (piece === ".") return;
     if (piece.color !== turn) return;
-    if (mode === "multiplayer") {
+    if (mode === "multiplayer" || mode === "ai") {
       if (userColor !== turn) return;
       if (piece.color !== userColor) return;
     }
