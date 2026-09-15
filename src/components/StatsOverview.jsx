@@ -21,7 +21,7 @@ function StatsOverview({ games }) {
       display: totalWin,
       color: "#FFC107",
       heading: "Won Games",
-      description: "Games you won"
+      description: "Games you've won"
     },
     {
 
@@ -29,7 +29,7 @@ function StatsOverview({ games }) {
       display: totalLost,
       color: "#D9413A",
       heading: "Lost Games",
-      description: "Games you Lost"
+      description: "Games you've lost"
     },
     {
 
@@ -37,7 +37,7 @@ function StatsOverview({ games }) {
       display: totalDraw,
       color: "#443496",
       heading: "Draw Games",
-      description: "Games that are draw"
+      description: "Games that ended in a draw"
     }
   ]
   useEffect(() => {
