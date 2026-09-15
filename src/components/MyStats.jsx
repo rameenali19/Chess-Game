@@ -1,11 +1,13 @@
 import StatsOverview from "./StatsOverview";
 
-function MyStats() {
+function MyStats({ games }) {
 
   return (
     <div className="flex flex-col">
 
-      <StatsOverview />
+      <StatsOverview
+        games={games}
+      />
 
     </div>
   )

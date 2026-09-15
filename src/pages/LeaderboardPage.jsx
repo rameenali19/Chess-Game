@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import LeaderboardHeader from "../components/LeaderboardHeader";
 import LeaderboardNavbar from "../components/LeaderboardNavbar";
 import ApiChess from "../api/apiChess";
@@ -10,27 +10,13 @@ function LeaderboardPage() {
 
   const [status, setStatus] = useState("myStats")
   const { guestId } = useContext(UserContext);
-  const [totalGames, setTotalGames] = useState(0);
-  const [totalWin, setTotalWin] = useState(0)
-  const [totalLost, setTotalLost] = useState(0)
-  const [totalDraw, setTotalDraw] = useState(0)
+  const [games, setGames] = useState([])
 
   useEffect(() => {
     async function getAllFinishedGames() {
       const game = ApiChess.getAPI();
       const data = await game.getAllFinishedGames(guestId);
-      setTotalGames(data.length)
-      const won = data.filter(
-        game => game.winner === game.player_color
-      ).length;
-      setTotalWin(won);
-      const draw = data.filter(
-        game => game.winner === "Draw"
-      ).length;
-      setTotalDraw(draw);
-
-      const lost = totalGames - won - draw;
-      setTotalLost(lost)
+      setGames(data)
     }
     getAllFinishedGames();
   }, [guestId])
@@ -46,7 +32,9 @@ function LeaderboardPage() {
 
       {
         status === "myStats" && (
-          <MyStats />
+          <MyStats
+            games={games}
+          />
         )
       }
 
