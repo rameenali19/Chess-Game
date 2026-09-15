@@ -1,4 +1,4 @@
-function WinLossRate() {
+function WinLossRate({ totalGames, totalWin, totalLost }) {
 
 }
 export default WinLossRate;

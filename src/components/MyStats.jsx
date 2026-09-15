@@ -44,7 +44,11 @@ function MyStats() {
         totalDraw={totalDraw}
       />
 
-      <WinLossRate />
+      <WinLossRate
+        totalGames={totalGames}
+        totalWin={totalWin}
+        totalLost={totalLost}
+      />
 
     </div>
   )
