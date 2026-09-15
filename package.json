@@ -15,6 +15,7 @@
     "axios": "^1.19.0",
     "framer-motion": "^12.43.0",
     "react": "^19.2.7",
+    "react-circular-progressbar": "^2.2.0",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",
     "react-tooltip": "^6.0.8",
