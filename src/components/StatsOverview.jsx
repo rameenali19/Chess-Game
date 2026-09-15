@@ -24,7 +24,6 @@ function StatsOverview({ games }) {
       description: "Games you've won"
     },
     {
-
       image: "gamesLost",
       display: totalLost,
       color: "#D9413A",
@@ -32,7 +31,6 @@ function StatsOverview({ games }) {
       description: "Games you've lost"
     },
     {
-
       image: "gamesDraw",
       display: totalDraw,
       color: "#443496",
