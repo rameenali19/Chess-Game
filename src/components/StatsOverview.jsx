@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../context/UserContext";
+import Icon from "./Icon";
 
 function StatsOverview() {
   const { guestId } = useContext(UserContext);
@@ -66,7 +67,7 @@ function StatsOverview() {
           statDivs.map((games) => {
             return (
               <div key={games.display}>
-                
+
 
               </div>
             )
