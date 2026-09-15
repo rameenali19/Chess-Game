@@ -1,12 +1,7 @@
 import Icon from "./Icon";
 import NumberFlow from '@number-flow/react'
-import { useState, useEffect } from "react";
 
-function StatsOverview({ games }) {
-  const [totalGames, setTotalGames] = useState(0);
-  const [totalWin, setTotalWin] = useState(0)
-  const [totalLost, setTotalLost] = useState(0)
-  const [totalDraw, setTotalDraw] = useState(0)
+function StatsOverview({ totalGames, totalWin, totalLost, totalDraw }) {
 
   const statDivs = [
     {
@@ -38,20 +33,6 @@ function StatsOverview({ games }) {
       description: "Games that ended in a draw"
     }
   ]
-  useEffect(() => {
-    setTotalGames(games.length)
-    const won = games.filter(
-      game => game.winner === game.player_color
-    ).length;
-    setTotalWin(won);
-    const draw = games.filter(
-      game => game.winner === "Draw"
-    ).length;
-    setTotalDraw(draw);
-
-    const lost = games.length - won - draw;
-    setTotalLost(lost)
-  }, [games])
 
   return (
     <div className="flex flex-col">
