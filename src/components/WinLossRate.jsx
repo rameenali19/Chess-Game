@@ -28,27 +28,26 @@ function WinLossRate({ totalGames, totalWin, totalLost }) {
   ]
 
   return (
-    <div className="flex gap-10 bg-[#FFF8EA] w-200 h-33 justify-around">
+    <div className="flex justify-around w-full">
       {
         circle.map((rate) => {
           return (
             <div key={rate.text}
-              className="flex items-center rounded-lg gap-8">
+              className="flex rounded-lg gap-8 bg-[#FFF8EA] w-100 h-30 justify-start px-5 items-center">
 
-              <div className="w-20 h-20 font-inter font-bold">
+              <div className="w-20 h-20 font-inter font-bold text-2xl">
                 <CircularProgressbar
                   value={rate.rate}
                   text={`${rate.rate}%`}
                   strokeWidth={7}
                   styles={buildStyles({
                     textColor: rate.color,
-                    pathColor: rate.color,
-                    textSize: "25px"
+                    pathColor: rate.color
                   })}
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 <h1 className="font-playfair text-[#17384A] font-bold text-xl">
                   {rate.text}
                 </h1>
