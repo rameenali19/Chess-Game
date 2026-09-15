@@ -8,9 +8,34 @@ function StatsOverview() {
   const [totalWin, setTotalWin] = useState(null)
   const [totalLost, setTotalLost] = useState(null)
   const [totalDraw, setTotalDraw] = useState(null)
-  const statDivs =[
+  const statDivs = [
     {
-      
+      image: "",
+      display: "",
+      color: "",
+      heading: "",
+      description: ""
+    },
+    {
+      image: "",
+      display: "",
+      color: "",
+      heading: "",
+      description: ""
+    },
+    {
+      image: "",
+      display: "",
+      color: "",
+      heading: "",
+      description: ""
+    },
+    {
+      image: "",
+      display: "",
+      color: "",
+      heading: "",
+      description: ""
     }
   ]
 
@@ -37,7 +62,7 @@ function StatsOverview() {
   return (
     <div className="flex flex-col">
       <div className="font-playfair text-[#17384A] flex">
-        
+
       </div>
     </div>
   )
