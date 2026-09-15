@@ -1,15 +1,8 @@
-import { useEffect, useState, useContext } from "react";
-import ApiChess from "../api/apiChess";
-import { UserContext } from "../context/UserContext";
 import Icon from "./Icon";
 import NumberFlow from '@number-flow/react'
 
 function StatsOverview() {
-  const { guestId } = useContext(UserContext);
-  const [totalGames, setTotalGames] = useState(0);
-  const [totalWin, setTotalWin] = useState(0)
-  const [totalLost, setTotalLost] = useState(0)
-  const [totalDraw, setTotalDraw] = useState(0)
+
   const statDivs = [
     {
       image: "greenBoard",
@@ -42,26 +35,6 @@ function StatsOverview() {
       description: "Games that are draw"
     }
   ]
-
-  useEffect(() => {
-    async function getAllFinishedGames() {
-      const game = ApiChess.getAPI();
-      const data = await game.getAllFinishedGames(guestId);
-      setTotalGames(data.length)
-      const won = data.filter(
-        game => game.winner === game.player_color
-      ).length;
-      setTotalWin(won);
-      const draw = data.filter(
-        game => game.winner === "Draw"
-      ).length;
-      setTotalDraw(draw);
-
-      const lost = totalGames - won - draw;
-      setTotalLost(lost)
-    }
-    getAllFinishedGames();
-  }, [guestId])
 
   return (
     <div className="flex flex-col">
