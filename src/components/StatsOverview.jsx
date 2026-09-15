@@ -10,32 +10,32 @@ function StatsOverview() {
   const [totalDraw, setTotalDraw] = useState(null)
   const statDivs = [
     {
-      image: "",
-      display: "",
-      color: "",
-      heading: "",
-      description: ""
+      image: "greenBoard",
+      display: "totalGames",
+      color: "#35843C",
+      heading: "Total Games",
+      description: "All games you've played"
     },
     {
-      image: "",
-      display: "",
-      color: "",
-      heading: "",
-      description: ""
+      image: "gamesWon",
+      display: "totalWin",
+      color: "#FFC107",
+      heading: "Won Games",
+      description: "Games you won"
     },
     {
-      image: "",
-      display: "",
-      color: "",
-      heading: "",
-      description: ""
+      image: "gamesLost",
+      display: "totalLost",
+      color: "#D9413A",
+      heading: "Lost Games",
+      description: "Games you Lost"
     },
     {
-      image: "",
-      display: "",
-      color: "",
-      heading: "",
-      description: ""
+      image: "gamesDraw",
+      display: "totalDraw",
+      color: "#443496",
+      heading: "Draw Games",
+      description: "Games that are draw"
     }
   ]
 
