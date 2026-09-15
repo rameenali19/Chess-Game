@@ -62,7 +62,16 @@ function StatsOverview() {
   return (
     <div className="flex flex-col">
       <div className="font-playfair text-[#17384A] flex">
+        {
+          statDivs.map((games) => {
+            return (
+              <div key={games.display}>
+                
 
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )
