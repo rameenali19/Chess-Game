@@ -35,7 +35,7 @@ function MyStats() {
   }, [guestId])
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center gap-10">
 
       <StatsOverview
         totalGames={totalGames}

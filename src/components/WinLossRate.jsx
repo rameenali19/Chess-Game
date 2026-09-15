@@ -20,7 +20,7 @@ function WinLossRate({ totalGames, totalWin, totalLost }) {
   ]
 
   return (
-    <div className="flex bg-[#FFF8EA] ">
+    <div className="flex">
 
     </div>
   )
