@@ -2,6 +2,7 @@ import StatsOverview from "./StatsOverview";
 import { useEffect, useState, useContext } from "react";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../context/UserContext";
+import WinLossRate from "./WinLossRate";
 
 function MyStats() {
   const { guestId } = useContext(UserContext);
@@ -42,6 +43,8 @@ function MyStats() {
         totalLost={totalLost}
         totalDraw={totalDraw}
       />
+
+      <WinLossRate />
 
     </div>
   )
