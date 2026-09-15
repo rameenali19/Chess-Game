@@ -75,7 +75,9 @@ function StatsOverview({ games }) {
                   <div className="flex flex-col items-center">
                     <h1 className="font-bold font-inter text-3xl"
                       style={{ color: divs.color }}
-                    ><NumberFlow value={divs.display} />
+                    ><NumberFlow value={divs.display}
+                      trend={0}
+                      />
                     </h1>
                     <h1 className="font-bold font-playfair text-sm"
                       style={{ color: divs.color }}
