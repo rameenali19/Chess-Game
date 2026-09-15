@@ -1,12 +1,9 @@
 import { useState } from "react";
 
 function WinLossRate({ totalGames, totalWin, totalLost }) {
-  const [winRate, setWinRate] = useState(0)
-  const [lostRate, setLostRate] = useState(0)
-  const win = (totalGames / totalWin) * 100;
-  setWinRate(win)
-  const lost = (totalGames / totalLost) * 100;
-  setLostRate(lost)
+  const winRate = (totalGames / totalWin) * 100;
+  const lostRate = (totalGames / totalLost) * 100;
+
   const circle = [
     {
       text: "Win Rate",
@@ -23,7 +20,9 @@ function WinLossRate({ totalGames, totalWin, totalLost }) {
   ]
 
   return (
+    <div className="flex bg-[#FFF8EA] ">
 
+    </div>
   )
 }
 export default WinLossRate;
