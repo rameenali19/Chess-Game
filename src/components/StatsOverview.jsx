@@ -14,7 +14,7 @@ function StatsOverview({ games }) {
       display: totalGames,
       color: "#35843C",
       heading: "Total Games",
-      description: "All games you've played"
+      description: "All games you've completed"
     },
     {
       image: "gamesWon",
