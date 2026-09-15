@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../context/UserContext";
 import Icon from "./Icon";
+import NumberFlow from '@number-flow/react'
 
 function StatsOverview() {
   const { guestId } = useContext(UserContext);
@@ -82,7 +83,8 @@ function StatsOverview() {
                   <div className="flex flex-col items-center">
                     <h1 className="font-bold font-inter text-3xl"
                       style={{ color: games.color }}
-                    >{games.display}</h1>
+                    ><NumberFlow value={games.display} />
+                    </h1>
                     <h1 className="font-bold font-playfair text-sm"
                       style={{ color: games.color }}
                     >{games.heading}</h1>
