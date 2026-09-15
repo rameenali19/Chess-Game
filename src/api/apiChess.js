@@ -90,6 +90,12 @@ class ApiChess {
     const request = await this.apiClient.get(`/games/${gameId}/moves`);
     return request.data;
   }
+
+  //Get all finished games by guestId
+  async getAllFinishedGames(guestId) {
+    const request = await this.apiClient.get(`/games/${guestId}/finished`);
+    return request.data;
+  }
 }
 
 export default ApiChess;
