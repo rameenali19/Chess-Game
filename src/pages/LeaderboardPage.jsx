@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LeaderboardHeader from "../components/LeaderboardHeader";
 import LeaderboardNavbar from "../components/LeaderboardNavbar";
 import ApiChess from "../api/apiChess";
