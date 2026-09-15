@@ -6,13 +6,12 @@ function StatsOverview() {
   const { guestId } = useContext(UserContext);
 
   useEffect(() => {
-    async function getAllGames() {
+    async function getAllFinishedGames() {
       const game = ApiChess.getAPI();
-      const data = await game.getAllGames(1, 10, guestId);
-      console.log(data)
+      const data = await game.getAllFinishedGames(guestId);
     }
-    getAllGames();
-  }, [])
+    getAllFinishedGames();
+  }, [guestId])
 
   return (
     <div className="flex flex-col">
