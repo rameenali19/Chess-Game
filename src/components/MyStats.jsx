@@ -3,7 +3,6 @@ import { useEffect, useState, useContext } from "react";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../context/UserContext";
 
-
 function MyStats() {
   const { guestId } = useContext(UserContext);
   const [games, setGames] = useState([])
