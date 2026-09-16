@@ -100,7 +100,17 @@ function MyStats() {
         totalLost={totalLost}
       />
 
-      <Performance />
+      <Performance
+        singlePlayerGames={singlePlayerGames}
+        multiplayerGames={multiplayerGames}
+        aiGames={aiGames}
+        singlePlayerWon={singlePlayerWon}
+        multiplayerWon={multiplayerWon}
+        aiWon={aiWon}
+        singlePlayerLost={singlePlayerLost}
+        multiplayerLost={multiplayerLost}
+        aiLost={aiLost}
+      />
     </div>
   )
 }
