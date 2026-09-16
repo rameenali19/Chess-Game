@@ -9,9 +9,19 @@ function MyStats() {
   const { guestId } = useContext(UserContext);
   const [games, setGames] = useState([])
   const [totalGames, setTotalGames] = useState(0);
-  const [totalWin, setTotalWin] = useState(0)
-  const [totalLost, setTotalLost] = useState(0)
-  const [totalDraw, setTotalDraw] = useState(0)
+  const [totalWin, setTotalWin] = useState(0);
+  const [totalLost, setTotalLost] = useState(0);
+  const [totalDraw, setTotalDraw] = useState(0);
+  const [singlePlayerGames, setSinglePlayerGames] = useState(0);
+  const [multiplayerGames, setMultiplayerGames] = useState(0);
+  const [aiGames, setAiGames] = useState(0);
+  const [singlePlayerWon, setSinglePlayerWon] = useState(0);
+  const [multiplayerWon, setMultiplayerWon] = useState(0);
+  const [aiWon, setAiWon] = useState(0);
+  const [singlePlayerLost, setSinglePlayerLost] = useState(0);
+  const [multiplayerLost, setMultiplayerLost] = useState(0);
+  const [aiLost, setAiLost] = useState(0);
+
 
   useEffect(() => {
     async function getAllFinishedGames() {
@@ -32,6 +42,7 @@ function MyStats() {
       const lost = data.length - won - draw;
       setTotalLost(lost)
     }
+
     getAllFinishedGames();
   }, [guestId])
 
@@ -51,6 +62,7 @@ function MyStats() {
         totalLost={totalLost}
       />
 
+      <Performance />
     </div>
   )
 }
