@@ -30,7 +30,7 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
   ]
 
   return (
-    <div className="bg-[#FFF8EA] w-200 h-60 rounded-lg">
+    <div className="bg-[#FFF8EA] w-240 h-60 rounded-lg">
       {
         stats.map((values) => {
           return (
