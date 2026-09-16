@@ -41,6 +41,44 @@ function MyStats() {
 
       const lost = data.length - won - draw;
       setTotalLost(lost)
+
+      const singleplayerCount = data.filter(
+        game => game.mode === "singleplayer"
+      ).length;
+      setSinglePlayerGames(singleplayerCount)
+
+      const multiplayerCount = data.filter(
+        game => game.mode === "multiplayer"
+      ).length;
+      setMultiplayerGames(multiplayerCount)
+
+      const aiCount = data.filter(
+        game => game.mode === "ai"
+      ).length;
+      setAiGames(aiCount)
+
+      const singlePlayerWinCount = data.filter(
+        game => game.mode === "singleplayer" && game.winner === game.player_color
+      ).length;
+      setSinglePlayerWon(singlePlayerWinCount)
+
+      const multiplayerWinCount = data.filter(
+        game => game.mode === "multiplayer" && game.winner === game.player_color
+      ).length;
+      setMultiplayerWon(multiplayerWinCount)
+
+
+      const aiWinCount = data.filter(
+        game => game.mode === "ai" && game.winner === game.player_color
+      ).length;
+      setaiWon(aiWinCount)
+
+      const singlePlayerLoseCount = singlePlayerGames - singlePlayerWon;
+      setSinglePlayerLost(singlePlayerLoseCount)
+      const multiplayerLoseCount = multiplayerGames - multiplayerWon;
+      setMultiplayerLost(multiplayerLoseCount)
+      const aiLoseCount = aiGames - aiWon;
+      setAiLost(aiLoseCount)
     }
 
     getAllFinishedGames();
