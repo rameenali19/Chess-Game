@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import ApiChess from "../api/apiChess";
 import { UserContext } from "../context/UserContext";
 import WinLossRate from "./WinLossRate";
+import Performance from "./Performance";
 
 function MyStats() {
   const { guestId } = useContext(UserContext);
