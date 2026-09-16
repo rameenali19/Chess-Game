@@ -7,8 +7,8 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 
 function WinLossRate({ totalGames, totalWin, totalLost }) {
-  const winRate = (totalWin / totalGames) * 100||0;
-  const lostRate = (totalLost / totalGames) * 100||0;
+  const winRate = (totalWin / totalGames) * 100 || 0;
+  const lostRate = (totalLost / totalGames) * 100 || 0;
 
   const circle = [
     {
@@ -44,6 +44,7 @@ function WinLossRate({ totalGames, totalWin, totalLost }) {
                     textColor: rate.color,
                     pathColor: rate.color
                   })}
+                  counterClockwise={false}
                 />
               </div>
 
