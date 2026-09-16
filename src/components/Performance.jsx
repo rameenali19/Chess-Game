@@ -28,5 +28,17 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
       rate: aiWinRate
     }
   ]
+
+  return (
+    <div className="bg-[#FFF8EA] w-200 h-60 rounded-lg">
+      {
+        stats.map((values) => {
+          return (
+            <div></div>
+          )
+        })
+      }
+    </div>
+  )
 }
 export default Performance;
