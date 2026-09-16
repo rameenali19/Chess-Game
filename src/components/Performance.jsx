@@ -48,7 +48,7 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
         stats.map((values) => {
           return (
             <div key={values.mode}
-              className="flex">
+              className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Icon
                   name={values.image}
@@ -58,6 +58,9 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
                   {values.mode}
                 </h1>
               </div>
+              <h1>{values.games}</h1>
+              <h1>{values.wins}</h1>
+              <h1>{values.lost}</h1>
             </div>
           )
         })
