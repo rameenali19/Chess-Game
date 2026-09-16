@@ -1,3 +1,5 @@
+import Icon from "./Icon";
+
 function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlayerWon, multiplayerWon,
   aiWon, singlePlayerLost, multiplayerLost, aiLost
 }) {
@@ -11,28 +13,31 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
       games: singlePlayerGames,
       wins: singlePlayerWon,
       lost: singlePlayerLost,
-      rate: singleplayerWinRate
+      rate: singleplayerWinRate,
+      image: "greenButton"
     },
     {
       mode: "Multiplayer",
       games: multiplayerGames,
       wins: multiplayerWon,
       lost: multiplayerLost,
-      rate: multiplayerWinRate
+      rate: multiplayerWinRate,
+      image: "orangeButton"
     },
     {
       mode: "Ai Bot",
       games: aiWon,
       wins: singlePlayerWon,
       lost: aiLost,
-      rate: aiWinRate
+      rate: aiWinRate,
+      image: "blueButton"
     }
   ]
 
   return (
-    <div className="bg-[#FFF8EA] w-240 h-60 rounded-lg flex flex-col px-5 py-5 gap-3">
+    <div className="bg-[#FFF8EA] w-240 h-75 rounded-lg flex flex-col px-5 py-5 justify-around gap-5">
       <h1 className="font-playfair text-[#17384A] text-xl font-bold">Performance By Game Mode</h1>
-      <div className="flex font-inter text-xs text-gray-500 justify-between font-medium">
+      <div className="flex font-inter text-xs text-gray-500 justify-between font-medium mb-4">
         <h1>Game Type</h1>
         <h1>Games</h1>
         <h1>Won</h1>
@@ -42,8 +47,17 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
       {
         stats.map((values) => {
           return (
-            <div>
-
+            <div key={values.mode}
+              className="flex">
+              <div className="flex items-center gap-2">
+                <Icon
+                  name={values.image}
+                  className="w-10 h-10"
+                />
+                <h1 className="font-inter text-[#17384A] text-sm font-medium">
+                  {values.mode}
+                </h1>
+              </div>
             </div>
           )
         })
