@@ -30,11 +30,14 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
   ]
 
   return (
-    <div className="bg-[#FFF8EA] w-240 h-60 rounded-lg">
+    <div className="bg-[#FFF8EA] w-240 h-60 rounded-lg flex flex-col px-5 py-5">
+      <h1 className="font-playfair text-[#17384A] text-xl font-bold">Performance By Game Mode</h1>
       {
         stats.map((values) => {
           return (
-            <div></div>
+            <div>
+
+            </div>
           )
         })
       }
