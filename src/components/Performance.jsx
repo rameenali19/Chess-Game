@@ -64,10 +64,10 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
                       {values.mode}
                     </h1>
                   </td>
-                  <td className="text-center">{values.games}</td>
-                  <td className="text-center">{values.wins}</td>
-                  <td className="text-center">{values.lost}</td>
-                  <td className="text-center">{values.rate.toFixed(2)}%</td>
+                  <td className="text-center font-bold text-[#17384A]">{values.games}</td>
+                  <td className="text-center text-[#35843C] font-bold">{values.wins}</td>
+                  <td className="text-center text-[#D9413A] font-bold">{values.lost}</td>
+                  <td className="text-center text-[#17384A] font-bold">{values.rate.toFixed(2)}%</td>
                 </tr>
               )
             })
