@@ -67,7 +67,7 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
                   <td className="text-center">{values.games}</td>
                   <td className="text-center">{values.wins}</td>
                   <td className="text-center">{values.lost}</td>
-                  <td className="text-center">{values.rate}</td>
+                  <td className="text-center">{values.rate.toFixed(2)}%</td>
                 </tr>
               )
             })
