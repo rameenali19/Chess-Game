@@ -38,7 +38,7 @@ function WinLossRate({ totalGames, totalWin, totalLost }) {
               <div className="w-20 h-20 font-inter font-bold text-2xl">
                 <CircularProgressbar
                   value={rate.rate}
-                  text={`${rate.rate}%`}
+                  text={`${rate.rate.toFixed(1)}%`}
                   strokeWidth={7}
                   styles={buildStyles({
                     textColor: rate.color,
