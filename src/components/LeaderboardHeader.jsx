@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function LeaderboardHeader() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 mb-5 px-6">
       <div className="flex justify-between items-center mt-5">
         <div className="text-3xl font-semibold text-[#17384A] font-playfair flex items-center gap-2">
           <Icon
