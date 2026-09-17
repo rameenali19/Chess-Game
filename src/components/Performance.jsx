@@ -37,7 +37,18 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
   return (
     <div className="bg-[#FFF8EA] w-240 h-75 rounded-lg flex flex-col px-5 py-5 justify-around gap-5">
       <h1 className="font-playfair text-[#17384A] text-xl font-bold">Performance By Game Mode</h1>
-      <div className="flex font-inter text-xs text-gray-500 justify-between font-medium mb-4">
+      <table className="w-full font-inter">
+        <thead>
+          <tr>
+            <th>Game Type</th>
+            <th>Games</th>
+            <th>Won</th>
+            <th>Lose</th>
+            <th>Win Rate</th>
+          </tr>
+        </thead>
+      </table>
+      {/* <div className="flex font-inter text-xs text-gray-500 justify-between font-medium mb-4">
         <h1>Game Type</h1>
         <h1>Games</h1>
         <h1>Won</h1>
@@ -64,7 +75,7 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
             </div>
           )
         })
-      }
+      } */}
     </div>
   )
 }
