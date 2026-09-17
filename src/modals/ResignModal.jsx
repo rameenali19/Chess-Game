@@ -22,11 +22,11 @@ function ResignModal({ open, resigning, setResignModal }) {
         <div className="flex justify-center gap-10 w-full text-white font-inter font-medium">
 
           <Button
-            text="yes"
+            text="Yes"
             variant="primary"
-            textSize="large"
+            textSize="normal"
             fontWeight="medium"
-            className="w-27 py-1"
+            className="w-25 h-8"
             onClick={resigning}
           />
 
@@ -35,7 +35,7 @@ function ResignModal({ open, resigning, setResignModal }) {
             variant="primary"
             textSize="normal"
             fontWeight="medium"
-            className="w-27 py-1"
+            className="w-25 h-8"
             onClick={() => {
               setResignModal(false);
             }}
