@@ -71,7 +71,7 @@ function MyStats() {
       const aiWinCount = data.filter(
         game => game.mode === "ai" && game.winner === game.player_color
       ).length;
-      setaiWon(aiWinCount)
+      setAiWon(aiWinCount)
 
       const singlePlayerLoseCount = singlePlayerGames - singlePlayerWon;
       setSinglePlayerLost(singlePlayerLoseCount)
@@ -79,6 +79,7 @@ function MyStats() {
       setMultiplayerLost(multiplayerLoseCount)
       const aiLoseCount = aiGames - aiWon;
       setAiLost(aiLoseCount)
+      console.log(singlePlayerLoseCount)
     }
 
     getAllFinishedGames();
