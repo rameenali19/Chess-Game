@@ -82,7 +82,7 @@ function MyStats() {
     }
 
     getAllFinishedGames();
-  }, [guestId])
+  }, [totalGames, guestId])
 
   return (
     <div className="flex flex-col items-center gap-10 mb-8">
