@@ -39,7 +39,7 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
       <h1 className="font-playfair text-[#17384A] text-xl font-bold">Performance By Game Mode</h1>
 
       <table className="w-full font-inter">
-        <thead className="border-b ">
+        <thead className="border-b border-[#17384A]">
           <tr className="font-inter text-xs text-gray-500">
             <th className="text-left pb-3">Game Type</th>
             <th>Games</th>
