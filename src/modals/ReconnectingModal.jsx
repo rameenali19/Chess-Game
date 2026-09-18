@@ -29,7 +29,7 @@ function ReconnectingModal({ open, setReconnectingModal, setDisconnectModal }) {
 
           <Button
             text="Leave"
-            variant="leave"
+            variant="primary"
             textSize="small"
             fontWeight="medium"
             className="w-20 items-center flex justify-center gap-1 py-1"
