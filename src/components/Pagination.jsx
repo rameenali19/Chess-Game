@@ -7,7 +7,7 @@ function Pagination({ total, page, setPage }) {
         <Button
           text="Next Page"
           variant="outline"
-          textSize="large"
+          textSize="medium"
           fontWeight="normal"
           onClick={() => {
             setPage(page + 1)
@@ -18,7 +18,7 @@ function Pagination({ total, page, setPage }) {
         <Button
           text="Previous Page"
           variant="outline"
-          textSize="large"
+          textSize="medium"
           fontWeight="normal"
           onClick={() => {
             setPage(page - 1)
