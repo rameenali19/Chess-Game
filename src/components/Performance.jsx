@@ -26,8 +26,8 @@ function Performance({ singlePlayerGames, multiplayerGames, aiGames, singlePlaye
     },
     {
       mode: "Ai Bot",
-      games: aiWon,
-      wins: singlePlayerWon,
+      games: aiGames,
+      wins: aiWon,
       lost: aiLost,
       rate: aiWinRate,
       image: "blueButton"
