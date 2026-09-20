@@ -39,6 +39,10 @@ function HistoryPage() {
     window.scrollTo(0, 0);
   }, [page]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [status]);
+
   return (
 
     <main className="page flex gap-5 flex-col px-8">
