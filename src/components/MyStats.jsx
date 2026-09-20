@@ -75,7 +75,7 @@ function MyStats() {
 
       const singlePlayerLoseCount = singleplayerCount - singlePlayerWinCount;
       setSinglePlayerLost(singlePlayerLoseCount)
-      const multiplayerLoseCount = multiplayerGames - multiplayerWon;
+      const multiplayerLoseCount = multiplayerCount - multiplayerWinCount;
       setMultiplayerLost(multiplayerLoseCount)
       const aiLoseCount = aiGames - aiWon;
       setAiLost(aiLoseCount)
