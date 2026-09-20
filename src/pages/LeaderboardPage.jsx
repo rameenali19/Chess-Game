@@ -5,6 +5,11 @@ import MyStats from "../components/MyStats";
 
 function LeaderboardPage() {
 
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <main className="page flex gap-5 flex-col px-8">
 
