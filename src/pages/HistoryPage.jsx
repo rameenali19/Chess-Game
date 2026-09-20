@@ -36,8 +36,8 @@ function HistoryPage() {
   }
 
   useEffect(() => {
-    setPage(1)
-  }, [status])
+    window.scrollTo(0, 0);
+  }, [page]);
 
   return (
 
