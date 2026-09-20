@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import LeaderboardHeader from "../components/LeaderboardHeader";
 import ApiChess from "../api/apiChess";
 import MyStats from "../components/MyStats";
