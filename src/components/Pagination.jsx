@@ -2,7 +2,7 @@ import Button from "./Button";
 function Pagination({ total, page, setPage }) {
   const totalPages = Math.ceil(total / 10)
   return (
-    <div className="flex justify-between px-2">
+    <div className="flex justify-between px-2 mb-3">
       {page < totalPages && (
         <Button
           text="Next Page"
